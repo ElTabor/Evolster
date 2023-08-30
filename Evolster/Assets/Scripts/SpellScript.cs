@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class SpellScript : MonoBehaviour
 {
     [SerializeField] int speed;
     [SerializeField] int damage;
@@ -31,6 +31,10 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyScript>().GetDamage(damage);
+        }
         Destroy(gameObject);
     }
 }

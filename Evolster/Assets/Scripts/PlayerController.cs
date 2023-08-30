@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,25 +11,27 @@ public class PlayerController : MonoBehaviour
     GameObject player;
     Rigidbody2D playerRB;
     [SerializeField] int speed;
+    [SerializeField] float life;
 
 
     float horizontal;
     float vertical;
     Vector2 direction;
-    public Vector2 aimDirection;
 
 
-    [SerializeField] GameObject body;
+    Vector2 aimDirection;
     [SerializeField] GameObject gun;
     [SerializeField] GameObject shootingPoint;
+    float lastAttack;
+    [SerializeField] float attackCooldown;
 
 
     [SerializeField] GameObject bulletPrefab;
     void Start()
     {
         if (instance == null) instance = this;
-        else Destroy(this);
-        DontDestroyOnLoad(instance);
+        else Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerRB = player.GetComponent<Rigidbody2D>();
@@ -39,13 +42,9 @@ public class PlayerController : MonoBehaviour
         GetInput();
         #region Movement
 
-        if (direction.x == 1) playerRB.velocity = new Vector2(1, playerRB.velocity.y) * speed;
-        else if (direction.x == -1) playerRB.velocity = new Vector2(-1, playerRB.velocity.y) * speed;
-        else playerRB.velocity = new Vector2(0, playerRB.velocity.y) * speed;
-
-        if (direction.y == 1) playerRB.velocity = new Vector2(playerRB.velocity.x, 1) * speed;
-        else if (direction.y == -1) playerRB.velocity = new Vector2(playerRB.velocity.x, -1)*speed;
-        else playerRB.velocity = new Vector2(playerRB.velocity.x, 0) * speed;
+        playerRB.velocity = direction * speed;      //Basic movement
+        
+        //Movement with same speed on diagonals is pending
 
         #endregion
 
@@ -86,6 +85,13 @@ public class PlayerController : MonoBehaviour
         }
 
         #endregion
+
+        #region Shooting
+
+
+        if (SceneManagerScript.instance.scene != "Lobby" && Time.time >= lastAttack + attackCooldown) Attack();
+
+        #endregion
     }
 
     void GetInput()
@@ -94,13 +100,18 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         direction = new Vector2(horizontal, vertical);
         if(direction != Vector2.zero) aimDirection = direction;
-
-        if (Input.GetKeyDown(KeyCode.Space)) Shoot();
     }
 
-    void Shoot()
+    void Attack()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.transform.position, gun.transform.rotation);
-        bullet.GetComponent<BulletScript>().direction = aimDirection;
+        GameObject spell = Instantiate(bulletPrefab, shootingPoint.transform.position, gun.transform.rotation);
+        spell.GetComponent<SpellScript>().direction = aimDirection;
+        lastAttack = Time.time;
+    }
+
+    public void UpdateLife(float lifeUpdate)
+    {
+        life += lifeUpdate;
+        if (life <= 0) Destroy(gameObject);
     }
 }
