@@ -55,18 +55,34 @@ public class PlayerController : MonoBehaviour
             gun.transform.localScale = new Vector3(1, 1, 1);
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 0));      //Aim right
         }
-        if (direction == new Vector2(-1, 0))
+        if (direction == new Vector2(1, 1))
         {
-            gun.transform.localScale = new Vector3(1, -1, 1);
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 180));      //Aim left
+            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 45));      //Aim up-right
         }
         if (direction == new Vector2(0, 1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 90));      //Aim up
         }
+        if (direction == new Vector2(-1, 1))
+        {
+            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 135));      //Aim up-left
+        }
+        if (direction == new Vector2(-1, 0))
+        {
+            gun.transform.localScale = new Vector3(1, -1, 1);
+            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 180));      //Aim left
+        }
+        if (direction == new Vector2(-1, -1))
+        {
+            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 225));      //Aim down-left
+        }
         if (direction == new Vector2(0, -1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 270));      //Aim down
+        }
+        if (direction == new Vector2(1, -1))
+        {
+            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 315));      //Aim down-right
         }
 
         #endregion
@@ -77,6 +93,7 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         direction = new Vector2(horizontal, vertical);
+        if(direction != Vector2.zero) aimDirection = direction;
 
         if (Input.GetKeyDown(KeyCode.Space)) Shoot();
     }
@@ -84,6 +101,6 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.transform.position, gun.transform.rotation);
-        bullet.GetComponent<bulletScript>().direction = Vector2.zero;
+        bullet.GetComponent<BulletScript>().direction = aimDirection;
     }
 }
