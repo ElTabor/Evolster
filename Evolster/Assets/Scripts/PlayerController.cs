@@ -104,6 +104,12 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         if(direction != Vector2.zero) aimDirection = direction;
+
+        if(SceneManagerScript.instance.scene == "Lobby")
+        {
+            if (Input.GetKeyDown(KeyCode.Q)) UIManager.instance.MoveSpellSelector(-1);
+            else if (Input.GetKeyDown(KeyCode.E)) UIManager.instance.MoveSpellSelector(1);
+        }
     }
 
     void Attack()
