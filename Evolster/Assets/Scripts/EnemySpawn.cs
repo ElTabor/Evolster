@@ -6,7 +6,7 @@ public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] Transform referencePoint;
     [SerializeField] GameObject enemiePrefab;
-    [SerializeField] int enemiesToSpawn;
+    public int enemiesToSpawn;
 
     void Start()
     {

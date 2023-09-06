@@ -26,7 +26,6 @@ public class SpellScript : MonoBehaviour
         rb.velocity = direction * speed;
 
         if (Time.time >= creationTime + lifeTime) Destroy(gameObject);
-        Debug.Log(Time.time);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
