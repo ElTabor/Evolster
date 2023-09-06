@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     static public PlayerController instance;
 
     GameObject player;
-    Rigidbody2D playerRB;
-    [SerializeField] int speed;
+    Rigidbody2D rb;
+    [SerializeField] float speed;
     [SerializeField] float life;
 
 
@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float attackCooldown;
 
 
-    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject spellPrefab;
+
     void Start()
     {
         if (instance == null) instance = this;
@@ -34,17 +35,16 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         player = GameObject.FindGameObjectWithTag("Player");
-        playerRB = player.GetComponent<Rigidbody2D>();
+        rb = player.GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         GetInput();
+        
         #region Movement
 
-        playerRB.velocity = direction * speed;      //Basic movement
-        
-        //Movement with same speed on diagonals is pending
+        direction = new Vector2(horizontal, vertical).normalized;        
 
         #endregion
 
@@ -94,17 +94,21 @@ public class PlayerController : MonoBehaviour
         #endregion
     }
 
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+    }
+
     void GetInput()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-        direction = new Vector2(horizontal, vertical);
         if(direction != Vector2.zero) aimDirection = direction;
     }
 
     void Attack()
     {
-        GameObject spell = Instantiate(bulletPrefab, shootingPoint.transform.position, gun.transform.rotation);
+        GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
         spell.GetComponent<SpellScript>().direction = aimDirection;
         lastAttack = Time.time;
     }

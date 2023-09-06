@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
-    GameObject player;
+    public Transform player;
+    private NavMeshAgent enemy;
+
+    //GameObject player;
     Rigidbody2D rb;
 
     Vector2 direction;
@@ -15,35 +19,45 @@ public class EnemyScript : MonoBehaviour
     float lastAttack;
     public float attackCooldown;
 
+    private void Awake()
+    {
+        enemy = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        rb = GetComponent<Rigidbody2D>();
+        enemy.updateRotation = false;
+        enemy.updateUpAxis = false;
+        //player =              
     }
 
     void Update()
     {
-        bool isOnRangeOfAttack;
-        if (Mathf.Abs(player.transform.position.x - transform.position.x) <= 1 && Mathf.Abs(player.transform.position.y - transform.position.y) <= 1f) isOnRangeOfAttack = true;
-        else isOnRangeOfAttack = false;
+        enemy.SetDestination(player.position);
 
-        if(isOnRangeOfAttack)
-        {
-            direction = Vector2.zero;
-            Debug.Log("Colision");
-            if (Time.time > lastAttack + attackCooldown)        //Attack cooldown
-            {
-                lastAttack = Time.time;
-                Attack();
-            }
-        }
-        else
-        {
-            if (player.transform.position.x < transform.position.x) direction = new Vector2(-1, direction.y);
-            else direction = new Vector2(1, direction.y);
-            if (player.transform.position.y < transform.position.y) direction = new Vector2(direction.x, -1);
-            else direction = new Vector2(direction.x, 1);
-        }
+        //bool isOnRangeOfAttack;
+        //if (Mathf.Abs(player.transform.position.x - transform.position.x) <= 1 && Mathf.Abs(player.transform.position.y - transform.position.y) <= 1f) isOnRangeOfAttack = true;
+        //else isOnRangeOfAttack = false;
+
+        //if(isOnRangeOfAttack)
+        //{
+        //    direction = Vector2.zero;
+        //    Debug.Log("Colision");
+        //    if (Time.time > lastAttack + attackCooldown)        //Attack cooldown
+        //    {
+        //        lastAttack = Time.time;
+        //        Attack();
+        //    }
+        //}
+        //else
+        //{
+        //    if (player.transform.position.x < transform.position.x) direction = new Vector2(-1, direction.y);
+        //    else direction = new Vector2(1, direction.y);
+        //    if (player.transform.position.y < transform.position.y) direction = new Vector2(direction.x, -1);
+        //    else direction = new Vector2(direction.x, 1);
+        //}
 
                         //MOVEMENT
 
