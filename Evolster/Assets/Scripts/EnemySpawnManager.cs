@@ -18,10 +18,19 @@ public class EnemySpawnManager : MonoBehaviour
 
     public void SetEnemiesToSpawn()
     { 
-        foreach (EnemySpawn spawn in enemySpawnPoints)
+        if(RoundsManager.instance.round < 6)
         {
-            spawn.enemiesToSpawn = RoundsManager.instance.round * 2;
-            StartCoroutine(spawn.SpawnEnemy());
+            foreach (EnemySpawn spawn in enemySpawnPoints)
+            {
+                spawn.amountOfEnemiesToSpawn = RoundsManager.instance.round * 2;
+                StartCoroutine(spawn.SpawnEnemy());
+            }
+        }
+        else
+        {
+            enemySpawnPoints[1].amountOfEnemiesToSpawn = 1;
+            enemySpawnPoints[1].spawnBossNow = true;
+            StartCoroutine(enemySpawnPoints[1].SpawnEnemy());
         }
     }
 }

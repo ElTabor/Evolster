@@ -5,8 +5,11 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] Transform referencePoint;
-    [SerializeField] GameObject enemiePrefab;
-    public int enemiesToSpawn;
+    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject bossPrefab;
+    public int amountOfEnemiesToSpawn;
+    public bool spawnBossNow;
+    GameObject enemyToSpawn;
 
     void Start()
     {
@@ -15,10 +18,18 @@ public class EnemySpawn : MonoBehaviour
 
      public IEnumerator SpawnEnemy()
     {
-        for (int i = 0; i < enemiesToSpawn; i++)
+        SelectEnemy();
+        for (int i = 0; i < amountOfEnemiesToSpawn; i++)
         {
             yield return new WaitForSeconds(2f);
-            Instantiate(enemiePrefab, referencePoint.position, Quaternion.identity);
+            Instantiate(enemyToSpawn, referencePoint.position, Quaternion.identity);
+            spawnBossNow = false;
         }
+    }
+
+    void SelectEnemy()
+    {
+        if (spawnBossNow) enemyToSpawn = bossPrefab;
+        else enemyToSpawn = enemyPrefab;
     }
 }

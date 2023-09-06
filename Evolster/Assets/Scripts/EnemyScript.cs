@@ -37,20 +37,20 @@ public class EnemyScript : MonoBehaviour
     {
         enemy.SetDestination(player.position);
 
-        //bool isOnRangeOfAttack;
-        //if (Mathf.Abs(player.transform.position.x - transform.position.x) <= 1 && Mathf.Abs(player.transform.position.y - transform.position.y) <= 1f) isOnRangeOfAttack = true;
-        //else isOnRangeOfAttack = false;
+        bool isOnRangeOfAttack;
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) <= 1 && Mathf.Abs(player.transform.position.y - transform.position.y) <= 1f) isOnRangeOfAttack = true;
+        else isOnRangeOfAttack = false;
 
-        //if(isOnRangeOfAttack)
-        //{
-        //    direction = Vector2.zero;
-        //    Debug.Log("Colision");
-        //    if (Time.time > lastAttack + attackCooldown)        //Attack cooldown
-        //    {
-        //        lastAttack = Time.time;
-        //        Attack();
-        //    }
-        //}
+        if (isOnRangeOfAttack)
+        {
+            direction = Vector2.zero;
+            Debug.Log("Colision");
+            if (Time.time > lastAttack + attackCooldown)        //Attack cooldown
+            {
+                lastAttack = Time.time;
+                Attack();
+            }
+        }
         //else
         //{
         //    if (player.transform.position.x < transform.position.x) direction = new Vector2(-1, direction.y);
@@ -59,7 +59,7 @@ public class EnemyScript : MonoBehaviour
         //    else direction = new Vector2(direction.x, 1);
         //}
 
-                        //MOVEMENT
+        //MOVEMENT
 
         rb.velocity = direction * speed;      //Basic movement
 

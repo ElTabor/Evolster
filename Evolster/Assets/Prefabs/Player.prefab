@@ -81,12 +81,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9db7be65e4fe22478fae8b64c308788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   life: 100
   gun: {fileID: 1744278658977423639}
   shootingPoint: {fileID: 1744278657853646310}
   attackCooldown: 0.5
-  bulletPrefab: {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
+  spellPrefab: {fileID: 0}
 --- !u!50 &1744278658796917603
 Rigidbody2D:
   serializedVersion: 4
