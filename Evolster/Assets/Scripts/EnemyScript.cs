@@ -29,8 +29,7 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         enemy.updateRotation = false;
-        enemy.updateUpAxis = false;
-        //player =              
+        enemy.updateUpAxis = false;     
     }
 
     void Update()
@@ -61,9 +60,7 @@ public class EnemyScript : MonoBehaviour
 
         //MOVEMENT
 
-        rb.velocity = direction * speed;      //Basic movement
-
-        //Movement with same speed on diagonals is pending
+        rb.velocity = direction * speed;
     }
 
     void Attack()

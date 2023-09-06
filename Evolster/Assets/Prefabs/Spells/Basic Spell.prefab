@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5016592586685298679}
   - component: {fileID: -3104499380564224438}
   m_Layer: 6
-  m_Name: Spell
+  m_Name: Basic Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,10 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d454cdfbf0ad84b89c6d9ba8c6b264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 25
+  spellsData: {fileID: 11400000, guid: c5b51970f276e424086e2b40b0f7e006, type: 2}
   direction: {x: 0, y: 0}
-  lifeTime: 5
 --- !u!50 &5016592586685298679
 Rigidbody2D:
   serializedVersion: 4
