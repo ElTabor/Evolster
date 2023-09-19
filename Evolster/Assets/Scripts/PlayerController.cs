@@ -1,41 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    static public PlayerController instance;
+    public static PlayerController Instance;
 
-    GameObject player;
-    Rigidbody2D rb;
-    [SerializeField] float speed;
-    [SerializeField] float life;
-
-
-    float horizontal;
-    float vertical;
-    Vector2 direction;
+    [SerializeField] private GameObject player;
+    private Rigidbody2D _rb;
+    [SerializeField] private float speed;
+    [SerializeField] private float life;
 
 
-    Vector2 aimDirection;
-    [SerializeField] GameObject gun;
-    [SerializeField] GameObject shootingPoint;
-    float lastAttack;
-    [SerializeField] float attackCooldown;
+    private float _horizontal;
+    private float _vertical;
+    private Vector2 _direction;
 
 
-    [SerializeField] GameObject spellPrefab;
+    private Vector2 _aimDirection;
+    [SerializeField] private GameObject gun;
+    [SerializeField] private GameObject shootingPoint;
+    private float _lastAttack;
+    [SerializeField] private float attackCooldown;
 
-    void Start()
+
+    [SerializeField] private GameObject spellPrefab;
+
+    public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
     {
-        if (instance == null) instance = this;
+        this.speed = speed;
+        this.player = player;
+        _horizontal = horizontal;
+        this.shootingPoint = shootingPoint;
+    }
+
+    private void Start()
+    {
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
         player = GameObject.FindGameObjectWithTag("Player");
-        rb = player.GetComponent<Rigidbody2D>();
+        _rb = player.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -44,42 +48,42 @@ public class PlayerController : MonoBehaviour
         
         #region Movement
 
-        direction = new Vector2(horizontal, vertical).normalized;        
+        _direction = new Vector2(_horizontal, _vertical).normalized;        
 
         #endregion
 
         #region Aiming
-        if(direction == new Vector2(1, 0))
+        if(_direction == new Vector2(1, 0))
         {
             gun.transform.localScale = new Vector3(1, 1, 1);
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 0));      //Aim right
         }
-        if (direction == new Vector2(1, 1))
+        if (_direction == new Vector2(1, 1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 45));      //Aim up-right
         }
-        if (direction == new Vector2(0, 1))
+        if (_direction == new Vector2(0, 1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 90));      //Aim up
         }
-        if (direction == new Vector2(-1, 1))
+        if (_direction == new Vector2(-1, 1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 135));      //Aim up-left
         }
-        if (direction == new Vector2(-1, 0))
+        if (_direction == new Vector2(-1, 0))
         {
             gun.transform.localScale = new Vector3(1, -1, 1);
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 180));      //Aim left
         }
-        if (direction == new Vector2(-1, -1))
+        if (_direction == new Vector2(-1, -1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 225));      //Aim down-left
         }
-        if (direction == new Vector2(0, -1))
+        if (_direction == new Vector2(0, -1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 270));      //Aim down
         }
-        if (direction == new Vector2(1, -1))
+        if (_direction == new Vector2(1, -1))
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 315));      //Aim down-right
         }
@@ -89,21 +93,21 @@ public class PlayerController : MonoBehaviour
         #region Shooting
 
 
-        if (SceneManagerScript.instance.scene != "Lobby" && Time.time >= lastAttack + attackCooldown) Attack();
+        if (SceneManagerScript.instance.scene != "Lobby" && Time.time >= _lastAttack + attackCooldown) Attack();
 
         #endregion
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + _direction * (speed * Time.fixedDeltaTime));
     }
 
-    void GetInput()
+    private void GetInput()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-        if(direction != Vector2.zero) aimDirection = direction;
+        _horizontal = Input.GetAxisRaw("Horizontal");
+        _vertical = Input.GetAxisRaw("Vertical");
+        if(_direction != Vector2.zero) _aimDirection = _direction;
 
         if(SceneManagerScript.instance.scene == "Lobby")
         {
@@ -112,11 +116,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Attack()
+    private void Attack()
     {
         GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
-        spell.GetComponent<SpellScript>().direction = aimDirection;
-        lastAttack = Time.time;
+        spell.GetComponent<SpellScript>().direction = _aimDirection;
+        _lastAttack = Time.time;
     }
 
     public void UpdateLife(float lifeUpdate)

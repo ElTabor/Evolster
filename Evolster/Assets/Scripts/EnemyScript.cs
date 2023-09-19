@@ -1,40 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
     public Transform player;
-    private NavMeshAgent enemy;
+    private NavMeshAgent _enemy;
 
     //GameObject player;
-    Rigidbody2D rb;
+    private Rigidbody2D _rb;
 
-    Vector2 direction;
-    [SerializeField] float life;
-    [SerializeField] float speed;
-    [SerializeField] float damage;
-    float lastAttack;
+    private Vector2 _direction;
+    [SerializeField] private float life;
+    [SerializeField] private float speed;
+    [SerializeField] private float damage;
+    private float _lastAttack;
     public float attackCooldown;
 
     private void Awake()
     {
-        enemy = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody2D>();
+        _enemy = GetComponent<NavMeshAgent>();
+        _rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void Start()
+    private void Start()
     {
-        enemy.updateRotation = false;
-        enemy.updateUpAxis = false;     
+        Debug.Log("Collision");
+        _enemy.updateRotation = false;
+        _enemy.updateUpAxis = false;     
     }
 
-    void Update()
+    private void Update()
     {
-        enemy.SetDestination(player.position);
+        _enemy.SetDestination(player.position);
 
         bool isOnRangeOfAttack;
         if (Mathf.Abs(player.transform.position.x - transform.position.x) <= 1 && Mathf.Abs(player.transform.position.y - transform.position.y) <= 1f) isOnRangeOfAttack = true;
@@ -42,11 +40,9 @@ public class EnemyScript : MonoBehaviour
 
         if (isOnRangeOfAttack)
         {
-            direction = Vector2.zero;
-            Debug.Log("Colision");
-            if (Time.time > lastAttack + attackCooldown)        //Attack cooldown
+            if (Time.time > _lastAttack + attackCooldown)        //Attack cooldown
             {
-                lastAttack = Time.time;
+                _lastAttack = Time.time;
                 Attack();
             }
         }
@@ -60,13 +56,14 @@ public class EnemyScript : MonoBehaviour
 
         //MOVEMENT
 
-        rb.velocity = direction * speed;
+        _rb.velocity = _direction * speed;
     }
 
-    void Attack()
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void Attack()
     {
         Debug.Log("Attack!");
-        PlayerController.instance.UpdateLife(-damage);
+        PlayerController.Instance.UpdateLife(-damage);
     }
 
     public void GetDamage(float damageReceived)

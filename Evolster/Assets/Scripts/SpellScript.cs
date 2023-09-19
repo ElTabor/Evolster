@@ -19,11 +19,10 @@ public class SpellScript : MonoBehaviour
         creationTime = Time.time;
         Debug.Log(creationTime);
     }
+
     void Update()
     {
         rb.velocity = direction * spellsData.Speed;
-
-        if (Time.time >= creationTime + spellsData.LifeTime) Destroy(gameObject);
 
         if (Time.time >= creationTime + spellsData.LifeTime) Destroy(gameObject);
         Debug.Log(Time.time);
