@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void Attack()
     {
         GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);

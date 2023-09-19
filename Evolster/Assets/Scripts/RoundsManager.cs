@@ -1,44 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class RoundsManager : MonoBehaviour
 {
-    public static RoundsManager instance;
+    public static RoundsManager Instance;
 
     public int enemiesOnScreen;
     public bool prepTime;
     public int round;
+    private GameObject[] _gameObjects;
+
     void Start()
     {
-        if (instance == null) instance = this;
+        _gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
         prepTime = true;
-        StartCoroutine(prepTimeSet());
+        StartCoroutine(PrepTimeSet());
     }
 
     void Update()
     {
+        if (prepTime) return;
+        enemiesOnScreen = _gameObjects.Count();
 
-        if(!prepTime)
-        {
-            enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy").Count();
-
-            if (enemiesOnScreen <= 0) EndRound();
-        }
+        if (enemiesOnScreen <= 0) EndRound();
     }
 
-    IEnumerator prepTimeSet()
+    private IEnumerator PrepTimeSet()
     {
         yield return new WaitForSeconds(2.5f);
         prepTime = false;
     }
 
-    void EndRound()
+    private void EndRound()
     {
         UIManager.instance.ToggleUICanvas(UIManager.instance.skillCanvas);
         prepTime = true;
@@ -50,6 +48,6 @@ public class RoundsManager : MonoBehaviour
         round++;
         if (round == 7) SceneManagerScript.instance.LoadNewScene("Lobby");
         EnemySpawnManager.instance.SetEnemiesToSpawn();
-        StartCoroutine(prepTimeSet());
+        StartCoroutine(PrepTimeSet());
     }
 }
