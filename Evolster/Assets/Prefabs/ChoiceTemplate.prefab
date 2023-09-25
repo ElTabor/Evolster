@@ -396,6 +396,21 @@ GameObject:
   - component: {fileID: -3812662108217074801}
   - component: {fileID: -5073970489818460111}
   - component: {fileID: 6165707295795067674}
+  - component: {fileID: 2985464433002863494}
+  - component: {fileID: 1973361052666324775}
+  - component: {fileID: -3970798342306508230}
+  - component: {fileID: -6187803334391390882}
+  - component: {fileID: 5272544568416514885}
+  - component: {fileID: 3020813582844028319}
+  - component: {fileID: -882694260952421124}
+  - component: {fileID: 3788854645175266323}
+  - component: {fileID: 4330810578365072260}
+  - component: {fileID: 322572542757872498}
+  - component: {fileID: 2930729927117524498}
+  - component: {fileID: -1197441891172164950}
+  - component: {fileID: -5257748429589752697}
+  - component: {fileID: -3640810800254676909}
+  - component: {fileID: -2713592918435835266}
   m_Layer: 0
   m_Name: ChoiceTemplate
   m_TagString: Untagged
@@ -1189,6 +1204,291 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: {fileID: 0}
 --- !u!114 &6165707295795067674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &2985464433002863494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &1973361052666324775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &-3970798342306508230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &-6187803334391390882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &5272544568416514885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &3020813582844028319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &-882694260952421124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &3788854645175266323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &4330810578365072260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &322572542757872498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &2930729927117524498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &-1197441891172164950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &-5257748429589752697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &-3640810800254676909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742381360805487569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ebe4c478ec7834a9e11af40f56de32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSelectionMenu: {fileID: 0}
+  rewardName: 
+  rewardIcon: {fileID: 0}
+  rewardDescription: 
+  name: {fileID: 0}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+--- !u!114 &-2713592918435835266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

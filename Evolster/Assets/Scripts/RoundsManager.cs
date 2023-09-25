@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoundsManager : MonoBehaviour
 {
-    public static RoundsManager Instance;
+    public static RoundsManager instance;
 
     public int enemiesOnScreen;
     public bool prepTime;
@@ -14,17 +14,17 @@ public class RoundsManager : MonoBehaviour
     void Start()
     {
         _gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-        if (Instance == null) Instance = this;
+        if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        prepTime = true;
-        StartCoroutine(PrepTimeSet());
+        //prepTime = true;
+        //StartCoroutine(PrepTimeSet());
     }
 
     void Update()
     {
-        if (prepTime) return;
+        //if (prepTime) return;
         enemiesOnScreen = _gameObjects.Count();
 
         if (enemiesOnScreen <= 0) EndRound();
@@ -38,13 +38,13 @@ public class RoundsManager : MonoBehaviour
 
     private void EndRound()
     {
-        UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
-        prepTime = true;
+        //UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
+        //prepTime = true;
     }
 
     public void SetNewRound()
     {
-        UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
+        //UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
         round++;
         if (round == 7) SceneManagerScript.instance.LoadNewScene("Lobby");
         EnemySpawnManager.instance.SetEnemiesToSpawn();

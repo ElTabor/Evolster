@@ -128,6 +128,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4103590956888067815, guid: f136e4b5cf70d9549b51643a5f2cceaf, type: 3}
   m_PrefabInstance: {fileID: 1185998950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &23683586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1744278658977423639, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+  m_PrefabInstance: {fileID: 1797756540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &116906445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1498,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1744278657853646313, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744278657853646313, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1744278658796917407, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1565,6 +1578,22 @@ PrefabInstance:
       propertyPath: spellPrefab
       value: 
       objectReference: {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
+    - target: {fileID: 1744278658796917602, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: shootingPoint
+      value: 
+      objectReference: {fileID: 23683586}
+    - target: {fileID: 1744278658977423638, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744278659184143228, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744278659184143228, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2573904622440335687, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: m_Size.x
       value: 0.9823868
@@ -2160,6 +2189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6810137549393883177, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: rewards.Array.size
       value: 3
@@ -2187,6 +2220,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146827953102513198, guid: f6e2a2bcf038308488521178cc1c35c9, type: 3}
       propertyPath: round
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146827953102513198, guid: f6e2a2bcf038308488521178cc1c35c9, type: 3}
+      propertyPath: prepTime
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1146827953102513198, guid: f6e2a2bcf038308488521178cc1c35c9, type: 3}

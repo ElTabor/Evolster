@@ -17,15 +17,12 @@ public class SpellScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         creationTime = Time.time;
-        Debug.Log(creationTime);
+        rb.velocity = direction * spellsData.Speed;
     }
 
     void Update()
     {
-        rb.velocity = direction * spellsData.Speed;
-
         if (Time.time >= creationTime + spellsData.LifeTime) Destroy(gameObject);
-        Debug.Log(Time.time);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

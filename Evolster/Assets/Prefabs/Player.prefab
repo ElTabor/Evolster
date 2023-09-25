@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9db7be65e4fe22478fae8b64c308788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  life: 100
+  player: {fileID: 0}
+  _stats: {fileID: 11400000, guid: f685df448700862429fd3ccf7bef4dfc, type: 2}
   gun: {fileID: 1744278658977423639}
   shootingPoint: {fileID: 1744278657853646310}
   attackCooldown: 0.5

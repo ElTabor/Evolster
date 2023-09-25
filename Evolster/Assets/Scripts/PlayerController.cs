@@ -2,20 +2,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance;
+    public static PlayerController instance;
 
     [SerializeField] private GameObject player;
     private Rigidbody2D _rb;
-    [SerializeField] private float speed;
-    [SerializeField] private float life;
+    [SerializeField] StatsData _stats;
+    int currentLife;
 
+
+
+    float distanceToNearestEnemy;
+    Vector2 shootingDirection;
+    bool enemyNearBy;
 
     private float _horizontal;
     private float _vertical;
     private Vector2 _direction;
 
 
-    private Vector2 _aimDirection;
     [SerializeField] private GameObject gun;
     [SerializeField] private GameObject shootingPoint;
     private float _lastAttack;
@@ -26,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
     {
-        this.speed = speed;
+        _stats.speed = speed;
         this.player = player;
         _horizontal = horizontal;
         this.shootingPoint = shootingPoint;
@@ -34,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if (Instance == null) Instance = this;
+        if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
@@ -45,69 +49,63 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetInput();
-        
+
         #region Movement
 
-        _direction = new Vector2(_horizontal, _vertical).normalized;        
+        _direction = new Vector2(_horizontal, _vertical).normalized;
 
         #endregion
 
-        #region Aiming
-        if(_direction == new Vector2(1, 0))
-        {
-            gun.transform.localScale = new Vector3(1, 1, 1);
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 0));      //Aim right
-        }
-        if (_direction == new Vector2(1, 1))
-        {
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 45));      //Aim up-right
-        }
-        if (_direction == new Vector2(0, 1))
-        {
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 90));      //Aim up
-        }
-        if (_direction == new Vector2(-1, 1))
-        {
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 135));      //Aim up-left
-        }
-        if (_direction == new Vector2(-1, 0))
-        {
-            gun.transform.localScale = new Vector3(1, -1, 1);
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 180));      //Aim left
-        }
-        if (_direction == new Vector2(-1, -1))
-        {
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 225));      //Aim down-left
-        }
-        if (_direction == new Vector2(0, -1))
-        {
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 270));      //Aim down
-        }
-        if (_direction == new Vector2(1, -1))
-        {
-            gun.transform.rotation = Quaternion.Euler(new Vector3(gun.transform.rotation.x, gun.transform.rotation.y, 315));      //Aim down-right
-        }
-
+        #region NewAiming
+        AimToNearestEnemy();        //Automaticlly shoot to the nearest enemy only when the player is steady
         #endregion
 
-        #region Shooting
+                //Shooting
+        if (SceneManagerScript.instance.scene != "Lobby" && enemyNearBy) Attack();
+    }
 
+    private void AimToNearestEnemy()
+    {
+        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, _stats.rangeOfAttack);
+        GameObject nearestEnemy;
 
-        if (SceneManagerScript.instance.scene != "Lobby" && Time.time >= _lastAttack + attackCooldown) Attack();
+        foreach (Collider2D enemy in enemiesAround)
+        {
+            if (enemy.CompareTag("Enemy"))
+            {
+                enemyNearBy = true;
+                Vector2 h = enemy.transform.position - transform.position;
+                float distanceToEnemy = Mathf.Sqrt(h.x * h.x + h.y * h.y);
 
-        #endregion
+                if (distanceToNearestEnemy > distanceToEnemy)
+                {
+                    distanceToNearestEnemy = distanceToEnemy;
+                    nearestEnemy = enemy.gameObject;
+                }
+
+                shootingDirection = h / distanceToEnemy;
+
+                MoveAimingPoint();
+            }
+            else enemyNearBy = false;
+        }
+    }
+
+    private void MoveAimingPoint()
+    {
+        Vector3 newPosition = shootingDirection * 1.5f;
+        shootingPoint.transform.position = transform.position + newPosition;
     }
 
     private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _direction * (speed * Time.fixedDeltaTime));
+        _rb.MovePosition(_rb.position + _direction * (_stats.speed * Time.fixedDeltaTime));
     }
 
     private void GetInput()
     {
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
-        if(_direction != Vector2.zero) _aimDirection = _direction;
 
         if(SceneManagerScript.instance.scene == "Lobby")
         {
@@ -116,22 +114,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // ReSharper disable Unity.PerformanceAnalysis
     private void Attack()
     {
-        GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
-        spell.GetComponent<SpellScript>().direction = _aimDirection;
-        _lastAttack = Time.time;
+        if (Time.time >= _lastAttack + attackCooldown && _rb.velocity == Vector2.zero)
+        {
+            GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
+            spell.GetComponent<SpellScript>().direction = shootingDirection;
+            Debug.Log(shootingDirection);
+            _lastAttack = Time.time;
+        }
     }
 
-    public void UpdateLife(float lifeUpdate)
+    public void UpdateLife(int lifeUpdate)
     {
-        life += lifeUpdate;
-        if (life <= 0) Destroy(gameObject);
+        currentLife += lifeUpdate;
+        if(currentLife > _stats.maxLife) currentLife = _stats.maxLife;
+        else if (currentLife <= 0) Destroy(gameObject);
     }
 
     public void GetReward(string reward)
     {
         Debug.Log(reward);
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, _stats.rangeOfAttack);
     }
 }

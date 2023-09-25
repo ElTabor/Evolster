@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsData : MonoBehaviour
+[CreateAssetMenu ( fileName = "New StatData", menuName = "Stat Data")]
+public class StatsData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int maxLife;
+    public float speed;
+    public int damage;
+    public float fireRate;
+    public float attackCooldown;
+    public float rangeOfAttack;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

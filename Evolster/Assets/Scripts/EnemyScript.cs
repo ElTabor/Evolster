@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,9 +11,8 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D _rb;
 
     private Vector2 _direction;
-    [SerializeField] private float life;
-    [SerializeField] private float speed;
-    [SerializeField] private float damage;
+    [SerializeField] StatsData _stats;
+    [SerializeField] private float currentLife;
     private float _lastAttack;
     public float attackCooldown;
 
@@ -56,19 +56,20 @@ public class EnemyScript : MonoBehaviour
 
         //MOVEMENT
 
-        _rb.velocity = _direction * speed;
+        _rb.velocity = _direction * _stats.speed;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
     private void Attack()
     {
         Debug.Log("Attack!");
-        PlayerController.Instance.UpdateLife(-damage);
+        PlayerController.instance.UpdateLife(-_stats.damage);
     }
 
     public void GetDamage(float damageReceived)
     {
-        life -= damageReceived;
-        if (life <= 0) Destroy(gameObject);
+        currentLife -= damageReceived;
+        if(currentLife > _stats.maxLife) currentLife = _stats.maxLife;
+        else if (currentLife <= 0) Destroy(gameObject);
     }
 }
