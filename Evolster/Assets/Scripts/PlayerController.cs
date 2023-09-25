@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject player;
     private Rigidbody2D _rb;
-    [SerializeField] StatsData _stats;
+    [SerializeField] public StatsData _stats;
     int currentLife;
 
     float distanceToNearestEnemy;
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] private GameObject spellPrefab;
+    [SerializeField] public GameObject[] availableSpells;
+    
+    private SpellsData[] spells;
 
     public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
     {
@@ -43,6 +47,11 @@ public class PlayerController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         _rb = player.GetComponent<Rigidbody2D>();
         currentLife = _stats.maxLife;
+
+        foreach (GameObject spell in availableSpells)
+        {
+            this.spells.Append(spell.GetComponent<SpellsData>());
+        }
     }
 
     void Update()
@@ -65,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     private void AimToNearestEnemy()
     {
-        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, _stats.rangeOfAttack);
+        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, _stats.attackRange);
         GameObject nearestEnemy;
 
         foreach (Collider2D enemy in enemiesAround)
@@ -131,14 +140,8 @@ public class PlayerController : MonoBehaviour
         else if (currentLife <= 0) Destroy(gameObject);
     }
 
-    public void GetReward(string reward)
-    {
-        Debug.Log(reward);
-    }
-
-
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, _stats.rangeOfAttack);
+        Gizmos.DrawWireSphere(transform.position, _stats.attackRange);
     }
 }

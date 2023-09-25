@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class SpellScript : MonoBehaviour
 {
-    [SerializeField] SpellsData spellsData;
+    [SerializeField] public SpellsData spellsData;
 
     public Vector2 direction;
 
@@ -17,19 +14,19 @@ public class SpellScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         creationTime = Time.time;
-        rb.velocity = direction * spellsData.Speed;
+        rb.velocity = direction * spellsData.spellSpeed;
     }
 
     void Update()
     {
-        if (Time.time >= creationTime + spellsData.LifeTime) Destroy(gameObject);
+        if (Time.time >= creationTime + spellsData.spellLifeTime) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyScript>().GetDamage(spellsData.Damage);
+            collision.GetComponent<EnemyScript>().GetDamage(spellsData.spellDamage);
         }
         Destroy(gameObject);
     }
