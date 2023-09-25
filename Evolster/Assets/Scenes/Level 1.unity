@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2767061296075938834, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -530,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_Name
@@ -1154,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2767061296075938834, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2160,6 +2160,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: rewards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: rewards.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 93ac9df525ad8f14a959c81ce440f658, type: 2}
+    - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: rewards.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 93ac9df525ad8f14a959c81ce440f658, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
 --- !u!1001 &6336158877218067461
@@ -2175,7 +2187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146827953102513198, guid: f6e2a2bcf038308488521178cc1c35c9, type: 3}
       propertyPath: round
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1146827953102513198, guid: f6e2a2bcf038308488521178cc1c35c9, type: 3}
       propertyPath: skillCanvas
@@ -2248,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_Name

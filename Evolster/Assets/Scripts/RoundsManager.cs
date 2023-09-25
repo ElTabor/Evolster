@@ -38,13 +38,13 @@ public class RoundsManager : MonoBehaviour
 
     private void EndRound()
     {
-        UIManager.instance.ToggleUICanvas(UIManager.instance.skillCanvas);
+        UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
         prepTime = true;
     }
 
     public void SetNewRound()
     {
-        UIManager.instance.ToggleUICanvas(UIManager.instance.skillCanvas);
+        UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
         round++;
         if (round == 7) SceneManagerScript.instance.LoadNewScene("Lobby");
         EnemySpawnManager.instance.SetEnemiesToSpawn();

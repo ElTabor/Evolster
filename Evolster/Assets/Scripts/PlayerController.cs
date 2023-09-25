@@ -129,4 +129,9 @@ public class PlayerController : MonoBehaviour
         life += lifeUpdate;
         if (life <= 0) Destroy(gameObject);
     }
+
+    public void GetReward(string reward)
+    {
+        Debug.Log(reward);
+    }
 }

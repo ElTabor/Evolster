@@ -239,6 +239,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100407648535863018, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100407648535863018, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100407648535863018, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100407648535863018, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1154081612586946445, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: skillCanvas
       value: 
@@ -251,6 +267,54 @@ PrefabInstance:
       propertyPath: spellSelectorCanvas
       value: 
       objectReference: {fileID: 2063717241}
+    - target: {fileID: 2388710276870750560, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388710276870750560, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388710276870750560, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388710276870750560, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957836152337352057, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957836152337352057, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957836152337352057, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957836152337352057, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339426858294815602, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339426858294815602, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339426858294815602, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339426858294815602, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3845989008623210209, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -299,6 +363,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: rewards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: rewards.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 93ac9df525ad8f14a959c81ce440f658, type: 2}
+    - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: rewards.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 93ac9df525ad8f14a959c81ce440f658, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
 --- !u!4 &402978143 stripped
