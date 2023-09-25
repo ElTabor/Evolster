@@ -27,7 +27,8 @@ public class EnemyScript : MonoBehaviour
     {
         Debug.Log("Collision");
         _enemy.updateRotation = false;
-        _enemy.updateUpAxis = false;     
+        _enemy.updateUpAxis = false;
+        currentLife = _stats.maxLife;
     }
 
     private void Update()

@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] StatsData _stats;
     int currentLife;
 
-
-
     float distanceToNearestEnemy;
     Vector2 shootingDirection;
     bool enemyNearBy;
@@ -44,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         _rb = player.GetComponent<Rigidbody2D>();
+        currentLife = _stats.maxLife;
     }
 
     void Update()

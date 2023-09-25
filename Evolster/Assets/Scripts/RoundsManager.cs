@@ -9,45 +9,46 @@ public class RoundsManager : MonoBehaviour
     public int enemiesOnScreen;
     public bool prepTime;
     public int round;
-    private GameObject[] _gameObjects;
 
     void Start()
     {
-        _gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
         if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        //prepTime = true;
-        //StartCoroutine(PrepTimeSet());
+        if (SceneManagerScript.instance.scene == "Lobby") gameObject.SetActive(false);
+
+        prepTime = true;
+        SetNewRound();
     }
 
     void Update()
     {
-        //if (prepTime) return;
-        enemiesOnScreen = _gameObjects.Count();
-
+        if (prepTime) return;
+        enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy").Count();
         if (enemiesOnScreen <= 0) EndRound();
     }
 
     private IEnumerator PrepTimeSet()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3f);
         prepTime = false;
     }
 
     private void EndRound()
     {
-        //UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
-        //prepTime = true;
+        Debug.Log("EndRound");
+        UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
+        prepTime = true;
     }
 
     public void SetNewRound()
     {
-        //UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
-        round++;
-        if (round == 7) SceneManagerScript.instance.LoadNewScene("Lobby");
-        EnemySpawnManager.instance.SetEnemiesToSpawn();
+        Debug.Log("NewRound");
         StartCoroutine(PrepTimeSet());
+        if (round == 7) SceneManagerScript.instance.LoadNewScene("Lobby");
+        else if (round > 0) UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
+        round++;
+        EnemySpawnManager.instance.SetEnemiesToSpawn();
     }
 }

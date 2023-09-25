@@ -99,8 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referencePoint: {fileID: 2767061296075938834}
-  enemiePrefab: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
-  enemiesToSpawn: 0
+  enemyPrefab: {fileID: 0}
+  bossPrefab: {fileID: 0}
+  amountOfEnemiesToSpawn: 0
+  spawnBossNow: 0
+  spawnCooldown: 3
 --- !u!1 &4778254180180124220
 GameObject:
   m_ObjectHideFlags: 0

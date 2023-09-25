@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  _stats: {fileID: 0}
+  _stats: {fileID: 11400000, guid: 873fdb0978c24a745a6446585644feb5, type: 2}
   currentLife: 0
   attackCooldown: 5
 --- !u!50 &3650483397476009696

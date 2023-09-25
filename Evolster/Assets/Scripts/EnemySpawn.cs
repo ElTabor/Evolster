@@ -10,6 +10,7 @@ public class EnemySpawn : MonoBehaviour
     public int amountOfEnemiesToSpawn;
     public bool spawnBossNow;
     GameObject enemyToSpawn;
+    [SerializeField] float spawnCooldown;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
         SelectEnemy();
         for (int i = 0; i < amountOfEnemiesToSpawn; i++)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(spawnCooldown);
             Instantiate(enemyToSpawn, referencePoint.position, Quaternion.identity);
             spawnBossNow = false;
         }

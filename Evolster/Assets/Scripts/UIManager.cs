@@ -28,10 +28,10 @@ public class UIManager : MonoBehaviour
         else Time.timeScale = 1f;
     }
 
-    public void ToggleUICanvas(GameObject canvas)
-    {
-        canvas.SetActive(!canvas.activeInHierarchy);
-    }
+    //public void ToggleUICanvas(GameObject canvas)
+    //{
+    //    canvas.SetActive(!canvas.activeInHierarchy);
+    //}
 
     public void MoveSpellSelector(int direction)
     {
