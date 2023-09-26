@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject spellSelectionMenu;
 
+    public GameObject pauseMenu;
+
     bool gamePaused;
     bool gameOver = false;
 
@@ -21,9 +23,14 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        gamePaused = spellSelectionMenu.activeInHierarchy;
-        if (gamePaused) Time.timeScale = 0f;
-        else Time.timeScale = 1f;
+        //gamePaused = spellSelectionMenu.activeInHierarchy;
+        //if (gamePaused) Time.timeScale = 0f;
+        //else Time.timeScale = 1f;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
     //public void ToggleUICanvas(GameObject canvas)
@@ -41,10 +48,7 @@ public class UIManager : MonoBehaviour
         //spellSelectorCanvas.SetActive(false);
     }
 
-    public void OpenCloseMenu(GameObject menu)
-    {
-        menu.SetActive(!menu.activeInHierarchy);
-    }
+    public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);
 
     public void GameOver()
     {
@@ -52,4 +56,17 @@ public class UIManager : MonoBehaviour
         PlayerController.instance.gameOverScreen.SetActive(true);
     }
 
+    public void Pause()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void Exit() => Application.Quit();
 }
