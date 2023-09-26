@@ -14,12 +14,8 @@ public class SpawnQueue : MonoBehaviour, IQueue
 
     public void Enqueue(GameObject x)
     {
-        for (int i = index - 1; i >= 0; i--)
-        {
-            a[i + 1] = a[i];
-        }
+        for (int i = index - 1; i >= 0; i--) a[i + 1] = a[i];
         a[0] = x;
-
         index++;
     }
 

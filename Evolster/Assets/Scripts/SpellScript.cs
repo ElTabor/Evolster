@@ -5,6 +5,7 @@ public class SpellScript : MonoBehaviour
     [SerializeField] public SpellsData spellsData;
 
     public Vector2 direction;
+    public float currentDamage;
 
     float creationTime;
     
@@ -15,6 +16,7 @@ public class SpellScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         creationTime = Time.time;
         rb.velocity = direction * spellsData.spellSpeed;
+        currentDamage = spellsData.spellDamage;
     }
 
     void Update()
@@ -26,7 +28,7 @@ public class SpellScript : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<LifeController>().GetDamage(spellsData.spellDamage);
+            collision.GetComponent<LifeController>().GetDamage(currentDamage);
         }
         Destroy(gameObject);
     }

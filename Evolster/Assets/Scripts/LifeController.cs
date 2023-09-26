@@ -20,6 +20,12 @@ public class LifeController : MonoBehaviour
         if (_currentLife <= 0)
         {
             if (gameObject.tag == "Player") PlayerController.instance.Die();
+            else if (gameObject.tag == "Enemy")
+            {
+                int r = Random.Range(0, 100);
+                if(r % 2 == 0) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);
+                Destroy(gameObject);
+            }
             else Destroy(gameObject);
         }
     }

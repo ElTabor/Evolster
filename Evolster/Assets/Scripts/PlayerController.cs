@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject player;
     private Rigidbody2D _rb;
     [SerializeField] public StatsData _stats;
+    public bool buffed;
     public float currentSpeed;
+    public float currentDamage;
 
     float distanceToNearestEnemy;
     Vector2 shootingDirection;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
         _rb = player.GetComponent<Rigidbody2D>();
 
         currentSpeed = _stats.speed;
+        currentDamage = _stats.damage;
         GetComponent<LifeController>().SetMaxLife(_stats.maxLife);
     }
 
@@ -119,6 +122,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
             spell.GetComponent<SpellScript>().direction = shootingDirection;
+            spell.GetComponent<SpellScript>().currentDamage += currentDamage;
             spell.layer = LayerMask.NameToLayer("FriendlySpells");
             _lastAttack = Time.time;
         }
