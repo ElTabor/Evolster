@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject[] availableSpells;
     
     private SpellsData[] spells;
+    [SerializeField] public GameObject gameOverScreen;
+
+    [SerializeField] GameObject playerGO;
 
     public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
     {
@@ -136,8 +139,17 @@ public class PlayerController : MonoBehaviour
     public void UpdateLife(int lifeUpdate)
     {
         currentLife += lifeUpdate;
-        if(currentLife > _stats.maxLife) currentLife = _stats.maxLife;
-        else if (currentLife <= 0) Destroy(gameObject);
+        if (currentLife > _stats.maxLife) currentLife = _stats.maxLife;
+        else if (currentLife <= 0)
+        {
+            Die();
+            UIManager.instance.GameOver();
+        }
+    }
+
+    private void Die()
+    {
+        playerGO.SetActive(false);
     }
 
     private void OnDrawGizmos()
