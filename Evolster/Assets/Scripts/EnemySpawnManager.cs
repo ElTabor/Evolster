@@ -23,14 +23,14 @@ public class EnemySpawnManager : MonoBehaviour
             foreach (EnemySpawn spawn in enemySpawnPoints)
             {
                 spawn.amountOfEnemiesToSpawn = RoundsManager.instance.round * 2;
-                StartCoroutine(spawn.SpawnEnemy());
+                StartCoroutine(spawn.SpawnEnemy(null));
             }
         }
         else
         {
             enemySpawnPoints[1].amountOfEnemiesToSpawn = 1;
             enemySpawnPoints[1].spawnBossNow = true;
-            StartCoroutine(enemySpawnPoints[1].SpawnEnemy());
+            StartCoroutine(enemySpawnPoints[1].SpawnEnemy(null));
         }
     }
 }

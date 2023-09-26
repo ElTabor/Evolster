@@ -14,18 +14,26 @@ public class EnemySpawn : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        //if (SceneManagerScript.instance.scene != "Endless") StartCoroutine(SpawnEnemy(null));
     }
 
-     public IEnumerator SpawnEnemy()
+     public IEnumerator SpawnEnemy(GameObject newEnemyToSpawn)
     {
-        SelectEnemy();
-        for (int i = 0; i < amountOfEnemiesToSpawn; i++)
+        if(SceneManagerScript.instance.scene == "Endless")
         {
-            yield return new WaitForSeconds(spawnCooldown);
+            enemyToSpawn = newEnemyToSpawn;
             Instantiate(enemyToSpawn, referencePoint.position, Quaternion.identity);
-            spawnBossNow = false;
         }
+        else
+        {
+            SelectEnemy();
+            for (int i = 0; i < amountOfEnemiesToSpawn; i++)
+            {
+                yield return new WaitForSeconds(spawnCooldown);
+                Instantiate(enemyToSpawn, referencePoint.position, Quaternion.identity);
+                spawnBossNow = false;
+            }
+        }  
     }
 
     void SelectEnemy()
