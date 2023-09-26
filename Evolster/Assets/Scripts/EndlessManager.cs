@@ -26,24 +26,22 @@ public class EndlessManager : MonoBehaviour
     {
         if (Time.time > lastLightEnemySpawned + lightEnemySpawnCooldown)
         {
-            SpawnEnemy("light enemy");
+            ChooseSpawn("light enemy");
             lastLightEnemySpawned = Time.time;
         }
         if (Time.time > lastHeavyEnemySpawned + heavyEnemySpawnCooldown)
         {
-            SpawnEnemy("heavy enemy");
+            ChooseSpawn("heavy enemy");
             lastHeavyEnemySpawned = Time.time;
-
         }
         if (Time.time > lastRangeEnemySpawned + rangeEnemySpawnCooldown)
         {
-            SpawnEnemy("rangeEnemy");
+            ChooseSpawn("range enemy");
             lastRangeEnemySpawned = Time.time;
-
         }
     }
 
-    void SpawnEnemy(string enemyToSpawn)
+    void ChooseSpawn(string enemyToSpawn)
     {
         int r = Random.Range(0, spawns.Length);
         spawns[r].GetComponent<EnemySpawn>().SpawnEnemy(true, enemyToSpawn);

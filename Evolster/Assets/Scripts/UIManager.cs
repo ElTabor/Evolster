@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject spellSelectionMenu;
     public GameObject pauseMenu;
+    public GameObject gameOverMenu;
 
     bool gamePaused;
 
@@ -17,7 +18,7 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy;
+        gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy;
         if (gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
 
@@ -26,7 +27,9 @@ public class UIManager : MonoBehaviour
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);
 
-    public void GameOver() => PlayerController.instance.gameOverScreen.SetActive(true);
+    public void GameOver() => OpenCloseMenu(gameOverMenu);
+
+    public void GoToMainMenu() => SceneManagerScript.instance.LoadNewScene("Main Menu");
 
     public void Exit() => Application.Quit();
 }

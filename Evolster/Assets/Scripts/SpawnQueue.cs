@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnQueue : MonoBehaviour, ATDQueue
+public class SpawnQueue : MonoBehaviour, IQueue
 {
     public GameObject[] a;
     public int index;

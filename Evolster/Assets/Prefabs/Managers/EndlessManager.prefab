@@ -47,7 +47,7 @@ MonoBehaviour:
   lightEnemyPrefab: {fileID: 1018653029207290118, guid: 25674ff3118dbd94eb2040a6ab7a1b2e, type: 3}
   lightEnemySpawnCooldown: 3
   heavyEnemyPrefab: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
-  heavyEnemySpawnCooldown: 15
+  heavyEnemySpawnCooldown: 13
   rangeEnemyPrefab: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
   rangeEnemySpawnCooldown: 7
   spawns: []

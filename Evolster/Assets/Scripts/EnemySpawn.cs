@@ -35,18 +35,13 @@ public class EnemySpawn : MonoBehaviour
             Instantiate(spawnQueue.First(), referencePoint.position, Quaternion.identity);
             spawnQueue.Dequeue();
             lastSpawn = Time.time;
-            Debug.Log("Enemy spawned");
         }
     }
 
     public void SpawnEnemy(bool isEndless, string newEnemy)
     {
-        Debug.Log("Spawn enemy");
         GameObject enemy = SelectEnemy(isEndless, newEnemy);
-        if (isEndless)
-        {
-            spawnQueue.Enqueue(enemy);
-        }
+        if (isEndless) spawnQueue.Enqueue(enemy);
         else
         {
             for (int i = 0; i < amountOfEnemiesToSpawn; i++)
@@ -61,6 +56,7 @@ public class EnemySpawn : MonoBehaviour
     {
         if(isEndless)
         {
+            Debug.Log(newEnemy);
             switch(newEnemy)
             {
                 case "light enemy":
@@ -71,13 +67,19 @@ public class EnemySpawn : MonoBehaviour
                     return rangeEnemyPrefab;
                 default:
                     Debug.Log("No enemy selected");
-                    return null;
+                    return lightEnemyPrefab;
             }
         }
         else
         {
             if (spawnBossNow) return bossPrefab;
-            else return lightEnemyPrefab;
+            else
+            {
+                int r = Random.Range(0, 101);
+                if (r <= 65) return lightEnemyPrefab;
+                else if (r <= 85) return rangeEnemyPrefab;
+                else return heavyEnemyPrefab;
+            } 
         }
     }
 }

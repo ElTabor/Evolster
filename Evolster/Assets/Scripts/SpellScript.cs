@@ -26,7 +26,7 @@ public class SpellScript : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyScript>().GetDamage(spellsData.spellDamage);
+            collision.GetComponent<LifeController>().GetDamage(spellsData.spellDamage);
         }
         Destroy(gameObject);
     }

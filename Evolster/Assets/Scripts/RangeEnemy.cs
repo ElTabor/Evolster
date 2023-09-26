@@ -9,9 +9,18 @@ public class RangeEnemy : EnemyScript
     [SerializeField] Transform referencePoint;
     Vector2 shootingDirection;
 
-    public void Update()
+    public override void Update()
     {
-        base.Update();
+        bool isInRangeAttack;
+        float distance = Vector2.Distance(player.transform.position, transform.position);
+        if (distance <= _stats.attackRange) isInRangeAttack = true;
+        else isInRangeAttack = false;
+
+        if (isInRangeAttack && Time.time > _lastAttack + attackCooldown) Attack();
+
+        //Movement
+        if (!isInRangeAttack) _navMesh.SetDestination(player.position);
+        else _navMesh.SetDestination(transform.position);
 
         AimToPlayer();
     }
@@ -20,6 +29,7 @@ public class RangeEnemy : EnemyScript
     {
         GameObject spell = Instantiate(spellPrefab, referencePoint.position, Quaternion.identity);
         spell.GetComponent<SpellScript>().direction = shootingDirection;
+        spell.layer = LayerMask.NameToLayer("EnemySpells");
         _lastAttack = Time.time;
         Debug.Log(spell);
     }

@@ -17,16 +17,6 @@ public class RewardSelection : MonoBehaviour
         for(int n = 0; n < rewards.Length; n++) InstantiateChoice(n);
     }
 
-    //private void Update()
-    //{
-        
-    //    if(Input.GetKeyDown(KeyCode.E))
-    //    {
-    //        InstantiateChoice(n);
-    //        n++;
-    //    }
-    //}
-
     GameObject InstantiateChoice(int i)
     {
         GameObject newChoice = Instantiate(rewardPrefab, spellSelectorPanel.transform);

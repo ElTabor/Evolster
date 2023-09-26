@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
-  m_Name: PlayerData
+  m_Name: HeavyEnemyData
   m_EditorClassIdentifier: 
   maxLife: 100
-  speed: 10
-  damage: 0
-  speedAttack: 0.5
-  attackRange: 10
+  speed: 2
+  damage: 5
+  speedAttack: 0
+  attackRange: 1
   attackArea: 0

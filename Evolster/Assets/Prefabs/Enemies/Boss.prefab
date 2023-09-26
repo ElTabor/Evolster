@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3650483397476009696}
   - component: {fileID: 1776912014447299974}
   - component: {fileID: 1028227624411797105}
+  - component: {fileID: 1821464842814599560}
   m_Layer: 6
   m_Name: Boss
   m_TagString: Enemy
@@ -101,8 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  _navMesh: {fileID: 0}
+  _rb: {fileID: 0}
+  _direction: {x: 0, y: 0}
   _stats: {fileID: 11400000, guid: 873fdb0978c24a745a6446585644feb5, type: 2}
-  currentLife: 0
+  _lastAttack: 0
   attackCooldown: 5
 --- !u!50 &3650483397476009696
 Rigidbody2D:
@@ -163,3 +167,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1821464842814599560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018653029207290118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd9746c7df817e4ba22d9b39d5bd22a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentLife: 0

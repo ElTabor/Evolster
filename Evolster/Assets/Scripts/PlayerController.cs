@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject player;
     private Rigidbody2D _rb;
     [SerializeField] public StatsData _stats;
-    int currentLife;
+    public float currentSpeed;
 
     float distanceToNearestEnemy;
     Vector2 shootingDirection;
@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject spellPrefab;
     [SerializeField] public GameObject[] availableSpells;
     
-    private SpellsData[] spells;
     [SerializeField] public GameObject gameOverScreen;
 
     [SerializeField] GameObject playerGO;
@@ -49,12 +48,9 @@ public class PlayerController : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         _rb = player.GetComponent<Rigidbody2D>();
-        currentLife = _stats.maxLife;
 
-        //foreach (GameObject spell in availableSpells)
-        //{
-        //    this.spells.Append(GetComponent<SpellScript>().spellsData);
-        //}
+        currentSpeed = _stats.speed;
+        GetComponent<LifeController>().SetMaxLife(_stats.maxLife);
     }
 
     void Update()
@@ -108,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _direction * (_stats.speed * Time.fixedDeltaTime));
+        _rb.MovePosition(_rb.position + _direction * (currentSpeed * Time.fixedDeltaTime));
     }
 
     private void GetInput()
@@ -123,24 +119,14 @@ public class PlayerController : MonoBehaviour
         {
             GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
             spell.GetComponent<SpellScript>().direction = shootingDirection;
+            spell.layer = LayerMask.NameToLayer("FriendlySpells");
             _lastAttack = Time.time;
         }
     }
 
-    public void UpdateLife(int lifeUpdate)
+    public void Die()
     {
-        currentLife += lifeUpdate;
-        if (currentLife > _stats.maxLife) currentLife = _stats.maxLife;
-        else if (currentLife <= 0)
-        {
-            Die();
-            UIManager.instance.GameOver();
-        }
-    }
-
-    private void Die()
-    {
-        playerGO.SetActive(false);
+        UIManager.instance.GameOver();
     }
 
     private void OnDrawGizmos()

@@ -17,8 +17,8 @@ public class Upgrade : MonoBehaviour
         player = PlayerController.instance._stats;
 
 
-        foreach (GameObject spell in PlayerController.instance.availableSpells)
-            spells.Append(spell.GetComponent<SpellScript>().spellsData);
+        //foreach (GameObject spell in PlayerController.instance.availableSpells)
+        //    spells.Append(spell.GetComponent<SpellScript>().spellsData);
     }
 
     public void RewardSelection(string rewardSelected)
@@ -26,7 +26,7 @@ public class Upgrade : MonoBehaviour
         switch (rewardSelected)
         {
             case "StatUpgrade":
-                player.speed += 5;
+                PlayerController.instance.currentSpeed += 2;
                 break;
 
             case "SpellUpgrade":

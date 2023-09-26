@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -615793772785438521}
   - component: {fileID: 5016592586685298679}
   - component: {fileID: -3104499380564224438}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Basic Spell 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1776912014447299974}
   - component: {fileID: 1028227624411797105}
   - component: {fileID: -1841476674083800190}
+  - component: {fileID: 3762908818846969310}
   m_Layer: 6
   m_Name: RangeEnemy
   m_TagString: Enemy
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018653029207290118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.25, y: 10.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -161,15 +162,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  _enemy: {fileID: 0}
+  _navMesh: {fileID: 0}
   _rb: {fileID: 0}
   _direction: {x: 0, y: 0}
   _stats: {fileID: 11400000, guid: cb3b4350b276e644a861471752090d48, type: 2}
-  currentLife: 50
   _lastAttack: 0
   attackCooldown: 3
   spellPrefab: {fileID: 4550993629818596674, guid: 9b515dbf7b0c1474aa0344a20fe60652, type: 3}
   referencePoint: {fileID: 2004106946231120890}
+--- !u!114 &3762908818846969310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018653029207290118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd9746c7df817e4ba22d9b39d5bd22a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentLife: 0
 --- !u!1 &1754495451219502652
 GameObject:
   m_ObjectHideFlags: 0
