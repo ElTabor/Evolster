@@ -603,6 +603,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+      propertyPath: lightEnemyPrefab
+      value: 
+      objectReference: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
+    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
       value: 1
       objectReference: {fileID: 0}
@@ -879,6 +883,10 @@ PrefabInstance:
       propertyPath: enemiesToSpawn
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+      propertyPath: lightEnemyPrefab
+      value: 
+      objectReference: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
       value: 1
@@ -1743,6 +1751,10 @@ PrefabInstance:
       propertyPath: enemiesToSpawn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+      propertyPath: lightEnemyPrefab
+      value: 
+      objectReference: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
       value: 1

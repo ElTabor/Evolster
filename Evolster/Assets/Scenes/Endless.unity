@@ -328,7 +328,7 @@ PrefabInstance:
       objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: spawnCooldown
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn
@@ -539,7 +539,7 @@ PrefabInstance:
       objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: spawnCooldown
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn
@@ -1160,7 +1160,7 @@ PrefabInstance:
       objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: spawnCooldown
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn
@@ -2265,7 +2265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810137549393883177, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8314672126218711778, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: rewards.Array.size
@@ -2355,7 +2355,7 @@ PrefabInstance:
       objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: spawnCooldown
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn

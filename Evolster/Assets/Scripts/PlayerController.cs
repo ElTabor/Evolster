@@ -67,9 +67,7 @@ public class PlayerController : MonoBehaviour
 
         #endregion
 
-        #region NewAiming
         AimToNearestEnemy();        //Automaticlly shoot to the nearest enemy only when the player is steady
-        #endregion
 
                 //Shooting
         if (SceneManagerScript.instance.scene != "Lobby" && enemyNearBy) Attack();

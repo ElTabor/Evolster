@@ -20,6 +20,5 @@ MonoBehaviour:
   spellDamage: 10
   spellSpeed: 10
   spellLifeTime: 3
-  spellRate: 0
-  spellDamageArea: 0
   spellDamageRange: 0
+  spellDamageArea: 0

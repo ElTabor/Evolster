@@ -10,7 +10,6 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] GameObject bossPrefab;
     public int amountOfEnemiesToSpawn;
     public bool spawnBossNow;
-    GameObject enemyToSpawn;
     [SerializeField] float spawnCooldown;
     private float lastSpawn;
 
@@ -26,6 +25,7 @@ public class EnemySpawn : MonoBehaviour
     private void Update()
     {
         if (!spawnQueue.EmptyQueue()) Spawn();
+        else Debug.Log("No enemies on queue");
     }
 
     private void Spawn()
