@@ -16,7 +16,7 @@ public class RoundsManager : MonoBehaviour
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        if (SceneManagerScript.instance.scene == "Lobby") gameObject.SetActive(false);
+        //if (SceneManagerScript.instance.scene == "Lobby") gameObject.SetActive(false);
 
         prepTime = true;
         SetNewRound();

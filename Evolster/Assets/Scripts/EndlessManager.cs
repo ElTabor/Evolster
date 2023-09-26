@@ -19,7 +19,6 @@ public class EndlessManager : MonoBehaviour
 
     private void Start()
     {
-        //spawns = GameObject.FindWithTag("Spawn").GetComponent<EnemySpawn>();
         spawns = GameObject.FindGameObjectsWithTag("Spawn");
     }
 
@@ -27,26 +26,27 @@ public class EndlessManager : MonoBehaviour
     {
         if (Time.time > lastLightEnemySpawned + lightEnemySpawnCooldown)
         {
-            SpawnEnemy(lightEnemyPrefab);
+            SpawnEnemy("light enemy");
             lastLightEnemySpawned = Time.time;
         }
         if (Time.time > lastHeavyEnemySpawned + heavyEnemySpawnCooldown)
         {
-            SpawnEnemy(heavyEnemyPrefab);
+            SpawnEnemy("heavy enemy");
             lastHeavyEnemySpawned = Time.time;
 
         }
         if (Time.time > lastRangeEnemySpawned + rangeEnemySpawnCooldown)
         {
-            SpawnEnemy(rangeEnemyPrefab);
+            SpawnEnemy("rangeEnemy");
             lastRangeEnemySpawned = Time.time;
 
         }
     }
 
-    void SpawnEnemy(GameObject enemyToSpawn)
+    void SpawnEnemy(string enemyToSpawn)
     {
-        int r = Random.Range(0, spawns.Length - 1);
-        StartCoroutine(spawns[r].GetComponent<EnemySpawn>().SpawnEnemy(enemyToSpawn));
+        int r = Random.Range(0, spawns.Length);
+        spawns[r].GetComponent<EnemySpawn>().SpawnEnemy(true, enemyToSpawn);
+        Debug.Log("EnemyEnqueued");
     }
 }

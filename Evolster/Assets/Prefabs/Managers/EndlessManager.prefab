@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b56c11ce00b5f04eae17f61b51a88f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightEnemyPrefab: {fileID: 0}
-  lightEnemySpawnCooldown: 0
-  heavyEnemyPrefab: {fileID: 0}
-  heavyEnemySpawnCooldown: 0
-  rangeEnemyPrefab: {fileID: 0}
-  rangeEnemySpawnCooldown: 0
+  lightEnemyPrefab: {fileID: 1018653029207290118, guid: 25674ff3118dbd94eb2040a6ab7a1b2e, type: 3}
+  lightEnemySpawnCooldown: 3
+  heavyEnemyPrefab: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
+  heavyEnemySpawnCooldown: 15
+  rangeEnemyPrefab: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
+  rangeEnemySpawnCooldown: 7
   spawns: []

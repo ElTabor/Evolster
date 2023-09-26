@@ -319,6 +319,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238926127}
   m_CullTransparentMesh: 1
+--- !u!114 &268897556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+  m_PrefabInstance: {fileID: 8784459441649882282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f40794c952f3f64bab73c64dad30220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &321629614
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,20 +599,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: bossPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2767061296075938834, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -614,6 +617,10 @@ PrefabInstance:
     - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_Name
       value: EnemySpawn (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+      propertyPath: m_TagString
+      value: Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 7726070133005525790, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_RootOrder
@@ -869,20 +876,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: bossPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_Name
@@ -1741,20 +1740,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: bossPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2767061296075938834, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1767,6 +1758,10 @@ PrefabInstance:
     - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_Name
       value: EnemySpawn (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+      propertyPath: m_TagString
+      value: Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 7726070133005525790, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_RootOrder
@@ -2619,7 +2614,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2248079592581124785, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2248079592581124785, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2661,6 +2656,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3682386185819457465, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 1018653029207290118, guid: 25674ff3118dbd94eb2040a6ab7a1b2e, type: 3}
+    - target: {fileID: 3682386185819457465, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
+      propertyPath: enemySpawnPoints
+      value: 
+      objectReference: {fileID: 268897556}
     - target: {fileID: 7763029117873354365, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
       propertyPath: m_Name
       value: EnemySpawnManager
@@ -2867,7 +2870,7 @@ PrefabInstance:
       objectReference: {fileID: 4550993629818596674, guid: 9b515dbf7b0c1474aa0344a20fe60652, type: 3}
     - target: {fileID: 3845989008623210209, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3845989008623210209, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2968,7 +2971,7 @@ PrefabInstance:
       objectReference: {fileID: 1939977918}
     - target: {fileID: 2145637042295928774, guid: f6e2a2bcf038308488521178cc1c35c9, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2145637042295928774, guid: f6e2a2bcf038308488521178cc1c35c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3020,24 +3023,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: bossPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
-    - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: enemiesToSpawn
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 571441400552684893, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: amountOfEnemiesToSpawn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_Name
       value: EnemySpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+      propertyPath: m_TagString
+      value: Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 7726070133005525790, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
       propertyPath: m_RootOrder

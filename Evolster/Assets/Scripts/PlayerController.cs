@@ -131,7 +131,6 @@ public class PlayerController : MonoBehaviour
         {
             GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
             spell.GetComponent<SpellScript>().direction = shootingDirection;
-            Debug.Log(shootingDirection);
             _lastAttack = Time.time;
         }
     }

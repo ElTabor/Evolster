@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,31 +7,32 @@ using UnityEngine;
 public class EnemySpawnManager : MonoBehaviour
 {
     public static EnemySpawnManager instance;
-    List<EnemySpawn> enemySpawnPoints = new List<EnemySpawn>();
+    [SerializeField] GameObject[] enemySpawnPoints;
     void Start()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < FindObjectsOfType<EnemySpawn>().Length; i++) enemySpawnPoints.Add(FindObjectsOfType<EnemySpawn>()[i]);
+        enemySpawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
     }
 
     public void SetEnemiesToSpawn()
     { 
         if(RoundsManager.instance.round < 6)
         {
-            foreach (EnemySpawn spawn in enemySpawnPoints)
+            Debug.Log(enemySpawnPoints);
+            foreach (GameObject spawn in enemySpawnPoints)
             {
-                spawn.amountOfEnemiesToSpawn = RoundsManager.instance.round * 2;
-                StartCoroutine(spawn.SpawnEnemy(null));
+                spawn.GetComponent<EnemySpawn>().amountOfEnemiesToSpawn = RoundsManager.instance.round * 2;
+                spawn.GetComponent<EnemySpawn>().SpawnEnemy(false, null);
             }
         }
         else
         {
-            enemySpawnPoints[1].amountOfEnemiesToSpawn = 1;
-            enemySpawnPoints[1].spawnBossNow = true;
-            StartCoroutine(enemySpawnPoints[1].SpawnEnemy(null));
+            enemySpawnPoints[1].GetComponent<EnemySpawn>().amountOfEnemiesToSpawn = 1;
+            enemySpawnPoints[1].GetComponent<EnemySpawn>().spawnBossNow = true;
+            enemySpawnPoints[1].GetComponent<EnemySpawn>().SpawnEnemy(false, null);
         }
     }
 }
