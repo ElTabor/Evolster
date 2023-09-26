@@ -15,13 +15,12 @@ public class UISpell : MonoBehaviour
 
     public void UpdateSpellUI(SpellsData spellData)
     {
-        spellNameText.text = spellData.Name;
-        spellTypeText.text = spellData.Type;
-        spellDescriptionText.text = spellData.Description;
-        spellDamageText.text = spellData.Damage.ToString();
-        spellSpeedText.text = spellData.Speed.ToString();
-        spellLevelText.text = spellData.Level.ToString();
-        spellLifeTimeText.text = spellData.LifeTime.ToString();
-
+        spellNameText.text = spellData.spellName;
+        spellTypeText.text = spellData.spellType;
+        spellDescriptionText.text = spellData.spellDescription;
+        spellDamageText.text = spellData.spellDamage.ToString();
+        spellSpeedText.text = spellData.spellSpeed.ToString();
+        spellLevelText.text = spellData.spellLevel.ToString();
+        spellLifeTimeText.text = spellData.spellLifeTime.ToString();
     }
 }

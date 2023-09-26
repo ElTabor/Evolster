@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 773085699275849085}
   - component: {fileID: 112828880601542323}
   - component: {fileID: 8314672126218711778}
+  - component: {fileID: 2553962348006070185}
   m_Layer: 0
   m_Name: SpellSelectionMenu
   m_TagString: Untagged
@@ -180,7 +181,25 @@ MonoBehaviour:
   rewardPrefab: {fileID: 4742381360805487569, guid: c6d9ca45ab7bb3e4c8a111ac40241d6c, type: 3}
   rewards:
   - {fileID: 11400000, guid: 93ac9df525ad8f14a959c81ce440f658, type: 2}
+  - {fileID: 11400000, guid: 7544aebb52be6e6409b3394f5a25d7e2, type: 2}
+  - {fileID: 11400000, guid: 3f6ab038633aa394ba7365a50c910e36, type: 2}
   spellSelectorPanel: {fileID: 1172411677626417796}
+--- !u!114 &2553962348006070185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835906720208001210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef69b3e3c0bb98479ec16e37e70033c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellsList:
+  - {fileID: 4550993629818596674, guid: aa026bd5701622349bc2a1eddd161c8d, type: 3}
+  - {fileID: 4550993629818596674, guid: 9b515dbf7b0c1474aa0344a20fe60652, type: 3}
+  - {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
 --- !u!1 &6810137549393883177
 GameObject:
   m_ObjectHideFlags: 0

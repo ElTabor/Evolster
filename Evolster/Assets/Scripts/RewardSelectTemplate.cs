@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +8,7 @@ public class RewardSelectTemplate : MonoBehaviour
     public string rewardName;
     public Sprite rewardIcon;
     public string rewardDescription;
+    public string rewardType;
 
     [SerializeField] TextMeshProUGUI name;
     [SerializeField] Image icon;
@@ -17,7 +16,7 @@ public class RewardSelectTemplate : MonoBehaviour
 
     public void ChooseReward()
     {
-        PlayerController.instance.GetReward(rewardName);
+        Upgrade.instance.RewardSelection(rewardType);
         CloseMenu();
     }
 

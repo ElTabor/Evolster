@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd27ec868f97134b92e2b2334cd5437, type: 3}
-  m_Name: New Spell Data
+  m_Script: {fileID: 11500000, guid: ed75c62bfba3ee742a76bdb0f7348e70, type: 3}
+  m_Name: Attack range reward
   m_EditorClassIdentifier: 
-  spellName: 
-  spellType: 
-  spellDescription: 
-  spellDamage: 0
-  spellSpeed: 0
-  spellLevel: 0
-  spellLifeTime: 0
+  name: 
+  sprite: {fileID: 0}
+  description: 

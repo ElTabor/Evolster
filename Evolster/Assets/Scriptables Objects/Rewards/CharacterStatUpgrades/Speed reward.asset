@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
-  m_Name: EnemyData
+  m_Script: {fileID: 11500000, guid: ed75c62bfba3ee742a76bdb0f7348e70, type: 3}
+  m_Name: Speed reward
   m_EditorClassIdentifier: 
-  maxLife: 100
-  speed: 3
-  damage: 5
-  speedAttack: 0
-  attackRange: 0
-  attackArea: 0
+  name: 
+  sprite: {fileID: 0}
+  description: 

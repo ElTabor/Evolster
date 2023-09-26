@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Basic spell
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is a basic spell. Its the very first spell that every sorcerer learns.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -443,9 +443,10 @@ MonoBehaviour:
   rewardName: 
   rewardIcon: {fileID: 0}
   rewardDescription: 
-  name: {fileID: 0}
-  icon: {fileID: 0}
-  description: {fileID: 0}
+  rewardType: 
+  name: {fileID: 3766049158610310394}
+  icon: {fileID: 813234458258160177}
+  description: {fileID: 8867436862823443266}
 --- !u!1 &5736246157588584926
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +569,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: -5882508448664772600}
         m_TargetAssemblyTypeName: RewardSelectTemplate, Assembly-CSharp
         m_MethodName: ChooseReward
         m_Mode: 1
