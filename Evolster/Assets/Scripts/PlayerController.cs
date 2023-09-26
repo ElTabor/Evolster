@@ -117,12 +117,6 @@ public class PlayerController : MonoBehaviour
     {
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
-
-        if(SceneManagerScript.instance.scene == "Lobby")
-        {
-            if (Input.GetKeyDown(KeyCode.Q)) UIManager.instance.MoveSpellSelector(-1);
-            else if (Input.GetKeyDown(KeyCode.E)) UIManager.instance.MoveSpellSelector(1);
-        }
     }
 
     private void Attack()
