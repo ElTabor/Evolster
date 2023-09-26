@@ -11,6 +11,8 @@ public class SceneManagerScript : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+
+        scene = SceneManager.GetActiveScene().name;
     }
 
     public void LoadNewScene(string newScene)
