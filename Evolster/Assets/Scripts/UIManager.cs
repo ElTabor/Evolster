@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject spellSelectionMenu;
 
     bool gamePaused;
+    bool gameOver = false;
 
     private void Start()
     {
@@ -44,4 +45,11 @@ public class UIManager : MonoBehaviour
     {
         menu.SetActive(!menu.activeInHierarchy);
     }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        PlayerController.instance.gameOverScreen.SetActive(true);
+    }
+
 }
