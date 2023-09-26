@@ -1,15 +1,12 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using Random = UnityEngine.Random;
 
 public class Upgrade : MonoBehaviour
 {
     public static Upgrade instance;
     private StatsData player;
-    private SpellsData[] spell;
+    private SpellsData[] spells;
     [SerializeField] GameObject[] spellsList;
 
     private void Start()
@@ -18,11 +15,10 @@ public class Upgrade : MonoBehaviour
         else Destroy(gameObject);
 
         player = PlayerController.instance._stats;
-        
+
+
         foreach (GameObject spell in PlayerController.instance.availableSpells)
-        {
-            this.spell.Append(spell.GetComponent<SpellsData>());
-        }
+            spells.Append(spell.GetComponent<SpellScript>().spellsData);
     }
 
     public void RewardSelection(string rewardSelected)
@@ -32,12 +28,14 @@ public class Upgrade : MonoBehaviour
             case "StatUpgrade":
                 player.speed += 5;
                 break;
+
             case "SpellUpgrade":
-                foreach (SpellsData spelldata in spell)
+                foreach (SpellsData spelldata in spells)
                 {
                     spelldata.spellDamage += 10;
                 }
                 break;
+
             case "NewSpell":
                 int n = Random.Range(0, spellsList.Length);
                 Debug.Log(n);

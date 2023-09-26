@@ -48,10 +48,10 @@ public class PlayerController : MonoBehaviour
         _rb = player.GetComponent<Rigidbody2D>();
         currentLife = _stats.maxLife;
 
-        foreach (GameObject spell in availableSpells)
-        {
-            this.spells.Append(spell.GetComponent<SpellsData>());
-        }
+        //foreach (GameObject spell in availableSpells)
+        //{
+        //    this.spells.Append(GetComponent<SpellScript>().spellsData);
+        //}
     }
 
     void Update()
