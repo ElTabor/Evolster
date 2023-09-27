@@ -20,4 +20,8 @@ public class SceneManagerScript : MonoBehaviour
         scene = newScene;
         SceneManager.LoadScene(newScene);
     }
+
+    public void LoadMainMenu() => LoadNewScene("Main Menu");
+
+    public void Exit() => Application.Quit();
 }
