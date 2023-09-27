@@ -8,24 +8,8 @@ public class Buff : MonoBehaviour
     [SerializeField] float buffTime;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player") ApplyBuff();
-    }
-
-    void ApplyBuff()
-    {
-        PlayerController.instance.currentDamage += damageBuff;
+        if(collision.tag == "Player") BuffsManager.instance.ApplyBuff(damageBuff, buffTime);
         Destroy(gameObject);
     }
 
-    void RemoveBuff()
-    {
-        PlayerController.instance.currentDamage -= damageBuff;
-        StartCoroutine(StartCountdown());
-    }
-
-    IEnumerator StartCountdown()
-    {
-        yield return new WaitForSeconds(buffTime);
-        RemoveBuff();
-    }
 }

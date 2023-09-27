@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject player;
     private Rigidbody2D _rb;
     [SerializeField] public StatsData _stats;
-    public bool buffed;
     public float currentSpeed;
     public float currentDamage;
 
