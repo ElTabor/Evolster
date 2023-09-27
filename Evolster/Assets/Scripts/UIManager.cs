@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class UIManager : MonoBehaviour
     public GameObject spellSelectionMenu;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
+
+    [SerializeField] Slider lifeBar;
 
     bool gamePaused;
 
@@ -23,7 +26,11 @@ public class UIManager : MonoBehaviour
         else Time.timeScale = 1f;
 
         if (Input.GetKeyDown(KeyCode.Escape)) OpenCloseMenu(pauseMenu);
+
+        UpdateLife();
     }
+
+    private void UpdateLife() => lifeBar.value = PlayerController.instance.gameObject.GetComponent<LifeController>()._currentLife / PlayerController.instance.gameObject.GetComponent<LifeController>()._maxLife;
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);
 

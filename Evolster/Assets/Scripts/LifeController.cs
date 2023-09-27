@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour
 {
-    [SerializeField] float _currentLife;
-    float _maxLife;
+    [SerializeField] public float _currentLife;
+    [SerializeField] public float _maxLife;
 
     public void SetMaxLife(float maxLife)
     {
