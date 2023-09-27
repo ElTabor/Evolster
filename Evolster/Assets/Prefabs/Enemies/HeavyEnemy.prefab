@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentLife: 0
+  _maxLife: 0
 --- !u!114 &-356461374960839068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,5 +183,5 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 93c26b5ae0ef7834992dd43ffed72432, type: 2}
   _lastAttack: 0
   attackCooldown: 0
-  chargingTime: 2
-  chargingSpeed: 7
+  chargingTime: 1
+  chargingSpeed: 50

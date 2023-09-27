@@ -83,6 +83,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   _stats: {fileID: 11400000, guid: f685df448700862429fd3ccf7bef4dfc, type: 2}
+  buffed: 0
+  currentSpeed: 0
+  currentDamage: 0
   gun: {fileID: 1744278658977423639}
   shootingPoint: {fileID: 1744278658977423639}
   attackCooldown: 0.5
@@ -156,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentLife: 0
+  _maxLife: 0
+  lifeBar: {fileID: 0}
 --- !u!1 &1744278658977423639
 GameObject:
   m_ObjectHideFlags: 0
