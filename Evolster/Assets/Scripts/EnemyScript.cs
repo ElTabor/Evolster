@@ -8,13 +8,16 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     public Transform player;
+
+    public Rigidbody2D _rb;
     public NavMeshAgent _navMesh;
 
-    //GameObject player;
-    public Rigidbody2D _rb;
-
     public Vector2 _direction;
+    public bool isInRangeAttack;
+    public float distance;
+
     public StatsData _stats;
+
     public float _lastAttack;
     public float attackCooldown;
 
@@ -31,15 +34,12 @@ public class EnemyScript : MonoBehaviour
         _navMesh.updateUpAxis = false;
         _navMesh.speed = _stats.speed;
         GetComponent<LifeController>().SetMaxLife(_stats.maxLife);
-
     }
 
     public virtual void Update()
     {
-        bool isInRangeAttack;
-        float distance = Vector2.Distance(player.transform.position, transform.position);
-        if (distance <= _stats.attackRange) isInRangeAttack = true;
-        else isInRangeAttack = false;
+        distance = Vector2.Distance(player.transform.position, transform.position);
+        isInRangeAttack = distance <= _stats.attackRange;
 
         if (isInRangeAttack && Time.time > _lastAttack + attackCooldown) Attack();
 

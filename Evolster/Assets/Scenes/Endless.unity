@@ -172,7 +172,7 @@ Transform:
   - {fileID: 1954525}
   - {fileID: 627951876}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &217493659 stripped
 Transform:
@@ -1357,7 +1357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1730519987 stripped
 Transform:
@@ -1397,7 +1397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1744278658796917601, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1744278658796917601, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1728,6 +1728,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndlessManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4839058214147629086, guid: e029d751e210fd6418719a905a1540bb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e029d751e210fd6418719a905a1540bb, type: 3}
 --- !u!1001 &1053511305481419480
@@ -1914,7 +1918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3845989008623210209, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3845989008623210209, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_LocalPosition.x
