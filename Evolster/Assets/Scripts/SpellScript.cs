@@ -26,10 +26,9 @@ public class SpellScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
-        {
-            collision.GetComponent<LifeController>().GetDamage(currentDamage);
-        }
+        if ((gameObject.layer == LayerMask.NameToLayer("FriendlySpells") && collision.CompareTag("Enemy")) || 
+            (gameObject.layer == LayerMask.NameToLayer("EnemySpells") && collision.CompareTag("Player")))
+                collision.GetComponent<LifeController>().GetDamage(currentDamage);
         Destroy(gameObject);
     }
 }

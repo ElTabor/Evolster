@@ -1,3 +1,5 @@
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +11,12 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
     [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject HUD;
 
-    //[SerializeField] Slider lifeBar;
+    [SerializeField] GameObject lifeBar;
+    [SerializeField] Image lifeBarFill;
+    [SerializeField] GameObject enemyCount;
+    [SerializeField] TextMeshProUGUI enemyCountText;
 
     bool gamePaused;
 
@@ -20,9 +26,6 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        //if(SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
-        //    lifeBar = GameObject.FindWithTag("Player").GetComponentInChildren<Slider>();
-
     }
     private void Update()
     {
@@ -30,24 +33,30 @@ public class UIManager : MonoBehaviour
         if (gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
 
+        HUD.SetActive(SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby");
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManagerScript.instance.scene != "Main Menu") OpenCloseMenu(pauseMenu);
 
-        //if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby") //UpdateLife();
-        //else
-        //{
+        if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
+        {
+            UpdateLife();
+            enemyCount.SetActive(true);
+            enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
+        }
+        else
+        {
            if(SceneManagerScript.instance.scene == "Main Menu") mainMenu.SetActive(true);
            else mainMenu.SetActive(false);
-           //lifeBar?.gameObject.SetActive(false);
-        //}
+           lifeBar.SetActive(false);
+           enemyCount.SetActive(false);
+        }
     }
 
-    //private void UpdateLife()
-    //{
-    //  lifeBar?.gameObject.SetActive(true);
-    //  if(SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby") 
-    //      lifeBar.value = PlayerController.instance.gameObject.GetComponent<LifeController>()._currentLife 
-    //    / PlayerController.instance.gameObject.GetComponent<LifeController>()._maxLife;
-    //}
+    private void UpdateLife()
+    {
+        lifeBar.SetActive(true);
+        if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
+            lifeBarFill.fillAmount = PlayerController.instance.gameObject.GetComponent<LifeController>()._currentLife / PlayerController.instance.gameObject.GetComponent<LifeController>()._maxLife;
+    }
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);
 
