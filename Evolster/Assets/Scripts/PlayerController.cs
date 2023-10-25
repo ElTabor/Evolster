@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Profiling.Experimental;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,11 +28,15 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] private GameObject spellPrefab;
+    [SerializeField] private GameObject uniqueAbilityPrefab;
     [SerializeField] public GameObject[] availableSpells;
     
     [SerializeField] public GameObject gameOverScreen;
 
     [SerializeField] GameObject playerGO;
+
+    [SerializeField] private bool uniqueAbilityIsAvailable = false;
+    [SerializeField] private Transform aim;
 
     public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
     {
@@ -68,7 +73,16 @@ public class PlayerController : MonoBehaviour
         AimToNearestEnemy();        //Automaticlly shoot to the nearest enemy only when the player is steady
 
                 //Shooting
-        if (SceneManagerScript.instance.scene != "Lobby" && enemyNearBy) Attack();
+        if (SceneManagerScript.instance.scene != "Lobby" && enemyNearBy) CastSpell();
+
+        if (uniqueAbilityIsAvailable)
+        {
+            aim.position = Camera.main.ScreenToWorldPoint(new Vector3(
+                Input.mousePosition.x,
+                Input.mousePosition.y,
+                -Camera.main.transform.position.z));
+            CastAbility();
+        }
     }
 
     private void AimToNearestEnemy()
@@ -115,7 +129,7 @@ public class PlayerController : MonoBehaviour
         _vertical = Input.GetAxisRaw("Vertical");
     }
 
-    private void Attack()
+    private void CastSpell()
     {
         if (Time.time >= _lastAttack + attackCooldown && _rb.velocity == Vector2.zero)
         {
@@ -124,6 +138,27 @@ public class PlayerController : MonoBehaviour
             spell.GetComponent<SpellScript>().currentDamage += currentDamage;
             spell.layer = LayerMask.NameToLayer("FriendlySpells");
             _lastAttack = Time.time;
+        }
+    }
+    
+    public void CastAbility()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            var aimDirection = (aim.position - transform.position).normalized;
+            RaycastHit2D cast = Physics2D.Raycast(transform.position, (aim.position - transform.position), 1000000f);
+            GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, cast.transform.position + aimDirection * 2, Quaternion.identity);
+            uniqueAbility.GetComponent<UniqueAbilityScript>().direction = aimDirection;
+            uniqueAbility.GetComponent<UniqueAbilityScript>().currentDamage += currentDamage;
+            if (cast.collider != null)
+            {
+                if (cast.collider.gameObject.CompareTag("Enemy"))
+                {
+                    Debug.Log("cast Enemy!");
+                }
+            }
+            Debug.DrawRay(transform.position, (aim.position - transform.position), Color.red);
+            Debug.Log("click");
         }
     }
 

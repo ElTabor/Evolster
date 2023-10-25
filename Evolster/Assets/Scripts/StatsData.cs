@@ -5,6 +5,7 @@ public class StatsData : ScriptableObject
 {
     public int maxLife;
     public float speed;
+    public float mana;
     public int damage;
     public float speedAttack;
     public float attackRange;
