@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778085394937095887, guid: 6ec4aa41a52c8af4f88de86f0bf93051, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8778085394937095887, guid: 6ec4aa41a52c8af4f88de86f0bf93051, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1336,7 +1336,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1483836884
 PrefabInstance:
@@ -1829,17 +1829,6 @@ PrefabInstance:
       objectReference: {fileID: 7273161089312693241, guid: 48f7cd9f4f6816e4885c120b70f93dc3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
---- !u!114 &1797756541 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1841512198, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
-  m_PrefabInstance: {fileID: 1797756540}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1816909470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2068,6 +2057,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4103590956888067815, guid: f136e4b5cf70d9549b51643a5f2cceaf, type: 3}
   m_PrefabInstance: {fileID: 482499730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2091625075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2031081769349134315, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+  m_PrefabInstance: {fileID: 2228614249516894092}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2107545644
 PrefabInstance:
@@ -2376,7 +2370,7 @@ PrefabInstance:
     - target: {fileID: 1154081612586946445, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: lifeBar
       value: 
-      objectReference: {fileID: 1797756541}
+      objectReference: {fileID: 2091625075}
     - target: {fileID: 1154081612586946445, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: skillCanvas
       value: 
