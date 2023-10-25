@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Profiling.Experimental;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public StatsData _stats;
     public float currentSpeed;
     public float currentDamage;
+    public float currentMana;
 
     float distanceToNearestEnemy;
     Vector2 shootingDirection;
@@ -29,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject spellPrefab;
     [SerializeField] private GameObject uniqueAbilityPrefab;
-    [SerializeField] public GameObject[] availableSpells;
+    [SerializeField] public List<GameObject> availableSpells;
     
     [SerializeField] public GameObject gameOverScreen;
 
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
         currentSpeed = _stats.speed;
         currentDamage = _stats.damage;
+        currentMana = _stats.maxMana;
         GetComponent<LifeController>().SetMaxLife(_stats.maxLife);
     }
 
