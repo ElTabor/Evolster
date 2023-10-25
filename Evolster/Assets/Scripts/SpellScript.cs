@@ -28,7 +28,7 @@ public class SpellScript : MonoBehaviour
     {
         if ((gameObject.layer == LayerMask.NameToLayer("FriendlySpells") && collision.CompareTag("Enemy")) || 
             (gameObject.layer == LayerMask.NameToLayer("EnemySpells") && collision.CompareTag("Player")))
-                collision.GetComponent<LifeController>().GetDamage(currentDamage);
+                collision.GetComponent<LifeController>().UpdateLife(currentDamage);
         Destroy(gameObject);
     }
 }

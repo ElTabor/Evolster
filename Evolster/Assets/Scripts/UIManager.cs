@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject lifeBar;
     [SerializeField] Image lifeBarFill;
+    [SerializeField] GameObject manaBar;
+    [SerializeField] Image manaBarFill;
     [SerializeField] GameObject enemyCount;
     [SerializeField] TextMeshProUGUI enemyCountText;
 
@@ -56,6 +58,13 @@ public class UIManager : MonoBehaviour
         lifeBar.SetActive(true);
         if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
             lifeBarFill.fillAmount = PlayerController.instance.gameObject.GetComponent<LifeController>()._currentLife / PlayerController.instance.gameObject.GetComponent<LifeController>()._maxLife;
+    }
+
+    private void UpdateMana()
+    {
+        manaBar.SetActive(true);
+        if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
+            manaBarFill.fillAmount = PlayerController.instance.currentMana / PlayerController.instance._stats.maxMana;
     }
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed75c62bfba3ee742a76bdb0f7348e70, type: 3}
-  m_Name: Basic reward Spell 2
+  m_Name: HP reward
   m_EditorClassIdentifier: 
-  name: Nuevo hechizo 2
-  sprite: {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
-  description: Este otro nuevo hechizo invoca bolas de fuego
-  type: NewSpell
+  name: Mejora de vida
+  sprite: {fileID: 21300000, guid: 0779ad3feec52124e97114bcbb12ef13, type: 3}
+  description: Aumenta la vida maxima del jugador 25 puntos y restaura todos los
+    puntos de vida.
+  type: StatUpgrade

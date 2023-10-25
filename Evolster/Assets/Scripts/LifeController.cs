@@ -14,7 +14,12 @@ public class LifeController : MonoBehaviour
         _currentLife = _maxLife;
     }
 
-    public void GetDamage(float damageReceived)
+    public void IncreaseMaxLife(float n)
+    {
+        SetMaxLife(_maxLife + n);
+    }
+
+    public void UpdateLife(float damageReceived)
     {
         _currentLife -= damageReceived;
         if (_currentLife > _maxLife) _currentLife = _maxLife;

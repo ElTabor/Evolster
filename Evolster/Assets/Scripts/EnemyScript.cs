@@ -49,7 +49,7 @@ public class EnemyScript : MonoBehaviour
     public virtual void Attack()
     {
         Debug.Log("Attack!");
-        player.gameObject.GetComponent<LifeController>().GetDamage(_stats.damage);
+        player.gameObject.GetComponent<LifeController>().UpdateLife(_stats.damage);
         _lastAttack = Time.time;
     }
 

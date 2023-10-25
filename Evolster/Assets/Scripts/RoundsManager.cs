@@ -38,7 +38,7 @@ public class RoundsManager : MonoBehaviour
     private void EndRound()
     {
         Debug.Log("EndRound");
-        UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
+        if(SceneManagerScript.instance.scene == "Level 1" || SceneManagerScript.instance.scene == "Endless") UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
         prepTime = true;
     }
 

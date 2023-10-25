@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -5,41 +6,47 @@ using Random = UnityEngine.Random;
 public class Upgrade : MonoBehaviour
 {
     public static Upgrade instance;
-    private StatsData player;
     private SpellsData[] spells;
-    [SerializeField] GameObject[] spellsList;
+    [SerializeField] List<GameObject> spellsList;
 
     private void Start()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        player = PlayerController.instance._stats;
-
 
         //foreach (GameObject spell in PlayerController.instance.availableSpells)
         //    spells.Append(spell.GetComponent<SpellScript>().spellsData);
     }
 
-    public void RewardSelection(string rewardSelected)
+    public void RewardSelection(string rewardType, string reward)
     {
-        switch (rewardSelected)
+        switch (rewardType)
         {
             case "StatUpgrade":
-                PlayerController.instance.currentSpeed += 2;
+                switch(reward)
+                {
+                    case "Mejora de vida":
+                        PlayerController.instance.gameObject.GetComponent<LifeController>().IncreaseMaxLife(25);
+                        break;
+                    case "Vida maxima":
+                        PlayerController.instance.gameObject.GetComponent<LifeController>().UpdateLife(-PlayerController.instance.gameObject.GetComponent<LifeController>()._maxLife);
+                        break;
+                    case "Mejora de velocidad":
+                        PlayerController.instance.currentSpeed += 2;
+                        break;
+                }
                 break;
 
             case "SpellUpgrade":
                 foreach (SpellsData spelldata in spells)
-                {
                     spelldata.spellDamage += 10;
-                }
                 break;
 
             case "NewSpell":
-                int n = Random.Range(0, spellsList.Length);
+                int n = Random.Range(0, spellsList.Count());
                 Debug.Log(n);
-                PlayerController.instance.availableSpells.Append(spellsList[n]);
+                PlayerController.instance.availableSpells.Add(spellsList[n]);
                 Debug.Log(PlayerController.instance.availableSpells);
                 break;
         }

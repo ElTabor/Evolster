@@ -4,6 +4,7 @@ using UnityEngine;
 public class StatsData : ScriptableObject
 {
     public int maxLife;
+    public int maxMana;
     public float speed;
     public int damage;
     public float speedAttack;

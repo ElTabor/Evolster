@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public StatsData _stats;
     public float currentSpeed;
     public float currentDamage;
+    public float currentMana;
 
     float distanceToNearestEnemy;
     Vector2 shootingDirection;
@@ -27,7 +29,8 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] private GameObject spellPrefab;
-    [SerializeField] public GameObject[] availableSpells;
+    //[SerializeField] public GameObject[] availableSpells;
+    public List<GameObject> availableSpells;
     
     [SerializeField] public GameObject gameOverScreen;
 
@@ -52,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
         currentSpeed = _stats.speed;
         currentDamage = _stats.damage;
+        currentMana = _stats.maxMana;
         GetComponent<LifeController>().SetMaxLife(_stats.maxLife);
     }
 
@@ -130,6 +134,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         UIManager.instance.GameOver();
+        GetComponent<LifeController>().UpdateLife(-GetComponent<LifeController>()._maxLife);
     }
 
     private void OnDrawGizmos()

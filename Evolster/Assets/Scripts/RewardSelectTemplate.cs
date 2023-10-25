@@ -16,7 +16,7 @@ public class RewardSelectTemplate : MonoBehaviour
 
     public void ChooseReward()
     {
-        Upgrade.instance.RewardSelection(rewardType);
+        Upgrade.instance.RewardSelection(rewardType, rewardName);
         CloseMenu();
     }
 
