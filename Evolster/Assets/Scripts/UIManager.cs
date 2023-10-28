@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
         if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
         {
             UpdateLife();
+            UpdateMana();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
         }
@@ -66,7 +67,7 @@ public class UIManager : MonoBehaviour
     {
         manaBar.SetActive(true);
         if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
-            manaBarFill.fillAmount = PlayerController.instance.currentMana / PlayerController.instance._stats.maxMana;
+            manaBarFill.fillAmount = PlayerController.instance.manaController.currentMana / PlayerController.instance._stats.maxMana;
     }
 
     public void UpdateBuff(float applyTime, float buffTime)

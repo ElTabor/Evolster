@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 1744278658796917600}
   - component: {fileID: 2573904622440335687}
   - component: {fileID: -4561438247261481820}
+  - component: {fileID: 7643298336837889245}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -462,16 +463,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9db7be65e4fe22478fae8b64c308788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaController: {fileID: 0}
   player: {fileID: 0}
   _stats: {fileID: 11400000, guid: f685df448700862429fd3ccf7bef4dfc, type: 2}
   currentSpeed: 0
   currentDamage: 0
-  currentMana: 0
+  isBuffed: 0
   gun: {fileID: 1744278658977423639}
   shootingPoint: {fileID: 1744278658977423639}
   attackCooldown: 0.5
   spellPrefab: {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
-  uniqueAbilityPrefab: {fileID: 0}
+  uniqueAbilityPrefab: {fileID: 7273161089312693241, guid: 48f7cd9f4f6816e4885c120b70f93dc3, type: 3}
   availableSpells: []
   gameOverScreen: {fileID: 0}
   playerGO: {fileID: 1744278658796917407}
@@ -544,6 +546,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentLife: 0
   _maxLife: 0
+--- !u!114 &7643298336837889245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744278658796917407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575590ab1742c93479207141ef064a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMana: 0
+  manaRecoveryCooldown: 1
 --- !u!1 &1744278658977423639
 GameObject:
   m_ObjectHideFlags: 0

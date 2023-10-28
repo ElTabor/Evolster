@@ -15,4 +15,5 @@ public class UniqueAbilityData : ScriptableObject
     public float uniqueAbilityLifeTime;
     public float uniqueAbilityDamageRange;
     public float uniqueAbilityDamageArea;
+    public float manaCost;
 }

@@ -2,17 +2,20 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Profiling.Experimental;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+
+    LifeController lifeController;
+    public ManaController manaController;
 
     [SerializeField] private GameObject player;
     private Rigidbody2D _rb;
     [SerializeField] public StatsData _stats;
     public float currentSpeed;
     public float currentDamage;
-    public float currentMana;
     public bool isBuffed;
 
     float distanceToNearestEnemy;
@@ -57,11 +60,13 @@ public class PlayerController : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         _rb = player.GetComponent<Rigidbody2D>();
+        lifeController = GetComponent<LifeController>();
+        manaController = GetComponent<ManaController>();
 
         currentSpeed = _stats.speed;
         currentDamage = _stats.damage;
-        currentMana = _stats.maxMana;
-        GetComponent<LifeController>().SetMaxLife(_stats.maxLife);
+        lifeController.SetMaxLife(_stats.maxLife);
+        manaController.SetMaxMana(_stats.maxMana);
     }
 
     void Update()
@@ -85,7 +90,6 @@ public class PlayerController : MonoBehaviour
                 Input.mousePosition.x,
                 Input.mousePosition.y,
                 -Camera.main.transform.position.z));
-            CastAbility();
         }
     }
 
@@ -131,6 +135,8 @@ public class PlayerController : MonoBehaviour
     {
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetMouseButtonDown(0)) TryCastAbility(uniqueAbilityPrefab.GetComponent<UniqueAbilityScript>());
     }
 
     private void CastSpell()
@@ -145,25 +151,25 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    public void TryCastAbility(UniqueAbilityScript abilityToCast)
+    {
+        if (manaController.currentMana >= abilityToCast.uniqueAbilityData.manaCost) CastAbility();
+        Debug.Log("Tried to cast: " + abilityToCast.uniqueAbilityData.uniqueAbilityName);
+    }
+
     public void CastAbility()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            var aimDirection = (aim.position - transform.position).normalized;
-            RaycastHit2D cast = Physics2D.Raycast(transform.position, (aim.position - transform.position), 1000000f);
-            GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, cast.transform.position + aimDirection * 2, Quaternion.identity);
-            uniqueAbility.GetComponent<UniqueAbilityScript>().direction = aimDirection;
-            uniqueAbility.GetComponent<UniqueAbilityScript>().currentDamage += currentDamage;
-            if (cast.collider != null)
-            {
-                if (cast.collider.gameObject.CompareTag("Enemy"))
-                {
-                    Debug.Log("cast Enemy!");
-                }
-            }
-            Debug.DrawRay(transform.position, (aim.position - transform.position), Color.red);
-            Debug.Log("click");
-        }
+        var aimDirection = (aim.position - transform.position).normalized;
+        RaycastHit2D cast = Physics2D.Raycast(transform.position, (aim.position - transform.position), 1000000f);
+        GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, cast.transform.position + aimDirection * 2, Quaternion.identity);
+        uniqueAbility.GetComponent<UniqueAbilityScript>().direction = aimDirection;
+        uniqueAbility.GetComponent<UniqueAbilityScript>().currentDamage += currentDamage;
+        manaController.ManageMana(-uniqueAbility.GetComponent<UniqueAbilityScript>().uniqueAbilityData.manaCost);
+
+        //Debugs
+        if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
+        Debug.DrawRay(transform.position, (aim.position - transform.position), Color.red);
+        Debug.Log("Ability Cast");
     }
 
     public void Die()

@@ -2570,7 +2570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1512481302726820138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2650,8 +2650,8 @@ MonoBehaviour:
   HUD: {fileID: 9203016952327426575}
   lifeBar: {fileID: 2031081769349134315}
   lifeBarFill: {fileID: 4496111842684123315}
-  manaBar: {fileID: 0}
-  manaBarFill: {fileID: 0}
+  manaBar: {fileID: 648598528952097680}
+  manaBarFill: {fileID: 5262705287504547520}
   buffBar: {fileID: 6687547688367936595}
   BuffBarFill: {fileID: 8481845879246775906}
   enemyCount: {fileID: 5206300028735170666}

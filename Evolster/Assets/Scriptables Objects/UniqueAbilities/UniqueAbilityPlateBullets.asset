@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UniqueAbilityPlateBullets
   m_EditorClassIdentifier: 
   uniqueAbilitySprite: {fileID: 0}
-  uniqueAbilityName: Basic
+  uniqueAbilityName: Basic ability
   uniqueAbilityType: 
   uniqueAbilityDescription: 
   uniqueAbilityLevel: 1
@@ -22,3 +22,4 @@ MonoBehaviour:
   uniqueAbilityLifeTime: 3
   uniqueAbilityDamageRange: 0
   uniqueAbilityDamageArea: 0
+  manaCost: 20

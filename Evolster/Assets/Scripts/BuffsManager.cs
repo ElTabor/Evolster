@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -36,7 +37,7 @@ public class BuffsManager : MonoBehaviour
 
     void TrySpawnBuff()
     {
-        if(!PlayerController.instance.isBuffed)
+        if(!PlayerController.instance.isBuffed && GameObject.FindGameObjectsWithTag("Buff").Count() == 0)
         {
             GameObject newBuff = Instantiate(stack.Last(), buffSpawn, Quaternion.identity);
             stack.Pop();
