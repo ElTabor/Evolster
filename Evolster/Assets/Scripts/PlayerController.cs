@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float currentSpeed;
     public float currentDamage;
     public float currentMana;
+    public bool isBuffed;
 
     float distanceToNearestEnemy;
     Vector2 shootingDirection;

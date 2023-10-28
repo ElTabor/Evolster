@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,6 +10,8 @@ public class BuffsManager : MonoBehaviour
     [SerializeField] GameObject buff;
     BuffsStack stack;
     Vector2 buffSpawn;
+    float buffAplicationTime;
+    float buffTime;
 
     void Start()
     {
@@ -17,27 +20,45 @@ public class BuffsManager : MonoBehaviour
         stack.InitializeStack();
     }
 
+    private void Update()
+    {
+        UIManager.instance.buffBar.SetActive(PlayerController.instance.isBuffed);
+        if (PlayerController.instance.isBuffed) UIManager.instance.UpdateBuff(buffAplicationTime, buffTime);    
+    }
+
     public void SetSpawnPosition(Vector2 newPosition)
     {
         Debug.Log(newPosition);
         buffSpawn = newPosition;
         stack.Push(buff);
-        SpawnBuff();
+        TrySpawnBuff();
     }
 
-    void SpawnBuff()
+    void TrySpawnBuff()
     {
-        GameObject newBuff = Instantiate(stack.Last(), buffSpawn, Quaternion.identity);
-        stack.Pop();
+        if(!PlayerController.instance.isBuffed)
+        {
+            GameObject newBuff = Instantiate(stack.Last(), buffSpawn, Quaternion.identity);
+            stack.Pop();
+        }
     }
 
     public void ApplyBuff(float buff, float buffTime)
     {
+        Debug.Log("Aplicar buff");
         PlayerController.instance.currentDamage += buff;
+        PlayerController.instance.isBuffed = true;
+        buffAplicationTime = Time.time;
+        this.buffTime = buffTime;
         StartCoroutine(StartCountdown(buff, buffTime));
     }
 
-    public void RemoveBuff(float buff) => PlayerController.instance.currentDamage -=  buff;
+    public void RemoveBuff(float buff)
+    {
+        Debug.Log("Quitar buff");
+        PlayerController.instance.currentDamage -=  buff;
+        PlayerController.instance.isBuffed = false;
+    }
 
     IEnumerator StartCountdown(float buff, float buffTime)
     {
