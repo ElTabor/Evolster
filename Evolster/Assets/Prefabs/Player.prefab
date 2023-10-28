@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 70147326}
   - component: {fileID: 70147328}
   - component: {fileID: 70147327}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 392419919}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 469524473}
   - component: {fileID: 469524472}
   - component: {fileID: 469524471}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: LifeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1208528456}
   - component: {fileID: 1208528458}
   - component: {fileID: 1208528457}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1841512197}
   - component: {fileID: 1841512198}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744278657853646313}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: CastingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 1744278658796917600}
   - component: {fileID: 2573904622440335687}
   - component: {fileID: -4561438247261481820}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -466,13 +466,17 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: f685df448700862429fd3ccf7bef4dfc, type: 2}
   currentSpeed: 0
   currentDamage: 0
+  currentMana: 0
   gun: {fileID: 1744278658977423639}
   shootingPoint: {fileID: 1744278658977423639}
   attackCooldown: 0.5
   spellPrefab: {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
+  uniqueAbilityPrefab: {fileID: 0}
   availableSpells: []
   gameOverScreen: {fileID: 0}
   playerGO: {fileID: 1744278658796917407}
+  uniqueAbilityIsAvailable: 0
+  aim: {fileID: 0}
 --- !u!50 &1744278658796917603
 Rigidbody2D:
   serializedVersion: 4
@@ -549,7 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744278658977423638}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Rune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744278658979310616}
   - component: {fileID: 1744278658979310619}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744278659184143228}
   - component: {fileID: 1744278659184143231}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Rune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
