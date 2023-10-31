@@ -37,14 +37,12 @@ public class RoundsManager : MonoBehaviour
 
     private void EndRound()
     {
-        Debug.Log("EndRound");
         if(SceneManagerScript.instance.scene == "Level 1" || SceneManagerScript.instance.scene == "Endless") UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
         prepTime = true;
     }
 
     public void SetNewRound()
     {
-        Debug.Log("NewRound");
         StartCoroutine(PrepTimeSet());
         if (round == 7) SceneManagerScript.instance.LoadNewScene("Lobby");
         else if (round > 0) UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);

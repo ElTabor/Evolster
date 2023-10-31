@@ -146,7 +146,7 @@ RectTransform:
   m_Children:
   - {fileID: 1841512197}
   m_Father: {fileID: 1744278658796917601}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -446,8 +446,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1744278658979310616}
-  - {fileID: 1744278658977423638}
   - {fileID: 469524470}
+  - {fileID: 796759112226880630}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -465,13 +465,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaController: {fileID: 0}
   player: {fileID: 0}
+  _rb: {fileID: 0}
   _stats: {fileID: 11400000, guid: f685df448700862429fd3ccf7bef4dfc, type: 2}
   currentSpeed: 0
   currentDamage: 0
   isBuffed: 0
-  gun: {fileID: 1744278658977423639}
-  shootingPoint: {fileID: 1744278658977423639}
-  attackCooldown: 0.5
+  spellController: {fileID: 0}
   spellPrefab: {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
   uniqueAbilityPrefab: {fileID: 7273161089312693241, guid: 48f7cd9f4f6816e4885c120b70f93dc3, type: 3}
   availableSpells: []
@@ -583,15 +582,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744278658977423639}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: 0, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6799998, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1744278659184143228}
   - {fileID: 1744278657853646313}
-  m_Father: {fileID: 1744278658796917601}
-  m_RootOrder: 1
+  m_Father: {fileID: 796759112226880630}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1744278658979310617
 GameObject:
@@ -761,3 +760,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5176894309458948346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796759112226880630}
+  - component: {fileID: 4389716660912474189}
+  m_Layer: 11
+  m_Name: SpellController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796759112226880630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176894309458948346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1744278658977423638}
+  m_Father: {fileID: 1744278658796917601}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4389716660912474189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176894309458948346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfa0588e35f60143bd2537528530d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spells:
+  - {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
+  - {fileID: 4550993629818596674, guid: aa026bd5701622349bc2a1eddd161c8d, type: 3}
+  - {fileID: 4550993629818596674, guid: 9b515dbf7b0c1474aa0344a20fe60652, type: 3}
+  activeSpellPrefab: {fileID: 0}
+  shootingPoint: {fileID: 1744278658977423639}
+  attackCooldown: 1

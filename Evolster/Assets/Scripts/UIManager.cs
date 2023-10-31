@@ -1,5 +1,6 @@
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image BuffBarFill;
     [SerializeField] GameObject enemyCount;
     [SerializeField] TextMeshProUGUI enemyCountText;
+    [SerializeField] Image[] hotkeysIcons;
 
     bool gamePaused;
 
@@ -46,6 +48,12 @@ public class UIManager : MonoBehaviour
             UpdateMana();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
+            for(int n = 0; n <= hotkeysIcons.Length; n++)
+            {
+                if (hotkeysIcons[n-1] != null)
+                    hotkeysIcons[n-1].sprite = PlayerController.instance.spellController.spells[n-1].GetComponent<SpellScript>().spellData.spellSprite;
+                else hotkeysIcons[n-1].sprite = null;
+            }
         }
         else
         {

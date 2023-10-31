@@ -30,6 +30,5 @@ public class ManaController : MonoBehaviour
         currentMana += newMana;
         if (currentMana > maxMana) currentMana = maxMana;
         else if (currentMana < 0) currentMana = 0;
-        Debug.Log("CurrentMana: " + currentMana);
     }
 }

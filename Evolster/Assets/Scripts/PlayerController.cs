@@ -10,32 +10,21 @@ public class PlayerController : MonoBehaviour
 
     LifeController lifeController;
     public ManaController manaController;
+    public SpellController spellController;
 
     [SerializeField] private GameObject player;
-    private Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     [SerializeField] public StatsData _stats;
     public float currentSpeed;
     public float currentDamage;
     public bool isBuffed;
-
-    float distanceToNearestEnemy;
-    Vector2 shootingDirection;
-    bool enemyNearBy;
 
     private float _horizontal;
     private float _vertical;
     private Vector2 _direction;
 
 
-    [SerializeField] private GameObject gun;
-    [SerializeField] private GameObject shootingPoint;
-    private float _lastAttack;
-    [SerializeField] private float attackCooldown;
-
-
-    [SerializeField] private GameObject spellPrefab;
     [SerializeField] private GameObject uniqueAbilityPrefab;
-    [SerializeField] public List<GameObject> availableSpells;
     
     [SerializeField] public GameObject gameOverScreen;
 
@@ -49,7 +38,7 @@ public class PlayerController : MonoBehaviour
         _stats.speed = speed;
         this.player = player;
         _horizontal = horizontal;
-        this.shootingPoint = shootingPoint;
+        spellController.shootingPoint = shootingPoint;
     }
 
     private void Start()
@@ -62,6 +51,7 @@ public class PlayerController : MonoBehaviour
         _rb = player.GetComponent<Rigidbody2D>();
         lifeController = GetComponent<LifeController>();
         manaController = GetComponent<ManaController>();
+        spellController = GetComponentInChildren<SpellController>();
 
         currentSpeed = _stats.speed;
         currentDamage = _stats.damage;
@@ -79,11 +69,6 @@ public class PlayerController : MonoBehaviour
 
         #endregion
 
-        AimToNearestEnemy();        //Automaticlly shoot to the nearest enemy only when the player is steady
-
-                //Shooting
-        if (SceneManagerScript.instance.scene != "Lobby" && enemyNearBy) CastSpell();
-
         if (uniqueAbilityIsAvailable)
         {
             aim.position = Camera.main.ScreenToWorldPoint(new Vector3(
@@ -93,38 +78,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void AimToNearestEnemy()
-    {
-        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, _stats.attackRange);
-        GameObject nearestEnemy;
 
-        foreach (Collider2D enemy in enemiesAround)
-        {
-            if (enemy.CompareTag("Enemy"))
-            {
-                enemyNearBy = true;
-                Vector2 h = enemy.transform.position - transform.position;
-                float distanceToEnemy = Mathf.Sqrt(h.x * h.x + h.y * h.y);
-
-                if (distanceToNearestEnemy > distanceToEnemy)
-                {
-                    distanceToNearestEnemy = distanceToEnemy;
-                    nearestEnemy = enemy.gameObject;
-                }
-
-                shootingDirection = h / distanceToEnemy;
-
-                MoveAimingPoint();
-            }
-            else enemyNearBy = false;
-        }
-    }
-
-    private void MoveAimingPoint()
-    {
-        Vector3 newPosition = shootingDirection * 1.5f;
-        shootingPoint.transform.position = transform.position + newPosition;
-    }
 
     private void FixedUpdate()
     {
@@ -137,24 +91,16 @@ public class PlayerController : MonoBehaviour
         _vertical = Input.GetAxisRaw("Vertical");
 
         if (Input.GetMouseButtonDown(0)) TryCastAbility(uniqueAbilityPrefab.GetComponent<UniqueAbilityScript>());
-    }
 
-    private void CastSpell()
-    {
-        if (Time.time >= _lastAttack + attackCooldown && _rb.velocity == Vector2.zero)
-        {
-            GameObject spell = Instantiate(spellPrefab, shootingPoint.transform.position, gun.transform.rotation);
-            spell.GetComponent<SpellScript>().direction = shootingDirection;
-            spell.GetComponent<SpellScript>().currentDamage += currentDamage;
-            spell.layer = LayerMask.NameToLayer("FriendlySpells");
-            _lastAttack = Time.time;
-        }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) spellController.ChooseSpell(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) spellController.ChooseSpell(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) spellController.ChooseSpell(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) spellController.ChooseSpell(3);
     }
     
     public void TryCastAbility(UniqueAbilityScript abilityToCast)
     {
         if (manaController.currentMana >= abilityToCast.uniqueAbilityData.manaCost) CastAbility();
-        Debug.Log("Tried to cast: " + abilityToCast.uniqueAbilityData.uniqueAbilityName);
     }
 
     public void CastAbility()

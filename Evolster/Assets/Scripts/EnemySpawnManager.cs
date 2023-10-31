@@ -21,7 +21,6 @@ public class EnemySpawnManager : MonoBehaviour
     { 
         if(RoundsManager.instance.round < 6)
         {
-            Debug.Log(enemySpawnPoints);
             foreach (GameObject spawn in enemySpawnPoints)
             {
                 spawn.GetComponent<EnemySpawn>().amountOfEnemiesToSpawn = RoundsManager.instance.round * 2;

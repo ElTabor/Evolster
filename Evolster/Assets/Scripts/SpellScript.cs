@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpellScript : MonoBehaviour
 {
-    [SerializeField] public SpellsData spellsData;
+    [SerializeField] public SpellsData spellData;
 
     public Vector2 direction;
     public float currentDamage;
@@ -15,13 +15,13 @@ public class SpellScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         creationTime = Time.time;
-        rb.velocity = direction * spellsData.spellSpeed;
-        currentDamage = spellsData.spellDamage;
+        rb.velocity = direction * spellData.spellSpeed;
+        currentDamage = spellData.spellDamage;
     }
 
     void Update()
     {
-        if (Time.time >= creationTime + spellsData.spellLifeTime) Destroy(gameObject);
+        if (Time.time >= creationTime + spellData.spellLifeTime) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

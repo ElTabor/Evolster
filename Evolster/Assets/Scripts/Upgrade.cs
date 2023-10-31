@@ -46,8 +46,7 @@ public class Upgrade : MonoBehaviour
             case "NewSpell":
                 int n = Random.Range(0, spellsList.Count());
                 Debug.Log(n);
-                PlayerController.instance.availableSpells.Add(spellsList[n]);
-                Debug.Log(PlayerController.instance.availableSpells);
+                PlayerController.instance.spellController.UnlockNewSpell(spellsList[n]);
                 break;
         }
     }

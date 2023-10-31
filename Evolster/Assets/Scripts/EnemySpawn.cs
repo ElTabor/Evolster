@@ -25,7 +25,6 @@ public class EnemySpawn : MonoBehaviour
     private void Update()
     {
         if (!spawnQueue.EmptyQueue()) Spawn();
-        else Debug.Log("No enemies on queue");
     }
 
     private void Spawn()
@@ -66,7 +65,6 @@ public class EnemySpawn : MonoBehaviour
                 case "range enemy":
                     return rangeEnemyPrefab;
                 default:
-                    Debug.Log("No enemy selected");
                     return lightEnemyPrefab;
             }
         }

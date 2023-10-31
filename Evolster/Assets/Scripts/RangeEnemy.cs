@@ -28,7 +28,6 @@ public class RangeEnemy : EnemyScript
         spell.GetComponent<SpellScript>().direction = shootingDirection;
         spell.layer = LayerMask.NameToLayer("EnemySpells");
         _lastAttack = Time.time;
-        Debug.Log(spell);
     }
 
     private void AimToPlayer()

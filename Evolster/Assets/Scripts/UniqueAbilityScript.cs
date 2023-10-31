@@ -31,7 +31,6 @@ public class UniqueAbilityScript : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             collision.GetComponent<LifeController>().UpdateLife(currentDamage);
-            Debug.Log("Collision ability");
         }
         Destroy(gameObject);
     }
