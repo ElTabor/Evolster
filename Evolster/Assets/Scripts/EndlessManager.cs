@@ -8,13 +8,13 @@ public class EndlessManager : MonoBehaviour
 {
     [SerializeField] GameObject lightEnemyPrefab;
     private float _lastLightEnemySpawned;
-    [SerializeField] float lightEnemySpawnCooldown;
-    [SerializeField] GameObject heavyEnemyPrefab;
+    [SerializeField] private float lightEnemySpawnCooldown;
+    [SerializeField] private GameObject heavyEnemyPrefab;
     private float _lastHeavyEnemySpawned;
-    [SerializeField] float heavyEnemySpawnCooldown;
-    [SerializeField] GameObject rangeEnemyPrefab;
+    [SerializeField] private float heavyEnemySpawnCooldown;
+    [SerializeField] private GameObject rangeEnemyPrefab;
     private float _lastRangeEnemySpawned;
-    [SerializeField] float rangeEnemySpawnCooldown;
+    [SerializeField] private float rangeEnemySpawnCooldown;
     [SerializeField] private GameObject[] spawns;
 
     private void Start()
@@ -41,7 +41,7 @@ public class EndlessManager : MonoBehaviour
         }
     }
 
-    void ChooseSpawn(string enemyToSpawn)
+    private void ChooseSpawn(string enemyToSpawn)
     {
         int r = Random.Range(0, spawns.Length);
         spawns[r].GetComponent<EnemySpawn>().SpawnEnemy(true, enemyToSpawn);

@@ -178,12 +178,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 4046655587576836783, guid: b1da7a7b5ea78394aa510a28d22e7ef0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4046655587576836771, guid: b1da7a7b5ea78394aa510a28d22e7ef0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1da7a7b5ea78394aa510a28d22e7ef0, type: 3}
 --- !u!1001 &1618827567
 PrefabInstance:
@@ -236,9 +231,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4373839498794656288, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6810137549393883177, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001754412638065885, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9183389805815625954, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_Camera
@@ -373,10 +376,6 @@ PrefabInstance:
     - target: {fileID: 2672739647861905460, guid: fd182ee556b0e194d8983fefb4e4126c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068333238465143262, guid: fd182ee556b0e194d8983fefb4e4126c, type: 3}
-      propertyPath: scene
-      value: Main Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd182ee556b0e194d8983fefb4e4126c, type: 3}

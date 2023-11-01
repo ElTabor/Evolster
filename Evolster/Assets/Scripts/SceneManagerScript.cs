@@ -13,7 +13,6 @@ public class SceneManagerScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         scene = SceneManager.GetActiveScene().name;
-        
     }
 
     public void LoadNewScene(string newScene)

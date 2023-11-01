@@ -55,7 +55,6 @@ public class EnemySpawn : MonoBehaviour
     {
         if(isEndless)
         {
-            Debug.Log(newEnemy);
             switch(newEnemy)
             {
                 case "light enemy":
