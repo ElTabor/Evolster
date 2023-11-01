@@ -9,15 +9,15 @@ public class UniqueAbilityScript : MonoBehaviour
 
     public float currentDamage;
     public float coolDown;
-    Rigidbody2D rb;
+    private Rigidbody2D _rb;
     public Vector2 direction;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         currentDamage = uniqueAbilityData.uniqueAbilityDamage;
         coolDown = Time.time;
-        rb.velocity = direction * uniqueAbilityData.uniqueAbilitySpeed;
+        _rb.velocity = direction * uniqueAbilityData.uniqueAbilitySpeed;
     }
     
     void Update()

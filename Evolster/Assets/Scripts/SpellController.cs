@@ -6,12 +6,12 @@ using UnityEngine;
 public class SpellController : MonoBehaviour
 {
     public List<GameObject> spells;
-    [SerializeField] GameObject activeSpellPrefab;
+    [SerializeField] private GameObject activeSpellPrefab;
 
 
-    float distanceToNearestEnemy;
-    Vector2 shootingDirection;
-    bool enemyNearBy;
+    private float _distanceToNearestEnemy;
+    private Vector2 _shootingDirection;
+    private bool _enemyNearBy;
 
 
     private float _lastAttack;
@@ -23,12 +23,12 @@ public class SpellController : MonoBehaviour
         activeSpellPrefab = spells[0];
     }
     void Update()
-    { 
+    {
         //Automaticlly aim to the nearest enemy
         AimToNearestEnemy();
 
         //Shoot
-        if (SceneManagerScript.instance.scene != "Lobby" && enemyNearBy) CastSpell();
+        if (SceneManagerScript.instance.scene != "Lobby" && _enemyNearBy) CastSpell();
     }
 
     public void ChooseSpell(int n)
@@ -39,43 +39,43 @@ public class SpellController : MonoBehaviour
 
     private void AimToNearestEnemy()
     {
-        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, PlayerController.instance._stats.attackRange);
+        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, PlayerController.instance.stats.attackRange);
         GameObject nearestEnemy;
 
         foreach (Collider2D enemy in enemiesAround)
         {
             if (enemy.CompareTag("Enemy"))
             {
-                enemyNearBy = true;
+                _enemyNearBy = true;
                 Vector2 h = enemy.transform.position - transform.position;
                 float distanceToEnemy = Mathf.Sqrt(h.x * h.x + h.y * h.y);
 
-                if (distanceToNearestEnemy > distanceToEnemy)
+                if (_distanceToNearestEnemy > distanceToEnemy)
                 {
-                    distanceToNearestEnemy = distanceToEnemy;
+                    _distanceToNearestEnemy = distanceToEnemy;
                     nearestEnemy = enemy.gameObject;
                 }
 
-                shootingDirection = h / distanceToEnemy;
+                _shootingDirection = h / distanceToEnemy;
 
                 MoveAimingPoint();
             }
-            else enemyNearBy = false;
+            else _enemyNearBy = false;
         }
     }
 
     private void MoveAimingPoint()
     {
-        Vector3 newPosition = shootingDirection * 1.5f;
+        Vector3 newPosition = _shootingDirection * 1.5f;
         shootingPoint.transform.position = transform.position + newPosition;
     }
 
     private void CastSpell()
     {
-        if (Time.time >= _lastAttack + attackCooldown && PlayerController.instance._rb.velocity == Vector2.zero)
+        if (Time.time >= _lastAttack + attackCooldown && PlayerController.instance.rb.velocity == Vector2.zero)
         {
             GameObject spell = Instantiate(activeSpellPrefab, shootingPoint.transform.position, shootingPoint.transform.rotation);
-            spell.GetComponent<SpellScript>().direction = shootingDirection;
+            spell.GetComponent<SpellScript>().direction = _shootingDirection;
             spell.GetComponent<SpellScript>().currentDamage += PlayerController.instance.currentDamage;
             spell.layer = LayerMask.NameToLayer("FriendlySpells");
             _lastAttack = Time.time;

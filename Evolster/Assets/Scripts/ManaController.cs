@@ -6,29 +6,29 @@ using UnityEngine;
 public class ManaController : MonoBehaviour
 {
     public float currentMana;
-    float maxMana;
-    float lastManaRecover;
-    [SerializeField] float manaRecoveryCooldown;
+    private float _maxMana;
+    private float _lastManaRecover;
+    [SerializeField] private float manaRecoveryCooldown;
 
     public void SetMaxMana(float maxMana)
     {
-        this.maxMana = maxMana;
+        this._maxMana = maxMana;
         currentMana = maxMana;
     }
 
     void Update()
     {
-        if (Time.time >= lastManaRecover + manaRecoveryCooldown && currentMana < maxMana)
+        if (Time.time >= _lastManaRecover + manaRecoveryCooldown && currentMana < _maxMana)
         {
             ManageMana(1);
-            lastManaRecover = Time.time;
+            _lastManaRecover = Time.time;
         }
     }
 
     public void ManageMana(float newMana)
     {
         currentMana += newMana;
-        if (currentMana > maxMana) currentMana = maxMana;
+        if (currentMana > _maxMana) currentMana = _maxMana;
         else if (currentMana < 0) currentMana = 0;
     }
 }

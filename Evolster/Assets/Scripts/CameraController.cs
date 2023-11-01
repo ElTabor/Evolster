@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    Transform player;
+    private Transform _player;
 
-    void Start()
+    private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void Update()
+    private void Update()
     {
-        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        transform.position = new Vector3(_player.position.x, _player.position.y, transform.position.z);
     }
 }

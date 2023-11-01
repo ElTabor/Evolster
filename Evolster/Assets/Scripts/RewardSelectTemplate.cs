@@ -10,9 +10,9 @@ public class RewardSelectTemplate : MonoBehaviour
     public string rewardDescription;
     public string rewardType;
 
-    [SerializeField] TextMeshProUGUI name;
-    [SerializeField] Image icon;
-    [SerializeField] TextMeshProUGUI description;
+    [SerializeField] private TextMeshProUGUI name;
+    [SerializeField] private Image icon;
+    [SerializeField] private TextMeshProUGUI description;
 
     public void ChooseReward()
     {

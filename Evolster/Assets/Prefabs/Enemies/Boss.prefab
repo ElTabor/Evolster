@@ -102,11 +102,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  _navMesh: {fileID: 0}
-  _rb: {fileID: 0}
-  _direction: {x: 0, y: 0}
-  _stats: {fileID: 11400000, guid: 873fdb0978c24a745a6446585644feb5, type: 2}
-  _lastAttack: 0
+  rb: {fileID: 0}
+  navMesh: {fileID: 0}
+  direction: {x: 0, y: 0}
+  isInRangeAttack: 0
+  distance: 0
+  stats: {fileID: 11400000, guid: 873fdb0978c24a745a6446585644feb5, type: 2}
+  lastAttack: 0
   attackCooldown: 5
 --- !u!50 &3650483397476009696
 Rigidbody2D:
@@ -179,4 +181,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd9746c7df817e4ba22d9b39d5bd22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentLife: 0
+  currentLife: 0
+  maxLife: 0

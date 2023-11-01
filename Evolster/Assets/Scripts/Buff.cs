@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Buff : MonoBehaviour
 {
-    [SerializeField] float damageBuff;
-    [SerializeField] float buffTime;
+    [SerializeField] private float damageBuff;
+    [SerializeField] private float buffTime;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             BuffsManager.instance.ApplyBuff(damageBuff, buffTime);
             Destroy(gameObject);

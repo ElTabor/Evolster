@@ -1,60 +1,60 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class EnemyScript : MonoBehaviour
 {
     public Transform player;
 
-    public Rigidbody2D _rb;
-    public NavMeshAgent _navMesh;
+    public Rigidbody2D rb;
+    public NavMeshAgent navMesh;
 
-    public Vector2 _direction;
+    public Vector2 direction;
     public bool isInRangeAttack;
     public float distance;
 
-    public StatsData _stats;
+    public StatsData stats;
 
-    public float _lastAttack;
+    public float lastAttack;
     public float attackCooldown;
 
     private void Awake()
     {
-        _navMesh = GetComponent<NavMeshAgent>();
-        _rb = GetComponent<Rigidbody2D>();
+        navMesh = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void Start()
     {
-        _navMesh.updateRotation = false;
-        _navMesh.updateUpAxis = false;
-        _navMesh.speed = _stats.speed;
-        GetComponent<LifeController>().SetMaxLife(_stats.maxLife);
+        navMesh.updateRotation = false;
+        navMesh.updateUpAxis = false;
+        navMesh.speed = stats.speed;
+        GetComponent<LifeController>().SetMaxLife(stats.maxLife);
     }
 
     public virtual void Update()
     {
         distance = Vector2.Distance(player.transform.position, transform.position);
-        isInRangeAttack = distance <= _stats.attackRange;
+        isInRangeAttack = distance <= stats.attackRange;
 
-        if (isInRangeAttack && Time.time > _lastAttack + attackCooldown) Attack();
+        if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
 
         //Movement
-        if (!isInRangeAttack) _navMesh.SetDestination(player.position);
-        else _navMesh.SetDestination(transform.position);
+        if (!isInRangeAttack) navMesh.SetDestination(player.position);
+        else navMesh.SetDestination(transform.position);
     }
 
 
-    // ReSharper disable Unity.PerformanceAnalysis
-    public virtual void Attack()
+    protected virtual void Attack()
     {
         Debug.Log("Attack!");
-        player.gameObject.GetComponent<LifeController>().UpdateLife(_stats.damage);
-        _lastAttack = Time.time;
+        player.gameObject.GetComponent<LifeController>().UpdateLife(stats.damage);
+        lastAttack = Time.time;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, _stats.attackRange);
+        Gizmos.DrawWireSphere(transform.position, stats.attackRange);
     }
 }

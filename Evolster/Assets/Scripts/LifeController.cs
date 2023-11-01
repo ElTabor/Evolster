@@ -1,32 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour
 {
-    [SerializeField] public float _currentLife;
-    [SerializeField] public float _maxLife;
+    [SerializeField] public float currentLife;
+    [SerializeField] public float maxLife;
 
     public void SetMaxLife(float maxLife)
     {
-        _maxLife = maxLife;
-        _currentLife = _maxLife;
+        this.maxLife = maxLife;
+        currentLife = this.maxLife;
     }
 
     public void IncreaseMaxLife(float n)
     {
-        SetMaxLife(_maxLife + n);
+        SetMaxLife(maxLife + n);
     }
 
     public void UpdateLife(float damageReceived)
     {
-        _currentLife -= damageReceived;
-        if (_currentLife > _maxLife) _currentLife = _maxLife;
-        if (_currentLife <= 0)
+        currentLife -= damageReceived;
+        if (currentLife > maxLife) currentLife = maxLife;
+        if (currentLife <= 0)
         {
-            if (gameObject.tag == "Player") PlayerController.instance.Die();
-            else if (gameObject.tag == "Enemy")
+            if (gameObject.CompareTag("Player")) PlayerController.instance.Die();
+            else if (gameObject.CompareTag("Enemy"))
             {
                 int r = Random.Range(0, 100);
                 if(r <= 30) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);

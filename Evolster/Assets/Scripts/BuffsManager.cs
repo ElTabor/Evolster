@@ -8,39 +8,39 @@ using UnityEngine;
 public class BuffsManager : MonoBehaviour
 {
     public static BuffsManager instance;
-    [SerializeField] GameObject buff;
-    BuffsStack stack;
-    Vector2 buffSpawn;
-    float buffAplicationTime;
-    float buffTime;
+    [SerializeField] private GameObject buff;
+    private BuffsStack _stack;
+    private Vector2 _buffSpawn;
+    private float _buffApplicationTime;
+    private float _buffTime;
 
-    void Start()
+    private void Start()
     {
         instance = this;
-        stack = new BuffsStack();
-        stack.InitializeStack();
+        _stack = new BuffsStack();
+        _stack.InitializeStack();
     }
 
     private void Update()
     {
         UIManager.instance.buffBar.SetActive(PlayerController.instance.isBuffed);
-        if (PlayerController.instance.isBuffed) UIManager.instance.UpdateBuff(buffAplicationTime, buffTime);    
+        if (PlayerController.instance.isBuffed) UIManager.instance.UpdateBuff(_buffApplicationTime, _buffTime);    
     }
 
     public void SetSpawnPosition(Vector2 newPosition)
     {
         Debug.Log(newPosition);
-        buffSpawn = newPosition;
-        stack.Push(buff);
+        _buffSpawn = newPosition;
+        _stack.Push(buff);
         TrySpawnBuff();
     }
 
-    void TrySpawnBuff()
+    private void TrySpawnBuff()
     {
         if(!PlayerController.instance.isBuffed && GameObject.FindGameObjectsWithTag("Buff").Count() == 0)
         {
-            GameObject newBuff = Instantiate(stack.Last(), buffSpawn, Quaternion.identity);
-            stack.Pop();
+            GameObject newBuff = Instantiate(_stack.Last(), _buffSpawn, Quaternion.identity);
+            _stack.Pop();
         }
     }
 
@@ -49,19 +49,19 @@ public class BuffsManager : MonoBehaviour
         Debug.Log("Aplicar buff");
         PlayerController.instance.currentDamage += buff;
         PlayerController.instance.isBuffed = true;
-        buffAplicationTime = Time.time;
-        this.buffTime = buffTime;
+        _buffApplicationTime = Time.time;
+        _buffTime = buffTime;
         StartCoroutine(StartCountdown(buff, buffTime));
     }
 
-    public void RemoveBuff(float buff)
+    private void RemoveBuff(float buff)
     {
         Debug.Log("Quitar buff");
         PlayerController.instance.currentDamage -=  buff;
         PlayerController.instance.isBuffed = false;
     }
 
-    IEnumerator StartCountdown(float buff, float buffTime)
+    private IEnumerator StartCountdown(float buff, float buffTime)
     {
         yield return new WaitForSeconds(buffTime);
         RemoveBuff(buff);

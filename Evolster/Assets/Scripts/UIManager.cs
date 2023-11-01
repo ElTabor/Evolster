@@ -2,6 +2,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -11,20 +12,20 @@ public class UIManager : MonoBehaviour
     public GameObject spellSelectionMenu;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
-    [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject HUD;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] public GameObject hud;
 
-    [SerializeField] GameObject lifeBar;
-    [SerializeField] Image lifeBarFill;
-    [SerializeField] GameObject manaBar;
-    [SerializeField] Image manaBarFill;
+    [SerializeField] private GameObject lifeBar;
+    [SerializeField] private Image lifeBarFill;
+    [SerializeField] private GameObject manaBar;
+    [SerializeField] private Image manaBarFill;
     public GameObject buffBar;
-    [SerializeField] Image BuffBarFill;
-    [SerializeField] GameObject enemyCount;
-    [SerializeField] TextMeshProUGUI enemyCountText;
-    [SerializeField] Image[] hotkeysIcons;
+    [SerializeField] private Image buffBarFill;
+    [SerializeField] private GameObject enemyCount;
+    [SerializeField] private TextMeshProUGUI enemyCountText;
+    [SerializeField] private Image[] hotkeysIcons;
 
-    bool gamePaused;
+    private bool _gamePaused;
 
     private void Start()
     {
@@ -35,11 +36,11 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy;
-        if (gamePaused) Time.timeScale = 0f;
+        _gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy;
+        if (_gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
 
-        HUD.SetActive(SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby");
+        hud.SetActive(SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby");
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManagerScript.instance.scene != "Main Menu") OpenCloseMenu(pauseMenu);
 
         if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
@@ -48,12 +49,12 @@ public class UIManager : MonoBehaviour
             UpdateMana();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
-            for(int n = 0; n <= hotkeysIcons.Length; n++)
-            {
-                if (hotkeysIcons[n-1] != null)
-                    hotkeysIcons[n-1].sprite = PlayerController.instance.spellController.spells[n-1].GetComponent<SpellScript>().spellData.spellSprite;
-                else hotkeysIcons[n-1].sprite = null;
-            }
+            // for(int n = 0; n <= hotkeysIcons.Length; n++)
+            // {
+            //     if (hotkeysIcons[n-1] != null)
+            //     hotkeysIcons[n-1].sprite = PlayerController.instance.spellController.spells[n-1].GetComponent<SpellScript>().spellData.spellSprite;
+            //     else hotkeysIcons[n-1].sprite = null;
+            // }
         }
         else
         {
@@ -68,20 +69,20 @@ public class UIManager : MonoBehaviour
     {
         lifeBar.SetActive(true);
         if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
-            lifeBarFill.fillAmount = PlayerController.instance.gameObject.GetComponent<LifeController>()._currentLife / PlayerController.instance.gameObject.GetComponent<LifeController>()._maxLife;
+            lifeBarFill.fillAmount = PlayerController.instance.gameObject.GetComponent<LifeController>().currentLife / PlayerController.instance.gameObject.GetComponent<LifeController>().maxLife;
     }
 
     private void UpdateMana()
     {
         manaBar.SetActive(true);
         if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
-            manaBarFill.fillAmount = PlayerController.instance.manaController.currentMana / PlayerController.instance._stats.maxMana;
+            manaBarFill.fillAmount = PlayerController.instance.manaController.currentMana / PlayerController.instance.stats.maxMana;
     }
 
     public void UpdateBuff(float applyTime, float buffTime)
     {
         float fillAmount = (Time.time - applyTime) / buffTime;
-        BuffBarFill.fillAmount = fillAmount;
+        buffBarFill.fillAmount = fillAmount;
     }
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);

@@ -3,18 +3,19 @@ using System.Linq;
 using UnityEngine.Profiling.Experimental;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
-    LifeController lifeController;
+    private LifeController _lifeController;
     public ManaController manaController;
     public SpellController spellController;
 
     [SerializeField] private GameObject player;
-    public Rigidbody2D _rb;
-    [SerializeField] public StatsData _stats;
+    public Rigidbody2D rb;
+    [SerializeField] public StatsData stats;
     public float currentSpeed;
     public float currentDamage;
     public bool isBuffed;
@@ -28,14 +29,14 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] public GameObject gameOverScreen;
 
-    [SerializeField] GameObject playerGO;
+    [SerializeField] private GameObject playerGo;
 
     [SerializeField] private bool uniqueAbilityIsAvailable = false;
     [SerializeField] private Transform aim;
 
     public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
     {
-        _stats.speed = speed;
+        stats.speed = speed;
         this.player = player;
         _horizontal = horizontal;
         spellController.shootingPoint = shootingPoint;
@@ -48,18 +49,18 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         player = GameObject.FindGameObjectWithTag("Player");
-        _rb = player.GetComponent<Rigidbody2D>();
-        lifeController = GetComponent<LifeController>();
+        rb = player.GetComponent<Rigidbody2D>();
+        _lifeController = GetComponent<LifeController>();
         manaController = GetComponent<ManaController>();
         spellController = GetComponentInChildren<SpellController>();
 
-        currentSpeed = _stats.speed;
-        currentDamage = _stats.damage;
-        lifeController.SetMaxLife(_stats.maxLife);
-        manaController.SetMaxMana(_stats.maxMana);
+        currentSpeed = stats.speed;
+        currentDamage = stats.damage;
+        _lifeController.SetMaxLife(stats.maxLife);
+        manaController.SetMaxMana(stats.maxMana);
     }
 
-    void Update()
+    private void Update()
     {
         GetInput();
 
@@ -78,11 +79,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _direction * (currentSpeed * Time.fixedDeltaTime));
+        rb.MovePosition(rb.position + _direction * (currentSpeed * Time.fixedDeltaTime));
     }
 
     private void GetInput()
@@ -103,7 +102,7 @@ public class PlayerController : MonoBehaviour
         if (manaController.currentMana >= abilityToCast.uniqueAbilityData.manaCost) CastAbility();
     }
 
-    public void CastAbility()
+    private void CastAbility()
     {
         var aimDirection = (aim.position - transform.position).normalized;
         RaycastHit2D cast = Physics2D.Raycast(transform.position, (aim.position - transform.position), 1000000f);
@@ -125,6 +124,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, _stats.attackRange);
+        Gizmos.DrawWireSphere(transform.position, stats.attackRange);
     }
 }

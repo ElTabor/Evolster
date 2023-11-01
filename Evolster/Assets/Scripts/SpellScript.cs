@@ -7,28 +7,28 @@ public class SpellScript : MonoBehaviour
     public Vector2 direction;
     public float currentDamage;
 
-    float creationTime;
-    
-    Rigidbody2D rb;
+    private float _creationTime;
+
+    private Rigidbody2D _rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        creationTime = Time.time;
-        rb.velocity = direction * spellData.spellSpeed;
+        _rb = GetComponent<Rigidbody2D>();
+        _creationTime = Time.time;
+        _rb.velocity = direction * spellData.spellSpeed;
         currentDamage = spellData.spellDamage;
     }
 
-    void Update()
+    private void Update()
     {
-        if (Time.time >= creationTime + spellData.spellLifeTime) Destroy(gameObject);
+        if (Time.time >= _creationTime + spellData.spellLifeTime) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((gameObject.layer == LayerMask.NameToLayer("FriendlySpells") && collision.CompareTag("Enemy")) || 
             (gameObject.layer == LayerMask.NameToLayer("EnemySpells") && collision.CompareTag("Player")))
-                collision.GetComponent<LifeController>().UpdateLife(currentDamage);
+            collision.GetComponent<LifeController>().UpdateLife(currentDamage);
         Destroy(gameObject);
     }
 }

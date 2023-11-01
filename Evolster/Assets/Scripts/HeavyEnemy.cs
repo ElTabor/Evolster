@@ -3,36 +3,35 @@ using UnityEngine;
 
 public class HeavyEnemy : EnemyScript
 {
-    [SerializeField] float chargingTime;
-    [SerializeField] float chargingSpeed;
-    Vector2 chargingDirection;
-    bool charging;
+    [SerializeField] private float chargingTime;
+    [SerializeField] private float chargingSpeed;
+    private Vector2 _chargingDirection;
+    private bool _charging;
 
     public override void Update()
     {
         distance = Vector2.Distance(player.transform.position, transform.position);
-        isInRangeAttack = distance <= _stats.attackRange;
+        isInRangeAttack = distance <= stats.attackRange;
 
-        if (!charging) _navMesh.SetDestination(player.position);
-        else _navMesh.SetDestination(Vector3.forward * _direction);
+        if (!_charging) navMesh.SetDestination(player.position);
+        else navMesh.SetDestination(Vector3.forward * direction);
 
-        if (isInRangeAttack && Time.time > _lastAttack + attackCooldown) Attack();
-
+        if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
-        charging = true;
+        _charging = true;
         StartCoroutine(Charge(chargingTime));
     }
 
-    IEnumerator Charge(float timeToWait)
+    private IEnumerator Charge(float timeToWait)
     {
-        _navMesh.speed = chargingSpeed;
+        navMesh.speed = chargingSpeed;
         Debug.Log("Charging");
         yield return new WaitForSeconds(timeToWait);
         Debug.Log("Charged");
-        charging = false;
-        _navMesh.speed = _stats.speed;
+        _charging = false;
+        navMesh.speed = stats.speed;
     }
 }

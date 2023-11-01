@@ -3,55 +3,55 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] Transform referencePoint;
-    [SerializeField] GameObject lightEnemyPrefab;
-    [SerializeField] GameObject heavyEnemyPrefab;
-    [SerializeField] GameObject rangeEnemyPrefab;
-    [SerializeField] GameObject bossPrefab;
+    [SerializeField] private Transform referencePoint;
+    [SerializeField] private GameObject lightEnemyPrefab;
+    [SerializeField] private GameObject heavyEnemyPrefab;
+    [SerializeField] private GameObject rangeEnemyPrefab;
+    [SerializeField] private GameObject bossPrefab;
     public int amountOfEnemiesToSpawn;
     public bool spawnBossNow;
     [SerializeField] float spawnCooldown;
-    private float lastSpawn;
+    private float _lastSpawn;
 
-    SpawnQueue spawnQueue;
+    private SpawnQueue _spawnQueue;
 
     void Start()
     {
-        spawnQueue = new SpawnQueue();
-        spawnQueue.InitializeQueue();
-        lastSpawn = Time.time;
+        _spawnQueue = new SpawnQueue();
+        _spawnQueue.InitializeQueue();
+        _lastSpawn = Time.time;
     }
 
     private void Update()
     {
-        if (!spawnQueue.EmptyQueue()) Spawn();
+        if (!_spawnQueue.EmptyQueue()) Spawn();
     }
 
     private void Spawn()
     {
-        if (Time.time > lastSpawn + spawnCooldown)
+        if (Time.time > _lastSpawn + spawnCooldown)
         {
-            Instantiate(spawnQueue.First(), referencePoint.position, Quaternion.identity);
-            spawnQueue.Dequeue();
-            lastSpawn = Time.time;
+            Instantiate(_spawnQueue.First(), referencePoint.position, Quaternion.identity);
+            _spawnQueue.Dequeue();
+            _lastSpawn = Time.time;
         }
     }
 
     public void SpawnEnemy(bool isEndless, string newEnemy)
     {
         GameObject enemy = SelectEnemy(isEndless, newEnemy);
-        if (isEndless) spawnQueue.Enqueue(enemy);
+        if (isEndless) _spawnQueue.Enqueue(enemy);
         else
         {
             for (int i = 0; i < amountOfEnemiesToSpawn; i++)
             {
-                spawnQueue.Enqueue(enemy);
+                _spawnQueue.Enqueue(enemy);
                 spawnBossNow = false;
             }
         }
     }
 
-    GameObject SelectEnemy(bool isEndless, string newEnemy)
+    private GameObject SelectEnemy(bool isEndless, string newEnemy)
     {
         if(isEndless)
         {

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
-    static public SceneManagerScript instance;
+    public static SceneManagerScript instance;
     public string scene;
 
     private void Start()
@@ -13,6 +13,7 @@ public class SceneManagerScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         scene = SceneManager.GetActiveScene().name;
+        
     }
 
     public void LoadNewScene(string newScene)

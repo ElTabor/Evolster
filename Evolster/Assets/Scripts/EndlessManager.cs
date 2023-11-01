@@ -7,13 +7,13 @@ using UnityEngine;
 public class EndlessManager : MonoBehaviour
 {
     [SerializeField] GameObject lightEnemyPrefab;
-    private float lastLightEnemySpawned;
+    private float _lastLightEnemySpawned;
     [SerializeField] float lightEnemySpawnCooldown;
     [SerializeField] GameObject heavyEnemyPrefab;
-    private float lastHeavyEnemySpawned;
+    private float _lastHeavyEnemySpawned;
     [SerializeField] float heavyEnemySpawnCooldown;
     [SerializeField] GameObject rangeEnemyPrefab;
-    private float lastRangeEnemySpawned;
+    private float _lastRangeEnemySpawned;
     [SerializeField] float rangeEnemySpawnCooldown;
     [SerializeField] private GameObject[] spawns;
 
@@ -24,20 +24,20 @@ public class EndlessManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > lastLightEnemySpawned + lightEnemySpawnCooldown)
+        if (Time.time > _lastLightEnemySpawned + lightEnemySpawnCooldown)
         {
             ChooseSpawn("light enemy");
-            lastLightEnemySpawned = Time.time;
+            _lastLightEnemySpawned = Time.time;
         }
-        if (Time.time > lastHeavyEnemySpawned + heavyEnemySpawnCooldown)
+        if (Time.time > _lastHeavyEnemySpawned + heavyEnemySpawnCooldown)
         {
             ChooseSpawn("heavy enemy");
-            lastHeavyEnemySpawned = Time.time;
+            _lastHeavyEnemySpawned = Time.time;
         }
-        if (Time.time > lastRangeEnemySpawned + rangeEnemySpawnCooldown)
+        if (Time.time > _lastRangeEnemySpawned + rangeEnemySpawnCooldown)
         {
             ChooseSpawn("range enemy");
-            lastRangeEnemySpawned = Time.time;
+            _lastRangeEnemySpawned = Time.time;
         }
     }
 

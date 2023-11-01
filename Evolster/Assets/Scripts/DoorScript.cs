@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    [SerializeField] string destination;
-    [SerializeField] Transform referencePoint;
+    [SerializeField] private string destination;
+    [SerializeField] private Transform referencePoint;
 
-    void Update()
+    private void Update()
     {
         if(Physics2D.OverlapBox(referencePoint.position, referencePoint.localScale, 0).CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {

@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class RewardSelection : MonoBehaviour
 {
-    [SerializeField] GameObject rewardPrefab;
-    [SerializeField] RewardData[] statUpgrades;
-    [SerializeField] RewardData[] spellUpgrades;
-    [SerializeField] RewardData[] newSpells;
-    [SerializeField] GameObject spellSelectorPanel;
+    [SerializeField] private GameObject rewardPrefab;
+    [SerializeField] private RewardData[] statUpgrades;
+    [SerializeField] private RewardData[] spellUpgrades;
+    [SerializeField] private RewardData[] newSpells;
+    [SerializeField] private GameObject spellSelectorPanel;
 
-    void Start()
+    private void Start()
     {
         for(int n = 0; n < 3; n++)
         {
@@ -35,7 +35,7 @@ public class RewardSelection : MonoBehaviour
         }
     }
 
-    GameObject InstantiateChoice(RewardData[] rewards, int a)
+    private GameObject InstantiateChoice(RewardData[] rewards, int a)
     {
         GameObject newChoice = Instantiate(rewardPrefab, spellSelectorPanel.transform);
 

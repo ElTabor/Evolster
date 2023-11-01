@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd9746c7df817e4ba22d9b39d5bd22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentLife: 0
-  _maxLife: 0
+  currentLife: 0
+  maxLife: 0
 --- !u!114 &-356461374960839068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,13 +175,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  _rb: {fileID: 0}
-  _navMesh: {fileID: 0}
-  _direction: {x: 0, y: 0}
+  rb: {fileID: 0}
+  navMesh: {fileID: 0}
+  direction: {x: 0, y: 0}
   isInRangeAttack: 0
   distance: 0
-  _stats: {fileID: 11400000, guid: 93c26b5ae0ef7834992dd43ffed72432, type: 2}
-  _lastAttack: 0
+  stats: {fileID: 11400000, guid: 93c26b5ae0ef7834992dd43ffed72432, type: 2}
+  lastAttack: 0
   attackCooldown: 0
   chargingTime: 1
   chargingSpeed: 50
