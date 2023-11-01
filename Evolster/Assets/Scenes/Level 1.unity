@@ -2411,6 +2411,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5030191231810876631, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030191231810876631, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030191231810876631, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030191231810876631, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030191231810876631, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5835906720208001210, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_IsActive
       value: 0
