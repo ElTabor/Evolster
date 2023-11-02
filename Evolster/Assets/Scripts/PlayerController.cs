@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     private float _vertical;
     private Vector2 _direction;
 
-    public bool isDead;
-
 
     [SerializeField] public GameObject uniqueAbilityPrefab;
     
@@ -63,7 +61,6 @@ public class PlayerController : MonoBehaviour
         currentDamage = stats.damage;
         _lifeController.SetMaxLife(stats.maxLife);
         manaController.SetMaxMana(stats.maxMana);
-        isDead = false;
     }
 
     private void Update()
