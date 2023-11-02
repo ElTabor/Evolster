@@ -424,7 +424,6 @@ GameObject:
   - component: {fileID: 1744278658796917602}
   - component: {fileID: 1744278658796917603}
   - component: {fileID: 1744278658796917600}
-  - component: {fileID: 2573904622440335687}
   - component: {fileID: -4561438247261481820}
   - component: {fileID: 7643298336837889245}
   m_Layer: 11
@@ -566,22 +565,6 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.555634, y: -0.5980134}
   m_Size: {x: 1.0765944, y: 2.4327211}
-  m_Direction: 0
---- !u!70 &2573904622440335687
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744278658796917407}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.5509248, y: -0.5980129}
-  m_Size: {x: 1.0859804, y: 2.3388824}
   m_Direction: 0
 --- !u!114 &-4561438247261481820
 MonoBehaviour:
@@ -797,11 +780,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185612448247338409, guid: b64966f697273ce4baa96b2646679145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 9185612448247338409, guid: b64966f697273ce4baa96b2646679145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 9185612448247338409, guid: b64966f697273ce4baa96b2646679145, type: 3}
       propertyPath: m_LocalPosition.z
