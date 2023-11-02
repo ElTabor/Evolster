@@ -5,7 +5,6 @@ public class HeavyEnemy : EnemyScript
 {
     [SerializeField] private float chargingTime;
     [SerializeField] private float chargingSpeed;
-    private Vector2 _chargingDirection;
     private bool _charging;
 
     public override void Update()
@@ -33,5 +32,13 @@ public class HeavyEnemy : EnemyScript
         Debug.Log("Charged");
         _charging = false;
         navMesh.speed = stats.speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<LifeController>().UpdateLife(stats.damage);
+        }
     }
 }

@@ -45,7 +45,6 @@ public class EnemyScript : MonoBehaviour
         else navMesh.SetDestination(transform.position);
     }
 
-
     protected virtual void Attack()
     {
         player.gameObject.GetComponent<LifeController>().UpdateLife(stats.damage);

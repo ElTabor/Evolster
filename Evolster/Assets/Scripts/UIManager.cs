@@ -24,6 +24,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject enemyCount;
     [SerializeField] private TextMeshProUGUI enemyCountText;
     [SerializeField] private Image[] hotkeysIcons;
+    [SerializeField] private TextMeshProUGUI timerText;
+
+    public float _timeElapsed;
+    private int _minutes, _seconds;
 
     private bool _gamePaused;
 
@@ -32,7 +36,6 @@ public class UIManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
-
     }
     private void Update()
     {
@@ -47,6 +50,8 @@ public class UIManager : MonoBehaviour
         {
             UpdateLife();
             UpdateMana();
+            UpdateTimer();
+            StopTimer();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
             // for(int n = 0; n <= hotkeysIcons.Length; n++)
@@ -69,7 +74,7 @@ public class UIManager : MonoBehaviour
     {
         lifeBar.SetActive(true);
         if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
-            lifeBarFill.fillAmount = PlayerController.instance.gameObject.GetComponent<LifeController>().currentLife / PlayerController.instance.gameObject.GetComponent<LifeController>().maxLife;
+            lifeBarFill.fillAmount =  PlayerController.instance.GetComponent<LifeController>().currentLife / PlayerController.instance.GetComponent<LifeController>().maxLife;
     }
 
     private void UpdateMana()
@@ -84,10 +89,24 @@ public class UIManager : MonoBehaviour
         float fillAmount = (Time.time - applyTime) / buffTime;
         buffBarFill.fillAmount = fillAmount;
     }
+    private void UpdateTimer()
+    {
+        _timeElapsed += Time.deltaTime;
+        _minutes = (int)(_timeElapsed / 60f);
+        _seconds = (int)(_timeElapsed - _minutes * 60f);
+
+        timerText.text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
+    }
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);
 
-    public void GameOver() => OpenCloseMenu(gameOverMenu);
+    public void GameOver()
+    {
+        OpenCloseMenu(gameOverMenu);
+        StopTimer();
+    }
+
+    private void StopTimer() => PlayerPrefs.SetInt("HighScore", (int)_timeElapsed);
 
     public void ChangeScene(string newScene) => SceneManagerScript.instance.LoadNewScene(newScene);
 

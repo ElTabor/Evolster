@@ -12,17 +12,23 @@ public class ManaController : MonoBehaviour
 
     public void SetMaxMana(float maxMana)
     {
-        this._maxMana = maxMana;
+        _maxMana = maxMana;
         currentMana = maxMana;
     }
 
     void Update()
     {
+        ManageAbilityAvailability(PlayerController.instance.uniqueAbilityPrefab.GetComponent<UniqueAbilityScript>());
         if (Time.time >= _lastManaRecover + manaRecoveryCooldown && currentMana < _maxMana)
         {
             ManageMana(1);
             _lastManaRecover = Time.time;
         }
+    }
+
+    void ManageAbilityAvailability(UniqueAbilityScript abilityToCast)
+    {
+        PlayerController.instance.uniqueAbilityIsAvailable = currentMana >= abilityToCast.uniqueAbilityData.manaCost;
     }
 
     public void ManageMana(float newMana)
