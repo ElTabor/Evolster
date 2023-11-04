@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool uniqueAbilityIsAvailable = false;
     [SerializeField] private Transform aim;
 
+    public int currency;
+
     public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
     {
         stats.speed = speed;
@@ -96,7 +98,7 @@ public class PlayerController : MonoBehaviour
     
     public void TryCastAbility()
     {
-        if (uniqueAbilityIsAvailable) CastAbility();
+        if (uniqueAbilityIsAvailable && !UIManager.instance.gamePaused) CastAbility();
     }
 
     private void CastAbility()

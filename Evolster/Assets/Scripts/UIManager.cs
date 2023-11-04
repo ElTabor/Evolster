@@ -14,7 +14,11 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverMenu;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] public GameObject hud;
+    [SerializeField] public GameObject store;
 
+    public bool gamePaused;
+
+    [Header ("HUD")]
     [SerializeField] private GameObject lifeBar;
     [SerializeField] private Image lifeBarFill;
     [SerializeField] private GameObject manaBar;
@@ -26,10 +30,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] hotkeysIcons;
     [SerializeField] private TextMeshProUGUI timerText;
 
+    [Header("STORE")]
+    [SerializeField] StoreItemData[] itemsToDisplay;
+    [SerializeField] GameObject storeItemTemplate;
+
+    [Header ("HIGHSCORES")]
     public float _timeElapsed;
     private int _minutes, _seconds;
 
-    private bool _gamePaused;
 
     private void Start()
     {
@@ -39,8 +47,8 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        _gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy;
-        if (_gamePaused) Time.timeScale = 0f;
+        gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy || store.activeInHierarchy;
+        if (gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
 
         hud.SetActive(SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby");
@@ -104,6 +112,24 @@ public class UIManager : MonoBehaviour
     {
         OpenCloseMenu(gameOverMenu);
         StopTimer();
+    }
+
+    public void SetStoreCanvas()
+    {
+        if(store.activeInHierarchy)
+        {
+            foreach (var item in store.GetComponentsInChildren<StoreItemTemplateScript>()) Destroy(item.gameObject);
+            OpenCloseMenu(store);
+        }
+        else
+        {
+            OpenCloseMenu(store);
+            foreach (var item in itemsToDisplay)
+            {
+                GameObject newItem = Instantiate(storeItemTemplate, store.GetComponentInChildren<GridLayoutGroup>().transform);
+                newItem.GetComponent<StoreItemTemplateScript>().itemData = item;
+            }
+        }
     }
 
     private void StopTimer() => PlayerPrefs.SetInt("HighScore", (int)_timeElapsed);

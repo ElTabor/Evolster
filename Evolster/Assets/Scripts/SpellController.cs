@@ -72,7 +72,7 @@ public class SpellController : MonoBehaviour
 
     private void CastSpell()
     {
-        if (Time.time >= _lastAttack + attackCooldown && PlayerController.instance.rb.velocity == Vector2.zero)
+        if (Time.time >= _lastAttack + attackCooldown && PlayerController.instance.rb.velocity == Vector2.zero && !UIManager.instance.gamePaused)
         {
             GameObject spell = Instantiate(activeSpellPrefab, shootingPoint.transform.position, shootingPoint.transform.rotation);
             spell.GetComponent<SpellScript>().direction = _shootingDirection;
