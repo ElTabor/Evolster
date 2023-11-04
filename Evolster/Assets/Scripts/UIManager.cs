@@ -24,10 +24,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject enemyCount;
     [SerializeField] private TextMeshProUGUI enemyCountText;
     [SerializeField] private Image[] hotkeysIcons;
-    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] public TextMeshProUGUI timerText;
 
     public float _timeElapsed;
-    private int _minutes, _seconds;
+    public int _minutes, _seconds;
 
     private bool _gamePaused;
 
@@ -106,7 +106,11 @@ public class UIManager : MonoBehaviour
         StopTimer();
     }
 
-    private void StopTimer() => PlayerPrefs.SetInt("HighScore", (int)_timeElapsed);
+    private void StopTimer()
+    {
+        PlayerPrefs.SetFloat("Highscore", _timeElapsed);
+        Debug.Log(_timeElapsed);
+    }
 
     public void ChangeScene(string newScene) => SceneManagerScript.instance.LoadNewScene(newScene);
 
