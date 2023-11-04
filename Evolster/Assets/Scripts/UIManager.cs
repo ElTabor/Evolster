@@ -132,7 +132,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void StopTimer() => PlayerPrefs.SetInt("HighScore", (int)_timeElapsed);
+    private void StopTimer()
+    {
+        PlayerPrefs.SetFloat("Highscore", _timeElapsed);
+        Debug.Log(_timeElapsed);
+    }
 
     public void ChangeScene(string newScene) => SceneManagerScript.instance.LoadNewScene(newScene);
 
