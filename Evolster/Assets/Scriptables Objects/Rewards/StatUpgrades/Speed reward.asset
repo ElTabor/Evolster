@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mejora de velocidad
   sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
-  description: Aumenta la velocidad del jugador en 2 puntos
+  description: Aumenta la velocidad de desplazamiento del jugador en 10%
   type: StatUpgrade

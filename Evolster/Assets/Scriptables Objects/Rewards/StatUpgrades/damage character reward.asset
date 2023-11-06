@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   sprite: {fileID: 0}
-  description: 
+  description: "Aumenta 10% el da\xF1o base causado por el jugador"
+  type: 

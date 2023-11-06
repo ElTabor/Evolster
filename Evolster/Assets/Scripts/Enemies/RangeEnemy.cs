@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangeEnemy : EnemyScript
+public class RangeEnemy : Enemy
 {
     [SerializeField] private GameObject spellPrefab;
     [SerializeField] private Transform referencePoint;
@@ -10,7 +10,7 @@ public class RangeEnemy : EnemyScript
     {
         bool isInRangeAttack;
         float distance = Vector2.Distance(player.transform.position, transform.position);
-        if (distance <= stats.attackRange) isInRangeAttack = true;
+        if (distance <= enemyStats.attackRange) isInRangeAttack = true;
         else isInRangeAttack = false;
 
         if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
@@ -25,7 +25,7 @@ public class RangeEnemy : EnemyScript
     protected override void Attack()
     {
         GameObject spell = Instantiate(spellPrefab, referencePoint.position, Quaternion.identity);
-        spell.GetComponent<SpellScript>().direction = _shootingDirection;
+        spell.GetComponent<Spell>().direction = _shootingDirection;
         spell.layer = LayerMask.NameToLayer("EnemySpells");
         lastAttack = Time.time;
     }

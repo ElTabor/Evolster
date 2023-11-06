@@ -11,7 +11,7 @@ public class DoorScript : MonoBehaviour
     {
         if(Physics2D.OverlapBox(referencePoint.position, referencePoint.localScale, 0).CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManagerScript.instance.LoadNewScene(destination);
+            SceneManager.instance.LoadNewScene(destination);
         }
     }
 

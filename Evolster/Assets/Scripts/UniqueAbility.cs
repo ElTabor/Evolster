@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UniqueAbilityScript : MonoBehaviour
+public class UniqueAbility : MonoBehaviour
 {
     [SerializeField] public UniqueAbilityData uniqueAbilityData;
 

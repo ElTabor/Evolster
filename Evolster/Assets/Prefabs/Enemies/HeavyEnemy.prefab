@@ -165,7 +165,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   isInRangeAttack: 0
   distance: 0
-  stats: {fileID: 11400000, guid: 93c26b5ae0ef7834992dd43ffed72432, type: 2}
+  enemyStats: {fileID: 11400000, guid: 93c26b5ae0ef7834992dd43ffed72432, type: 2}
   lastAttack: 0
   attackCooldown: 0
   chargingTime: 1

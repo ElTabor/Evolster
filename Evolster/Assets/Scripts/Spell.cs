@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpellScript : MonoBehaviour
+public class Spell : MonoBehaviour
 {
     [SerializeField] public SpellsData spellData;
 

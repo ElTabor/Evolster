@@ -107,7 +107,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   isInRangeAttack: 0
   distance: 0
-  stats: {fileID: 11400000, guid: 873fdb0978c24a745a6446585644feb5, type: 2}
+  enemyStats: {fileID: 11400000, guid: 873fdb0978c24a745a6446585644feb5, type: 2}
   lastAttack: 0
   attackCooldown: 5
 --- !u!50 &3650483397476009696

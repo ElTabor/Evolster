@@ -51,10 +51,10 @@ public class UIManager : MonoBehaviour
         if (gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
 
-        hud.SetActive(SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby");
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManagerScript.instance.scene != "Main Menu") OpenCloseMenu(pauseMenu);
+        hud.SetActive(SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby");
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.instance.scene != "Main Menu") OpenCloseMenu(pauseMenu);
 
-        if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
+        if (SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby")
         {
             UpdateLife();
             UpdateMana();
@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-           if(SceneManagerScript.instance.scene == "Main Menu") mainMenu.SetActive(true);
+           if(SceneManager.instance.scene == "Main Menu") mainMenu.SetActive(true);
            else mainMenu.SetActive(false);
            lifeBar.SetActive(false);
            enemyCount.SetActive(false);
@@ -81,15 +81,15 @@ public class UIManager : MonoBehaviour
     private void UpdateLife()
     {
         lifeBar.SetActive(true);
-        if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
-            lifeBarFill.fillAmount =  PlayerController.instance.GetComponent<LifeController>().currentLife / PlayerController.instance.GetComponent<LifeController>().maxLife;
+        if (SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby")
+            lifeBarFill.fillAmount =  PlayerController.Instance.GetComponent<LifeController>().currentLife / PlayerController.Instance.GetComponent<LifeController>().maxLife;
     }
 
     private void UpdateMana()
     {
         manaBar.SetActive(true);
-        if (SceneManagerScript.instance.scene != "Main Menu" && SceneManagerScript.instance.scene != "Lobby")
-            manaBarFill.fillAmount = PlayerController.instance.manaController.currentMana / PlayerController.instance.stats.maxMana;
+        if (SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby")
+            manaBarFill.fillAmount = PlayerController.Instance.manaController.currentMana / PlayerController.Instance.playerStats.maxMana;
     }
 
     public void UpdateBuff(float applyTime, float buffTime)
@@ -118,7 +118,7 @@ public class UIManager : MonoBehaviour
     {
         if(store.activeInHierarchy)
         {
-            foreach (var item in store.GetComponentsInChildren<StoreItemTemplateScript>()) Destroy(item.gameObject);
+            foreach (var item in store.GetComponentsInChildren<StoreItemTemplate>()) Destroy(item.gameObject);
             OpenCloseMenu(store);
         }
         else
@@ -127,7 +127,7 @@ public class UIManager : MonoBehaviour
             foreach (var item in itemsToDisplay)
             {
                 GameObject newItem = Instantiate(storeItemTemplate, store.GetComponentInChildren<GridLayoutGroup>().transform);
-                newItem.GetComponent<StoreItemTemplateScript>().itemData = item;
+                newItem.GetComponent<StoreItemTemplate>().itemData = item;
             }
         }
     }
@@ -138,7 +138,7 @@ public class UIManager : MonoBehaviour
         Debug.Log(_timeElapsed);
     }
 
-    public void ChangeScene(string newScene) => SceneManagerScript.instance.LoadNewScene(newScene);
+    public void ChangeScene(string newScene) => SceneManager.instance.LoadNewScene(newScene);
 
-    public void ExitGame() => SceneManagerScript.instance.Exit();
+    public void ExitGame() => SceneManager.instance.Exit();
 }

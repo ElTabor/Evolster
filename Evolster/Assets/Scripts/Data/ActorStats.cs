@@ -1,13 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu ( fileName = "New StatData", menuName = "Stat Data")]
-public class StatsData : ScriptableObject
+public class ActorStats : ScriptableObject
 {
     public int maxLife;
     public int maxMana;
-    public float speed;
+    public float movementSpeed;
     public int damage;
-    public float speedAttack;
+    public float attackSpeed;
     public float attackRange;
     public float attackArea;
 

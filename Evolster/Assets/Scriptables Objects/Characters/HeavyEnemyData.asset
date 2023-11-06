@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: HeavyEnemyData
   m_EditorClassIdentifier: 
   maxLife: 100
-  speed: 2
+  maxMana: 0
+  movementSpeed: 6
   damage: 5
-  speedAttack: 0
+  attackSpeed: 0
   attackRange: 6
   attackArea: 0

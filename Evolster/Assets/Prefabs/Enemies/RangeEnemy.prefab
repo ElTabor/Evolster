@@ -152,7 +152,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   isInRangeAttack: 0
   distance: 0
-  stats: {fileID: 11400000, guid: cb3b4350b276e644a861471752090d48, type: 2}
+  enemyStats: {fileID: 11400000, guid: cb3b4350b276e644a861471752090d48, type: 2}
   lastAttack: 0
   attackCooldown: 3
   spellPrefab: {fileID: 4550993629818596674, guid: 9b515dbf7b0c1474aa0344a20fe60652, type: 3}

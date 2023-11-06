@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed75c62bfba3ee742a76bdb0f7348e70, type: 3}
   m_Name: Basic reward Spell 3
   m_EditorClassIdentifier: 
-  name: Nuevo hechizo 3
+  name: Moonlight Bullets
   sprite: {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
-  description: Este hechizo no hace nada
+  description: Hechizo que invoca una lluvia de balas de plata.
   type: NewSpell

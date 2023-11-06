@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerScript : MonoBehaviour
+public class SceneManager : MonoBehaviour
 {
-    public static SceneManagerScript instance;
+    public static SceneManager instance;
     public string scene;
 
     private void Awake()
@@ -14,21 +14,21 @@ public class SceneManagerScript : MonoBehaviour
     }
     private void Start()
     {
-        scene = SceneManager.GetActiveScene().name;
+        scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
     }
 
     public void LoadNewScene(string newScene)
     {
         scene = newScene;
-        SceneManager.LoadScene(newScene);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(newScene);
         if (newScene == "Main Menu") Restart();
-        PlayerController.instance.transform.position = Vector3.zero;
+        PlayerController.Instance.transform.position = Vector3.zero;
     }
 
     void Restart()
     {
-        PlayerController.instance.GetComponent<LifeController>().SetMaxLife(PlayerController.instance.stats.maxLife);
-        PlayerController.instance.GetComponent<ManaController>().SetMaxMana(PlayerController.instance.stats.maxMana);
+        PlayerController.Instance.GetComponent<LifeController>().SetMaxLife(PlayerController.Instance.playerStats.maxLife);
+        PlayerController.Instance.GetComponent<ManaController>().SetMaxMana(PlayerController.Instance.playerStats.maxMana);
         UIManager.instance._timeElapsed = 0;
     }
 

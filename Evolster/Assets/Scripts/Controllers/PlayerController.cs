@@ -1,22 +1,20 @@
 using UnityEngine;
 using System.Linq;
-using UnityEngine.Profiling.Experimental;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance;
+    public static PlayerController Instance;
 
+    [SerializeField] public ActorStats playerStats;
+    
     private LifeController _lifeController;
     public ManaController manaController;
     public SpellController spellController;
-    private Renderer renderer;
+    private Renderer _renderer;
 
     [SerializeField] private GameObject player;
     public Rigidbody2D rb;
-    [SerializeField] public StatsData stats;
     public float currentSpeed;
     public float currentDamage;
     public bool isBuffed;
@@ -37,9 +35,9 @@ public class PlayerController : MonoBehaviour
 
     public int currency;
 
-    public PlayerController(float speed, GameObject player, float horizontal, GameObject shootingPoint)
+    public PlayerController(float movementSpeed, GameObject player, float horizontal, GameObject shootingPoint)
     {
-        stats.speed = speed;
+        playerStats.movementSpeed = movementSpeed;
         this.player = player;
         _horizontal = horizontal;
         spellController.shootingPoint = shootingPoint;
@@ -47,28 +45,27 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
-
 
         player = GameObject.FindGameObjectWithTag("Player");
         rb = player.GetComponent<Rigidbody2D>();
         _lifeController = GetComponent<LifeController>();
         manaController = GetComponent<ManaController>();
         spellController = GetComponentInChildren<SpellController>();
-        renderer = GetComponent<Renderer>();
+        _renderer = GetComponent<Renderer>();
 
-        currentSpeed = stats.speed;
-        currentDamage = stats.damage;
-        _lifeController.SetMaxLife(stats.maxLife);
-        manaController.SetMaxMana(stats.maxMana);
+        currentSpeed = playerStats.movementSpeed;
+        currentDamage = playerStats.damage;
+        _lifeController.SetMaxLife(playerStats.maxLife);
+        manaController.SetMaxMana(playerStats.maxMana);
     }
 
     private void Update()
     {
-        renderer.enabled = (SceneManagerScript.instance.scene != "Main Menu");
-        if(renderer.enabled) GetInput();
+        _renderer.enabled = (SceneManager.instance.scene != "Main Menu");
+        if(_renderer.enabled) GetInput();
 
         #region Movement
 
@@ -78,7 +75,10 @@ public class PlayerController : MonoBehaviour
 
         aim.gameObject.SetActive(uniqueAbilityIsAvailable);
         if(aim.gameObject.activeInHierarchy) 
-            aim.position = Camera.main.ScreenToWorldPoint(new Vector3( Input.mousePosition.x,  Input.mousePosition.y, -Camera.main.transform.position.z));
+            aim.position = Camera.main.ScreenToWorldPoint(new Vector3(
+                Input.mousePosition.x, 
+                Input.mousePosition.y, 
+                -Camera.main.transform.position.z));
 
         rb.MovePosition(rb.position + _direction * (currentSpeed * Time.fixedDeltaTime));
     }
@@ -106,9 +106,9 @@ public class PlayerController : MonoBehaviour
         var aimDirection = (aim.position - transform.position).normalized;
         RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
         GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform.position + aimDirection*2, Quaternion.identity);
-        uniqueAbility.GetComponent<UniqueAbilityScript>().direction = aimDirection;
-        uniqueAbility.GetComponent<UniqueAbilityScript>().currentDamage += currentDamage;
-        manaController.ManageMana(-uniqueAbility.GetComponent<UniqueAbilityScript>().uniqueAbilityData.manaCost);
+        uniqueAbility.GetComponent<UniqueAbility>().direction = aimDirection;
+        uniqueAbility.GetComponent<UniqueAbility>().currentDamage += currentDamage;
+        manaController.ManageMana(-uniqueAbility.GetComponent<UniqueAbility>().uniqueAbilityData.manaCost);
 
         //Debugs
         if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
@@ -123,6 +123,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, stats.attackRange);
+        Gizmos.DrawWireSphere(transform.position, playerStats.attackRange);
     }
 }

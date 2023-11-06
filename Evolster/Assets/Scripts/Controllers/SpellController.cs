@@ -28,7 +28,7 @@ public class SpellController : MonoBehaviour
         AimToNearestEnemy();
 
         //Shoot
-        if (SceneManagerScript.instance.scene != "Lobby" && _enemyNearBy) CastSpell();
+        if (SceneManager.instance.scene != "Lobby" && _enemyNearBy) CastSpell();
     }
 
     public void ChooseSpell(int n)
@@ -39,7 +39,7 @@ public class SpellController : MonoBehaviour
 
     private void AimToNearestEnemy()
     {
-        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, PlayerController.instance.stats.attackRange);
+        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, PlayerController.Instance.playerStats.attackRange);
         GameObject nearestEnemy;
 
         foreach (Collider2D enemy in enemiesAround)
@@ -72,11 +72,11 @@ public class SpellController : MonoBehaviour
 
     private void CastSpell()
     {
-        if (Time.time >= _lastAttack + attackCooldown && PlayerController.instance.rb.velocity == Vector2.zero && !UIManager.instance.gamePaused)
+        if (Time.time >= _lastAttack + attackCooldown && PlayerController.Instance.rb.velocity == Vector2.zero && !UIManager.instance.gamePaused)
         {
             GameObject spell = Instantiate(activeSpellPrefab, shootingPoint.transform.position, shootingPoint.transform.rotation);
-            spell.GetComponent<SpellScript>().direction = _shootingDirection;
-            spell.GetComponent<SpellScript>().currentDamage += PlayerController.instance.currentDamage;
+            spell.GetComponent<Spell>().direction = _shootingDirection;
+            spell.GetComponent<Spell>().currentDamage += PlayerController.Instance.currentDamage;
             spell.layer = LayerMask.NameToLayer("FriendlySpells");
             _lastAttack = Time.time;
         }

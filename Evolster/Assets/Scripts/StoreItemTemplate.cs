@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoreItemTemplateScript : MonoBehaviour
+public class StoreItemTemplate : MonoBehaviour
 {
     public StoreItemData itemData;
     [SerializeField] Image _itemImage;
@@ -27,10 +27,10 @@ public class StoreItemTemplateScript : MonoBehaviour
 
     public void BuyItem()
     {
-        if (PlayerController.instance.currency >= itemData.itemValue)
+        if (PlayerController.Instance.currency >= itemData.itemValue)
         {
-            PlayerController.instance.currency -= itemData.itemValue;
-            PlayerController.instance.spellController.spells.Add(itemData.spell);
+            PlayerController.Instance.currency -= itemData.itemValue;
+            PlayerController.Instance.spellController.spells.Add(itemData.spell);
             _buyButton.GetComponentInChildren<Button>().enabled = false;
         }
         else Debug.Log("Not enough currency");

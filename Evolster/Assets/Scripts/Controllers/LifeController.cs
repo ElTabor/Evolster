@@ -26,7 +26,7 @@ public class LifeController : MonoBehaviour
         if (currentLife > maxLife) currentLife = maxLife;
         if (currentLife <= 0)
         {
-            if (gameObject.CompareTag("Player")) PlayerController.instance.Die();
+            if (gameObject.CompareTag("Player")) PlayerController.Instance.Die();
             else if (gameObject.CompareTag("Enemy"))
             {
                 int r = Random.Range(0, 100);
