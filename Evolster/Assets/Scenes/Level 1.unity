@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 31f9d25ab0780cb4291e5e6c3d5c75ef, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3e49c694b6529204386953e08bd418f1, type: 2}
 --- !u!4 &1169793095
 Transform:
   m_ObjectHideFlags: 0
@@ -1805,11 +1805,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4389716660912474189, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: spells.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4389716660912474189, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: spells.Array.data[0]
+      value: 
+      objectReference: {fileID: 4550993629818596674, guid: aa026bd5701622349bc2a1eddd161c8d, type: 3}
     - target: {fileID: 4389716660912474189, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: spells.Array.data[2]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263417693377147609, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263417693377147609, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263417693377147609, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}

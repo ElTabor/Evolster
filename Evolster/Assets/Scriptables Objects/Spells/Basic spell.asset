@@ -18,7 +18,7 @@ MonoBehaviour:
   spellDescription: 
   spellLevel: 1
   spellDamage: 20
-  spellSpeed: 10
+  spellSpeed: 15
   spellLifeTime: 3
   spellDamageRange: 0
   spellDamageArea: 0

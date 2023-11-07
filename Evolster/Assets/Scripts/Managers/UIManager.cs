@@ -135,7 +135,7 @@ public class UIManager : MonoBehaviour
     private void StopTimer()
     {
         PlayerPrefs.SetFloat("Highscore", _timeElapsed);
-        Debug.Log(_timeElapsed);
+        //Debug.Log(_timeElapsed);
     }
 
     public void ChangeScene(string newScene) => SceneManager.instance.LoadNewScene(newScene);
