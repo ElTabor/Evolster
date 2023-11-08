@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     private Vector2 _direction;
+    private bool _isWalking = false;
+    private Animator _animator;
 
 
     [SerializeField] public GameObject uniqueAbilityPrefab;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
+        _animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rb = player.GetComponent<Rigidbody2D>();
         _lifeController = GetComponent<LifeController>();
@@ -67,12 +70,8 @@ public class PlayerController : MonoBehaviour
         _renderer.enabled = (SceneManager.instance.scene != "Main Menu");
         if(_renderer.enabled) GetInput();
 
-        #region Movement
-
-        _direction = new Vector2(_horizontal, _vertical).normalized;
-
-        #endregion
-
+        Move();
+        
         aim.gameObject.SetActive(uniqueAbilityIsAvailable);
         if(aim.gameObject.activeInHierarchy) 
             aim.position = Camera.main.ScreenToWorldPoint(new Vector3(
@@ -80,7 +79,14 @@ public class PlayerController : MonoBehaviour
                 Input.mousePosition.y, 
                 -Camera.main.transform.position.z));
 
+    }
+
+    private void Move()
+    {
+        _direction = new Vector2(_horizontal, _vertical).normalized;
         rb.MovePosition(rb.position + _direction * (currentSpeed * Time.fixedDeltaTime));
+        _animator.SetFloat("isWalking", _direction.sqrMagnitude);
+        
     }
 
     private void GetInput()
