@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public GameObject spellSelectionMenu;
+    public GameObject rewardSelectionMenu;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
     [SerializeField] private GameObject mainMenu;
@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        GameManager.instance.gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy || store.activeInHierarchy;
+        GameManager.instance.gamePaused = pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy || store.activeInHierarchy;
         if (GameManager.instance.gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
 

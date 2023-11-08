@@ -10,10 +10,8 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] GameObject[] enemySpawnPoints;
     void Start()
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
-
+        instance = this;
+        
         enemySpawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
     }
 

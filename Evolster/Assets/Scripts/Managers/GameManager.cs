@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
 
     public bool gamePaused;
 
-    void Start()
+
+    private void Start()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
@@ -36,12 +37,24 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Error en LoadNewScene");
                 break;
         }
+
+        if (SceneManager.instance.scene != "Lobby" || SceneManager.instance.scene != "Main Menu")
+        {
+            if(RoundsManager.instance != null)
+                RoundsManager.instance.round = 0;
+        }
     }
 
-    void Restart()
+    private void Restart()
     {
         PlayerController.instance.GetComponent<LifeController>().SetMaxLife(PlayerController.instance.playerStats.maxLife);
         PlayerController.instance.GetComponent<ManaController>().SetMaxMana(PlayerController.instance.playerStats.maxMana);
         UIManager.instance._timeElapsed = 0;
+    }
+
+    public void EndLevel()
+    {
+        if (RoundsManager.instance.round == 6) ChangeScene("Lobby");
+        currentLevel++;
     }
 }

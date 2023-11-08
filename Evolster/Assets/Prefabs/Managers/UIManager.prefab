@@ -6161,7 +6161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5936815fe1bd94741b336124b9458ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellSelectionMenu: {fileID: 5835906720208001210}
+  rewardSelectionMenu: {fileID: 5835906720208001210}
   pauseMenu: {fileID: 6521033193275584576}
   gameOverMenu: {fileID: 3353900363001645673}
   mainMenu: {fileID: 7599948957149524402}

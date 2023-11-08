@@ -10,19 +10,15 @@ public class RoundsManager : MonoBehaviour
     public bool prepTime;
     public int round;
 
-    void Start()
+    private void Start()
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
-
-        //if (SceneManagerScript.instance.scene == "Lobby") gameObject.SetActive(false);
+        instance = this;
 
         prepTime = true;
         SetNewRound();
     }
 
-    void Update()
+    private void Update()
     {
         if (prepTime) return;
         enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy").Count();
@@ -37,16 +33,17 @@ public class RoundsManager : MonoBehaviour
 
     private void EndRound()
     {
-        if(SceneManager.instance.scene == "Level 1" || SceneManager.instance.scene == "Endless") UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
+        if(SceneManager.instance.scene == "Level 1" || SceneManager.instance.scene == "Endless") UIManager.instance.OpenCloseMenu(UIManager.instance.rewardSelectionMenu);
         prepTime = true;
     }
 
     public void SetNewRound()
     {
         StartCoroutine(PrepTimeSet());
-        if (round == 7) GameManager.instance.ChangeScene("Lobby");
-        else if (round > 0) UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
-        round++;
+        if (round > 0) UIManager.instance.OpenCloseMenu(UIManager.instance.rewardSelectionMenu);
+        if(round == 6)
+            GameManager.instance.EndLevel();
+        else round++;
         EnemySpawnManager.instance.SetEnemiesToSpawn();
     }
 }
