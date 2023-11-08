@@ -39,7 +39,7 @@ public class SpellController : MonoBehaviour
 
     private void AimToNearestEnemy()
     {
-        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, PlayerController.Instance.playerStats.attackRange);
+        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, PlayerController.instance.playerStats.attackRange);
         GameObject nearestEnemy;
 
         foreach (Collider2D enemy in enemiesAround)
@@ -72,11 +72,11 @@ public class SpellController : MonoBehaviour
 
     private void CastSpell()
     {
-        if (Time.time >= _lastAttack + attackCooldown && PlayerController.Instance.rb.velocity == Vector2.zero && !UIManager.instance.gamePaused)
+        if (Time.time >= _lastAttack + attackCooldown && PlayerController.instance.rb.velocity == Vector2.zero && !GameManager.instance.gamePaused)
         {
             GameObject spell = Instantiate(activeSpellPrefab, shootingPoint.transform.position, shootingPoint.transform.rotation);
             spell.GetComponent<Spell>().direction = _shootingDirection;
-            spell.GetComponent<Spell>().currentDamage += PlayerController.Instance.currentDamage;
+            spell.GetComponent<Spell>().currentDamage += PlayerController.instance.currentDamage;
             spell.layer = LayerMask.NameToLayer("FriendlySpells");
             _lastAttack = Time.time;
         }

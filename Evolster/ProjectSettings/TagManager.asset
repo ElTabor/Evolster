@@ -9,6 +9,8 @@ TagManager:
   - Spawn
   - Buff
   - Timer
+  - LobbyManager
+  - Level Door
   layers:
   - Default
   - TransparentFX

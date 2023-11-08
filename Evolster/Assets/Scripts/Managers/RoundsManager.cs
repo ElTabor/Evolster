@@ -44,7 +44,7 @@ public class RoundsManager : MonoBehaviour
     public void SetNewRound()
     {
         StartCoroutine(PrepTimeSet());
-        if (round == 7) SceneManager.instance.LoadNewScene("Lobby");
+        if (round == 7) GameManager.instance.ChangeScene("Lobby");
         else if (round > 0) UIManager.instance.OpenCloseMenu(UIManager.instance.spellSelectionMenu);
         round++;
         EnemySpawnManager.instance.SetEnemiesToSpawn();

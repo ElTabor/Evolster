@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance;
+    public static PlayerController instance;
 
     [SerializeField] public ActorStats playerStats;
     
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if (Instance == null) Instance = this;
+        if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     
     public void TryCastAbility()
     {
-        if (uniqueAbilityIsAvailable && !UIManager.instance.gamePaused) CastAbility();
+        if (uniqueAbilityIsAvailable && !GameManager.instance.gamePaused) CastAbility();
     }
 
     private void CastAbility()

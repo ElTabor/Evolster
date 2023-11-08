@@ -23,8 +23,8 @@ public class BuffsManager : MonoBehaviour
 
     private void Update()
     {
-        UIManager.instance.buffBar.SetActive(PlayerController.Instance.isBuffed);
-        if (PlayerController.Instance.isBuffed) UIManager.instance.UpdateBuff(_buffApplicationTime, _buffTime);    
+        UIManager.instance.buffBar.SetActive(PlayerController.instance.isBuffed);
+        if (PlayerController.instance.isBuffed) UIManager.instance.UpdateBuff(_buffApplicationTime, _buffTime);    
     }
 
     public void SetSpawnPosition(Vector2 newPosition)
@@ -37,7 +37,7 @@ public class BuffsManager : MonoBehaviour
 
     private void TrySpawnBuff()
     {
-        if(!PlayerController.Instance.isBuffed && GameObject.FindGameObjectsWithTag("Buff").Count() == 0)
+        if(!PlayerController.instance.isBuffed && GameObject.FindGameObjectsWithTag("Buff").Count() == 0)
         {
             GameObject newBuff = Instantiate(_stack.Last(), _buffSpawn, Quaternion.identity);
             _stack.Pop();
@@ -47,8 +47,8 @@ public class BuffsManager : MonoBehaviour
     public void ApplyBuff(float buff, float buffTime)
     {
         Debug.Log("Aplicar buff");
-        PlayerController.Instance.currentDamage += buff;
-        PlayerController.Instance.isBuffed = true;
+        PlayerController.instance.currentDamage += buff;
+        PlayerController.instance.isBuffed = true;
         _buffApplicationTime = Time.time;
         _buffTime = buffTime;
         StartCoroutine(StartCountdown(buff, buffTime));
@@ -57,8 +57,8 @@ public class BuffsManager : MonoBehaviour
     private void RemoveBuff(float buff)
     {
         Debug.Log("Quitar buff");
-        PlayerController.Instance.currentDamage -=  buff;
-        PlayerController.Instance.isBuffed = false;
+        PlayerController.instance.currentDamage -=  buff;
+        PlayerController.instance.isBuffed = false;
     }
 
     private IEnumerator StartCountdown(float buff, float buffTime)

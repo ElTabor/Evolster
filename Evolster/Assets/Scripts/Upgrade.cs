@@ -27,13 +27,13 @@ public class Upgrade : MonoBehaviour
                 switch(reward)
                 {
                     case "Mejora de vida":
-                        PlayerController.Instance.gameObject.GetComponent<LifeController>().IncreaseMaxLife(25);
+                        PlayerController.instance.gameObject.GetComponent<LifeController>().IncreaseMaxLife(25);
                         break;
                     case "Vida maxima":
-                        PlayerController.Instance.gameObject.GetComponent<LifeController>().UpdateLife(-PlayerController.Instance.gameObject.GetComponent<LifeController>().maxLife);
+                        PlayerController.instance.gameObject.GetComponent<LifeController>().UpdateLife(-PlayerController.instance.gameObject.GetComponent<LifeController>().maxLife);
                         break;
                     case "Mejora de velocidad":
-                        PlayerController.Instance.currentSpeed += 2;
+                        PlayerController.instance.currentSpeed += 2;
                         break;
                 }
                 break;
@@ -46,7 +46,7 @@ public class Upgrade : MonoBehaviour
             case "NewSpell":
                 int n = Random.Range(0, spellsList.Count());
                 Debug.Log(n);
-                PlayerController.Instance.spellController.UnlockNewSpell(spellsList[n]);
+                PlayerController.instance.spellController.UnlockNewSpell(spellsList[n]);
                 break;
         }
     }

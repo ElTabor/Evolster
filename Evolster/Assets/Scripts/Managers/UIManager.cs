@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject hud;
     [SerializeField] public GameObject store;
 
-    public bool gamePaused;
 
     [Header ("HUD")]
     [SerializeField] private GameObject lifeBar;
@@ -47,8 +46,8 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy || store.activeInHierarchy;
-        if (gamePaused) Time.timeScale = 0f;
+        GameManager.instance.gamePaused = spellSelectionMenu.activeInHierarchy || pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy || store.activeInHierarchy;
+        if (GameManager.instance.gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
 
         hud.SetActive(SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby");
@@ -82,14 +81,14 @@ public class UIManager : MonoBehaviour
     {
         lifeBar.SetActive(true);
         if (SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby")
-            lifeBarFill.fillAmount =  PlayerController.Instance.GetComponent<LifeController>().currentLife / PlayerController.Instance.GetComponent<LifeController>().maxLife;
+            lifeBarFill.fillAmount =  PlayerController.instance.GetComponent<LifeController>().currentLife / PlayerController.instance.GetComponent<LifeController>().maxLife;
     }
 
     private void UpdateMana()
     {
         manaBar.SetActive(true);
         if (SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby")
-            manaBarFill.fillAmount = PlayerController.Instance.manaController.currentMana / PlayerController.Instance.playerStats.maxMana;
+            manaBarFill.fillAmount = PlayerController.instance.manaController.currentMana / PlayerController.instance.playerStats.maxMana;
     }
 
     public void UpdateBuff(float applyTime, float buffTime)
@@ -138,7 +137,7 @@ public class UIManager : MonoBehaviour
         //Debug.Log(_timeElapsed);
     }
 
-    public void ChangeScene(string newScene) => SceneManager.instance.LoadNewScene(newScene);
+    public void ChangeScene(string newScene) => GameManager.instance.ChangeScene(newScene);
 
     public void ExitGame() => SceneManager.instance.Exit();
 }
