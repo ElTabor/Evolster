@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a03cf85f70bcbb479a50c66d1db9aed, type: 3}
-  m_Name: UniqueAbilityPlateBullets
+  m_Name: SpecialAbility-SilverBullets
   m_EditorClassIdentifier: 
   uniqueAbilitySprite: {fileID: 0}
-  uniqueAbilityName: Basic ability
+  uniqueAbilityName: Silver bullets storm
   uniqueAbilityType: 
   uniqueAbilityDescription: 
   uniqueAbilityLevel: 1

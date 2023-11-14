@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
-  m_Name: RangeEnemyData
+  m_Name: Vampire-Heavy
   m_EditorClassIdentifier: 
-  maxLife: 50
+  maxLife: 0
   maxMana: 0
-  movementSpeed: 6
+  movementSpeed: 0
   damage: 0
   attackSpeed: 0
-  attackRange: 5
-  attackArea: 5
+  attackRange: 0
+  attackArea: 0
