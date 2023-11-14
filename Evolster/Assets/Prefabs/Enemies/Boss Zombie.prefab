@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   maxLife: 0
+  coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
 --- !u!70 &1461096852139821465
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

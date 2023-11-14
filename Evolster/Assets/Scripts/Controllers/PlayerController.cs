@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private LifeController _lifeController;
     public ManaController manaController;
     public SpellController spellController;
+    public CurrencyController currencyController;
     private Renderer _renderer;
 
     [SerializeField] private GameObject player;
@@ -35,8 +36,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool uniqueAbilityIsAvailable = false;
     [SerializeField] private Transform aim;
 
-    public int currency;
-
     public PlayerController(float movementSpeed, GameObject player, float horizontal, GameObject shootingPoint)
     {
         playerStats.movementSpeed = movementSpeed;
@@ -58,6 +57,7 @@ public class PlayerController : MonoBehaviour
         manaController = GetComponent<ManaController>();
         spellController = GetComponentInChildren<SpellController>();
         _renderer = GetComponent<Renderer>();
+        currencyController = GetComponent<CurrencyController>();
 
         currentSpeed = playerStats.movementSpeed;
         currentDamage = playerStats.damage;

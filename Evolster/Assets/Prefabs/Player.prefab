@@ -423,6 +423,7 @@ GameObject:
   - component: {fileID: 1744278658796917602}
   - component: {fileID: -4561438247261481820}
   - component: {fileID: 7643298336837889245}
+  - component: {fileID: -7988756361789161831}
   - component: {fileID: 5682826715875559499}
   - component: {fileID: 1744278658796917603}
   - component: {fileID: 1744278658796917600}
@@ -467,6 +468,7 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: f685df448700862429fd3ccf7bef4dfc, type: 2}
   manaController: {fileID: 0}
   spellController: {fileID: 0}
+  currencyController: {fileID: 0}
   player: {fileID: 0}
   rb: {fileID: 0}
   currentSpeed: 8
@@ -477,7 +479,6 @@ MonoBehaviour:
   playerGo: {fileID: 1744278658796917407}
   uniqueAbilityIsAvailable: 1
   aim: {fileID: 3653253704207605178}
-  currency: 0
 --- !u!114 &-4561438247261481820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   maxLife: 0
+  coinPrefab: {fileID: 0}
 --- !u!114 &7643298336837889245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +508,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMana: 0
   manaRecoveryCooldown: 1
+--- !u!114 &-7988756361789161831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744278658796917407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec7a065e9e18e846bf797157e6827b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCoins: 100
 --- !u!212 &5682826715875559499
 SpriteRenderer:
   m_ObjectHideFlags: 0

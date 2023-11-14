@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     [Header("STORE")]
     [SerializeField] StoreItemData[] itemsToDisplay;
     [SerializeField] GameObject storeItemTemplate;
+    [SerializeField] TextMeshProUGUI coins;
 
     [Header ("HIGHSCORES")]
     public float _timeElapsed;
@@ -75,6 +76,7 @@ public class UIManager : MonoBehaviour
            lifeBar.SetActive(false);
            enemyCount.SetActive(false);
         }
+        if (store.activeInHierarchy) UpdateCoins();
     }
 
     private void UpdateLife()
@@ -103,6 +105,11 @@ public class UIManager : MonoBehaviour
         _seconds = (int)(_timeElapsed - _minutes * 60f);
 
         timerText.text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
+    }
+
+    private void UpdateCoins()
+    {
+        coins.text = $" x{PlayerController.instance.currencyController.currentCoins}";
     }
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);
