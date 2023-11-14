@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4539780715839927388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.48, y: 9.98, z: 0}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2767061296075938834}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.51359504, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 274276f3edd187e4aab4752747e11caf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referencePoint: {fileID: 2767061296075938834}
-  lightEnemyPrefab: {fileID: 1018653029207290118, guid: 25674ff3118dbd94eb2040a6ab7a1b2e, type: 3}
+  lightEnemyPrefab: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
   heavyEnemyPrefab: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
   rangeEnemyPrefab: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
   bossPrefab: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
-  amountOfEnemiesToSpawn: 0
+  amountOfEnemiesToSpawn: 1
   spawnBossNow: 0
   spawnCooldown: 2
 --- !u!1 &4778254180180124220
@@ -130,7 +130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4778254180180124220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.01, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
