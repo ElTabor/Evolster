@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     private void CastAbility()
     {
         var aimDirection = (aim.position - transform.position).normalized;
-        //RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
+        RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
         GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform.position + aimDirection*2, Quaternion.identity);
         uniqueAbility.GetComponent<AreaAbility>().direction = aimDirection;
         uniqueAbility.GetComponent<AreaAbility>().currentDamage += currentDamage;
