@@ -63,6 +63,11 @@ public class Patrol : MonoBehaviour
     {
         Transform nextPatrolPoint = GetRandomPatrolPoint();
 
+        while (nextPatrolPoint == currentPatrolPoint)
+        {
+            nextPatrolPoint = GetRandomPatrolPoint();
+        }
+
         currentPath = graph.Dijkstra(currentPatrolPoint, nextPatrolPoint);
 
         currentPatrolPoint = nextPatrolPoint;
