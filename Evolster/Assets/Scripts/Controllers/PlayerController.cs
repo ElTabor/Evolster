@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     private bool _isWalking = false;
     private Animator _animator;
 
-
+    public GameObject stakePrefab;
     [SerializeField] public GameObject uniqueAbilityPrefab;
+    [SerializeField] private IAbility _ability;
     public UniqueAbilityData uniqueAbilityData;
     
     [SerializeField] public GameObject gameOverScreen;
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
         currentDamage = playerStats.damage;
         _lifeController.SetMaxLife(playerStats.maxLife);
         manaController.SetMaxMana(playerStats.maxMana);
+        EquipAbility(uniqueAbilityPrefab);
     }
 
     private void Update()
@@ -82,7 +84,6 @@ public class PlayerController : MonoBehaviour
                     Input.mousePosition.y, 
                     -Camera.main.transform.position.z));
         }
-
     }
 
     private void Move()
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetMouseButtonDown(0)) TryCastAbility();
+        if (Input.GetMouseButtonDown(0)) _ability.TryCast();
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) spellController.ChooseSpell(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) spellController.ChooseSpell(1);
@@ -109,8 +110,12 @@ public class PlayerController : MonoBehaviour
     public void EquipAbility(GameObject ability)
     {
         uniqueAbilityPrefab = ability;
+        _ability = ability.GetComponent<IAbility>();
     }
 
+
+
+    /*
     public void TryCastAbility()
     {
         if (uniqueAbilityIsAvailable && !GameManager.instance.gamePaused && GameManager.instance.onLevel) CastAbility();
@@ -130,6 +135,9 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, aimDirection * 1000000f, Color.red);
         Debug.Log("Ability Cast");
     }
+    */
+
+
 
     public void Die()
     {
