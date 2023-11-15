@@ -25,7 +25,7 @@ public class EnemySpawnManager : MonoBehaviour
                 spawn.GetComponent<EnemySpawn>().SpawnEnemy(false, null);
             }
         }
-        else
+        else if (RoundsManager.instance.round == 6)
         {
             enemySpawnPoints[1].GetComponent<EnemySpawn>().amountOfEnemiesToSpawn = 1;
             enemySpawnPoints[1].GetComponent<EnemySpawn>().spawnBossNow = true;

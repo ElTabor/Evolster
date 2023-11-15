@@ -46,4 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesOnScreen: 0
   prepTime: 1
-  skillCanvas: {fileID: 0}
+  round: 0
+  abilityDatas:
+  - {fileID: 11400000, guid: 69a2f5060d1909d4294105571eefada1, type: 2}
+  - {fileID: 11400000, guid: 6a0706782a2152f4091def0ec8c32d68, type: 2}
+  - {fileID: 11400000, guid: 53c8452eff3aa6b4a82e343240e5b032, type: 2}

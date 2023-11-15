@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
 
     public bool gamePaused;
+    public bool onLevel;
+
 
 
     private void Start()
@@ -21,6 +23,11 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    private void Update()
+    {
+        if (gamePaused) Time.timeScale = 0f;
+        else Time.timeScale = 1f;
+    }
     public void ChangeScene(string newScene)
     {
         PlayerController.instance.transform.position = Vector3.zero;
@@ -54,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
-        if (RoundsManager.instance.round == 6) ChangeScene("Lobby");
+        ChangeScene("Lobby");
         currentLevel++;
     }
 }

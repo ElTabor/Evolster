@@ -23,6 +23,7 @@ public class RewardSelectTemplate : MonoBehaviour
     void CloseMenu()
     {
         RoundsManager.instance.SetNewRound();
+        UIManager.instance.OpenCloseMenu(UIManager.instance.rewardSelectionMenu);
     }
 
     public void SetValues()
