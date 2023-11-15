@@ -23613,6 +23613,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1192903041}
     - target: {fileID: 1744278658796917602, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: stakePrefab
+      value: 
+      objectReference: {fileID: 7273161089312693241, guid: 54a1d23226e2dbc418239fdb1dfa09cd, type: 3}
+    - target: {fileID: 1744278658796917602, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1464976973}
