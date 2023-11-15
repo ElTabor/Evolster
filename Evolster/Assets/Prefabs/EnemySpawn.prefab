@@ -103,7 +103,7 @@ MonoBehaviour:
   heavyEnemyPrefab: {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
   rangeEnemyPrefab: {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
   bossPrefab: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
-  amountOfEnemiesToSpawn: 1
+  amountOfEnemiesToSpawn: 4
   spawnBossNow: 0
   spawnCooldown: 2
 --- !u!1 &4778254180180124220

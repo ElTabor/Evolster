@@ -9,8 +9,8 @@ using UnityEngine.Serialization;
 public class EnemySpawnManager : MonoBehaviour
 {
     public static EnemySpawnManager instance;
-    [SerializeField] GameObject[] enemySpawnPoints;
-    [SerializeField] GameObject enemySpawnPointPrefab;
+    [SerializeField] private GameObject[] enemySpawnPoints;
+    [SerializeField] private GameObject enemySpawnPointPrefab;
     
     
     [SerializeField] private int amountOfSpawns;

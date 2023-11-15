@@ -478,7 +478,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 0}
   playerGo: {fileID: 1744278658796917407}
   uniqueAbilityIsAvailable: 1
-  aim: {fileID: 3653253704207605178}
+  aim: {fileID: 0}
 --- !u!114 &-4561438247261481820
 MonoBehaviour:
   m_ObjectHideFlags: 0
