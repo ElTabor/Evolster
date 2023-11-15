@@ -124,14 +124,14 @@ public class PlayerController : MonoBehaviour
     private void CastAbility()
     {
         var aimDirection = (aim.position - transform.position).normalized;
-        RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
+        //RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
         GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform.position + aimDirection*2, Quaternion.identity);
         uniqueAbility.GetComponent<UniqueAbility>().direction = aimDirection;
         uniqueAbility.GetComponent<UniqueAbility>().currentDamage += currentDamage;
         manaController.ManageMana(-uniqueAbilityPrefab.GetComponent<UniqueAbility>().uniqueAbilityData.manaCost);
 
         //Debugs
-        if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
+        //if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
         Debug.DrawRay(transform.position, aimDirection * 1000000f, Color.red);
         Debug.Log("Ability Cast");
     }

@@ -23,8 +23,8 @@ public class RoundsManager : MonoBehaviour
     private void Update()
     {
         if (prepTime) return;
-        enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy").Count();
-        if (enemiesOnScreen <= 0) EndRound();
+        // enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy").Count();
+        // if (enemiesOnScreen <= 0) EndRound();
     }
 
     private IEnumerator PrepTimeSet()

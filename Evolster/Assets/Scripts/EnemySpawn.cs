@@ -15,7 +15,7 @@ public class EnemySpawn : MonoBehaviour
 
     private SpawnQueue _spawnQueue;
 
-    void Start()
+    private void Start()
     {
         _spawnQueue = new SpawnQueue();
         _spawnQueue.InitializeQueue();

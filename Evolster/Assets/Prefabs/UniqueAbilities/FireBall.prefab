@@ -103,6 +103,10 @@ MonoBehaviour:
   currentDamage: 0
   coolDown: 0.5
   direction: {x: 0, y: 0}
+  damageArea: 5
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!50 &-8578347083912464477
 Rigidbody2D:
   serializedVersion: 4

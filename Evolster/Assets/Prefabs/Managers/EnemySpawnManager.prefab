@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72546c38e94f31e49914ba92e167becc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawnPoints: []
+  enemySpawnPointPrefab: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
+  amountOfSpawns: 4
+  rangeX: 18
+  rangeY: 9
