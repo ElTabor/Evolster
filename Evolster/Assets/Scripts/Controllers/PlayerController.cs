@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private LifeController _lifeController;
     public ManaController manaController;
     public SpellController spellController;
+    public CurrencyController currencyController;
     private Renderer _renderer;
 
     [SerializeField] private GameObject player;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] public GameObject uniqueAbilityPrefab;
+    public UniqueAbilityData uniqueAbilityData;
     
     [SerializeField] public GameObject gameOverScreen;
 
@@ -34,8 +36,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public bool uniqueAbilityIsAvailable = false;
     [SerializeField] private Transform aim;
-
-    public int currency;
 
     public PlayerController(float movementSpeed, GameObject player, float horizontal, GameObject shootingPoint)
     {
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
         manaController = GetComponent<ManaController>();
         spellController = GetComponentInChildren<SpellController>();
         _renderer = GetComponent<Renderer>();
+        currencyController = GetComponent<CurrencyController>();
 
         currentSpeed = playerStats.movementSpeed;
         currentDamage = playerStats.damage;
@@ -72,12 +73,15 @@ public class PlayerController : MonoBehaviour
 
         Move();
         
-        aim.gameObject.SetActive(uniqueAbilityIsAvailable);
-        if(aim.gameObject.activeInHierarchy) 
-            aim.position = Camera.main.ScreenToWorldPoint(new Vector3(
-                Input.mousePosition.x, 
-                Input.mousePosition.y, 
-                -Camera.main.transform.position.z));
+        if(GameManager.instance.onLevel)
+        {
+            aim.gameObject.SetActive(uniqueAbilityIsAvailable);
+            if(aim.gameObject.activeInHierarchy) 
+                aim.position = Camera.main.ScreenToWorldPoint(new Vector3(
+                    Input.mousePosition.x, 
+                    Input.mousePosition.y, 
+                    -Camera.main.transform.position.z));
+        }
 
     }
 
@@ -102,22 +106,27 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4)) spellController.ChooseSpell(3);
     }
     
+    public void EquipAbility(GameObject ability)
+    {
+        uniqueAbilityPrefab = ability;
+    }
+
     public void TryCastAbility()
     {
-        if (uniqueAbilityIsAvailable && !GameManager.instance.gamePaused) CastAbility();
+        if (uniqueAbilityIsAvailable && !GameManager.instance.gamePaused && GameManager.instance.onLevel) CastAbility();
     }
 
     private void CastAbility()
     {
         var aimDirection = (aim.position - transform.position).normalized;
-        RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
+        //RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
         GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform.position + aimDirection*2, Quaternion.identity);
-        uniqueAbility.GetComponent<UniqueAbility>().direction = aimDirection;
-        uniqueAbility.GetComponent<UniqueAbility>().currentDamage += currentDamage;
-        manaController.ManageMana(-uniqueAbility.GetComponent<UniqueAbility>().uniqueAbilityData.manaCost);
+        uniqueAbility.GetComponent<AreaAbility>().direction = aimDirection;
+        uniqueAbility.GetComponent<AreaAbility>().currentDamage += currentDamage;
+        manaController.ManageMana(-uniqueAbilityPrefab.GetComponent<AreaAbility>().uniqueAbilityData.manaCost);
 
         //Debugs
-        if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
+        //if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
         Debug.DrawRay(transform.position, aimDirection * 1000000f, Color.red);
         Debug.Log("Ability Cast");
     }

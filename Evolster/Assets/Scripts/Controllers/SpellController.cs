@@ -28,7 +28,7 @@ public class SpellController : MonoBehaviour
         AimToNearestEnemy();
 
         //Shoot
-        if (SceneManager.instance.scene != "Lobby" && _enemyNearBy) CastSpell();
+        if (GameManager.instance.onLevel && _enemyNearBy) CastSpell();
     }
 
     public void ChooseSpell(int n)

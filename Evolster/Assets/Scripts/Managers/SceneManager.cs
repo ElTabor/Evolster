@@ -17,6 +17,11 @@ public class SceneManager : MonoBehaviour
         scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
     }
 
+    private void Update()
+    {
+        GameManager.instance.onLevel = scene != "Lobby" && scene != "Main Menu";
+    }
+
     public void LoadNewScene(string newScene)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(newScene);

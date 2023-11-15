@@ -27,9 +27,9 @@ public class StoreItemTemplate : MonoBehaviour
 
     public void BuyItem()
     {
-        if (PlayerController.instance.currency >= itemData.itemValue)
+        if (PlayerController.instance.currencyController.currentCoins >= itemData.itemValue)
         {
-            PlayerController.instance.currency -= itemData.itemValue;
+            PlayerController.instance.currencyController.ManageCoins(-itemData.itemValue);
             PlayerController.instance.spellController.spells.Add(itemData.spell);
             _buyButton.GetComponentInChildren<Button>().enabled = false;
         }

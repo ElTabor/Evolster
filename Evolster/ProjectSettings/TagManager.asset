@@ -11,6 +11,7 @@ TagManager:
   - Timer
   - LobbyManager
   - Level Door
+  - Coin
   layers:
   - Default
   - TransparentFX
