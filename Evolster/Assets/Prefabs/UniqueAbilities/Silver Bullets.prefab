@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7785538859346977150}
   - component: {fileID: 5745329471954823787}
-  - component: {fileID: -3504991838934472335}
   - component: {fileID: -8578347083912464477}
   - component: {fileID: 5384772429930374857}
+  - component: {fileID: 8851740614427399502}
   m_Layer: 10
   m_Name: Silver Bullets
   m_TagString: Untagged
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3504991838934472335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7273161089312693241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ea92c2739fd744ab6c857efe4efce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueAbilityData: {fileID: 11400000, guid: 6a0706782a2152f4091def0ec8c32d68, type: 2}
-  currentDamage: 0
-  coolDown: 0.5
-  direction: {x: 0, y: 0}
 --- !u!50 &-8578347083912464477
 Rigidbody2D:
   serializedVersion: 4
@@ -150,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8851740614427399502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273161089312693241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd43a3a8a0315134cbbfb6e3efbbec47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

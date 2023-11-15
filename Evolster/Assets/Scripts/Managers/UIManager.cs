@@ -153,15 +153,15 @@ public class UIManager : MonoBehaviour
     public void SetAbilityRewardPanel(GameObject abilityInfo)
     {
         levelAbility = abilityInfo;
-        abilityName.text = abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilityName;
-        abilityIcon.sprite = abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilitySprite;
-        stats[0].text = $"Level: {abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilityLevel}";
-        stats[1].text = $"Damage: {abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilityDamage}";
-        stats[2].text = $"Speed: {abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilitySpeed}";
-        stats[3].text = $"Duration: {abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilityLifeTime}s";
-        stats[4].text = $"Damage range: {abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilityDamageRange}";
-        stats[5].text = $"Damage area: {abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.uniqueAbilityDamageArea}";
-        stats[6].text = $"Mana cost: {abilityInfo.GetComponent<UniqueAbility>().uniqueAbilityData.manaCost}";
+        abilityName.text = abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityName;
+        abilityIcon.sprite = abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilitySprite;
+        stats[0].text = $"Level: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityLevel}";
+        stats[1].text = $"Damage: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityDamage}";
+        stats[2].text = $"Speed: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilitySpeed}";
+        stats[3].text = $"Duration: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityLifeTime}s";
+        stats[4].text = $"Damage range: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityDamageRange}";
+        stats[5].text = $"Damage area: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityDamageArea}";
+        stats[6].text = $"Mana cost: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.manaCost}";
     }
 
     public void UnlockAbility()

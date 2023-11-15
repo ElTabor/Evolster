@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class UniqueAbility : MonoBehaviour
+public class AreaAbility : MonoBehaviour
 {
     [SerializeField] public UniqueAbilityData uniqueAbilityData;
 
@@ -13,7 +13,7 @@ public class UniqueAbility : MonoBehaviour
     private Rigidbody2D _rb;
     public Vector2 direction;
 
-    public float damageArea;
+    [SerializeField] private float damageArea;
     private GameObject[] enemies;
     [SerializeField] private LayerMask enemiesLayer;
 
@@ -24,6 +24,7 @@ public class UniqueAbility : MonoBehaviour
         coolDown = Time.time;
         _rb.velocity = direction * uniqueAbilityData.uniqueAbilitySpeed;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        damageArea = uniqueAbilityData.uniqueAbilityDamageArea;
     }
 
     private void Update()

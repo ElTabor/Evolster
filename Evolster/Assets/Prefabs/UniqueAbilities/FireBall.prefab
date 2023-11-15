@@ -103,7 +103,7 @@ MonoBehaviour:
   currentDamage: 0
   coolDown: 0.5
   direction: {x: 0, y: 0}
-  damageArea: 5
+  damageArea: 0
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 64

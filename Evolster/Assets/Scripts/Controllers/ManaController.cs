@@ -28,7 +28,7 @@ public class ManaController : MonoBehaviour
 
     void ManageAbilityAvailability()
     {
-        PlayerController.instance.uniqueAbilityIsAvailable = currentMana >= PlayerController.instance.uniqueAbilityPrefab.GetComponent<UniqueAbility>().uniqueAbilityData.manaCost;
+        PlayerController.instance.uniqueAbilityIsAvailable = currentMana >= PlayerController.instance.uniqueAbilityPrefab.GetComponent<AreaAbility>().uniqueAbilityData.manaCost;
     }
 
     public void ManageMana(float newMana)
