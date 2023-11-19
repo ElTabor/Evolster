@@ -1876,7 +1876,6 @@ GameObject:
   - component: {fileID: 4263022566495481290}
   - component: {fileID: 5543375247386525565}
   - component: {fileID: 3211385823307930497}
-  - component: {fileID: 1681575563}
   - component: {fileID: 4507519356359504223}
   m_Layer: 0
   m_Name: HighScores
@@ -1967,19 +1966,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1681575563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2155100224513143429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a06b5c295ded5f846826d70abfafbf6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreText: {fileID: 5694940969220424909}
 --- !u!114 &4507519356359504223
 MonoBehaviour:
   m_ObjectHideFlags: 0

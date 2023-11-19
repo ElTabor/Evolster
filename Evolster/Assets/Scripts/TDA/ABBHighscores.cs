@@ -20,6 +20,7 @@ public class ABBHighscores : MonoBehaviour
     private void Start()
     {
         abb = new ABB();
+        abb.InicializarArbol();
         highscoresManager = HighScoresManager.instance;
         playerName = "PlayerName";
 
@@ -41,21 +42,17 @@ public class ABBHighscores : MonoBehaviour
         highScore.text = highscoresText;
     }
 
-    //private List<ScoreInfo> GetScoresInOrder()
-    //{
-    //    List<ScoreInfo> scoresInOrder = new List<ScoreInfo>();
-    //    Stack<float> scoreRecord = highscoresManager.GetScoreRecord();
+    private void Update()
+    {
+        SetScore();
+    }
 
-    //    foreach(int score in scoreRecord)
-    //    {
-    //        ScoreInfo scoreInfo = new ScoreInfo();
-    //        scoreInfo.playerName = "Player Name";
-    //        scoreInfo.playerScore = score;
+    private void SetScore()
+    {
+        float timeElapsed = UIManager.instance._timeElapsed;
+        float _minutes = (int)(timeElapsed / 60f);
+        float _seconds = (int)(timeElapsed - _minutes * 60f);
 
-    //        scoresInOrder.Add(scoreInfo);
-    //    }
-
-    //    scoresInOrder.Sort((a, b) => b.playerScore.CompareTo(a.playerScore));
-    //    return scoresInOrder;
-    //}
+        highScore.text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
+    }
 }

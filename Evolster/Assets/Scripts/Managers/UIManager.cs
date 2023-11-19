@@ -65,7 +65,6 @@ public class UIManager : MonoBehaviour
             UpdateLife();
             UpdateMana();
             UpdateTimer();
-            StopTimer();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
             // for(int n = 0; n <= hotkeysIcons.Length; n++)
@@ -123,7 +122,6 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         OpenCloseMenu(gameOverMenu);
-        StopTimer();
     }
 
     public void SetStoreCanvas()
@@ -142,12 +140,6 @@ public class UIManager : MonoBehaviour
                 newItem.GetComponent<StoreItemTemplate>().itemData = item;
             }
         }
-    }
-
-    private void StopTimer()
-    {
-        PlayerPrefs.SetFloat("Highscore", _timeElapsed);
-        //Debug.Log(_timeElapsed);
     }
 
     public void SetAbilityRewardPanel(GameObject abilityInfo)
