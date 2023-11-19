@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public class EnemySpawnManager : MonoBehaviour
 {
     public static EnemySpawnManager instance;
-    [SerializeField] private GameObject[] enemySpawnPoints;
+    [SerializeField] private List<GameObject> enemySpawnPoints = new List<GameObject>();
     [SerializeField] private GameObject enemySpawnPointPrefab;
     
     
@@ -20,9 +20,6 @@ public class EnemySpawnManager : MonoBehaviour
     private void Start()
     {
         instance = this;
-        
-        //enemySpawnPointPrefab = GameObject.FindGameObjectWithTag("Spawn");
-        
         RandomSpawnInstantiator();
     }
 
@@ -34,8 +31,8 @@ public class EnemySpawnManager : MonoBehaviour
             float posY = UnityEngine.Random.Range(-rangeY, rangeY);
 
             Vector3 randomPos = new Vector3(posX, posY, 0f);
-            GameObject newSpawnPoint = Instantiate(enemySpawnPointPrefab, randomPos, Quaternion.identity);
-            enemySpawnPoints.Append(newSpawnPoint);
+            GameObject newSpawn = Instantiate(enemySpawnPointPrefab, randomPos, Quaternion.identity);
+            enemySpawnPoints.Add(newSpawn);
         }
     }
 
@@ -48,7 +45,6 @@ public class EnemySpawnManager : MonoBehaviour
                 spawn.GetComponent<EnemySpawn>().amountOfEnemiesToSpawn = RoundsManager.instance.round * 2;
                 spawn.GetComponent<EnemySpawn>().SpawnEnemy(false, null);
             }
-            Debug.Log(enemySpawnPoints.Length);
         }
         else if (RoundsManager.instance.round == 6)
         {

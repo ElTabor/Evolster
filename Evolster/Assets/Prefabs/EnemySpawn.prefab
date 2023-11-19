@@ -105,7 +105,8 @@ MonoBehaviour:
   bossPrefab: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
   amountOfEnemiesToSpawn: 4
   spawnBossNow: 0
-  spawnCooldown: 2
+  spawnCooldown: 1.5
+  _spawnQueue: {fileID: 0}
 --- !u!1 &4778254180180124220
 GameObject:
   m_ObjectHideFlags: 0

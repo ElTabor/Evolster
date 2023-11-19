@@ -13,7 +13,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] float spawnCooldown;
     private float _lastSpawn;
 
-    private SpawnQueue _spawnQueue;
+    [SerializeField] SpawnQueue _spawnQueue;
 
     private void Start()
     {

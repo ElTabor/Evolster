@@ -23,13 +23,15 @@ public class RoundsManager : MonoBehaviour
     private void Update()
     {
         if (prepTime) return;
-        // enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy").Count();
-        // if (enemiesOnScreen <= 0) EndRound();
+        enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy").Count();
+        if (enemiesOnScreen <= 0) EndRound();
     }
 
     private IEnumerator PrepTimeSet()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        if (round < 7) EnemySpawnManager.instance.SetEnemiesToSpawn();
+        yield return new WaitForSeconds(1f);
         prepTime = false;
     }
 
@@ -70,6 +72,5 @@ public class RoundsManager : MonoBehaviour
         if (round == 7)
             GameManager.instance.EndLevel();
         StartCoroutine(PrepTimeSet());
-        if (round < 7) EnemySpawnManager.instance.SetEnemiesToSpawn();
     }
 }
