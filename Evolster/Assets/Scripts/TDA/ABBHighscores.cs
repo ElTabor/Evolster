@@ -11,6 +11,8 @@ public class ABBHighscores : MonoBehaviour
     private HighScoresManager highscoresManager;
     private string playerName;
 
+    public List<ScoreRec> scoresInOrder;
+
     public class ScoreInfo
     {
         public string playerName;
@@ -25,21 +27,22 @@ public class ABBHighscores : MonoBehaviour
         playerName = "PlayerName";
 
         Stack<float> scoreRecord = highscoresManager.GetScoreRecord();
-        foreach (int score in scoreRecord)
+        foreach (float score in scoreRecord)
         {
-            Player player = new Player(playerName, score);
+            ScoreRec player = new ScoreRec(score);
             abb.AgregarElem(player);
         }
 
-        List<Player> scoresInOrder = abb.GetPlayersInOrder();
+        scoresInOrder = abb.GetPlayersInOrder();
         string highscoresText = "";
 
         for(int i = 0; i < scoresInOrder.Count; i++)
         {
-            highscoresText += "Position " + (i + 1) + scoresInOrder[i].Name + " - Puntaje " + scoresInOrder[i].Score.ToString();
+            highscoresText += "Position " + (i + 1) + "." + scoresInOrder[i].Score.ToString();
             
         }
         highScore.text = highscoresText;
+        Debug.Log(highscoresText);
     }
 
     private void Update()

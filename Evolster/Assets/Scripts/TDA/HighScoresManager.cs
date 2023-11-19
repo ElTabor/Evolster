@@ -10,7 +10,9 @@ public class HighScoresManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
     
 
@@ -20,10 +22,14 @@ public class HighScoresManager : MonoBehaviour
         return currentScore;
     }
 
-    public void AddScore(float scoreToAdd) => currentScore = scoreToAdd;
+    public void AddScore(float scoreToAdd)
+    {
+        currentScore = scoreToAdd;
+    }
 
     public Stack<float> GetScoreRecord()
     {
+
         return highscoresRecord;
     }
 
@@ -32,5 +38,4 @@ public class HighScoresManager : MonoBehaviour
         highscoresRecord.Push(currentScore);
     }
 
-    public void ResetHighscore() => currentScore = 0;
 }

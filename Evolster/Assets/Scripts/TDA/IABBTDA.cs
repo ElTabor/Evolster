@@ -4,13 +4,13 @@ using UnityEngine;
 
 public interface IABBTDA
 {
-    Player Raiz();
+    ScoreRec Raiz();
     IABBTDA HijoIzq();
     IABBTDA HijoDer();
     bool ArbolVacio();
     void InicializarArbol();
-    void AgregarElem(Player player);
+    void AgregarElem(ScoreRec player);
     void EliminarElem(int x);
-    Player HighestScore();
-    Player LowestScore();
+    ScoreRec HighestScore();
+    ScoreRec LowestScore();
 }

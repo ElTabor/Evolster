@@ -2,27 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player
+public class ScoreRec
 {
     public string Name { get; set; }
-    public int Score { get; set; }
+    public float Score { get; set; }
 
-    public Player(string name, int score)
+    public ScoreRec(float score)
     {
-        Name = name;
         Score = score;
     }
 }
 
 public class NodoABB
 {
-    public Player Player { get; set; }
+    public ScoreRec Score { get; set; }
     public NodoABB Left { get; set; }
     public NodoABB Right { get; set; }
 
-    public NodoABB(Player player)
+    public NodoABB(ScoreRec score)
     {
-        Player = player;
+        Score = score;
         Left = null;
         Right = null;
     }
@@ -32,24 +31,24 @@ public class ABB : IABBTDA
 {
     private NodoABB root;
 
-    public void AgregarElem(Player player)
+    public void AgregarElem(ScoreRec score)
     {
-        root = AgregarElem(root, player);
+        root = AgregarElem(root, score);
     }
 
-    private NodoABB AgregarElem(NodoABB node, Player player)
+    private NodoABB AgregarElem(NodoABB node, ScoreRec score)
     {
         if(node == null)
         {
-            return new NodoABB(player);
+            return new NodoABB(score);
         }
-        if(player.Score < node.Player.Score)
+        if(score.Score < node.Score.Score)
         {
-            node.Left = AgregarElem(node.Left, player);
+            node.Left = AgregarElem(node.Left, score);
         }
-        else if (player.Score > node.Player.Score)
+        else if (score.Score > node.Score.Score)
         {
-            node.Right = AgregarElem(node.Right, player);
+            node.Right = AgregarElem(node.Right, score);
         }
         return node;
     }
@@ -64,17 +63,17 @@ public class ABB : IABBTDA
         root = EliminarElem(root, score);
     }
 
-    private NodoABB EliminarElem(NodoABB node, int score)
+    private NodoABB EliminarElem(NodoABB node, float score)
     {
         if (node == null)
         {
             return node;
         }
-        if (score < node.Player.Score)
+        if (score < node.Score.Score)
         {
             node.Left = EliminarElem(node.Left, score);
         }
-        else if (score > node.Player.Score)
+        else if (score > node.Score.Score)
         {
             node.Right = EliminarElem(node.Right, score);
         }
@@ -89,8 +88,8 @@ public class ABB : IABBTDA
                 return node.Left;
             }
 
-            node.Player = LowestScore(node.Right);
-            node.Right = EliminarElem(node.Right, node.Player.Score);
+            node.Score = LowestScore(node.Right);
+            node.Right = EliminarElem(node.Right, node.Score.Score);
         }
         return node;
     }
@@ -122,16 +121,16 @@ public class ABB : IABBTDA
         root = null;
     }
 
-    public Player Raiz()
+    public ScoreRec Raiz()
     {
         if(root == null)
         {
             throw new System.InvalidOperationException("El arbol esta vacio.");
         }
-        return root.Player;
+        return root.Score;
     }
 
-    public Player HighestScore()
+    public ScoreRec HighestScore()
     {
         if(root == null)
         {
@@ -141,16 +140,16 @@ public class ABB : IABBTDA
         return HighestScore(root);
     }
 
-    private Player HighestScore(NodoABB node)
+    private ScoreRec HighestScore(NodoABB node)
     {
         if(node.Right == null)
         {
-            return node.Player;
+            return node.Score;
         }
         return HighestScore(node.Right);
     }
 
-    public Player LowestScore()
+    public ScoreRec LowestScore()
     {
         if (root == null)
         {
@@ -160,28 +159,28 @@ public class ABB : IABBTDA
         return LowestScore();
     }
 
-    private Player LowestScore(NodoABB node)
+    private ScoreRec LowestScore(NodoABB node)
     {
         if (node.Left == null)
         {
-            return node.Player;
+            return node.Score;
         }
         return LowestScore(node.Left);
     }
 
-    public List<Player> GetPlayersInOrder()
+    public List<ScoreRec> GetPlayersInOrder()
     {
-        List<Player> playersInOrder = new List<Player>();
-        GetPlayersInOrder(root, playersInOrder);
-        return playersInOrder;
+        List<ScoreRec> scoresInOrder = new List<ScoreRec>();
+        GetPlayersInOrder(root, scoresInOrder);
+        return scoresInOrder;
     }
 
-    private void GetPlayersInOrder(NodoABB node, List<Player> players)
+    private void GetPlayersInOrder(NodoABB node, List<ScoreRec> players)
     {
         if(node != null)
         {
             GetPlayersInOrder(node.Right, players);
-            players.Add(node.Player);
+            players.Add(node.Score);
             GetPlayersInOrder(node.Left, players);
         }
     }
