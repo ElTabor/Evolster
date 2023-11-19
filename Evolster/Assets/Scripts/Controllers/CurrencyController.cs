@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurrencyController : MonoBehaviour
 {
     public int currentCoins;
+    private TextMeshProUGUI feedbackText;
+    [SerializeField] float feedbackTime;
+    private float startTime;
     GameObject[] coins;
+    public bool showingFeedbackText;
 
     private void Update()
     {
         CollectCoins();
     }
 
-    public void ManageCoins(int coins)
-    {
-        currentCoins += coins;
-    }
+    public void ManageCoins(int coins) => currentCoins += coins;
 
     void CollectCoins()
     {
@@ -29,5 +33,11 @@ public class CurrencyController : MonoBehaviour
             else rb.velocity = Vector2.zero;
         }
 
+    }
+
+    public void ShowFeedback(int coins)
+    {
+        UIManager.instance.lastFeedbackTime = Time.time;
+        UIManager.instance.coinsToShow += coins;
     }
 }

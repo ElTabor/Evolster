@@ -11,6 +11,7 @@ public class Coin : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<CurrencyController>().ManageCoins(coinsAmount);
+            collision.GetComponent<CurrencyController>().ShowFeedback(coinsAmount);
             Destroy(gameObject);
         }
     }

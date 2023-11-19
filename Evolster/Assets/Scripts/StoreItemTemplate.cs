@@ -12,10 +12,7 @@ public class StoreItemTemplate : MonoBehaviour
     [SerializeField] TextMeshProUGUI _itemDescription;
     [SerializeField] GameObject _buyButton;
 
-    void Start()
-    {
-        SetValues();
-    }
+    void Start() => SetValues();
 
     void SetValues()
     {

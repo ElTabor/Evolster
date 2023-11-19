@@ -29,6 +29,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyCountText;
     [SerializeField] private Image[] hotkeysIcons;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI coinsFeedback;
+    private bool showingCoinsFeedback;
+    public float lastFeedbackTime;
+    [SerializeField] float feedbackTime;
+    public int coinsToShow;
 
     [Header("STORE")]
     [SerializeField] StoreItemData[] itemsToDisplay;
@@ -65,6 +70,7 @@ public class UIManager : MonoBehaviour
             UpdateLife();
             UpdateMana();
             UpdateTimer();
+            UpdateCoinsFeedback();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
             // for(int n = 0; n <= hotkeysIcons.Length; n++)
@@ -115,6 +121,18 @@ public class UIManager : MonoBehaviour
     private void UpdateCoins()
     {
         coins.text = $" x{PlayerController.instance.currencyController.currentCoins}";
+    }
+
+    private void UpdateCoinsFeedback()
+    {
+        if (Time.time > lastFeedbackTime + feedbackTime)
+        {
+            coinsToShow = 0;
+            showingCoinsFeedback = false;
+        }
+        else showingCoinsFeedback = true;
+        coinsFeedback.gameObject.SetActive(showingCoinsFeedback);
+        coinsFeedback.text = $"+{coinsToShow}";
     }
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);
