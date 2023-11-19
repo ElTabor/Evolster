@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd27ec868f97134b92e2b2334cd5437, type: 3}
   m_Name: Wood spell
   m_EditorClassIdentifier: 
-  spellSprite: {fileID: 0}
+  spellSprite: {fileID: 21300000, guid: 235433b75aa495c4e8521cfd426982ca, type: 3}
   spellName: Lance Stake Tempest
   spellType: Wood
   spellDescription: It is super effective against Vampires

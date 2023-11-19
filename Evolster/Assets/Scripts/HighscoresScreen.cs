@@ -4,12 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Highscores : MonoBehaviour
+public class HighscoresScreen : MonoBehaviour
 {
     public TextMeshProUGUI highscoreText;
+
     private void Start()
     {
-        highscoreText.text = PlayerPrefs.GetFloat("Highscore").ToString();
+        Stack<float> highscoresRecord = HighScoresManager.instance.GetScoreRecord();
+        if(highscoreText != null)
+        {
+            string recordsText = "Record text: \n";
+            foreach (float score in highscoresRecord)
+            {
+                recordsText += "Score: " + score.ToString() + "\n";
+            }
+
+            highscoreText.text = recordsText;
+        }
     }
 
     private void Update()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd27ec868f97134b92e2b2334cd5437, type: 3}
   m_Name: Silver spell
   m_EditorClassIdentifier: 
-  spellSprite: {fileID: 0}
+  spellSprite: {fileID: 21300000, guid: 54e6c1221c118ed4bb9cd9d8b38d371d, type: 3}
   spellName: Moonlight Bullets
   spellType: Silver
   spellDescription: It is super effective against werewolfs

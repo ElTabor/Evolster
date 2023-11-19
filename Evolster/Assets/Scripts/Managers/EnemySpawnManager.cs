@@ -48,6 +48,7 @@ public class EnemySpawnManager : MonoBehaviour
                 spawn.GetComponent<EnemySpawn>().amountOfEnemiesToSpawn = RoundsManager.instance.round * 2;
                 spawn.GetComponent<EnemySpawn>().SpawnEnemy(false, null);
             }
+            Debug.Log(enemySpawnPoints.Length);
         }
         else if (RoundsManager.instance.round == 6)
         {
