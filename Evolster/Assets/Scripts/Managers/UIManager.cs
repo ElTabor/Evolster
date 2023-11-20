@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    private HighScoreController highScoreController;
+
     public GameObject rewardSelectionMenu;
     public GameObject abilityRewardPanel;
     public GameObject pauseMenu;
@@ -43,6 +45,7 @@ public class UIManager : MonoBehaviour
     [Header ("HIGHSCORES")]
     public float _timeElapsed;
     private int _minutes, _seconds;
+    [SerializeField] public GameObject highScorePanel;
 
     [Header("ABILITY REWARD")]
     private GameObject levelAbility;
@@ -57,6 +60,8 @@ public class UIManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+
+        highScoreController = GetComponent<HighScoreController>();
     }
     private void Update()
     {
@@ -140,6 +145,8 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         OpenCloseMenu(gameOverMenu);
+
+        HighScoreController.instance.InsertScore(UIManager.instance._timeElapsed);
     }
 
     public void SetStoreCanvas()
