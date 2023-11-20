@@ -33,22 +33,23 @@ public class AreaAbility : MonoBehaviour
             Destroy(gameObject);
     }
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D()
     {
-        if(collision.CompareTag("Enemy"))
-        {
-            DealAreaDamage();
-        }
+        DealAreaDamage();
         Destroy(gameObject);
     }
 
     private void DealAreaDamage()
     {
-        Collider2D[] enemiesCollider = Physics2D.OverlapCircleAll(transform.position, damageArea, enemiesLayer);
-        foreach (Collider2D enemyColl in enemiesCollider)
+        foreach (Collider2D enemy in Physics2D.OverlapCircleAll(transform.position, damageArea, enemiesLayer))
         {
-            enemyColl.GetComponent<LifeController>().UpdateLife(currentDamage);
+            enemy.GetComponent<LifeController>().UpdateLife(currentDamage);
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, damageArea);
+    }
 }

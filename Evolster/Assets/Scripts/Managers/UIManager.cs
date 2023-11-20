@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+        lastFeedbackTime = -feedbackTime;
     }
     private void Update()
     {
