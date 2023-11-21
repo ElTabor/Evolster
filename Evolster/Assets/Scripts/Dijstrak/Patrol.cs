@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
+    #region Initialize_Graph
     public float speed = 5f;
     public List<Transform> patrolPoints;
     private Graph graph;
@@ -23,7 +24,8 @@ public class Patrol : MonoBehaviour
         currentPatrolPoint = patrolPoints[0];
         MoveToNextPatrolPoint();
     }
-
+    #endregion
+    #region Patrol_Methods
     void Update()
     {
         if (currentPath != null && currentPath.Count > 1)
@@ -42,7 +44,7 @@ public class Patrol : MonoBehaviour
             }
         }
     }
-
+    
     void MoveTowards(Vector3 targetPosition)
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -72,9 +74,11 @@ public class Patrol : MonoBehaviour
         return patrolPoints[Random.Range(0, patrolPoints.Count)];
     }
 }
-
+#endregion
+#region Graph_Class
 public class Graph
 {
+    #region Graph_Contruct
     private Dictionary<Transform, List<Transform>> adjacencyList;
 
     public Graph(List<Transform> nodes)
@@ -86,10 +90,13 @@ public class Graph
             adjacencyList[node] = new List<Transform>();
         }
     }
+    #endregion
+    #region Graph_Methods
     public void AddEdge(Transform node1, Transform node2)
     {
         adjacencyList[node1].Add(node2);
     }
+    #region Dijkstra
     public List<Transform> Dijkstra(Transform start, Transform end)
     {
         Dictionary<Transform, float> distance = new Dictionary<Transform, float>();
@@ -151,4 +158,7 @@ public class Graph
         path.Reverse();
         return path;
     }
+    #endregion
+    #endregion
 }
+#endregion
