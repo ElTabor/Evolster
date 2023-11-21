@@ -213,11 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1241599029 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3653253704207605178, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
-  m_PrefabInstance: {fileID: 1691444310}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1525027733 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8697914208674197321, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
@@ -441,10 +436,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1744278658796917602, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
-      propertyPath: aim
-      value: 
-      objectReference: {fileID: 1241599029}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
 --- !u!114 &1913950608 stripped
