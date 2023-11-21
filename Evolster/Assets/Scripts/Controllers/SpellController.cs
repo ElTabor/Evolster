@@ -9,7 +9,7 @@ public class SpellController : MonoBehaviour
     [SerializeField] private GameObject activeSpellPrefab;
 
 
-    private float _distanceToNearestEnemy;
+    [SerializeField] float _distanceToNearestEnemy;
     private Vector2 _shootingDirection;
     private bool _enemyNearBy;
 
@@ -21,6 +21,7 @@ public class SpellController : MonoBehaviour
     private void Start()
     {
         activeSpellPrefab = spells[0];
+        _distanceToNearestEnemy = float.MaxValue;
     }
     void Update()
     {
@@ -39,28 +40,26 @@ public class SpellController : MonoBehaviour
 
     private void AimToNearestEnemy()
     {
-        Collider2D[] enemiesAround = Physics2D.OverlapCircleAll(transform.position, PlayerController.instance.playerStats.attackRange);
+        GameObject[] enemiesAround = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject nearestEnemy;
 
-        foreach (Collider2D enemy in enemiesAround)
+        foreach (GameObject enemy in enemiesAround)
         {
-            if (enemy.CompareTag("Enemy"))
+            float distanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
+
+            if (distanceToEnemy < PlayerController.instance.playerStats.attackRange)
             {
                 _enemyNearBy = true;
-                Vector2 h = enemy.transform.position - transform.position;
-                float distanceToEnemy = Mathf.Sqrt(h.x * h.x + h.y * h.y);
-
                 if (_distanceToNearestEnemy > distanceToEnemy)
                 {
                     _distanceToNearestEnemy = distanceToEnemy;
                     nearestEnemy = enemy.gameObject;
                 }
 
-                _shootingDirection = h / distanceToEnemy;
+                _shootingDirection = (enemy.transform.position - PlayerController.instance.transform.position).normalized;
 
                 MoveAimingPoint();
-            }
-            else _enemyNearBy = false;
+            }            
         }
     }
 
