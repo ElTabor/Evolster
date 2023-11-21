@@ -41,26 +41,17 @@ public class SpellController : MonoBehaviour
     private void AimToNearestEnemy()
     {
         GameObject[] enemiesAround = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject nearestEnemy;
 
         foreach (GameObject enemy in enemiesAround)
         {
-            float distanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
-
-            if (distanceToEnemy < PlayerController.instance.playerStats.attackRange)
-            {
-                _enemyNearBy = true;
-                if (_distanceToNearestEnemy > distanceToEnemy)
-                {
-                    _distanceToNearestEnemy = distanceToEnemy;
-                    nearestEnemy = enemy.gameObject;
-                }
-
-                _shootingDirection = (enemy.transform.position - PlayerController.instance.transform.position).normalized;
-
-                MoveAimingPoint();
-            }            
+            float localDistanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
+            if (_distanceToNearestEnemy > localDistanceToEnemy)  _distanceToNearestEnemy = localDistanceToEnemy;
+            _shootingDirection = (enemy.transform.position - PlayerController.instance.transform.position).normalized;
         }
+
+        if (_distanceToNearestEnemy < PlayerController.instance.playerStats.attackRange) _enemyNearBy = true;
+        else _enemyNearBy = false;
+        MoveAimingPoint();
     }
 
     private void MoveAimingPoint()

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject player;
     public Rigidbody2D rb;
     public float currentSpeed;
+    public float speedUpgrade;
     public float currentDamage;
     public bool isBuffed;
 
@@ -70,6 +71,9 @@ public class PlayerController : MonoBehaviour
     {
         _renderer.enabled = (SceneManager.instance.scene != "Main Menu");
         if(_renderer.enabled) GetInput();
+
+        if (SceneManager.instance.scene == "Lobby") currentSpeed = 4;
+        else currentSpeed = playerStats.movementSpeed + speedUpgrade;
 
         Move();
         
