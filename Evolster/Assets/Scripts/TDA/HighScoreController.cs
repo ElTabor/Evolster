@@ -31,21 +31,17 @@ public class HighScoreController : MonoBehaviour
     {
         if (node == null)
         {
-            Debug.Log("a");
             return new HighScoreNode(score);
         }
 
         if (score < node.Score)
         {
-            Debug.Log("b");
             node.Right = Insert(node.Right, score);
         }
         else
         {
-            Debug.Log("c");
             node.Left = Insert(node.Left, score);
         }
-        Debug.Log("d");
         return node;
     }
 

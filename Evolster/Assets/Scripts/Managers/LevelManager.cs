@@ -17,7 +17,5 @@ public class LevelManager : MonoBehaviour
         levelDoors = FindObjectsOfType<DoorScript>();
         for (int n = 1; n <= levelDoors.Length; n++)
             if (GameManager.instance.currentLevel >= n) levelDoors[n - 1].enabled = true;
-
-        Debug.Log("Now");
     }
 }
