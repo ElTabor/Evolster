@@ -47,11 +47,11 @@ public class SpellController : MonoBehaviour
             float localDistanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
             if (_distanceToNearestEnemy > localDistanceToEnemy)  _distanceToNearestEnemy = localDistanceToEnemy;
             _shootingDirection = (enemy.transform.position - PlayerController.instance.transform.position).normalized;
+            MoveAimingPoint();
         }
 
         if (_distanceToNearestEnemy < PlayerController.instance.playerStats.attackRange) _enemyNearBy = true;
         else _enemyNearBy = false;
-        MoveAimingPoint();
     }
 
     private void MoveAimingPoint()
