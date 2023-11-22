@@ -8,10 +8,12 @@ public class SpellController : MonoBehaviour
     public List<GameObject> spells;
     [SerializeField] private GameObject activeSpellPrefab;
 
-
+    [SerializeField] Collider2D[] enemiesOnScreen;
     [SerializeField] float _distanceToNearestEnemy;
     private Vector2 _shootingDirection;
     private bool _enemyNearBy;
+    [SerializeField]GameObject nearestEnemy;
+    [SerializeField] LayerMask enemiesLayer;
 
 
     private float _lastAttack;
@@ -22,6 +24,7 @@ public class SpellController : MonoBehaviour
     {
         activeSpellPrefab = spells[0];
         _distanceToNearestEnemy = float.MaxValue;
+        nearestEnemy = null;
     }
     void Update()
     {
@@ -40,24 +43,50 @@ public class SpellController : MonoBehaviour
 
     private void AimToNearestEnemy()
     {
-        GameObject[] enemiesAround = GameObject.FindGameObjectsWithTag("Enemy");
+        //            //Find all enemies
+        //enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy");
 
-        foreach (GameObject enemy in enemiesAround)
+        //            //Find nearest enemy
+        //foreach (GameObject enemy in enemiesOnScreen)
+        //{
+        //    float distanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
+        //    if (distanceToEnemy < _distanceToNearestEnemy) nearestEnemy = enemy;
+        //}
+        //            //Aim to nearest enemty
+        //if(nearestEnemy != null)
+        //{
+        //    _shootingDirection = (nearestEnemy.transform.position - PlayerController.instance.transform.position).normalized;
+        //    MoveAimingPoint();
+        //    _distanceToNearestEnemy = (nearestEnemy.transform.position - PlayerController.instance.transform.position).magnitude;
+        //    Debug.Log(_distanceToNearestEnemy + "ddd");
+        //    _enemyNearBy = _distanceToNearestEnemy < PlayerController.instance.playerStats.attackRange;
+        //}
+
+
+        //Find all enemies
+        enemiesOnScreen = Physics2D.OverlapCircleAll(PlayerController.instance.transform.position, PlayerController.instance.playerStats.attackRange, enemiesLayer);
+
+        //Find nearest enemy
+        foreach (Collider2D enemy in enemiesOnScreen)
         {
-            float localDistanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
-            if (_distanceToNearestEnemy > localDistanceToEnemy)  _distanceToNearestEnemy = localDistanceToEnemy;
-            _shootingDirection = (enemy.transform.position - PlayerController.instance.transform.position).normalized;
-            MoveAimingPoint();
+            float distanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
+            if(nearestEnemy == null || distanceToEnemy < _distanceToNearestEnemy)
+                nearestEnemy = enemy.gameObject;
         }
-
-        if (_distanceToNearestEnemy < PlayerController.instance.playerStats.attackRange) _enemyNearBy = true;
-        else _enemyNearBy = false;
+                //Aim to nearest enemty
+        if (nearestEnemy != null)
+        {
+            _shootingDirection = (nearestEnemy.transform.position - PlayerController.instance.transform.position).normalized;
+            MoveAimingPoint();
+            _distanceToNearestEnemy = (nearestEnemy.transform.position - PlayerController.instance.transform.position).magnitude;
+            _enemyNearBy = _distanceToNearestEnemy < PlayerController.instance.playerStats.attackRange;
+        }
     }
 
     private void MoveAimingPoint()
     {
         Vector3 newPosition = _shootingDirection * 1.5f;
-        shootingPoint.transform.position = transform.position + newPosition;
+        shootingPoint.transform.position = PlayerController.instance.transform.position + newPosition;
     }
 
     private void CastSpell()

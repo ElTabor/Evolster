@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5335056612564388439}
   - component: {fileID: 8083141458012899487}
   - component: {fileID: 3304628058684449159}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Patrolling Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
