@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c31b73190b99d44d8ec118839418adb, type: 3}
-  m_Name: Store Item 1
+  m_Name: Fireball Buyable Spell
   m_EditorClassIdentifier: 
   itemImage: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
-  itemName: Store Item 1
+  itemName: Fireball Spell
   itemDescription: This is the store item 1 description
-  itemValue: 20
+  itemValue: 100
   spell: {fileID: 4550993629818596674, guid: aa026bd5701622349bc2a1eddd161c8d, type: 3}

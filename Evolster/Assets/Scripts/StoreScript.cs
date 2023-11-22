@@ -6,13 +6,7 @@ using UnityEngine;
 public class StoreScript : MonoBehaviour
 {
     public bool playerOnPosition;
-    Transform playerTransform;
     [SerializeField] Transform referencePoint;
-
-    private void Start()
-    {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    }
 
     void Update()
     {

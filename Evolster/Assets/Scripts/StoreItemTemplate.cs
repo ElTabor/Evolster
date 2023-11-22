@@ -28,8 +28,11 @@ public class StoreItemTemplate : MonoBehaviour
         {
             PlayerController.instance.currencyController.ManageCoins(-itemData.itemValue);
             PlayerController.instance.spellController.spells.Add(itemData.spell);
-            _buyButton.GetComponentInChildren<Button>().enabled = false;
+            _buyButton.GetComponentInChildren<Button>().interactable = false;
+            _buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "You already own this item";
+            UIManager.instance.itemsToDisplay.Remove(itemData);
+
         }
-        else Debug.Log("Not enough currency");
+        else Debug.Log("Not enough coins");
     }
 }

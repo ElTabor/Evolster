@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -8,7 +9,6 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-
     private HighScoreController highScoreController;
 
     public GameObject rewardSelectionMenu;
@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] public GameObject hud;
     [SerializeField] public GameObject store;
-
 
     [Header ("HUD")]
     [SerializeField] private GameObject lifeBar;
@@ -38,7 +37,7 @@ public class UIManager : MonoBehaviour
     public int coinsToShow;
 
     [Header("STORE")]
-    [SerializeField] StoreItemData[] itemsToDisplay;
+    public List<StoreItemData> itemsToDisplay;
     [SerializeField] GameObject storeItemTemplate;
     [SerializeField] TextMeshProUGUI coins;
 

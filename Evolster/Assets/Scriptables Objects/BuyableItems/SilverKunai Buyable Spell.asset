@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c31b73190b99d44d8ec118839418adb, type: 3}
-  m_Name: Store Item 2
+  m_Name: SilverKunai Buyable Spell
   m_EditorClassIdentifier: 
   itemImage: {fileID: 21300000, guid: 7395bf0bc3cc40e4ab2dda5ec6832261, type: 3}
-  itemName: Store Item 2
+  itemName: Silver Bullets Spell
   itemDescription: This is the store item 2 description
-  itemValue: 15
-  spell: {fileID: 4550993629818596674, guid: 78b198c1e550a2d42afed8fd87b90086, type: 3}
+  itemValue: 100
+  spell: {fileID: 4550993629818596674, guid: 0f70dddb2ff35bd458167883acc7deeb, type: 3}
