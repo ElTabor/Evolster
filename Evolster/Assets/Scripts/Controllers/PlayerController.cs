@@ -94,7 +94,11 @@ public class PlayerController : MonoBehaviour
         _direction = new Vector2(_horizontal, _vertical).normalized;
         rb.MovePosition(rb.position + _direction * (currentSpeed * Time.fixedDeltaTime));
         _animator.SetFloat("isWalking", _direction.sqrMagnitude);
-        
+
+        float direction;
+        if (Input.GetAxisRaw("Horizontal") == 0) direction = 1;
+        else direction = Input.GetAxisRaw("Horizontal");
+        transform.localScale = new Vector2(direction, transform.localScale.y);
     }
 
     private void GetInput()
