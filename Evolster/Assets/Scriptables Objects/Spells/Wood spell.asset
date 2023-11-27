@@ -17,8 +17,8 @@ MonoBehaviour:
   spellType: Wood
   spellDescription: It is super effective against Vampires
   spellLevel: 1
-  spellDamage: 0
-  spellSpeed: 0
-  spellLifeTime: 0
+  spellDamage: 20
+  spellSpeed: 10
+  spellLifeTime: 5
   spellDamageRange: 0
   spellDamageArea: 0

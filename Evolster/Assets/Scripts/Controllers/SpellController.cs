@@ -94,6 +94,8 @@ public class SpellController : MonoBehaviour
         if (Time.time >= _lastAttack + attackCooldown && PlayerController.instance.rb.velocity == Vector2.zero && !GameManager.instance.gamePaused)
         {
             GameObject spell = Instantiate(activeSpellPrefab, shootingPoint.transform.position, shootingPoint.transform.rotation);
+            float shootAngle = Mathf.Atan2(_shootingDirection.y, _shootingDirection.x) * Mathf.Rad2Deg;
+            spell.transform.rotation = Quaternion.AngleAxis(shootAngle, Vector3.forward);
             spell.GetComponent<Spell>().direction = _shootingDirection;
             spell.GetComponent<Spell>().currentDamage += PlayerController.instance.currentDamage;
             spell.layer = LayerMask.NameToLayer("FriendlySpells");
