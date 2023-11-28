@@ -1574,6 +1574,10 @@ PrefabInstance:
       propertyPath: uniqueAbilityData
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1744278658796917602, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: uniqueAbilityPrefab
+      value: 
+      objectReference: {fileID: 8121283691881281259, guid: b7269d4dcbe059c49a02a6b26c2c92ad, type: 3}
     - target: {fileID: 5682826715875559499, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: m_SortingOrder
       value: 1

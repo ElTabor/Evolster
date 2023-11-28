@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49434285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1744278657853646310, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+  m_PrefabInstance: {fileID: 1691444310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &583554699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,6 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1317408021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3653253704207605178, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+  m_PrefabInstance: {fileID: 1691444310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1525027733 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8697914208674197321, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
@@ -336,6 +346,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1744278658796917602, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: uniqueAbilityData
+      value: 
+      objectReference: {fileID: 11400000, guid: 35eeb7fb4c0dc734a92a13d6d146351d, type: 2}
+    - target: {fileID: 1744278658796917602, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: uniqueAbilityPrefab
+      value: 
+      objectReference: {fileID: 7273161089312693241, guid: 48f7cd9f4f6816e4885c120b70f93dc3, type: 3}
+    - target: {fileID: 3213534410778660476, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: aim
+      value: 
+      objectReference: {fileID: 1317408021}
+    - target: {fileID: 3213534410778660476, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: shootingPoint
+      value: 
+      objectReference: {fileID: 49434285}
+    - target: {fileID: 3213534410778660476, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: enemiesLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213534410778660476, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: abilities.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213534410778660476, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: abilities.Array.data[0]
+      value: 
+      objectReference: {fileID: 7273161089312693241, guid: 48f7cd9f4f6816e4885c120b70f93dc3, type: 3}
     - target: {fileID: 4389716660912474189, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: spells.Array.data[0]
       value: 
