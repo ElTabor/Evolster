@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,9 +28,19 @@ public class StoreItemTemplate : MonoBehaviour
         if (PlayerController.instance.currencyController.currentCoins >= itemData.itemValue)
         {
             PlayerController.instance.currencyController.ManageCoins(-itemData.itemValue);
-            PlayerController.instance.spellController.spells.Add(itemData.spell);
+            //PlayerController.instance.spellController.spells.Insert(null, itemData.spell);
             _buyButton.GetComponentInChildren<Button>().interactable = false;
             _buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "You already own this item";
+
+            for (int i = 0; i < PlayerController.instance.spellController.spells.Count; i++)
+            {
+                if (PlayerController.instance.spellController.spells[i] == null)
+                {
+                    PlayerController.instance.spellController.spells[i] = itemData.spell;
+                   i = PlayerController.instance.spellController.spells.Count;
+                }
+            }
+            
             UIManager.instance.itemsToDisplay.Remove(itemData);
 
         }

@@ -77,12 +77,13 @@ public class UIManager : MonoBehaviour
             UpdateCoinsFeedback();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
-            // for(int n = 0; n <= hotkeysIcons.Length; n++)
-            // {
-            //     if (hotkeysIcons[n-1] != null)
-            //     hotkeysIcons[n-1].sprite = PlayerController.instance.spellController.spells[n-1].GetComponent<SpellScript>().spellData.spellSprite;
-            //     else hotkeysIcons[n-1].sprite = null;
-            // }
+            
+            for(int n = 0; n < hotkeysIcons.Length; n++)
+            {
+                if (PlayerController.instance.spellController.spells[n] != null)
+                    hotkeysIcons[n].sprite = PlayerController.instance.spellController.spells[n].GetComponent<Spell>().spellData.spellSprite;
+                else hotkeysIcons[n].sprite = null;
+            }
         }
         else
         {

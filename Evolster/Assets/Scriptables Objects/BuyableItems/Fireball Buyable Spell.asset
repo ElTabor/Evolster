@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c31b73190b99d44d8ec118839418adb, type: 3}
   m_Name: Fireball Buyable Spell
   m_EditorClassIdentifier: 
-  itemImage: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
+  itemImage: {fileID: 21300000, guid: f311e76b66c6e7a43b9508e32c3c0741, type: 3}
   itemName: Fireball Spell
   itemDescription: This is the store item 1 description
   itemValue: 100

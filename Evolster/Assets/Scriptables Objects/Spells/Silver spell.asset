@@ -17,8 +17,8 @@ MonoBehaviour:
   spellType: Silver
   spellDescription: It is super effective against werewolfs
   spellLevel: 1
-  spellDamage: 0
-  spellSpeed: 0
-  spellLifeTime: 0
+  spellDamage: 30
+  spellSpeed: 7
+  spellLifeTime: 7
   spellDamageRange: 0
   spellDamageArea: 0

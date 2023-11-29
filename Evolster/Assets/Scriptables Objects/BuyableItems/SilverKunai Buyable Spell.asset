@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c31b73190b99d44d8ec118839418adb, type: 3}
   m_Name: SilverKunai Buyable Spell
   m_EditorClassIdentifier: 
-  itemImage: {fileID: 21300000, guid: 7395bf0bc3cc40e4ab2dda5ec6832261, type: 3}
+  itemImage: {fileID: 21300000, guid: 54e6c1221c118ed4bb9cd9d8b38d371d, type: 3}
   itemName: Silver Bullets Spell
-  itemDescription: This is the store item 2 description
+  itemDescription: It is super effective against werewolfs
   itemValue: 100
   spell: {fileID: 4550993629818596674, guid: 0f70dddb2ff35bd458167883acc7deeb, type: 3}
