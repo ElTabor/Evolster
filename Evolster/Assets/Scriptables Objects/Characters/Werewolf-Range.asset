@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
   m_Name: Werewolf-Range
   m_EditorClassIdentifier: 
-  maxLife: 0
+  maxLife: 100
   maxMana: 0
-  movementSpeed: 0
+  movementSpeed: 5
   damage: 0
-  attackSpeed: 0
-  attackRange: 0
+  attackSpeed: 1
+  attackRange: 3
   attackArea: 0

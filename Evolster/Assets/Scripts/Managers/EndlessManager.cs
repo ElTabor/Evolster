@@ -6,13 +6,10 @@ using UnityEngine;
 
 public class EndlessManager : MonoBehaviour
 {
-    [SerializeField] GameObject lightEnemyPrefab;
     private float _lastLightEnemySpawned;
     [SerializeField] private float lightEnemySpawnCooldown;
-    [SerializeField] private GameObject heavyEnemyPrefab;
     private float _lastHeavyEnemySpawned;
     [SerializeField] private float heavyEnemySpawnCooldown;
-    [SerializeField] private GameObject rangeEnemyPrefab;
     private float _lastRangeEnemySpawned;
     [SerializeField] private float rangeEnemySpawnCooldown;
     [SerializeField] private GameObject[] spawns;

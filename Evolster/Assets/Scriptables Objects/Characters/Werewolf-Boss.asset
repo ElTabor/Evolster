@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
   m_Name: Werewolf-Boss
   m_EditorClassIdentifier: 
-  maxLife: 1000
+  maxLife: 2000
   maxMana: 0
   movementSpeed: 5
-  damage: 15
+  damage: 25
   attackSpeed: 1
   attackRange: 5
   attackArea: 0

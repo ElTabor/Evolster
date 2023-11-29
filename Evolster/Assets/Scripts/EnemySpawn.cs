@@ -4,9 +4,9 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] private Transform referencePoint;
-    [SerializeField] private GameObject lightEnemyPrefab;
-    [SerializeField] private GameObject heavyEnemyPrefab;
-    [SerializeField] private GameObject rangeEnemyPrefab;
+    [SerializeField] private GameObject[] lightEnemyPrefab;
+    [SerializeField] private GameObject[] heavyEnemyPrefab;
+    [SerializeField] private GameObject[] rangeEnemyPrefab;
     [SerializeField] private GameObject bossPrefab;
     public int amountOfEnemiesToSpawn;
     public bool spawnBossNow;
@@ -58,13 +58,13 @@ public class EnemySpawn : MonoBehaviour
             switch(newEnemy)
             {
                 case "light enemy":
-                    return lightEnemyPrefab;
+                    return lightEnemyPrefab[Random.Range(0, lightEnemyPrefab.Length)];
                 case "heavy enemy":
-                    return heavyEnemyPrefab;
+                    return heavyEnemyPrefab[Random.Range(0, heavyEnemyPrefab.Length)];
                 case "range enemy":
-                    return rangeEnemyPrefab;
+                    return rangeEnemyPrefab[Random.Range(0, rangeEnemyPrefab.Length)];
                 default:
-                    return lightEnemyPrefab;
+                    return lightEnemyPrefab[Random.Range(0, lightEnemyPrefab.Length)];
             }
         }
         else
@@ -73,9 +73,9 @@ public class EnemySpawn : MonoBehaviour
             else
             {
                 int r = Random.Range(0, 101);
-                if (r <= 65) return lightEnemyPrefab;
-                else if (r <= 85) return rangeEnemyPrefab;
-                else return heavyEnemyPrefab;
+                if (r <= 65) return lightEnemyPrefab[GameManager.instance.currentLevel-1];
+                else if (r <= 85) return rangeEnemyPrefab[GameManager.instance.currentLevel - 1];
+                else return heavyEnemyPrefab[GameManager.instance.currentLevel - 1];
             } 
         }
     }

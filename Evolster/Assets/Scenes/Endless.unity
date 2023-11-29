@@ -22552,6 +22552,10 @@ PrefabInstance:
       propertyPath: rangeY
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3682386185819457465, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
+      propertyPath: amountOfSpawns
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7763029117873354365, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
       propertyPath: m_Name
       value: EnemySpawnManager
