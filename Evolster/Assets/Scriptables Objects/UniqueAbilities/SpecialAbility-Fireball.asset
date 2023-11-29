@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueAbilitySprite: {fileID: 0}
   uniqueAbilityName: Fireball
-  uniqueAbilityType: 
+  uniqueAbilityType: Area
   uniqueAbilityDescription: 
   uniqueAbilityLevel: 1
   uniqueAbilityDamage: 50

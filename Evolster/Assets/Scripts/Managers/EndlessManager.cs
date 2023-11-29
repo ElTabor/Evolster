@@ -20,6 +20,7 @@ public class EndlessManager : MonoBehaviour
     private void Start()
     {
         spawns = GameObject.FindGameObjectsWithTag("Spawn");
+        UIManager.instance.damageCanvas.worldCamera = Camera.main;
     }
 
     private void Update()

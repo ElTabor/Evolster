@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueAbilitySprite: {fileID: 0}
   uniqueAbilityName: Silver bullets storm
-  uniqueAbilityType: 
+  uniqueAbilityType: Area
   uniqueAbilityDescription: 
   uniqueAbilityLevel: 1
   uniqueAbilityDamage: 50

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -36,6 +37,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] float feedbackTime;
     public int coinsToShow;
 
+    [Header ("FEEDBACK")]
+    public Canvas damageCanvas;
+    List<GameObject> feedbackTexts = new List<GameObject>();
+    List<float> feedbackTextsStartTime = new List<float>();
+    [SerializeField] GameObject feedbackTextPrefab;
+
     [Header("STORE")]
     public List<StoreItemData> itemsToDisplay;
     [SerializeField] GameObject storeItemTemplate;
@@ -61,6 +68,7 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         highScoreController = GetComponent<HighScoreController>();
+        damageCanvas.worldCamera = Camera.main;
     }
     private void Update()
     {
@@ -75,6 +83,7 @@ public class UIManager : MonoBehaviour
             UpdateMana();
             UpdateTimer();
             UpdateCoinsFeedback();
+            UpdateFeedback();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
             
@@ -109,11 +118,7 @@ public class UIManager : MonoBehaviour
             manaBarFill.fillAmount = PlayerController.instance.manaController.currentMana / PlayerController.instance.playerStats.maxMana;
     }
 
-    public void UpdateBuff(float applyTime, float buffTime)
-    {
-        float fillAmount = (Time.time - applyTime) / buffTime;
-        buffBarFill.fillAmount = fillAmount;
-    }
+    public void UpdateBuff(float applyTime, float buffTime) => buffBarFill.fillAmount = (Time.time - applyTime) / buffTime;
     private void UpdateTimer()
     {
         _timeElapsed += Time.deltaTime;
@@ -170,15 +175,15 @@ public class UIManager : MonoBehaviour
     public void SetAbilityRewardPanel(GameObject abilityInfo)
     {
         levelAbility = abilityInfo;
-        abilityName.text = abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityName;
-        abilityIcon.sprite = abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilitySprite;
-        stats[0].text = $"Level: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityLevel}";
-        stats[1].text = $"Damage: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityDamage}";
-        stats[2].text = $"Speed: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilitySpeed}";
-        stats[3].text = $"Duration: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityLifeTime}s";
-        stats[4].text = $"Damage range: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityDamageRange}";
-        stats[5].text = $"Damage area: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.uniqueAbilityDamageArea}";
-        stats[6].text = $"Mana cost: {abilityInfo.GetComponent<AreaAbility>().uniqueAbilityData.manaCost}";
+        abilityName.text = abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilityName;
+        abilityIcon.sprite = abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilitySprite;
+        stats[0].text = $"Level: {abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilityLevel}";
+        stats[1].text = $"Damage: {abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilityDamage}";
+        stats[2].text = $"Speed: {abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilitySpeed}";
+        stats[3].text = $"Duration: {abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilityLifeTime}s";
+        stats[4].text = $"Damage range: {abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilityDamageRange}";
+        stats[5].text = $"Damage area: {abilityInfo.GetComponent<AreaAbility>().abilityData.uniqueAbilityDamageArea}";
+        stats[6].text = $"Mana cost: {abilityInfo.GetComponent<AreaAbility>().abilityData.manaCost}";
     }
 
     public void UnlockAbility()
@@ -186,6 +191,29 @@ public class UIManager : MonoBehaviour
         OpenCloseMenu(abilityRewardPanel);
         PlayerController.instance.EquipAbility(levelAbility);
         RoundsManager.instance.SetNewRound();
+    }
+
+    public void DamageFeedback(Transform target, float damageReceived)
+    {
+        GameObject feedback = Instantiate(feedbackTextPrefab, damageCanvas.transform);
+        feedback.transform.position = target.position;
+        feedback.GetComponent<TextMeshProUGUI>().text = damageReceived.ToString();
+        feedbackTexts.Add(feedback);
+        feedbackTextsStartTime.Add(Time.time);
+    }
+
+    void UpdateFeedback()
+    {
+        for(int i = 0; i < feedbackTexts.Count; i++)
+        {
+            if (Time.time >= feedbackTextsStartTime[i] + 2f)
+            {
+                Destroy(feedbackTexts[i]);
+                feedbackTexts.RemoveAt(i);
+                feedbackTextsStartTime.RemoveAt(i);
+                i--;
+            }
+        }
     }
 
     public void ChangeScene(string newScene) => GameManager.instance.ChangeScene(newScene);

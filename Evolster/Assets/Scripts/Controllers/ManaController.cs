@@ -18,7 +18,6 @@ public class ManaController : MonoBehaviour
 
     void Update()
     {
-        ManageAbilityAvailability();
         if (Time.time >= _lastManaRecover + manaRecoveryCooldown && currentMana < _maxMana)
         {
             ManageMana(1);
@@ -26,9 +25,9 @@ public class ManaController : MonoBehaviour
         }
     }
 
-    void ManageAbilityAvailability()
+    public bool ManageAbilityAvailability()
     {
-        PlayerController.instance.uniqueAbilityIsAvailable = currentMana >= PlayerController.instance.uniqueAbilityPrefab.GetComponent<AreaAbility>().uniqueAbilityData.manaCost;
+        return currentMana >= PlayerController.instance.abilityController.ability.abilityData.manaCost;
     }
 
     public void ManageMana(float newMana)

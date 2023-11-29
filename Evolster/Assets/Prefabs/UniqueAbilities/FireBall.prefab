@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7785538859346977150}
   - component: {fileID: 5745329471954823787}
-  - component: {fileID: -3504991838934472335}
   - component: {fileID: -8578347083912464477}
   - component: {fileID: 5384772429930374857}
+  - component: {fileID: 7826448695565920934}
+  - component: {fileID: -1093362731212229235}
   m_Layer: 10
   m_Name: FireBall
   m_TagString: Untagged
@@ -76,37 +77,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 0.8469602, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.505, y: 0.405}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3504991838934472335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7273161089312693241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ea92c2739fd744ab6c857efe4efce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueAbilityData: {fileID: 11400000, guid: 69a2f5060d1909d4294105571eefada1, type: 2}
-  currentDamage: 0
-  coolDown: 0.5
-  direction: {x: 0, y: 0}
-  damageArea: 0
-  enemiesLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!50 &-8578347083912464477
 Rigidbody2D:
   serializedVersion: 4
@@ -144,9 +125,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.505, y: 0.405}
+    newSize: {x: 0.505, y: 0.405}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -154,3 +135,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7826448695565920934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273161089312693241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede7a52d2ee3cbc4fa5329daa41b801c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageArea: 0
+  currentDamage: 0
+  direction: {x: 0, y: 0}
+  speed: 0
+  lifeTime: 0
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!95 &-1093362731212229235
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273161089312693241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32c095adf24a89f40ae5973459737879, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

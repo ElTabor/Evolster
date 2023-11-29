@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ public class LifeController : MonoBehaviour
 
     public void UpdateLife(float damageReceived)
     {
+        UIManager.instance.DamageFeedback(transform, damageReceived);
         currentLife -= damageReceived;
         if (currentLife > maxLife) currentLife = maxLife;
         if (currentLife <= 0)

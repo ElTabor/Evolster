@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public ManaController manaController;
     public SpellController spellController;
     public CurrencyController currencyController;
+    public AbilityController abilityController;
     private Renderer _renderer;
 
     [SerializeField] private GameObject player;
@@ -24,7 +25,6 @@ public class PlayerController : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     private Vector2 _direction;
-    private bool _isWalking = false;
     private Animator _animator;
 
 
@@ -36,7 +36,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject playerGo;
 
     [SerializeField] public bool uniqueAbilityIsAvailable = false;
-    [SerializeField] private Transform aim;
+    [SerializeField] GameObject[] abilitiesAvailable;
+    private int currentAbilityIndex;
+    public Transform aim;
 
     public PlayerController(float movementSpeed, GameObject player, float horizontal, GameObject shootingPoint)
     {
@@ -60,11 +62,14 @@ public class PlayerController : MonoBehaviour
         spellController = GetComponentInChildren<SpellController>();
         _renderer = GetComponent<Renderer>();
         currencyController = GetComponent<CurrencyController>();
+        abilityController = GetComponentInChildren<AbilityController>();
 
         currentSpeed = playerStats.movementSpeed;
         currentDamage = playerStats.damage;
         _lifeController.SetMaxLife(playerStats.maxLife);
         manaController.SetMaxMana(playerStats.maxMana);
+
+        abilityController.SetAbility(abilitiesAvailable[currentAbilityIndex].GetComponent<IAbility>());
     }
 
     private void Update()
@@ -109,7 +114,21 @@ public class PlayerController : MonoBehaviour
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetMouseButtonDown(0)) TryCastAbility();
+        //if (Input.GetMouseButtonDown(0)) TryCastAbility();
+        //if (Input.GetMouseButton(0)) TryCastAbility();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            currentAbilityIndex--;
+            if (currentAbilityIndex < 0) currentAbilityIndex = abilitiesAvailable.Length - 1;
+            abilityController.SetAbility(abilitiesAvailable[currentAbilityIndex].GetComponent<IAbility>());
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            currentAbilityIndex++;
+            if (currentAbilityIndex > abilitiesAvailable.Length-1) currentAbilityIndex = 0;
+            abilityController.SetAbility(abilitiesAvailable[currentAbilityIndex].GetComponent<IAbility>());
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) spellController.ChooseSpell(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) spellController.ChooseSpell(1);
@@ -122,25 +141,26 @@ public class PlayerController : MonoBehaviour
         uniqueAbilityPrefab = ability;
     }
 
-    public void TryCastAbility()
-    {
-        if (uniqueAbilityIsAvailable && !GameManager.instance.gamePaused && GameManager.instance.onLevel) CastAbility();
-    }
+    //public void TryCastAbility()
+    //{
+    //    if (uniqueAbilityIsAvailable && !GameManager.instance.gamePaused && GameManager.instance.onLevel) CastAbility();
+    //}
 
-    private void CastAbility()
-    {
-        var aimDirection = (aim.position - transform.position).normalized;
-        RaycastHit2D cast = Physics2D.Raycast(transform.position, aimDirection, 1000000f);
-        GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform.position + aimDirection*2, Quaternion.identity);
-        uniqueAbility.GetComponent<AreaAbility>().direction = aimDirection;
-        uniqueAbility.GetComponent<AreaAbility>().currentDamage += currentDamage;
-        manaController.ManageMana(-uniqueAbilityPrefab.GetComponent<AreaAbility>().uniqueAbilityData.manaCost);
+    //private void CastAbility()
+    //{
+    //    var aimDirection = (aim.position - transform.position).normalized;
+    //    GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform.position + aimDirection*2, Quaternion.identity);
+    //    //GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform);
+    //    uniqueAbility.GetComponent<AreaAbility>().direction = aimDirection;
+    //    //uniqueAbility.GetComponent<RayAbility>().dealingDamage = true;
+    //    uniqueAbility.GetComponent<AreaAbility>().currentDamage += currentDamage;
+    //    manaController.ManageMana(-uniqueAbilityPrefab.GetComponent<AreaAbility>().uniqueAbilityData.manaCost);
 
-        //Debugs
-        //if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
-        Debug.DrawRay(transform.position, aimDirection * 1000000f, Color.red);
-        Debug.Log("Ability Cast");
-    }
+    //    //Debugs
+    //    //if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
+    //    Debug.DrawRay(transform.position, aimDirection * 1000000f, Color.red);
+    //    Debug.Log("Ability Cast");
+    //}
 
     public void Die()
     {

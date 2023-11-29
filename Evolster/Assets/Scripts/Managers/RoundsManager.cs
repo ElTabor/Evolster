@@ -14,6 +14,7 @@ public class RoundsManager : MonoBehaviour
 
     private void Start()
     {
+        UIManager.instance.damageCanvas.worldCamera = Camera.main;
         instance = this;
 
         prepTime = true;

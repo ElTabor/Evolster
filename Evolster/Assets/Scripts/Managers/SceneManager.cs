@@ -26,7 +26,6 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(newScene);
         scene = newScene;
-
     }
 
     public void LoadMainMenu() => LoadNewScene("Main Menu");

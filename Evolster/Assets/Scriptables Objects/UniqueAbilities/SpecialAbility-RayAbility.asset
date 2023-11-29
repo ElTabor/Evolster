@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a03cf85f70bcbb479a50c66d1db9aed, type: 3}
+  m_Name: SpecialAbility-RayAbility
+  m_EditorClassIdentifier: 
+  uniqueAbilitySprite: {fileID: 7482667652216324306, guid: 645f6b05d18b49c43b5825f7791975d4, type: 3}
+  uniqueAbilityName: Ray Ability
+  uniqueAbilityType: Ray
+  uniqueAbilityDescription: 
+  uniqueAbilityLevel: 1
+  uniqueAbilityDamage: 10
+  uniqueAbilitySpeed: 0
+  uniqueAbilityLifeTime: 0
+  uniqueAbilityDamageRange: 2
+  uniqueAbilityDamageArea: 0
+  manaCost: 5
+  cooldown: 0.5
