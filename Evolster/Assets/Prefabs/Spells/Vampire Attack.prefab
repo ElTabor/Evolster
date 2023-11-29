@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5016592586685298679}
   - component: {fileID: -2364337488833966524}
   m_Layer: 8
-  m_Name: Werewolf attack
+  m_Name: Vampire Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9f8e65732e1790c4f8f52e9289a58df4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f2c582f9a166f54299b375737e310ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d454cdfbf0ad84b89c6d9ba8c6b264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellData: {fileID: 11400000, guid: cb96bca383d44d84183877fe767e078f, type: 2}
+  spellData: {fileID: 11400000, guid: 058d256b12851e14c87639eed0a40057, type: 2}
   direction: {x: 1, y: 0}
   currentDamage: 0
 --- !u!50 &5016592586685298679
