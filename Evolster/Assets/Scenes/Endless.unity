@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 174649830}
   - component: {fileID: 174649829}
   - component: {fileID: 174649832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Columnas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 239955282}
   - component: {fileID: 239955281}
   - component: {fileID: 239955284}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Columnas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 352722373}
   - component: {fileID: 352722372}
   - component: {fileID: 352722375}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Columnas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 535237310}
   - component: {fileID: 535237309}
   - component: {fileID: 535237308}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TopWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,7 +1404,7 @@ GameObject:
   - component: {fileID: 703470093}
   - component: {fileID: 703470092}
   - component: {fileID: 703470095}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Columnas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 1115518882}
   - component: {fileID: 1115518881}
   - component: {fileID: 1115518884}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1962,7 +1962,7 @@ GameObject:
   - component: {fileID: 1160232861}
   - component: {fileID: 1160232863}
   - component: {fileID: 1160232864}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BottomWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2862,7 +2862,7 @@ GameObject:
   - component: {fileID: 1281450797}
   - component: {fileID: 1281450796}
   - component: {fileID: 1281450801}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lateral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3783,7 +3783,7 @@ GameObject:
   - component: {fileID: 1451501693}
   - component: {fileID: 1451501692}
   - component: {fileID: 1451501691}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

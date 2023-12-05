@@ -262,7 +262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598013965687265057, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: destination
-      value: Level 3
+      value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836388515965796844, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: m_TagString
+      value: Level Door
       objectReference: {fileID: 0}
     - target: {fileID: 7001045334255679518, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: m_RootOrder
@@ -609,7 +613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598013965687265057, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: destination
-      value: Level 2
+      value: Bosque
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836388515965796844, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: m_TagString
+      value: Level Door
       objectReference: {fileID: 0}
     - target: {fileID: 7001045334255679518, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: m_RootOrder
@@ -1162,6 +1170,30 @@ PrefabInstance:
     - target: {fileID: 660895962924046105, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: m_Name
       value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598013965687265057, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598013965687265057, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: destination
+      value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836388515965796844, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836388515965796844, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: m_TagString
+      value: Level Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597380831845778041, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597380831845778041, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7001045334255679518, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: m_RootOrder

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9848b14ec3746454498e8e42a9bd81a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: Level 1
+  destination: Level 3
   referencePoint: {fileID: 500481683823741747}
 --- !u!1 &2836388515965796844
 GameObject:
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 106741911246310217}
   - component: {fileID: 3597380831845778041}
   - component: {fileID: 41836912868814597}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

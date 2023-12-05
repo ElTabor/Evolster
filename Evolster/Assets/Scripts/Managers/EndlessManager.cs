@@ -21,11 +21,20 @@ public class EndlessManager : MonoBehaviour
 
     private void Update()
     {
-        if (spawns != null)
+        if (SceneManager.instance.scene != "Endless")
         {
-            spawns = GameObject.FindGameObjectsWithTag("Spawn");
+            if (spawns != null && RoundsManager.instance.round < 7)
+            {
+                spawns = GameObject.FindGameObjectsWithTag("Spawn");
+
+            }
 
         }
+        else
+        {
+            spawns = GameObject.FindGameObjectsWithTag("Spawn");
+        }
+
         if (Time.time > _lastLightEnemySpawned + lightEnemySpawnCooldown)
         {
             ChooseSpawn("light enemy");
