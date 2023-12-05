@@ -1122,9 +1122,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5854864018372282650, guid: d6c7b5e9f2de3324f81daefe4cd19fe2, type: 3}
+      propertyPath: m_OverrideArea
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854864018372282650, guid: d6c7b5e9f2de3324f81daefe4cd19fe2, type: 3}
+      propertyPath: m_IgnoreFromBuild
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854864018372282650, guid: d6c7b5e9f2de3324f81daefe4cd19fe2, type: 3}
+      propertyPath: m_AffectedAgents.Array.data[0]
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6374168308674929482, guid: d6c7b5e9f2de3324f81daefe4cd19fe2, type: 3}
       propertyPath: m_Name
       value: Level1Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182529070291524307, guid: d6c7b5e9f2de3324f81daefe4cd19fe2, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6c7b5e9f2de3324f81daefe4cd19fe2, type: 3}

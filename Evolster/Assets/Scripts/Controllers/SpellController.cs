@@ -28,7 +28,10 @@ public class SpellController : MonoBehaviour
     }
     void Update()
     {
+        _enemyNearBy = nearestEnemy != null;
+        
         //Automaticlly aim to the nearest enemy
+        
         AimToNearestEnemy();
 
         //Shoot
