@@ -42,7 +42,7 @@ public class AreaAbilityBullet : MonoBehaviour
     {
         exploding = true;
         foreach (Collider2D enemy in Physics2D.OverlapCircleAll(transform.position, damageArea, enemiesLayer))
-            enemy.GetComponent<LifeController>().UpdateLife(currentDamage);
+            enemy.GetComponent<LifeController>().UpdateLife(currentDamage, true);
         Debug.Log(Physics2D.OverlapCircleAll(transform.position, damageArea, enemiesLayer).Count());
     }
 

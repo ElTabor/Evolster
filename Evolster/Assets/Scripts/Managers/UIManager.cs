@@ -37,12 +37,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] float feedbackTime;
     public int coinsToShow;
 
-    [Header ("FEEDBACK")]
-    public Canvas damageCanvas;
-    List<GameObject> feedbackTexts = new List<GameObject>();
-    List<float> feedbackTextsStartTime = new List<float>();
-    [SerializeField] GameObject feedbackTextPrefab;
-
     [Header("STORE")]
     public List<StoreItemData> itemsToDisplay;
     [SerializeField] GameObject storeItemTemplate;
@@ -68,7 +62,6 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         highScoreController = GetComponent<HighScoreController>();
-        damageCanvas.worldCamera = Camera.main;
     }
     private void Update()
     {
@@ -83,7 +76,6 @@ public class UIManager : MonoBehaviour
             UpdateMana();
             UpdateTimer();
             UpdateCoinsFeedback();
-            UpdateFeedback();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
             
@@ -191,29 +183,6 @@ public class UIManager : MonoBehaviour
         OpenCloseMenu(abilityRewardPanel);
         PlayerController.instance.EquipAbility(levelAbility);
         RoundsManager.instance.SetNewRound();
-    }
-
-    public void DamageFeedback(Transform target, float damageReceived)
-    {
-        GameObject feedback = Instantiate(feedbackTextPrefab, damageCanvas.transform);
-        feedback.transform.position = target.position;
-        feedback.GetComponent<TextMeshProUGUI>().text = damageReceived.ToString();
-        feedbackTexts.Add(feedback);
-        feedbackTextsStartTime.Add(Time.time);
-    }
-
-    void UpdateFeedback()
-    {
-        for(int i = 0; i < feedbackTexts.Count; i++)
-        {
-            if (Time.time >= feedbackTextsStartTime[i] + 2f)
-            {
-                Destroy(feedbackTexts[i]);
-                feedbackTexts.RemoveAt(i);
-                feedbackTextsStartTime.RemoveAt(i);
-                i--;
-            }
-        }
     }
 
     public void ChangeScene(string newScene) => GameManager.instance.ChangeScene(newScene);

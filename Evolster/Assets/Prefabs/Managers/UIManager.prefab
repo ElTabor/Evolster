@@ -8797,7 +8797,7 @@ MonoBehaviour:
   feedbackTime: 2
   coinsToShow: 0
   damageCanvas: {fileID: 1828619182758330748}
-  feedbackTextPrefab: {fileID: 5891326725372276562, guid: 28a9645849928674daa49fa95127d9f9, type: 3}
+  feedbackTextPrefab: {fileID: 1428010827896062058, guid: 2b869af1f818d1f44ae85fa6a566a6d0, type: 3}
   itemsToDisplay:
   - {fileID: 11400000, guid: e04bfbbd96902f64fa06af49df88188b, type: 2}
   - {fileID: 11400000, guid: 221fc44d538dc5c4682d418f90fc48ca, type: 2}

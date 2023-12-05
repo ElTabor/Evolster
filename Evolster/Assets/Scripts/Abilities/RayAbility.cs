@@ -61,7 +61,7 @@ public class RayAbility : MonoBehaviour, IAbility
         //Deal Damage
         if (Time.time >= lastDamageDealtTime + abilityData.cooldown)
         {
-            if (ray.collider != null && ray.collider.gameObject.CompareTag("Enemy")) ray.collider.gameObject.GetComponent<LifeController>().UpdateLife(currentDamage);
+            if (ray.collider != null && ray.collider.gameObject.CompareTag("Enemy")) ray.collider.gameObject.GetComponent<LifeController>().UpdateLife(currentDamage, true);
             GameManager.instance.player.GetComponent<ManaController>().ManageMana(-abilityData.manaCost);
             lastDamageDealtTime = Time.time;
         }

@@ -151,6 +151,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
   original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damaged: {fileID: 2100000, guid: 28e9d17d0576214409e324a9dc951376, type: 2}
+  damagePopUpPrefab: {fileID: 1428010827896062058, guid: 2b869af1f818d1f44ae85fa6a566a6d0, type: 3}
 --- !u!114 &-356461374960839068
 MonoBehaviour:
   m_ObjectHideFlags: 0

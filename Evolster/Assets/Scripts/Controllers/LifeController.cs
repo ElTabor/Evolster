@@ -11,6 +11,8 @@ public class LifeController : MonoBehaviour
     [SerializeField] private Material original, damaged;
     private bool isDamaged;
 
+    [SerializeField] private GameObject damagePopUpPrefab;
+
     public void SetMaxLife(float maxLife)
     {
         this.maxLife = maxLife;
@@ -22,9 +24,10 @@ public class LifeController : MonoBehaviour
         SetMaxLife(maxLife + n);
     }
 
-    public void UpdateLife(float damageReceived)
+    public void UpdateLife(float damageReceived, bool isCritical)
     {
-        UIManager.instance.DamageFeedback(transform, damageReceived);
+        GameObject feedback = Instantiate(damagePopUpPrefab, transform.position + Vector3.one, Quaternion.identity);
+        feedback.GetComponent<DamagePopUp>().SetUp(damageReceived, isCritical);
         currentLife -= damageReceived;
         if (currentLife > maxLife) currentLife = maxLife;
         if (currentLife <= 0)

@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-        player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage);
+        player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage, false);
         lastAttack = Time.time;
     }
 

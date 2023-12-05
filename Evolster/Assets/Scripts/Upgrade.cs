@@ -30,7 +30,7 @@ public class Upgrade : MonoBehaviour
                         PlayerController.instance.gameObject.GetComponent<LifeController>().IncreaseMaxLife(25);
                         break;
                     case "Vida maxima":
-                        PlayerController.instance.gameObject.GetComponent<LifeController>().UpdateLife(-PlayerController.instance.gameObject.GetComponent<LifeController>().maxLife);
+                        PlayerController.instance.gameObject.GetComponent<LifeController>().SetMaxLife(PlayerController.instance.gameObject.GetComponent<LifeController>().maxLife);
                         break;
                     case "Mejora de velocidad":
                         PlayerController.instance.speedUpgrade += 2;

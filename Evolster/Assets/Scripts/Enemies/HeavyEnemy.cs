@@ -38,7 +38,7 @@ public class HeavyEnemy : Enemy
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<LifeController>().UpdateLife(enemyStats.damage);
+            collision.GetComponent<LifeController>().UpdateLife(enemyStats.damage, true);
         }
     }
 }
