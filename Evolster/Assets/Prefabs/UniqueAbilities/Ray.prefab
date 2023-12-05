@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3831834467188267845}
   - component: {fileID: -7120834786254659125}
   - component: {fileID: 8236912371637387305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ray
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

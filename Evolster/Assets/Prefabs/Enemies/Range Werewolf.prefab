@@ -173,6 +173,8 @@ MonoBehaviour:
   currentLife: 0
   maxLife: 0
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  damaged: {fileID: 2100000, guid: 28e9d17d0576214409e324a9dc951376, type: 2}
 --- !u!95 &8833020914017517017
 Animator:
   serializedVersion: 5

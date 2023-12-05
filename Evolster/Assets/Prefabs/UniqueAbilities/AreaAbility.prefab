@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5481639354792458042}
   m_Layer: 10
   m_Name: AreaAbility
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <abilityData>k__BackingField: {fileID: 11400000, guid: 69a2f5060d1909d4294105571eefada1, type: 2}
-  <cooldown>k__BackingField: 2
   <enemiesLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64

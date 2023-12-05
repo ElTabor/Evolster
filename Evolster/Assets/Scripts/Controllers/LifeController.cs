@@ -1,15 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour
 {
     [SerializeField] public float currentLife;
     [SerializeField] public float maxLife;
     [SerializeField] GameObject coinPrefab;
+    [SerializeField] private Material original, damaged;
+    private bool isDamaged;
 
     public void SetMaxLife(float maxLife)
     {
@@ -42,14 +42,31 @@ public class LifeController : MonoBehaviour
 
     void SpawnBuff()
     {
-        int r = Random.Range(0, 100);
+        int r = UnityEngine.Random.Range(0, 100);
         if (r <= 30) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);
     }
 
     void SpawnCoin()
     {
-        int r = Random.Range(1, 10);
+        int r = UnityEngine.Random.Range(1, 10);
         GameObject newCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
         newCoin.GetComponent<Coin>().coinsAmount = r;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Spell") || other.CompareTag("Ability") && !isDamaged)
+        {
+            StartCoroutine(DamageVisualFeedback());
+        }
+    }
+
+    public IEnumerator DamageVisualFeedback()
+    {
+        GetComponent<SpriteRenderer>().material = GetComponent<LifeController>().damaged;
+        isDamaged = true;
+        yield return new WaitForSeconds(0.25f);
+        isDamaged = false;
+        GetComponent<SpriteRenderer>().material = GetComponent<LifeController>().original;
     }
 }

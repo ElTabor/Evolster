@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5384772429930374857}
   m_Layer: 10
   m_Name: Wood Stakes
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,14 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ea92c2739fd744ab6c857efe4efce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueAbilityData: {fileID: 11400000, guid: 53c8452eff3aa6b4a82e343240e5b032, type: 2}
-  currentDamage: 0
-  coolDown: 0.5
-  direction: {x: 0, y: 0}
-  damageArea: 10
-  enemiesLayer:
+  <abilityData>k__BackingField: {fileID: 0}
+  <enemiesLayer>k__BackingField:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
+  abilityPrefab: {fileID: 0}
 --- !u!50 &-8578347083912464477
 Rigidbody2D:
   serializedVersion: 4

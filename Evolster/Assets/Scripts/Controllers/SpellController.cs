@@ -42,27 +42,7 @@ public class SpellController : MonoBehaviour
     }
 
     private void AimToNearestEnemy()
-    {
-        //            //Find all enemies
-        //enemiesOnScreen = GameObject.FindGameObjectsWithTag("Enemy");
-
-        //            //Find nearest enemy
-        //foreach (GameObject enemy in enemiesOnScreen)
-        //{
-        //    float distanceToEnemy = Vector2.Distance(PlayerController.instance.transform.position, enemy.transform.position);
-        //    if (distanceToEnemy < _distanceToNearestEnemy) nearestEnemy = enemy;
-        //}
-        //            //Aim to nearest enemty
-        //if(nearestEnemy != null)
-        //{
-        //    _shootingDirection = (nearestEnemy.transform.position - PlayerController.instance.transform.position).normalized;
-        //    MoveAimingPoint();
-        //    _distanceToNearestEnemy = (nearestEnemy.transform.position - PlayerController.instance.transform.position).magnitude;
-        //    Debug.Log(_distanceToNearestEnemy + "ddd");
-        //    _enemyNearBy = _distanceToNearestEnemy < PlayerController.instance.playerStats.attackRange;
-        //}
-
-
+    {   
         //Find all enemies
         enemiesOnScreen = Physics2D.OverlapCircleAll(PlayerController.instance.transform.position, PlayerController.instance.playerStats.attackRange, enemiesLayer);
 

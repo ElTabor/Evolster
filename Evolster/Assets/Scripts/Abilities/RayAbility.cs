@@ -55,7 +55,6 @@ public class RayAbility : MonoBehaviour, IAbility
         else sizeX = 100;
             raySprite.GetComponent<SpriteRenderer>().size = new Vector2(sizeX, raySprite.GetComponent<SpriteRenderer>().size.y);
 
-
         //Debug
         Debug.DrawRay(origin, direction * 100, Color.red);
 

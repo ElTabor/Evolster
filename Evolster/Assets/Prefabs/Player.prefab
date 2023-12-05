@@ -478,7 +478,7 @@ MonoBehaviour:
   currentDamage: 0
   isBuffed: 0
   uniqueAbilityPrefab: {fileID: 7273161089312693241, guid: 48f7cd9f4f6816e4885c120b70f93dc3, type: 3}
-  uniqueAbilityData: {fileID: 11400000, guid: 69a2f5060d1909d4294105571eefada1, type: 2}
+  uniqueAbilityData: {fileID: 11400000, guid: 35eeb7fb4c0dc734a92a13d6d146351d, type: 2}
   gameOverScreen: {fileID: 0}
   playerGo: {fileID: 1744278658796917407}
   uniqueAbilityIsAvailable: 1
@@ -501,6 +501,8 @@ MonoBehaviour:
   currentLife: 0
   maxLife: 0
   coinPrefab: {fileID: 0}
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  damaged: {fileID: 2100000, guid: 28e9d17d0576214409e324a9dc951376, type: 2}
 --- !u!114 &7643298336837889245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,6 +904,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spells:
   - {fileID: 4550993629818596674, guid: aa026bd5701622349bc2a1eddd161c8d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   activeSpellPrefab: {fileID: 0}
   enemiesOnScreen: []
   _distanceToNearestEnemy: 0
