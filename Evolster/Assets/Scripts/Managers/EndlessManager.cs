@@ -22,6 +22,11 @@ public class EndlessManager : MonoBehaviour
 
     private void Update()
     {
+        if (spawns != null)
+        {
+            spawns = GameObject.FindGameObjectsWithTag("Spawn");
+
+        }
         if (Time.time > _lastLightEnemySpawned + lightEnemySpawnCooldown)
         {
             ChooseSpawn("light enemy");
