@@ -10,6 +10,7 @@ public class LifeController : MonoBehaviour
     [SerializeField] public float maxLife;
     [SerializeField] GameObject coinPrefab;
     [SerializeField] private Material original, damaged;
+    [SerializeField] private ParticleSystem deathParticles;
     private bool isDamaged;
     public bool dead;
 
@@ -80,7 +81,11 @@ public class LifeController : MonoBehaviour
         dead = true;
         GetComponent<Animator>().SetBool("Dead", true);
         GetComponent<Collider2D>().enabled = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        GetComponent<SpriteRenderer>().enabled = false;
+        deathParticles.Play();
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
