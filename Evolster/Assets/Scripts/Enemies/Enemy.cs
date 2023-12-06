@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -8,8 +9,10 @@ public class Enemy : MonoBehaviour
 
     public Rigidbody2D rb;
     public NavMeshAgent navMesh;
+    public Animator animator;
+    public LifeController lifeController;
 
-    public Vector2 direction;
+    private Vector2 direction;
     public bool isInRangeAttack;
     public float distance;
 
@@ -17,11 +20,14 @@ public class Enemy : MonoBehaviour
 
     public float lastAttack;
     public float attackCooldown;
+    public float attackTime;
 
     private void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        lifeController = GetComponent<LifeController>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -38,17 +44,31 @@ public class Enemy : MonoBehaviour
         distance = Vector2.Distance(player.transform.position, transform.position);
         isInRangeAttack = distance <= enemyStats.attackRange;
 
-        if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
+        if(player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
+        else transform.localScale = new Vector3(1, 1, 1);
 
-        //Movement
-        if (!isInRangeAttack) navMesh.SetDestination(player.position);
-        else navMesh.SetDestination(transform.position);
+        if (!lifeController.dead)
+        {
+            if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
+
+            //Movement
+            if (!isInRangeAttack) navMesh.SetDestination(player.position);
+        }
+        else navMesh.isStopped = true;
     }
 
     protected virtual void Attack()
     {
         player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage, false);
         lastAttack = Time.time;
+        StartCoroutine(AttackTime());
+    }
+
+    public IEnumerator AttackTime()
+    {
+        animator.SetBool("Attacking", true);
+        yield return new WaitForSeconds(attackTime);
+        animator.SetBool("Attacking", false);
     }
 
     private void OnDrawGizmos()

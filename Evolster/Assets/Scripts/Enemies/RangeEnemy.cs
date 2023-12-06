@@ -8,6 +8,9 @@ public class RangeEnemy : Enemy
 
     public override void Update()
     {
+        if (player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
+        else transform.localScale = new Vector3(1, 1, 1);
+
         bool isInRangeAttack;
         float distance = Vector2.Distance(player.transform.position, transform.position);
         if (distance <= enemyStats.attackRange) isInRangeAttack = true;
@@ -28,6 +31,7 @@ public class RangeEnemy : Enemy
         spell.GetComponent<Spell>().direction = _shootingDirection;
         spell.layer = LayerMask.NameToLayer("EnemySpells");
         lastAttack = Time.time;
+        StartCoroutine(AttackTime());
     }
 
     private void AimToPlayer()

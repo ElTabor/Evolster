@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LifeController : MonoBehaviour
@@ -10,6 +11,7 @@ public class LifeController : MonoBehaviour
     [SerializeField] GameObject coinPrefab;
     [SerializeField] private Material original, damaged;
     private bool isDamaged;
+    public bool dead;
 
     [SerializeField] private GameObject damagePopUpPrefab;
 
@@ -37,9 +39,9 @@ public class LifeController : MonoBehaviour
             {
                 SpawnBuff();
                 SpawnCoin();
-                Destroy(gameObject);
+                StartCoroutine(Die());
             }
-            else Destroy(gameObject);
+            else StartCoroutine(Die());
         }
     }
 
@@ -71,5 +73,14 @@ public class LifeController : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         isDamaged = false;
         GetComponent<SpriteRenderer>().material = GetComponent<LifeController>().original;
+    }
+
+    private IEnumerator Die()
+    {
+        dead = true;
+        GetComponent<Animator>().SetBool("Dead", true);
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }
