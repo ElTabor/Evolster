@@ -15,23 +15,26 @@ public class HeavyEnemy : Enemy
         distance = Vector2.Distance(player.transform.position, transform.position);
         isInRangeAttack = distance <= enemyStats.attackRange;
 
-        if (!_charging) navMesh.SetDestination(player.position);
-        else navMesh.SetDestination(Vector3.forward);
+        if(!lifeController.dead)
+        {
+            if (!_charging) navMesh.SetDestination(player.position);
 
-        if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
+            if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
+        }
     }
 
     protected override void Attack()
     {
-        StartCoroutine(Charge(chargingTime));
+        StartCoroutine(Charge());
         StartCoroutine(AttackTime());
     }
 
-    private IEnumerator Charge(float timeToWait)
+    private IEnumerator Charge()
     {
         _charging = true;
         navMesh.speed = chargingSpeed;
-        yield return new WaitForSeconds(timeToWait);
+        navMesh.SetDestination(player.transform.position);
+        yield return new WaitForSeconds(chargingTime);
         _charging = false;
         navMesh.speed = enemyStats.movementSpeed;
     }

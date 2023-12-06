@@ -11,18 +11,18 @@ public class RangeEnemy : Enemy
         if (player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
         else transform.localScale = new Vector3(1, 1, 1);
 
-        bool isInRangeAttack;
         float distance = Vector2.Distance(player.transform.position, transform.position);
-        if (distance <= enemyStats.attackRange) isInRangeAttack = true;
-        else isInRangeAttack = false;
+        isInRangeAttack = distance <= enemyStats.attackRange;
 
-        if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
+        if(!lifeController.dead)
+        {
+            //Movement
+            if (!isInRangeAttack) navMesh.SetDestination(player.position);
+            else navMesh.SetDestination(transform.position);
 
-        //Movement
-        if (!isInRangeAttack) navMesh.SetDestination(player.position);
-        else navMesh.SetDestination(transform.position);
-
-        AimToPlayer();
+            if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
+            AimToPlayer();
+        }
     }
 
     protected override void Attack()
