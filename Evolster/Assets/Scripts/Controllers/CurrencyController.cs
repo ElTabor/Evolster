@@ -29,7 +29,7 @@ public class CurrencyController : MonoBehaviour
         {
             Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
             if (Vector2.Distance(coin.transform.position, transform.position) <= 5f)
-                rb.velocity = (transform.position - coin.transform.position).normalized * 10f;
+                rb.velocity = (transform.position - coin.transform.position).normalized * 30f;
             else rb.velocity = Vector2.zero;
         }
 

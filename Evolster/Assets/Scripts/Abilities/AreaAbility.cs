@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class AreaAbility : MonoBehaviour, IAbility
@@ -37,6 +38,8 @@ public class AreaAbility : MonoBehaviour, IAbility
         uniqueAbility.GetComponent<AreaAbilityBullet>().direction = aimDirection;
         uniqueAbility.GetComponent<AreaAbilityBullet>().speed = abilityData.uniqueAbilitySpeed;
         uniqueAbility.GetComponent<AreaAbilityBullet>().lifeTime += abilityData.uniqueAbilityLifeTime;
+        float shootAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        uniqueAbility.transform.rotation = Quaternion.AngleAxis(shootAngle, Vector3.forward);
         PlayerController.instance.manaController.ManageMana(-abilityData.manaCost);
         Debug.Log("Ability Cast");
     }

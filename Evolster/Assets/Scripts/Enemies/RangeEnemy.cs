@@ -8,21 +8,8 @@ public class RangeEnemy : Enemy
 
     public override void Update()
     {
-        if (player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
-        else transform.localScale = new Vector3(1, 1, 1);
-
-        float distance = Vector2.Distance(player.transform.position, transform.position);
-        isInRangeAttack = distance <= enemyStats.attackRange;
-
-        if(!lifeController.dead)
-        {
-            //Movement
-            if (!isInRangeAttack) navMesh.SetDestination(player.position);
-            else navMesh.SetDestination(transform.position);
-
-            if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
-            AimToPlayer();
-        }
+        base.Update();
+        if(!lifeController.dead) AimToPlayer();
     }
 
     protected override void Attack()

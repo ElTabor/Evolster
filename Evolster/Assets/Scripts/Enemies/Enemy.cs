@@ -12,15 +12,17 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public LifeController lifeController;
 
-    private Vector2 direction;
     public bool isInRangeAttack;
     public float distance;
 
-    [SerializeField] protected ActorStats enemyStats;
+    public ActorStats enemyStats;
+    public bool frozen;
 
     public float lastAttack;
     public float attackCooldown;
     public float attackTime;
+
+    private float currentSpeed;
 
     private void Awake()
     {
@@ -35,7 +37,8 @@ public class Enemy : MonoBehaviour
     {
         navMesh.updateRotation = false;
         navMesh.updateUpAxis = false;
-        navMesh.speed = enemyStats.movementSpeed;
+        currentSpeed = enemyStats.movementSpeed;
+
         GetComponent<LifeController>().SetMaxLife(enemyStats.maxLife);
     }
 
@@ -53,6 +56,10 @@ public class Enemy : MonoBehaviour
 
             //Movement
             if (!isInRangeAttack) navMesh.SetDestination(player.position);
+            if (frozen) currentSpeed = 0;
+            else currentSpeed = enemyStats.movementSpeed;
+
+            navMesh.speed = currentSpeed;
         }
         else navMesh.isStopped = true;
     }

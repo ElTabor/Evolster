@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a03cf85f70bcbb479a50c66d1db9aed, type: 3}
-  m_Name: SpecialAbility-Fireball
+  m_Name: SpecialAbility-Icecle
   m_EditorClassIdentifier: 
-  uniqueAbilitySprite: {fileID: -794300894, guid: fa4a20d13e525364db4366e79a12b5e7, type: 3}
-  uniqueAbilityName: Fireball
+  uniqueAbilitySprite: {fileID: 21300000, guid: a83ae314d848fac44a7f75f35ec8763a, type: 3}
+  uniqueAbilityName: Icecle
   uniqueAbilityType: Area
-  uniqueAbilityDescription: On impact, causes an explosion that deals damage to enemies
+  uniqueAbilityDescription: On impact, generates a blizzard that slows enemies
   uniqueAbilityLevel: 1
-  uniqueAbilityDamage: 50
-  uniqueAbilitySpeed: 5
-  uniqueAbilityLifeTime: 3
+  uniqueAbilityDamage: 5
+  uniqueAbilitySpeed: 10
+  uniqueAbilityLifeTime: 4
   uniqueAbilityDamageRange: 0
-  uniqueAbilityDamageArea: 3
-  manaCost: 20
+  uniqueAbilityDamageArea: 4
+  manaCost: 15
   cooldown: 0

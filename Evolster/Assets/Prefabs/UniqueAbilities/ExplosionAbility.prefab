@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7785538859346977150}
   - component: {fileID: 5481639354792458042}
   m_Layer: 10
-  m_Name: AreaAbility
+  m_Name: ExplosionAbility
   m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -8578347083912464477}
   - component: {fileID: 5384772429930374857}
   - component: {fileID: -1093362731212229235}
-  - component: {fileID: 5384052978598363178}
+  - component: {fileID: 2830327564253909069}
   m_Layer: 10
-  m_Name: FireBall
+  m_Name: Icecle
   m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,18 +74,18 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 154599409
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 0.8469602, b: 0, a: 1}
+  m_Sprite: {fileID: -1961426675, guid: ae48625dfc0a9694a94df5989d0cff53, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.505, y: 0.405}
+  m_Size: {x: 0.845, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &-8578347083912464477
@@ -122,18 +122,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0.004168302, y: -0.0033327937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.505, y: 0.405}
-    newSize: {x: 0.505, y: 0.405}
+    oldSize: {x: 0.845, y: 0.16}
+    newSize: {x: 0.845, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8249325, y: 0.17051342}
   m_EdgeRadius: 0
 --- !u!95 &-1093362731212229235
 Animator:
@@ -145,7 +145,7 @@ Animator:
   m_GameObject: {fileID: 7273161089312693241}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 32c095adf24a89f40ae5973459737879, type: 2}
+  m_Controller: {fileID: 9100000, guid: 67a2dc174ff5bf945af6ed45efd67213, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -156,7 +156,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5384052978598363178
+--- !u!114 &2830327564253909069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7273161089312693241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3cb62d0d6b66b4fb8782a72ae49583, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f5bdbf576304614597a7644e431e9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageArea: 0

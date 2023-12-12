@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a03cf85f70bcbb479a50c66d1db9aed, type: 3}
   m_Name: SpecialAbility-RayAbility
   m_EditorClassIdentifier: 
-  uniqueAbilitySprite: {fileID: 7482667652216324306, guid: 645f6b05d18b49c43b5825f7791975d4, type: 3}
+  uniqueAbilitySprite: {fileID: 21300000, guid: 8a6254c5e7043974d86b1c075c4ba660, type: 3}
   uniqueAbilityName: Ray Ability
   uniqueAbilityType: Ray
-  uniqueAbilityDescription: 
+  uniqueAbilityDescription: Constant ray that deals damage to the first enemy it
+    hits
   uniqueAbilityLevel: 1
   uniqueAbilityDamage: 10
   uniqueAbilitySpeed: 0

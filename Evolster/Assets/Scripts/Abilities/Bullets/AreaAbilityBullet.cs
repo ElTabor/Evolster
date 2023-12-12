@@ -15,8 +15,8 @@ public class AreaAbilityBullet : MonoBehaviour
     public float lifeTime;
     private float startTime;
     Animator animator;
-    [SerializeField] LayerMask enemiesLayer;
-    private bool exploding;
+    public LayerMask enemiesLayer;
+    public bool active;
 
     private void Start()
     {
@@ -30,20 +30,21 @@ public class AreaAbilityBullet : MonoBehaviour
         if (Time.time >= startTime + lifeTime)
             Destroy(gameObject);
 
-        animator.SetBool("Exploding", exploding);
 
-        if (!exploding) _rb.velocity = direction * speed;
+        if (!active) _rb.velocity = direction * speed;
         else _rb.velocity = Vector2.zero;
     }
 
-    private void OnTriggerEnter2D() => DealAreaDamage();
-
-    private void DealAreaDamage()
+    private void OnTriggerEnter2D()
     {
-        exploding = true;
-        foreach (Collider2D enemy in Physics2D.OverlapCircleAll(transform.position, damageArea, enemiesLayer))
-            enemy.GetComponent<LifeController>().UpdateLife(currentDamage, true);
-        Debug.Log(Physics2D.OverlapCircleAll(transform.position, damageArea, enemiesLayer).Count());
+        if(!active) DealDamage();
+    }
+
+    public virtual void DealDamage()
+    {
+        active = true;
+        animator.SetBool("Active", true);
+        transform.rotation = Quaternion.AngleAxis(0, Vector3.zero);
     }
 
     private void OnDrawGizmos()
