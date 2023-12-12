@@ -176,7 +176,7 @@ MonoBehaviour:
   distance: 0
   enemyStats: {fileID: 11400000, guid: 93c26b5ae0ef7834992dd43ffed72432, type: 2}
   lastAttack: 0
-  attackCooldown: 0
+  attackCooldown: 3
   attackTime: 1
   chargingTime: 1
   chargingSpeed: 50
