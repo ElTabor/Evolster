@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LifeController : MonoBehaviour
@@ -11,10 +10,17 @@ public class LifeController : MonoBehaviour
     [SerializeField] GameObject coinPrefab;
     [SerializeField] private Material original, damaged;
     [SerializeField] private ParticleSystem deathParticles;
+    [SerializeField] private ParticleSystem bloodParticles;
+    private SpriteRenderer _spriteRenderer;
     private bool isDamaged;
     public bool dead;
 
     [SerializeField] private GameObject damagePopUpPrefab;
+
+    private void Start()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     public void SetMaxLife(float maxLife)
     {
@@ -63,17 +69,18 @@ public class LifeController : MonoBehaviour
     {
         if (other.CompareTag("Spell") || other.CompareTag("Ability") && !isDamaged)
         {
+            bloodParticles.Play();
             StartCoroutine(DamageVisualFeedback());
         }
     }
 
     public IEnumerator DamageVisualFeedback()
     {
-        GetComponent<SpriteRenderer>().material = GetComponent<LifeController>().damaged;
+        _spriteRenderer.color = Color.red;
         isDamaged = true;
         yield return new WaitForSeconds(0.25f);
         isDamaged = false;
-        GetComponent<SpriteRenderer>().material = GetComponent<LifeController>().original;
+        _spriteRenderer.color = Color.white;
     }
 
     private IEnumerator Die()
@@ -86,6 +93,5 @@ public class LifeController : MonoBehaviour
         deathParticles.Play();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
-        //Destroy(gameObject);
     }
 }

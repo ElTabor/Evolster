@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EndlessManager : MonoBehaviour
@@ -26,7 +24,6 @@ public class EndlessManager : MonoBehaviour
             if (spawns != null && RoundsManager.instance.round < 7)
             {
                 spawns = GameObject.FindGameObjectsWithTag("Spawn");
-
             }
 
         }

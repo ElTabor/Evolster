@@ -152,7 +152,8 @@ MonoBehaviour:
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
   original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damaged: {fileID: 2100000, guid: 28e9d17d0576214409e324a9dc951376, type: 2}
-  deathParticles: {fileID: 557522766309623977}
+  deathParticles: {fileID: 2820873882671998426, guid: f6bb03de7979e3b428a0e9e867c32868, type: 3}
+  bloodParticles: {fileID: 8122153013945586352, guid: 4caa9d6cd494df04d99af6fe6f2b89a5, type: 3}
   dead: 0
   damagePopUpPrefab: {fileID: 1428010827896062058, guid: 2b869af1f818d1f44ae85fa6a566a6d0, type: 3}
 --- !u!114 &-356461374960839068
@@ -291,11 +292,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6bb03de7979e3b428a0e9e867c32868, type: 3}
---- !u!198 &557522766309623977 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2820873882671998426, guid: f6bb03de7979e3b428a0e9e867c32868, type: 3}
-  m_PrefabInstance: {fileID: 2349042654853164403}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &714699780860678494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2986562137134169133, guid: f6bb03de7979e3b428a0e9e867c32868, type: 3}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6eb880cb5e2d264b86f1abb000ea9bb
+guid: 0059de0cfa8a4a745b4537689cbe99dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cuadro_0
+      name: BuffLogo_Nuevo_0
       rect:
         serializedVersion: 2
-        x: 185
-        y: 185
-        width: 270
-        height: 270
+        x: 299
+        y: 247
+        width: 49
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0df5e0f28b708fe4c9ae7b3c78146764
-      internalID: -1074758141
+      spriteID: 0250eb969278973499099e01fdff1e3f
+      internalID: -1851571933
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cuadro_0: -1074758141
+      BuffLogo_Nuevo_0: -1851571933
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
