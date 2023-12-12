@@ -175,8 +175,9 @@ MonoBehaviour:
   isInRangeAttack: 0
   distance: 0
   enemyStats: {fileID: 11400000, guid: 29f5e10aaa5dcae40adaa7891d66222c, type: 2}
+  frozen: 0
   lastAttack: 0
-  attackCooldown: 0
+  attackCooldown: 3
   attackTime: 1
   chargingTime: 1
   chargingSpeed: 50
