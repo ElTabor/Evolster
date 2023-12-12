@@ -17,10 +17,22 @@ public class RangeEnemy : Enemy
         if(!lifeController.dead)
         {
             //Movement
-            if (!isInRangeAttack) navMesh.SetDestination(player.position);
-            else navMesh.SetDestination(transform.position);
+            if (!isInRangeAttack)
+            {
+                
+                navMesh.SetDestination(player.position);
+            }
+            else
+            {
+                
+                navMesh.SetDestination(transform.position);
+            }
 
-            if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
+            if (isInRangeAttack && Time.time > lastAttack + attackCooldown)
+            {
+                animator.SetBool("Attacking", true);
+                Attack();
+            }
             AimToPlayer();
         }
     }
