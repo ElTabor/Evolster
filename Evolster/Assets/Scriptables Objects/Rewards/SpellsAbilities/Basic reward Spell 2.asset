@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Basic reward Spell 2
   m_EditorClassIdentifier: 
   name: Cosmic Firestorm
-  sprite: {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
+  sprite: {fileID: 21300000, guid: f311e76b66c6e7a43b9508e32c3c0741, type: 3}
   description: Hechizo que invoca bolas de fuego en forma de meteoritos
   type: NewSpell

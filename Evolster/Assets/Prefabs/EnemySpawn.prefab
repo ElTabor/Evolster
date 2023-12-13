@@ -103,12 +103,15 @@ MonoBehaviour:
   lightEnemyPrefab:
   - {fileID: 1018653029207290118, guid: 25674ff3118dbd94eb2040a6ab7a1b2e, type: 3}
   - {fileID: 1018653029207290118, guid: b0b1e98856ba4f5449501eb52c413659, type: 3}
+  - {fileID: 27245397601858002, guid: a30733b045da0e44eb08b97440cc61ff, type: 3}
   heavyEnemyPrefab:
   - {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
   - {fileID: 1018653029207290118, guid: abbc8cd363b2e0647a8153bfed3a86f3, type: 3}
+  - {fileID: 2185567230929304833, guid: 315f849e183d70f47bca976459151979, type: 3}
   rangeEnemyPrefab:
   - {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
   - {fileID: 1018653029207290118, guid: 89767c2d88fc1e34db05cbee91aebb29, type: 3}
+  - {fileID: 3129153184192668773, guid: 81c68825e0cee8a4dbcd891652c18a93, type: 3}
   bossPrefab: {fileID: 1018653029207290118, guid: 0ab79718a4e94ad48aa0308ed77852cc, type: 3}
   amountOfEnemiesToSpawn: 4
   spawnBossNow: 0

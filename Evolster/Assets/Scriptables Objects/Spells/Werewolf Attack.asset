@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd27ec868f97134b92e2b2334cd5437, type: 3}
   m_Name: Werewolf Attack
   m_EditorClassIdentifier: 
-  spellSprite: {fileID: 21300000, guid: 583acd4682b2c374180cd715555a256a, type: 3}
+  spellSprite: {fileID: 21300000, guid: 9f8e65732e1790c4f8f52e9289a58df4, type: 3}
   spellName: Werewolf range Attack
   spellType: Base
   spellDescription: 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed75c62bfba3ee742a76bdb0f7348e70, type: 3}
   m_Name: Attack range reward
   m_EditorClassIdentifier: 
-  name: 
-  sprite: {fileID: 0}
+  name: Attack Upgrade
+  sprite: {fileID: -1851571933, guid: 0059de0cfa8a4a745b4537689cbe99dd, type: 3}
   description: El rango de ataque aumenta un 15%
   type: 

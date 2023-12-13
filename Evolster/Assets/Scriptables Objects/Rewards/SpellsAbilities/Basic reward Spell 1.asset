@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Basic reward Spell 1
   m_EditorClassIdentifier: 
   name: Lance Stake Tempest
-  sprite: {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
+  sprite: {fileID: 21300000, guid: 235433b75aa495c4e8521cfd426982ca, type: 3}
   description: Hechizo invoca estacas que vuelan directamente hacia el enemigo
   type: NewSpell

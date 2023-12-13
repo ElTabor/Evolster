@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Max HP Reward
   m_EditorClassIdentifier: 
   name: Vida maxima
-  sprite: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
+  sprite: {fileID: 21300000, guid: 04e6cb00572d84047a093736d2cbfc3e, type: 3}
   description: Aumenta 20% el maximo de los puntos de vida del jugador
   type: StatUpgrade
