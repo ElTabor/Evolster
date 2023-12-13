@@ -37,7 +37,7 @@ public class RoundsManager : MonoBehaviour
 
     private void EndRound()
     {
-        if(SceneManager.instance.scene == "Level 1" || SceneManager.instance.scene == "Level 2")
+        if(SceneManager.instance.scene == "Cementery" || SceneManager.instance.scene == "DarkForest" || SceneManager.instance.scene == "Castle")
         {
             if (round <= 5) UIManager.instance.OpenCloseMenu(UIManager.instance.rewardSelectionMenu);
             else if (round == 6)
@@ -46,13 +46,13 @@ public class RoundsManager : MonoBehaviour
                 GameObject ability;
                 switch(SceneManager.instance.scene)
                 {
-                    case "Level 1":
+                    case "Cementery":
                         ability = abilityPrefabs[0];
                         break;
-                    case "Level 2":
+                    case "DarkForest":
                         ability = abilityPrefabs[1];
                         break;
-                    case "Level 3":
+                    case "Castle":
                         ability = abilityPrefabs[2];
                         break;
                     default:
@@ -60,7 +60,7 @@ public class RoundsManager : MonoBehaviour
                         Debug.Log("Error en seleccion de habilidad");
                         break;
                 }
-                UIManager.instance.SetAbilityRewardPanel(ability);
+                if(SceneManager.instance.scene != "Lobby" || SceneManager.instance.scene != "MainMenu") UIManager.instance.SetAbilityRewardPanel(ability);
             }
         }
         prepTime = true;

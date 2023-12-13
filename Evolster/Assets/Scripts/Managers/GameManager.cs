@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         if (gamePaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
         UpdateHighScores();
+        if (SceneManager.instance.scene != "Lobby" || SceneManager.instance.scene != "MainMenu")
+        {
+            UIManager.instance.abilityRewardPanel.SetActive(false);
+            UIManager.instance.rewardSelectionMenu.SetActive(false);
+        } 
     }
 
     public void UpdateHighScores()

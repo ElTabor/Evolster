@@ -121,7 +121,11 @@ MonoBehaviour:
   lastAttack: 0
   attackCooldown: 5
   attackTime: 0
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 938eec8e0a2d16344a1cef0a34e617c9, type: 3}
+  - {fileID: 8300000, guid: 138ffcc855a0a3f458f8be4e1d4fb2a1, type: 3}
+  - {fileID: 8300000, guid: 3143e706d2211914d84b49228e2f34e3, type: 3}
+  - {fileID: 8300000, guid: c509d5a84b9c75640838edfd207ccb9a, type: 3}
 --- !u!50 &9190345721524088602
 Rigidbody2D:
   serializedVersion: 4
