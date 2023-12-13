@@ -25,7 +25,6 @@ public class EndlessManager : MonoBehaviour
             {
                 spawns = GameObject.FindGameObjectsWithTag("Spawn");
             }
-
         }
         else
         {

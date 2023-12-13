@@ -47,13 +47,14 @@ public class LifeController : MonoBehaviour
     {
         if (other.CompareTag("Spell") || other.CompareTag("Ability") && !isDamaged)
         {
-            bloodParticles.Play();
+            
             StartCoroutine(DamageVisualFeedback());
         }
     }
 
     public IEnumerator DamageVisualFeedback()
     {
+        bloodParticles.Play();
         _spriteRenderer.color = Color.red;
         isDamaged = true;
         yield return new WaitForSeconds(0.25f);
