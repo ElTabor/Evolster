@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
 
     public List<TextMeshProUGUI> scoreTextListPrefab = new List<TextMeshProUGUI>();
 
-
-
-
     private void Start()
     {
         if (instance == null) instance = this;

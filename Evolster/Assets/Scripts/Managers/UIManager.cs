@@ -54,6 +54,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject statsPanel;
     [SerializeField] TextMeshProUGUI[] stats;
 
+    [Header("SETTINGS")]
+    public Slider SFXVolumeBar;
+    public Slider MusicVolumeBar;
 
     private void Start()
     {
@@ -78,12 +81,19 @@ public class UIManager : MonoBehaviour
             UpdateCoinsFeedback();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
-            
-            for(int n = 0; n < hotkeysIcons.Length; n++)
+
+            for (int n = 0; n < hotkeysIcons.Length; n++)
             {
                 if (PlayerController.instance.spellController.spells[n] != null)
+                {
                     hotkeysIcons[n].sprite = PlayerController.instance.spellController.spells[n].GetComponent<Spell>().spellData.spellSprite;
-                else hotkeysIcons[n].sprite = null;
+                    hotkeysIcons[n].color = Color.white;
+                }
+                else 
+                {
+                    hotkeysIcons[n].sprite = null;
+                    hotkeysIcons[n].color = Color.clear;
+                }
             }
         }
         else

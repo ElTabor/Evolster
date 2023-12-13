@@ -9,7 +9,7 @@ public class RangeEnemy : Enemy
     public override void Update()
     {
         base.Update();
-        if(!lifeController.dead)
+        if(!dead)
         {
             AimToPlayer();
             if(isInRangeAttack && Time.time > lastAttack + attackCooldown) animator.SetBool("Attacking", true);
@@ -18,6 +18,7 @@ public class RangeEnemy : Enemy
 
     protected override void Attack()
     {
+        PlaySound("Attack");
         GameObject spell = Instantiate(spellPrefab, referencePoint.position, Quaternion.identity);
         spell.GetComponent<Spell>().direction = _shootingDirection;
         spell.layer = LayerMask.NameToLayer("EnemySpells");

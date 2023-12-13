@@ -12,13 +12,14 @@ public class HeavyEnemy : Enemy
     public override void Update()
     {
         base.Update();
-        if (!lifeController.dead && !_charging) navMesh.SetDestination(player.position);
+        if (!dead && !_charging) navMesh.SetDestination(player.position);
     }
 
     protected override void Attack() => StartCoroutine(Charge());
 
     private IEnumerator Charge()
     {
+        PlaySound("Attack");
         animator.SetBool("Attacking", true);
         _charging = true;
         navMesh.speed = chargingSpeed;

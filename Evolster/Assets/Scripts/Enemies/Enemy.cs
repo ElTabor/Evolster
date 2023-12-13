@@ -11,18 +11,25 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent navMesh;
     public Animator animator;
     public LifeController lifeController;
+    public AudioSource source;
 
     public bool isInRangeAttack;
     public float distance;
 
+    [SerializeField] GameObject coinPrefab;
+    [SerializeField] private ParticleSystem deathParticles;
+
     public ActorStats enemyStats;
+    public bool dead;
     public bool frozen;
+    private float currentSpeed;
 
     public float lastAttack;
     public float attackCooldown;
     public float attackTime;
 
-    private float currentSpeed;
+    [SerializeField] AudioClip[] clips;
+
 
     private void Awake()
     {
@@ -30,6 +37,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         lifeController = GetComponent<LifeController>();
+        source = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -50,7 +58,7 @@ public class Enemy : MonoBehaviour
         if(player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
         else transform.localScale = new Vector3(1, 1, 1);
 
-        if (!lifeController.dead)
+        if (!dead)
         {
             if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
 
@@ -66,6 +74,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
+        PlaySound("Attack");
         player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage, false);
         lastAttack = Time.time;
         StartCoroutine(AttackTime());
@@ -81,5 +90,50 @@ public class Enemy : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, enemyStats.attackRange);
+    }
+    void SpawnBuff()
+    {
+        int r = Random.Range(0, 100);
+        if (r <= 30) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);
+    }
+
+    void SpawnCoin()
+    {
+        int r = Random.Range(1, 10);
+        GameObject newCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        newCoin.GetComponent<Coin>().coinsAmount = r;
+    }
+
+    public IEnumerator Die()
+    {
+        dead = true;
+        PlaySound("Die");
+        GetComponent<Animator>().SetBool("Dead", true);
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        GetComponent<SpriteRenderer>().enabled = false;
+        //deathParticles.Play();
+        yield return new WaitForSeconds(1f);
+        SpawnBuff();
+        SpawnCoin();
+        Destroy(gameObject);
+    }
+
+    public void PlaySound(string soundName)
+    {
+        AudioClip clipToPlay;
+        switch (soundName)
+        {
+            case "Attack":
+                clipToPlay = clips[0];
+                break;
+            case "Die":
+                clipToPlay = clips[1];
+                break;
+            default:
+                clipToPlay = clips[0];
+                break;
+        }
+        source.PlayOneShot(clipToPlay, AudioController.instance.sfxVolume);
     }
 }

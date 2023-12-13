@@ -7,13 +7,10 @@ public class LifeController : MonoBehaviour
 {
     [SerializeField] public float currentLife;
     [SerializeField] public float maxLife;
-    [SerializeField] GameObject coinPrefab;
     [SerializeField] private Material original, damaged;
-    [SerializeField] private ParticleSystem deathParticles;
     [SerializeField] private ParticleSystem bloodParticles;
     private SpriteRenderer _spriteRenderer;
     private bool isDamaged;
-    public bool dead;
 
     [SerializeField] private GameObject damagePopUpPrefab;
 
@@ -42,27 +39,8 @@ public class LifeController : MonoBehaviour
         if (currentLife <= 0)
         {
             if (gameObject.CompareTag("Player")) PlayerController.instance.Die();
-            else if (gameObject.CompareTag("Enemy"))
-            {
-                SpawnBuff();
-                SpawnCoin();
-                StartCoroutine(Die());
-            }
-            else StartCoroutine(Die());
+            else if (gameObject.CompareTag("Enemy")) StartCoroutine(GetComponent<Enemy>().Die());
         }
-    }
-
-    void SpawnBuff()
-    {
-        int r = UnityEngine.Random.Range(0, 100);
-        if (r <= 30) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);
-    }
-
-    void SpawnCoin()
-    {
-        int r = UnityEngine.Random.Range(1, 10);
-        GameObject newCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        newCoin.GetComponent<Coin>().coinsAmount = r;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -81,17 +59,5 @@ public class LifeController : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         isDamaged = false;
         _spriteRenderer.color = Color.white;
-    }
-
-    private IEnumerator Die()
-    {
-        dead = true;
-        GetComponent<Animator>().SetBool("Dead", true);
-        GetComponent<Collider2D>().enabled = false;
-        yield return new WaitForSeconds(1f);
-        GetComponent<SpriteRenderer>().enabled = false;
-        deathParticles.Play();
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
     }
 }

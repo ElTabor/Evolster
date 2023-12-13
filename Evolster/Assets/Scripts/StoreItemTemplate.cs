@@ -20,7 +20,6 @@ public class StoreItemTemplate : MonoBehaviour
         _itemImage.sprite = itemData.itemImage;
         _itemName.text = itemData.itemName;
         _itemDescription.text = itemData.itemDescription;
-        _buyButton.GetComponentInChildren<TextMeshProUGUI>().text = itemData.itemValue.ToString();
     }
 
     public void BuyItem()
@@ -28,9 +27,7 @@ public class StoreItemTemplate : MonoBehaviour
         if (PlayerController.instance.currencyController.currentCoins >= itemData.itemValue)
         {
             PlayerController.instance.currencyController.ManageCoins(-itemData.itemValue);
-            //PlayerController.instance.spellController.spells.Insert(null, itemData.spell);
             _buyButton.GetComponentInChildren<Button>().interactable = false;
-            _buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "You already own this item";
 
             for (int i = 0; i < PlayerController.instance.spellController.spells.Count; i++)
             {
