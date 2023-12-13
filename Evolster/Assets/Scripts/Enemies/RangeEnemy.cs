@@ -12,13 +12,18 @@ public class RangeEnemy : Enemy
         if(!dead)
         {
             AimToPlayer();
-            if(isInRangeAttack && Time.time > lastAttack + attackCooldown) animator.SetBool("Attacking", true);
+            if(isInRangeAttack && Time.time > lastAttack + attackCooldown)
+            {
+                navMesh.isStopped = true;
+                animator.SetBool("Attacking", true);
+            }
+            else navMesh.isStopped = false;
         }
     }
 
     protected override void Attack()
     {
-        PlaySound("Attack");
+        //PlaySound("RangeAttack");
         GameObject spell = Instantiate(spellPrefab, referencePoint.position, Quaternion.identity);
         spell.GetComponent<Spell>().direction = _shootingDirection;
         spell.layer = LayerMask.NameToLayer("EnemySpells");

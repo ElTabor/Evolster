@@ -15,11 +15,17 @@ public class HeavyEnemy : Enemy
         if (!dead && !_charging) navMesh.SetDestination(player.position);
     }
 
-    protected override void Attack() => StartCoroutine(Charge());
+    protected override void Attack()
+    {
+        PlaySound("Attack");
+        StartCoroutine(Charge());
+        lastAttack = Time.time;
+    }
+
+
 
     private IEnumerator Charge()
     {
-        PlaySound("Attack");
         animator.SetBool("Attacking", true);
         _charging = true;
         navMesh.speed = chargingSpeed;

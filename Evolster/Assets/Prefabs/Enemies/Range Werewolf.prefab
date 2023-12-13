@@ -169,6 +169,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 1248f2b952fadc245b5ca53d8dd5a251, type: 3}
   - {fileID: 8300000, guid: 6dd6a67e6b0ef1c48a0e6b18e2e7946d, type: 3}
+  - {fileID: 8300000, guid: c543b92147203af4b81c9761fcd5b9ce, type: 3}
   spellPrefab: {fileID: 4550993629818596674, guid: 9b515dbf7b0c1474aa0344a20fe60652, type: 3}
   referencePoint: {fileID: 2004106946231120890}
 --- !u!114 &3762908818846969310

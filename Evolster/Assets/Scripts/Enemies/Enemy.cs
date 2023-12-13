@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
     public IEnumerator Die()
     {
         dead = true;
-        PlaySound("Die");
+        //PlaySound("Die");
         GetComponent<Animator>().SetBool("Dead", true);
         GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(1f);
@@ -130,10 +130,14 @@ public class Enemy : MonoBehaviour
             case "Die":
                 clipToPlay = clips[1];
                 break;
+            case "RangeAttack":
+                clipToPlay = clips[2];
+                break;
             default:
                 clipToPlay = clips[0];
                 break;
         }
+        Debug.Log(soundName);
         source.PlayOneShot(clipToPlay, AudioController.instance.sfxVolume);
     }
 }
