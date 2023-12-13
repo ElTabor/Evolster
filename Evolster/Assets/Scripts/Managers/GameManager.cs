@@ -58,9 +58,23 @@ public class GameManager : MonoBehaviour
         {
             case "Main Menu":
                 Restart();
+                AudioController.instance.PlayMusic(AudioController.instance.tracks[0]);
                 break;
             case "Lobby":
                 Debug.Log("SetDoors");
+                AudioController.instance.PlayMusic(AudioController.instance.tracks[1]);
+                break;
+            case "Cementery":
+                AudioController.instance.PlayMusic(AudioController.instance.tracks[2]);
+                break;
+            case "DarkForest":
+                AudioController.instance.PlayMusic(AudioController.instance.tracks[3]);
+                break;
+            case "Castle":
+                AudioController.instance.PlayMusic(AudioController.instance.tracks[4]);
+                break;
+            case "Endless":
+                AudioController.instance.PlayMusic(AudioController.instance.tracks[5]);
                 break;
             default:
                 Debug.Log("Error en LoadNewScene");

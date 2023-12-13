@@ -114,9 +114,6 @@ public class PlayerController : MonoBehaviour
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
 
-        //if (Input.GetMouseButtonDown(0)) TryCastAbility();
-        //if (Input.GetMouseButton(0)) TryCastAbility();
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
             currentAbilityIndex--;

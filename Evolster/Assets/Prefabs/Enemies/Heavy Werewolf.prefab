@@ -185,6 +185,8 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 1248f2b952fadc245b5ca53d8dd5a251, type: 3}
   - {fileID: 8300000, guid: 6dd6a67e6b0ef1c48a0e6b18e2e7946d, type: 3}
+  - {fileID: 8300000, guid: 589870e082389b8439b6184b60c0fc97, type: 3}
+  - {fileID: 8300000, guid: 37258cd7906030945b7d7c9dc787c33c, type: 3}
   chargingTime: 1
   chargingSpeed: 50
 --- !u!95 &7744420697038252539

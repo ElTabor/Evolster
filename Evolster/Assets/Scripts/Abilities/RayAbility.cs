@@ -14,19 +14,22 @@ public class RayAbility : MonoBehaviour, IAbility
     private float lastDamageDealtTime;
     public bool dealingDamage;
     [SerializeField] GameObject rayPrefab;
-    Animator animator;
+
+    AudioSource source;
 
     public void Start()
     {
         currentDamage = abilityData.uniqueAbilityDamage;
         lastDamageDealtTime = Time.time;
-        animator = GetComponent<Animator>();
         raySprite = Instantiate(rayPrefab, PlayerController.instance.transform.position, Quaternion.identity);
         raySprite.SetActive(false);
+        source = GetComponent<AudioSource>();
     }
 
     public void Update()
     {
+        source.volume = AudioController.instance.sfxVolume;
+        source.Play();
         if (PlayerController.instance.abilityController.abilityAvailable  && !GameManager.instance.gamePaused && GameManager.instance.onLevel && Input.GetMouseButton(0))
             CastAbility();
         else dealingDamage = false;
@@ -37,7 +40,6 @@ public class RayAbility : MonoBehaviour, IAbility
     public void CastAbility()
     {
         dealingDamage = true;
-
         //Calculat ray's direction & origin
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - PlayerController.instance.transform.position).normalized;
         Vector3 origin = new Vector2(PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y);
@@ -49,7 +51,6 @@ public class RayAbility : MonoBehaviour, IAbility
         raySprite.transform.position = PlayerController.instance.transform.position;
         float angulo = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         raySprite.transform.rotation = Quaternion.Euler(0, 0, angulo);
-        //raySprite.transform.localScale = new Vector2(100, raySprite.transform.localScale.y);
         float sizeX;
         if (ray.collider != null) sizeX = ray.distance;
         else sizeX = 100;

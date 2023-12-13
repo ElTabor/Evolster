@@ -6,6 +6,7 @@ using UnityEngine;
 public class AreaAbility : MonoBehaviour, IAbility
 {
     [field: SerializeField] public UniqueAbilityData abilityData { get; set; }
+    AudioSource source;
 
     public float currentDamage { get; set; }
 
@@ -15,6 +16,7 @@ public class AreaAbility : MonoBehaviour, IAbility
 
     public void Start()
     {
+        source = GetComponent<AudioSource>();
         currentDamage = abilityData.uniqueAbilityDamageArea;
     }
     public void Update()

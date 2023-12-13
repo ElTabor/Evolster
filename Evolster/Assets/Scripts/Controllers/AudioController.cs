@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
-    public AudioClip clip;
+    public AudioClip[] tracks;
     AudioSource source;
     public float sfxVolume;
     public float musicVolume;
@@ -20,7 +20,11 @@ public class AudioController : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    public void PlayMusic(AudioClip clipToPlay) => source.PlayOneShot(clipToPlay, musicVolume);
+    public void PlayMusic(AudioClip clipToPlay)
+    {
+        source.Stop();
+        source.PlayOneShot(clipToPlay, musicVolume);
+    }
 
     public void SetVolume(string valueToChange)
     {

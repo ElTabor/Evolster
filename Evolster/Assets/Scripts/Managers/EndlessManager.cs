@@ -19,17 +19,12 @@ public class EndlessManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.instance.scene != "Endless")
-        {
+        if (SceneManager.instance.scene != "Endless" && SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby")
             if (spawns != null && RoundsManager.instance.round < 7)
-            {
                 spawns = GameObject.FindGameObjectsWithTag("Spawn");
-            }
-        }
-        else
-        {
+
+        else if(SceneManager.instance.scene == "Endless")
             spawns = GameObject.FindGameObjectsWithTag("Spawn");
-        }
 
         if (Time.time > _lastLightEnemySpawned + lightEnemySpawnCooldown)
         {

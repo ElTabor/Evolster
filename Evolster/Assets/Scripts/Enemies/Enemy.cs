@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] AudioClip[] clips;
 
-
     private void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();
@@ -47,6 +46,7 @@ public class Enemy : MonoBehaviour
         navMesh.updateUpAxis = false;
         currentSpeed = enemyStats.movementSpeed;
 
+        PlaySound("Spawn");
         GetComponent<LifeController>().SetMaxLife(enemyStats.maxLife);
     }
 
@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
     public IEnumerator Die()
     {
         dead = true;
-        //PlaySound("Die");
+        PlaySound("Die");
         GetComponent<Animator>().SetBool("Dead", true);
         GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(1f);
@@ -132,6 +132,9 @@ public class Enemy : MonoBehaviour
                 break;
             case "RangeAttack":
                 clipToPlay = clips[2];
+                break;
+            case "Spawn":
+                clipToPlay = clips[3];
                 break;
             default:
                 clipToPlay = clips[0];

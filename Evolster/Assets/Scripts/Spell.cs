@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Spell : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class Spell : MonoBehaviour
     private float _creationTime;
 
     private Rigidbody2D _rb;
+    private AudioSource _source;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _source = GetComponent<AudioSource>();
+        _source.PlayOneShot(_source.clip, AudioController.instance.sfxVolume);
         _creationTime = Time.time;
         _rb.velocity = direction * spellData.spellSpeed;
         currentDamage = spellData.spellDamage;

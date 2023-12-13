@@ -17,11 +17,15 @@ public class AreaAbilityBullet : MonoBehaviour
     Animator animator;
     public LayerMask enemiesLayer;
     public bool active;
+    AudioSource source;
+    [SerializeField] AudioClip[] clips;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(clips[0], AudioController.instance.sfxVolume);
         startTime = Time.time;
     }
 
@@ -38,6 +42,8 @@ public class AreaAbilityBullet : MonoBehaviour
     private void OnTriggerEnter2D()
     {
         if(!active) DealDamage();
+        source.PlayOneShot(clips[1], AudioController.instance.sfxVolume);
+        source.PlayOneShot(clips[2], AudioController.instance.sfxVolume);
     }
 
     public virtual void DealDamage()

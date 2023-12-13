@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598013965687265057, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: destination
-      value: Castillo
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 2836388515965796844, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: m_TagString
@@ -613,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598013965687265057, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: destination
-      value: Bosque
+      value: DarkForest
       objectReference: {fileID: 0}
     - target: {fileID: 2836388515965796844, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: m_TagString
@@ -1177,7 +1177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598013965687265057, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: destination
-      value: Level 1
+      value: Cementery
       objectReference: {fileID: 0}
     - target: {fileID: 2836388515965796844, guid: 22a44e2fb72402a459ddb832a27aa4a9, type: 3}
       propertyPath: m_Layer
