@@ -353,6 +353,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level1Tilemap
       objectReference: {fileID: 0}
+    - target: {fileID: 6779092148669073948, guid: e30bb5ee2fdc34a4a83d33fbec7f750a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779092148669073948, guid: e30bb5ee2fdc34a4a83d33fbec7f750a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779092148669073948, guid: e30bb5ee2fdc34a4a83d33fbec7f750a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 154599409
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30bb5ee2fdc34a4a83d33fbec7f750a, type: 3}
 --- !u!1001 &986587793
@@ -647,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1744278658796917601, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 9.38
       objectReference: {fileID: 0}
     - target: {fileID: 1744278658796917601, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
       propertyPath: m_LocalPosition.z
@@ -689,6 +701,14 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1464976973}
+    - target: {fileID: 5682826715875559499, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682826715875559499, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 154599409
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4eedf3bb13679408ba97cb0bb42dde, type: 3}
 --- !u!1001 &1053511305481419480
