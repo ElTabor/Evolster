@@ -22326,6 +22326,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 557263236584910671, guid: e029d751e210fd6418719a905a1540bb, type: 3}
+      propertyPath: heavyEnemySpawnCooldown
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 557263236584910671, guid: e029d751e210fd6418719a905a1540bb, type: 3}
+      propertyPath: lightEnemySpawnCooldown
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2174072536301503684, guid: e029d751e210fd6418719a905a1540bb, type: 3}
       propertyPath: m_RootOrder
       value: 6
