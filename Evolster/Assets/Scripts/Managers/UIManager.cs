@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
         GameManager.instance.gamePaused = pauseMenu.activeInHierarchy || gameOverMenu.activeInHierarchy || store.activeInHierarchy || abilityRewardPanel.activeInHierarchy || rewardSelectionMenu.activeInHierarchy;
 
         hud.SetActive(SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby");
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.instance.scene != "Main Menu") OpenCloseMenu(pauseMenu);
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.instance.scene != "Main Menu" && !gameOverMenu.activeInHierarchy && !abilityRewardPanel.activeInHierarchy && !rewardSelectionMenu.activeInHierarchy) OpenCloseMenu(pauseMenu);
 
         if (SceneManager.instance.scene != "Main Menu" && SceneManager.instance.scene != "Lobby")
         {
@@ -153,7 +153,7 @@ public class UIManager : MonoBehaviour
     {
         OpenCloseMenu(gameOverMenu);
 
-        HighScoreController.instance.InsertScore(UIManager.instance._timeElapsed);
+        HighScoreController.instance.InsertScore(_timeElapsed);
     }
 
     public void SetStoreCanvas()

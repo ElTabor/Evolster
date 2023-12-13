@@ -23,7 +23,7 @@ public class HighScoreController : MonoBehaviour
     }
     #endregion
     #region ABB_Methods
-    // Inserta un nuevo highscore en el árbol
+    // Inserta un nuevo highscore en el Ã¡rbol
     public void InsertScore(float score)
     {
         root = Insert(root, score);
