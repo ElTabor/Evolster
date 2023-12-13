@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     public ActorStats enemyStats;
     public bool dead;
     public bool frozen;
-    private float currentSpeed;
+    public float currentSpeed;
 
     public float lastAttack;
     public float attackCooldown;
@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
     public IEnumerator Die()
     {
         dead = true;
-        //PlaySound("Die");
+        PlaySound("Die");
         GetComponent<Animator>().SetBool("Dead", true);
         GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(1f);
