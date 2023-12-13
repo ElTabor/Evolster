@@ -187,7 +187,7 @@ MonoBehaviour:
   maxLife: 0
   original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damaged: {fileID: 2100000, guid: 28e9d17d0576214409e324a9dc951376, type: 2}
-  bloodParticles: {fileID: 8122153013945586352, guid: 4caa9d6cd494df04d99af6fe6f2b89a5, type: 3}
+  bloodParticles: {fileID: 5756984632235322460}
   damagePopUpPrefab: {fileID: 1428010827896062058, guid: 2b869af1f818d1f44ae85fa6a566a6d0, type: 3}
 --- !u!95 &4778203038064803831
 Animator:
@@ -465,5 +465,10 @@ PrefabInstance:
 --- !u!4 &5756984632235322435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8122153013945586351, guid: 4caa9d6cd494df04d99af6fe6f2b89a5, type: 3}
+  m_PrefabInstance: {fileID: 4563065783803756268}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5756984632235322460 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8122153013945586352, guid: 4caa9d6cd494df04d99af6fe6f2b89a5, type: 3}
   m_PrefabInstance: {fileID: 4563065783803756268}
   m_PrefabAsset: {fileID: 0}
