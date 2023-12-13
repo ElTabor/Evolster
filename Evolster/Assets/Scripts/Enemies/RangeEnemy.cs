@@ -17,9 +17,7 @@ public class RangeEnemy : Enemy
                 currentSpeed = 0;
                 if (Time.time > lastAttack + attackCooldown) animator.SetBool("Attacking", true);
             }
-            else currentSpeed = enemyStats.movementSpeed;
-            
-        }
+            else currentSpeed = enemyStats.movementSpeed;        }
     }
 
     protected override void Attack()

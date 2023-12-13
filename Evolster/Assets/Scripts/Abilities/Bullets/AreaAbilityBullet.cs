@@ -41,9 +41,12 @@ public class AreaAbilityBullet : MonoBehaviour
 
     private void OnTriggerEnter2D()
     {
-        if(!active) DealDamage();
-        source.PlayOneShot(clips[1], AudioController.instance.sfxVolume);
-        source.PlayOneShot(clips[2], AudioController.instance.sfxVolume);
+        if(!active)
+        {
+            DealDamage();
+            source.PlayOneShot(clips[1], AudioController.instance.sfxVolume);
+            source.PlayOneShot(clips[2], AudioController.instance.sfxVolume);
+        }
     }
 
     public virtual void DealDamage()

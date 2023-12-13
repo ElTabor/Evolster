@@ -20,6 +20,11 @@ public class AudioController : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        source.volume = musicVolume;
+    }
+
     public void PlayMusic(AudioClip clipToPlay)
     {
         source.Stop();
