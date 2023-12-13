@@ -507,6 +507,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 1137271039139510966, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1200131311142068577, guid: f57a5ceb8d2898847846523c5855866f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
