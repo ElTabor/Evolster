@@ -22431,10 +22431,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndlessManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4839058214147629086, guid: e029d751e210fd6418719a905a1540bb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e029d751e210fd6418719a905a1540bb, type: 3}
 --- !u!1001 &1053511305481419480
@@ -22488,25 +22484,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3682386185819457465, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
-      propertyPath: rangeX
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3682386185819457465, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
-      propertyPath: rangeY
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3682386185819457465, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
-      propertyPath: amountOfSpawns
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7763029117873354365, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
       propertyPath: m_Name
       value: EnemySpawnManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763029117873354365, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
