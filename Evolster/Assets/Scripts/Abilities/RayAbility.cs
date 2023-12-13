@@ -15,7 +15,7 @@ public class RayAbility : MonoBehaviour, IAbility
     public bool dealingDamage;
     [SerializeField] GameObject rayPrefab;
 
-    AudioSource source;
+    public AudioSource source;
 
     public void Start()
     {
@@ -23,13 +23,13 @@ public class RayAbility : MonoBehaviour, IAbility
         lastDamageDealtTime = Time.time;
         raySprite = Instantiate(rayPrefab, PlayerController.instance.transform.position, Quaternion.identity);
         raySprite.SetActive(false);
-        source = GetComponent<AudioSource>();
+        //source = GetComponent<AudioSource>();
     }
 
     public void Update()
     {
         source.volume = AudioController.instance.sfxVolume;
-        source.Play();
+    
         if (PlayerController.instance.abilityController.abilityAvailable  && !GameManager.instance.gamePaused && GameManager.instance.onLevel && Input.GetMouseButton(0))
             CastAbility();
         else dealingDamage = false;

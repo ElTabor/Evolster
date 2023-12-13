@@ -138,27 +138,6 @@ public class PlayerController : MonoBehaviour
         uniqueAbilityPrefab = ability;
     }
 
-    //public void TryCastAbility()
-    //{
-    //    if (uniqueAbilityIsAvailable && !GameManager.instance.gamePaused && GameManager.instance.onLevel) CastAbility();
-    //}
-
-    //private void CastAbility()
-    //{
-    //    var aimDirection = (aim.position - transform.position).normalized;
-    //    GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform.position + aimDirection*2, Quaternion.identity);
-    //    //GameObject uniqueAbility = Instantiate(uniqueAbilityPrefab, transform);
-    //    uniqueAbility.GetComponent<AreaAbility>().direction = aimDirection;
-    //    //uniqueAbility.GetComponent<RayAbility>().dealingDamage = true;
-    //    uniqueAbility.GetComponent<AreaAbility>().currentDamage += currentDamage;
-    //    manaController.ManageMana(-uniqueAbilityPrefab.GetComponent<AreaAbility>().uniqueAbilityData.manaCost);
-
-    //    //Debugs
-    //    //if (cast.collider != null && cast.collider.gameObject.CompareTag("Enemy")) Debug.Log("cast Enemy!");
-    //    Debug.DrawRay(transform.position, aimDirection * 1000000f, Color.red);
-    //    Debug.Log("Ability Cast");
-    //}
-
     public void Die()
     {
         UIManager.instance.GameOver();

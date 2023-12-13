@@ -23,7 +23,7 @@ public class EndlessManager : MonoBehaviour
             if (spawns != null && RoundsManager.instance.round < 7)
                 spawns = GameObject.FindGameObjectsWithTag("Spawn");
 
-        else if(SceneManager.instance.scene == "Endless")
+        if (SceneManager.instance.scene == "Endless")
             spawns = GameObject.FindGameObjectsWithTag("Spawn");
 
         if (Time.time > _lastLightEnemySpawned + lightEnemySpawnCooldown)
