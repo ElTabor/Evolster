@@ -12,12 +12,13 @@ public class RangeEnemy : Enemy
         if (!dead)
         {
             AimToPlayer();
-            if (isInRangeAttack && Time.time > lastAttack + attackCooldown)
+            if (isInRangeAttack)
             {
-                navMesh.isStopped = true;
-                animator.SetBool("Attacking", true);
+                currentSpeed = 0;
+                if (Time.time > lastAttack + attackCooldown) animator.SetBool("Attacking", true);
             }
-            else navMesh.isStopped = false;
+            else currentSpeed = enemyStats.movementSpeed;
+            
         }
     }
 

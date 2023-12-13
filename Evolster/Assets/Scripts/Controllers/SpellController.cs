@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine;
 
@@ -29,10 +30,12 @@ public class SpellController : MonoBehaviour
     void Update()
     {
         _enemyNearBy = nearestEnemy != null;
-        
+
         //Automaticlly aim to the nearest enemy
-        
-        AimToNearestEnemy();
+        if (SceneManager.instance.scene != "MainMenu" && SceneManager.instance.scene != "Lobby")
+        {
+            AimToNearestEnemy();
+        }
 
         //Shoot
         if (GameManager.instance.onLevel && _enemyNearBy) CastSpell();

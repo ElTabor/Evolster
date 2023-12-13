@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5016592586685298679}
   - component: {fileID: 2384412511341538270}
   - component: {fileID: 5115790047065211787}
+  - component: {fileID: -8761724913860564380}
   m_Layer: 8
   m_Name: Zombie Attack
   m_TagString: Spell
@@ -141,6 +142,7 @@ CapsuleCollider2D:
   m_Size: {x: 1.0078125, y: 2.7851562}
   m_Direction: 0
 --- !u!82 &5115790047065211787
+--- !u!82 &-8761724913860564380
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

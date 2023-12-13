@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5016592586685298679}
   - component: {fileID: -2364337488833966524}
   - component: {fileID: 8519528585786172823}
+  - component: {fileID: 1738834807553768465}
   m_Layer: 8
   m_Name: Werewolf attack
   m_TagString: Spell
@@ -141,6 +142,7 @@ CircleCollider2D:
   serializedVersion: 2
   m_Radius: 0.69628906
 --- !u!82 &8519528585786172823
+--- !u!82 &1738834807553768465
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,6 +153,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 589870e082389b8439b6184b60c0fc97, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c543b92147203af4b81c9761fcd5b9ce, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

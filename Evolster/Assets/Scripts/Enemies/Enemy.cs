@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     public ActorStats enemyStats;
     public bool dead;
     public bool frozen;
-    private float currentSpeed;
+    public float currentSpeed;
 
     public float lastAttack;
     public float attackCooldown;
