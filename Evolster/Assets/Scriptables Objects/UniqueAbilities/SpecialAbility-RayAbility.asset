@@ -18,7 +18,7 @@ MonoBehaviour:
   uniqueAbilityDescription: Constant ray that deals damage to the first enemy it
     hits
   uniqueAbilityLevel: 1
-  uniqueAbilityDamage: 10
+  uniqueAbilityDamage: 25
   uniqueAbilitySpeed: 0
   uniqueAbilityLifeTime: 0
   uniqueAbilityDamageRange: 2

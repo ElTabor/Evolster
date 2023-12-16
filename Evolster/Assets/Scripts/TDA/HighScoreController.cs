@@ -52,44 +52,9 @@ public class HighScoreController : MonoBehaviour
     {
         List<float> scores = new List<float>();
         InOrderTraversal(root, scores);
-        //Quicksort(scores, 0, scores.Count - 1);
         return scores;
     }
-
-    #region QuickSort
-    public void Quicksort(List<float> scores, int low, int high)
-    {
-        if (low < high)
-        {
-            int partitionIndex = Partition(scores, low, high);
-
-            Quicksort(scores, low, partitionIndex - 1);
-            Quicksort(scores, partitionIndex + 1, high);
-        }
-    }
-
-    private int Partition(List<float> scores, int low, int high)
-    {
-        float pivot = scores[high];
-        int i = low - 1;
-
-        for (int j = low; j < high; j++)
-        {
-            if (scores[j] >= pivot)
-            {
-                i++;
-                float temp = scores[i];
-                scores[i] = scores[j];
-                scores[j] = temp;
-            }
-        }
-
-        float temp2 = scores[i + 1];
-        scores[i + 1] = scores[high];
-        scores[high] = temp2;
-
-        return i + 1;
-    }
+    
     private void InOrderTraversal(HighScoreNode node, List<float> scores)
     {
         if (node != null)
@@ -104,7 +69,6 @@ public class HighScoreController : MonoBehaviour
     {
         List<float> scores = new List<float>();
         InOrderTraversal(root, scores);
-        //Quicksort(scores, 0, scores.Count - 1);
 
         for (int i = 0; i < scoreTextList.Count && i < scores.Count; i++)
         {
@@ -112,4 +76,3 @@ public class HighScoreController : MonoBehaviour
         }
     }
 }
-#endregion

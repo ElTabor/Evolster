@@ -140,7 +140,6 @@ public class Enemy : MonoBehaviour
                 clipToPlay = clips[0];
                 break;
         }
-        Debug.Log(soundName);
         source.clip = clipToPlay;
         source.PlayOneShot(clipToPlay);
     }

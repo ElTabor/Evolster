@@ -38,9 +38,9 @@ public class HeavyEnemy : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Hit Heavy");
             collision.GetComponent<LifeController>().UpdateLife(enemyStats.damage, true);
         }
     }

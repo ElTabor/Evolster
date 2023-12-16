@@ -78,11 +78,11 @@ public class SpawnQueue : MonoBehaviour, IQueue
         }
         else if (obj1.name == "range enemy")
         {
-            return (obj2.name == "heavy enemy") ? -1 : (obj2.name == "range enemy") ? 0 : 1;
+            return (obj2.name == "heavy enemy") ? -1 : (obj2.name == "range enemy") ? 1 : (obj2.name == "light enemy") ? -1 : 0;
         }
         else if (obj1.name == "light enemy")
         {
-            return (obj2.name == "light enemy") ? 0 : -1;
+            return (obj2.name == "heavy enemy") ? -1 : (obj2.name == "range enemy") ? 1 : (obj2.name == "light enemy") ? 0 : -1;
         }
         else
         {
