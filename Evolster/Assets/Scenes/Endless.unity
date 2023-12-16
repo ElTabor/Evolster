@@ -24303,6 +24303,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 557263236584910671, guid: e029d751e210fd6418719a905a1540bb, type: 3}
+      propertyPath: heavyEnemySpawnCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 557263236584910671, guid: e029d751e210fd6418719a905a1540bb, type: 3}
+      propertyPath: lightEnemySpawnCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 557263236584910671, guid: e029d751e210fd6418719a905a1540bb, type: 3}
+      propertyPath: rangeEnemySpawnCooldown
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2174072536301503684, guid: e029d751e210fd6418719a905a1540bb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -24592,6 +24604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3304628058684449159, guid: e7f7d8b5106cd30459e33c59b0296c78, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3304628058684449159, guid: e7f7d8b5106cd30459e33c59b0296c78, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 

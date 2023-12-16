@@ -111,7 +111,7 @@ MonoBehaviour:
   navMesh: {fileID: 0}
   animator: {fileID: 0}
   lifeController: {fileID: 0}
-  source: {fileID: 0}
+  source: {fileID: -3876625292019832422}
   isInRangeAttack: 0
   distance: 0
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}

@@ -40,7 +40,11 @@ public class EnemySpawn : MonoBehaviour
     public void SpawnEnemy(bool isEndless, string newEnemy)
     {
         GameObject enemy = SelectEnemy(isEndless, newEnemy);
-        if (isEndless) _spawnQueue.Enqueue(enemy);
+        if (isEndless)
+        {
+            _spawnQueue.Enqueue(enemy);
+            _spawnQueue.Quicksort();
+        }
         else
         {
             for (int i = 0; i < amountOfEnemiesToSpawn; i++)

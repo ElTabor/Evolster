@@ -52,12 +52,12 @@ public class HighScoreController : MonoBehaviour
     {
         List<float> scores = new List<float>();
         InOrderTraversal(root, scores);
-        Quicksort(scores, 0, scores.Count - 1);
+        //Quicksort(scores, 0, scores.Count - 1);
         return scores;
     }
 
     #region QuickSort
-    private void Quicksort(List<float> scores, int low, int high)
+    public void Quicksort(List<float> scores, int low, int high)
     {
         if (low < high)
         {
@@ -104,7 +104,7 @@ public class HighScoreController : MonoBehaviour
     {
         List<float> scores = new List<float>();
         InOrderTraversal(root, scores);
-        Quicksort(scores, 0, scores.Count - 1);
+        //Quicksort(scores, 0, scores.Count - 1);
 
         for (int i = 0; i < scoreTextList.Count && i < scores.Count; i++)
         {

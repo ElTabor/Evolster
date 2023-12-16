@@ -770,6 +770,10 @@ PrefabInstance:
       propertyPath: rangeY
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3682386185819457465, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
+      propertyPath: enemySpawnPointPrefab
+      value: 
+      objectReference: {fileID: 4539780715839927388, guid: 39dac844224e67e45abcc5226432e2af, type: 3}
     - target: {fileID: 7763029117873354365, guid: 3a8507c21e145a34787a9f1ca22e306e, type: 3}
       propertyPath: m_Name
       value: EnemySpawnManager

@@ -142,6 +142,6 @@ public class Enemy : MonoBehaviour
         }
         Debug.Log(soundName);
         source.clip = clipToPlay;
-        source.PlayOneShot(clipToPlay, AudioController.instance.sfxVolume);
+        source.PlayOneShot(clipToPlay);
     }
 }

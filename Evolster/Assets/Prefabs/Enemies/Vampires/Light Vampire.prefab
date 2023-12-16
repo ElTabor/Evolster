@@ -111,7 +111,7 @@ MonoBehaviour:
   navMesh: {fileID: 0}
   animator: {fileID: 0}
   lifeController: {fileID: 0}
-  source: {fileID: 0}
+  source: {fileID: -9177247148654479871}
   isInRangeAttack: 0
   distance: 0
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
@@ -253,7 +253,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

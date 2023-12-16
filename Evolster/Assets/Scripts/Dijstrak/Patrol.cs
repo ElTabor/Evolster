@@ -20,6 +20,11 @@ public class Patrol : MonoBehaviour
         graph.AddEdge(patrolPoints[2], patrolPoints[3]);
         graph.AddEdge(patrolPoints[3], patrolPoints[0]);
 
+        graph.AddEdge(patrolPoints[0], patrolPoints[2]);
+        graph.AddEdge(patrolPoints[2], patrolPoints[0]);
+        graph.AddEdge(patrolPoints[1], patrolPoints[3]);
+        graph.AddEdge(patrolPoints[3], patrolPoints[1]);
+
 
         currentPatrolPoint = patrolPoints[0];
         MoveToNextPatrolPoint();
