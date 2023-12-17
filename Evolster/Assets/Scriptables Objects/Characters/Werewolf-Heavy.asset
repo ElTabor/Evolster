@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
   m_Name: Werewolf-Heavy
   m_EditorClassIdentifier: 
-  maxLife: 250
+  maxLife: 200
   maxMana: 0
   movementSpeed: 6
   damage: 5

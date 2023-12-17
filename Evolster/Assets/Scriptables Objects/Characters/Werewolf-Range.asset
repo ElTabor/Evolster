@@ -17,5 +17,5 @@ MonoBehaviour:
   movementSpeed: 5
   damage: 0
   attackSpeed: 1
-  attackRange: 8
+  attackRange: 10
   attackArea: 0

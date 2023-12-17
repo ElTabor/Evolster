@@ -175,6 +175,7 @@ MonoBehaviour:
   source: {fileID: -1023758125286766040}
   isInRangeAttack: 0
   distance: 0
+  dir: {x: 0, y: 0, z: 0}
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
   deathParticles: {fileID: 557522766309623977}
   enemyStats: {fileID: 11400000, guid: 29f5e10aaa5dcae40adaa7891d66222c, type: 2}
@@ -190,7 +191,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1285ffb8f654e2c4eb4a52c4a7c04750, type: 3}
   - {fileID: 8300000, guid: 37258cd7906030945b7d7c9dc787c33c, type: 3}
   chargingTime: 1
-  chargingSpeed: 50
+  chargingSpeed: 5
 --- !u!95 &7744420697038252539
 Animator:
   serializedVersion: 5
@@ -219,7 +220,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018653029207290118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

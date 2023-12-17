@@ -9,6 +9,12 @@ public class HeavyEnemy : Enemy
     [SerializeField] private float chargingSpeed;
     private bool _charging;
 
+    void Start()
+    {
+        base.Start();
+        navMesh.stoppingDistance = 0;
+    }
+
     public override void Update()
     {
         base.Update();
@@ -22,15 +28,15 @@ public class HeavyEnemy : Enemy
         lastAttack = Time.time;
     }
 
-
-
     private IEnumerator Charge()
     {
         animator.SetBool("Attacking", true);
         _charging = true;
         navMesh.speed = chargingSpeed;
-        navMesh.SetDestination(player.transform.position);
-        yield return new WaitForSeconds(chargingTime);
+        navMesh.SetDestination(player.transform.position + dir*4f);
+        float timeToWait = Vector2.Distance(player.transform.position + dir * 4f, transform.position) / chargingSpeed;
+        Debug.Log(Vector2.Distance(player.transform.position + dir * 4f, transform.position));
+        yield return new WaitForSeconds(timeToWait);
         animator.SetBool("Attacking", false);
         _charging = false;
         navMesh.speed = enemyStats.movementSpeed;

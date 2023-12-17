@@ -1,7 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
 
     public bool isInRangeAttack;
     public float distance;
+    public Vector3 dir;
 
     [SerializeField] GameObject coinPrefab;
     [SerializeField] private ParticleSystem deathParticles;
@@ -40,30 +41,32 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    private void Start()
+    public void Start()
     {
         navMesh.updateRotation = false;
         navMesh.updateUpAxis = false;
+        navMesh.stoppingDistance = enemyStats.attackRange;
         currentSpeed = enemyStats.movementSpeed;
 
         PlaySound("Spawn");
-        GetComponent<LifeController>().SetMaxLife(enemyStats.maxLife);
+        lifeController.SetMaxLife(enemyStats.maxLife);
     }
 
     public virtual void Update()
     {
+        dir = (player.transform.position - transform.position).normalized;
         distance = Vector2.Distance(player.transform.position, transform.position);
         isInRangeAttack = distance <= enemyStats.attackRange;
 
-        if(player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
+        if (player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
         else transform.localScale = new Vector3(1, 1, 1);
 
         if (!dead)
         {
-            if (isInRangeAttack && Time.time > lastAttack + attackCooldown) Attack();
-
             //Movement
             if (!isInRangeAttack) navMesh.SetDestination(player.position);
+            else if (Time.time > lastAttack + attackCooldown) Attack();
+
             if (frozen) currentSpeed = 0;
             else currentSpeed = enemyStats.movementSpeed;
 
@@ -75,7 +78,6 @@ public class Enemy : MonoBehaviour
     protected virtual void Attack()
     {
         PlaySound("Attack");
-        player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage, false);
         lastAttack = Time.time;
         StartCoroutine(AttackTime());
     }
@@ -83,14 +85,13 @@ public class Enemy : MonoBehaviour
     public IEnumerator AttackTime()
     {
         animator.SetBool("Attacking", true);
+        Collider2D[] inRangeCols = Physics2D.OverlapCircleAll(transform.position + dir * enemyStats.attackRange, enemyStats.attackRange);
+        foreach(Collider2D col in inRangeCols)
+            player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage, false);
         yield return new WaitForSeconds(attackTime);
         animator.SetBool("Attacking", false);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, enemyStats.attackRange);
-    }
     void SpawnBuff()
     {
         int r = Random.Range(0, 100);
@@ -142,5 +143,10 @@ public class Enemy : MonoBehaviour
         }
         source.clip = clipToPlay;
         source.PlayOneShot(clipToPlay);
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, enemyStats.attackRange);
+        Gizmos.DrawWireSphere(transform.position + dir * enemyStats.attackRange, enemyStats.attackRange);
     }
 }

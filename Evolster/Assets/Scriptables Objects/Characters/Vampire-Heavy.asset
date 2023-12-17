@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
   m_Name: Vampire-Heavy
   m_EditorClassIdentifier: 
-  maxLife: 250
+  maxLife: 300
   maxMana: 0
-  movementSpeed: 3
-  damage: 30
-  attackSpeed: 0.5
-  attackRange: 2
+  movementSpeed: 6
+  damage: 5
+  attackSpeed: 0
+  attackRange: 6
   attackArea: 0

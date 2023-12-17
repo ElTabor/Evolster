@@ -105,8 +105,6 @@ MonoBehaviour:
   - {fileID: 1018653029207290118, guid: b0b1e98856ba4f5449501eb52c413659, type: 3}
   - {fileID: 27245397601858002, guid: a30733b045da0e44eb08b97440cc61ff, type: 3}
   heavyEnemyPrefab:
-  - {fileID: 1018653029207290118, guid: b207f8f20bbd78848b03b98621903130, type: 3}
-  - {fileID: 1018653029207290118, guid: abbc8cd363b2e0647a8153bfed3a86f3, type: 3}
   - {fileID: 2185567230929304833, guid: 315f849e183d70f47bca976459151979, type: 3}
   rangeEnemyPrefab:
   - {fileID: 1018653029207290118, guid: 42f92371250a8134e9ebaaf6ea75ed3e, type: 3}
