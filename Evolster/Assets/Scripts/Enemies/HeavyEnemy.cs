@@ -1,6 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class HeavyEnemy : Enemy
@@ -44,7 +42,6 @@ public class HeavyEnemy : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<LifeController>().UpdateLife(enemyStats.damage, true);

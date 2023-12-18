@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ManaController : MonoBehaviour
@@ -16,7 +16,7 @@ public class ManaController : MonoBehaviour
         currentMana = maxMana;
     }
 
-    void Update()
+    private void Update()
     {
         if (Time.time >= _lastManaRecover + manaRecoveryCooldown && currentMana < _maxMana)
         {
@@ -34,6 +34,6 @@ public class ManaController : MonoBehaviour
     {
         currentMana += newMana;
         if (currentMana > _maxMana) currentMana = _maxMana;
-        else if (currentMana < 0) currentMana = 0;
+        if (currentMana < 0) currentMana = 0;
     }
 }

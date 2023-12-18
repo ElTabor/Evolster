@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,7 +16,9 @@ public class Enemy : MonoBehaviour
     public float distance;
     public Vector3 dir;
 
-    [SerializeField] GameObject coinPrefab;
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private GameObject manaPrefab;
+    [SerializeField] private GameObject hpPrefab;
     [SerializeField] private ParticleSystem deathParticles;
 
     public ActorStats enemyStats;
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
     public float attackCooldown;
     public float attackTime;
 
-    [SerializeField] AudioClip[] clips;
+    [SerializeField] private AudioClip[] clips;
 
     private void Awake()
     {
@@ -92,17 +93,29 @@ public class Enemy : MonoBehaviour
         animator.SetBool("Attacking", false);
     }
 
-    void SpawnBuff()
+    private void SpawnBuff()
     {
         int r = Random.Range(0, 100);
         if (r <= 30) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);
     }
 
-    void SpawnCoin()
+    private void SpawnCoin()
     {
         int r = Random.Range(1, 10);
         GameObject newCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
         newCoin.GetComponent<Coin>().coinsAmount = r;
+    }
+
+    private void SpawnManaItem()
+    {
+        int r = Random.Range(1, 10);
+        if(r <= 6) Instantiate(manaPrefab, transform.position, Quaternion.identity);
+    }
+    
+    private void SpawnHpItem()
+    {
+        int r = Random.Range(1, 10);
+        if(r <= 2) Instantiate(hpPrefab, transform.position, Quaternion.identity);
     }
 
     public IEnumerator Die()
@@ -113,14 +126,15 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(1f);
         GetComponent<SpriteRenderer>().enabled = false;
-        //deathParticles.Play();
         yield return new WaitForSeconds(1f);
         SpawnBuff();
         SpawnCoin();
+        SpawnManaItem();
+        SpawnHpItem();
         Destroy(gameObject);
     }
 
-    public void PlaySound(string soundName)
+    protected void PlaySound(string soundName)
     {
         AudioClip clipToPlay;
         switch (soundName)

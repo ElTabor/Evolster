@@ -7,10 +7,9 @@ public class LifeController : MonoBehaviour
 {
     [SerializeField] public float currentLife;
     [SerializeField] public float maxLife;
-    [SerializeField] private Material original, damaged;
     [SerializeField] private ParticleSystem bloodParticles;
     private SpriteRenderer _spriteRenderer;
-    private bool isDamaged;
+    private bool _isDamaged;
 
     [SerializeField] private GameObject damagePopUpPrefab;
 
@@ -19,10 +18,10 @@ public class LifeController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void SetMaxLife(float maxLife)
+    public void SetMaxLife(float maxHp)
     {
-        this.maxLife = maxLife;
-        currentLife = this.maxLife;
+        maxLife = maxHp;
+        currentLife = maxLife;
     }
 
     public void IncreaseMaxLife(float n)
@@ -34,10 +33,12 @@ public class LifeController : MonoBehaviour
     {
         GameObject feedback = Instantiate(damagePopUpPrefab, transform.position + Vector3.one, Quaternion.identity);
         feedback.GetComponent<DamagePopUp>().SetUp(damageReceived, isCritical);
+         Debug.Log(gameObject.name + "Daño " + damageReceived);
         currentLife -= damageReceived;
         if (currentLife > maxLife) currentLife = maxLife;
         if (currentLife <= 0)
         {
+            currentLife = 0;
             if (gameObject.CompareTag("Player")) PlayerController.instance.Die();
             else if (gameObject.CompareTag("Enemy")) StartCoroutine(GetComponent<Enemy>().Die());
         }
@@ -45,9 +46,8 @@ public class LifeController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Spell") || other.CompareTag("Ability") && !isDamaged)
+        if (other.CompareTag("Spell") || other.CompareTag("Ability") && !_isDamaged)
         {
-            
             StartCoroutine(DamageVisualFeedback());
         }
     }
@@ -56,9 +56,16 @@ public class LifeController : MonoBehaviour
     {
         bloodParticles.Play();
         _spriteRenderer.color = Color.red;
-        isDamaged = true;
+        _isDamaged = true;
         yield return new WaitForSeconds(0.25f);
-        isDamaged = false;
+        _isDamaged = false;
         _spriteRenderer.color = Color.white;
+    }
+
+    public void ManageHp(float hpToGive)
+    {
+        currentLife += hpToGive;
+        if (currentLife > maxLife) currentLife = maxLife;
+        if (currentLife < 0) currentLife = 0;
     }
 }

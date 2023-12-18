@@ -16,6 +16,6 @@ MonoBehaviour:
   maxMana: 0
   movementSpeed: 6
   damage: 5
-  attackSpeed: 0
+  attackSpeed: 3
   attackRange: 6
   attackArea: 0

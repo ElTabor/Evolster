@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5016592586685298679}
   - component: {fileID: 2384412511341538270}
   - component: {fileID: 5115790047065211787}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Zombie Attack
   m_TagString: Spell
   m_Icon: {fileID: 0}

@@ -114,7 +114,10 @@ MonoBehaviour:
   source: {fileID: 7187353111186059554}
   isInRangeAttack: 0
   distance: 0
+  dir: {x: 0, y: 0, z: 0}
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
+  manaPrefab: {fileID: 3160324935882817150, guid: c34c67da56b3f6649971b26c8fed6376, type: 3}
+  HPPrefab: {fileID: 1213405620897512024, guid: c40b2f380361b9943bd2402c0c646480, type: 3}
   deathParticles: {fileID: 2033531504943754292}
   enemyStats: {fileID: 11400000, guid: d7cd06fc37872704bad4187199f8c543, type: 2}
   dead: 0
@@ -184,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLife: 0
+  hpAmount: 0
   maxLife: 0
   original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   damaged: {fileID: 2100000, guid: 28e9d17d0576214409e324a9dc951376, type: 2}

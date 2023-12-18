@@ -4,7 +4,7 @@ public class RangeEnemy : Enemy
 {
     [SerializeField] private GameObject spellPrefab;
     [SerializeField] private Transform referencePoint;
-    Vector2 _shootingDirection;
+    private Vector2 _shootingDirection;
 
     public override void Update()
     {

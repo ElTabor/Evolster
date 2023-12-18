@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1776912014447299974}
   - component: {fileID: -5814560421070188420}
   - component: {fileID: 4778203038064803831}
-  - component: {fileID: 2015380398834531169}
   - component: {fileID: -2455254621619396145}
   - component: {fileID: 4306375188559208589}
   m_Layer: 6
@@ -114,7 +113,10 @@ MonoBehaviour:
   source: {fileID: 4306375188559208589}
   isInRangeAttack: 0
   distance: 0
+  dir: {x: 0, y: 0, z: 0}
   coinPrefab: {fileID: 3613397538230064847, guid: 1deee850cb797534f86e555a5255071b, type: 3}
+  manaPrefab: {fileID: 3160324935882817150, guid: c34c67da56b3f6649971b26c8fed6376, type: 3}
+  hpPrefab: {fileID: 1213405620897512024, guid: c40b2f380361b9943bd2402c0c646480, type: 3}
   deathParticles: {fileID: 803308479508454722}
   enemyStats: {fileID: 11400000, guid: 2d6b9c04b672fc74cbe6477413075493, type: 2}
   dead: 0
@@ -185,8 +187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   maxLife: 0
-  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  damaged: {fileID: 2100000, guid: 28e9d17d0576214409e324a9dc951376, type: 2}
   bloodParticles: {fileID: 5756984632235322460}
   damagePopUpPrefab: {fileID: 1428010827896062058, guid: 2b869af1f818d1f44ae85fa6a566a6d0, type: 3}
 --- !u!95 &4778203038064803831
@@ -210,22 +210,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &2015380398834531169
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018653029207290118}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.05539617, y: -0.03261298}
-  m_Size: {x: 0.66922545, y: 1.4634812}
-  m_Direction: 0
 --- !u!70 &-2455254621619396145
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -236,7 +220,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.053135514, y: -0.023542762}

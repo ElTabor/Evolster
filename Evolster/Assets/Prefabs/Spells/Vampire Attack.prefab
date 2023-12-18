@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2364337488833966524}
   - component: {fileID: 4963161643593021418}
   - component: {fileID: 6451488113714240986}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Vampire Attack
   m_TagString: Spell
   m_Icon: {fileID: 0}

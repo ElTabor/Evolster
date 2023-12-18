@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
     public int coinsAmount;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if(collision.CompareTag("Player"))
         {
             collision.GetComponent<CurrencyController>().ManageCoins(coinsAmount);
             collision.GetComponent<CurrencyController>().ShowFeedback(coinsAmount);
