@@ -9,7 +9,7 @@ public class RangeEnemy : Enemy
     public override void Update()
     {
         base.Update();
-        if (!dead)
+        if (!lifeController.dead)
         {
             AimToPlayer();
             if (isInRangeAttack && Time.time > lastAttack + attackCooldown) animator.SetBool("Attacking", true);

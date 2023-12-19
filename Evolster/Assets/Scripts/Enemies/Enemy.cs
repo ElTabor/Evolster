@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private ParticleSystem deathParticles;
 
     public ActorStats enemyStats;
-    public bool dead;
     public bool frozen;
     public bool electrocuted;
     public float currentSpeed;
@@ -63,7 +62,7 @@ public class Enemy : MonoBehaviour
         if (player.transform.position.x - transform.position.x >= 0) transform.localScale = new Vector3(-1, 1, 1);
         else transform.localScale = new Vector3(1, 1, 1);
 
-        if (!dead)
+        if (!lifeController.dead)
         {
             //Movement
             if (!isInRangeAttack) navMesh.SetDestination(player.position);
@@ -133,7 +132,6 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator Die()
     {
-        dead = true;
         PlaySound("Die");
         GetComponent<Animator>().SetBool("Dead", true);
         GetComponent<Collider2D>().enabled = false;

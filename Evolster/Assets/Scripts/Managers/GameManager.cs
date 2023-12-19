@@ -37,14 +37,13 @@ public class GameManager : MonoBehaviour
         {
             if (UIManager.instance.highScorePanel.activeInHierarchy)
             {
-                Debug.Log("F");
                 scoreTextListPrefab[i].gameObject.SetActive(scoreTextListPrefab[i] != null);
                 float timeElapsed = HighScoreController.instance.scoreTextList[i];
                 float _minutes = (int)(timeElapsed / 60f);
                 float _seconds = (int)(timeElapsed - _minutes * 60f);
                 
                 scoreTextListPrefab[i].text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
-                Debug.Log(scoreTextListPrefab[i].text);
+                Debug.Log(scoreTextListPrefab.ToArray().Length);
             }
         }
         HighScoreController.instance.GetSortedScores();
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.instance.GetComponent<LifeController>().SetMaxLife(PlayerController.instance.playerStats.maxLife);
         PlayerController.instance.GetComponent<ManaController>().SetMaxMana(PlayerController.instance.playerStats.maxMana);
+        PlayerController.instance.GetComponent<LifeController>().dead = false;
         UIManager.instance._timeElapsed = 0;
     }
 

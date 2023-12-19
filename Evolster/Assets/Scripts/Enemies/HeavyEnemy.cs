@@ -16,7 +16,7 @@ public class HeavyEnemy : Enemy
     public override void Update()
     {
         base.Update();
-        if (!dead && !_charging) navMesh.SetDestination(player.position);
+        if (!lifeController.dead && !_charging) navMesh.SetDestination(player.position);
     }
 
     protected override void Attack()

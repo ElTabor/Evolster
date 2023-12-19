@@ -7,6 +7,7 @@ public class LifeController : MonoBehaviour
 {
     [SerializeField] public float currentLife;
     [SerializeField] public float maxLife;
+    public bool dead;
     [SerializeField] private ParticleSystem bloodParticles;
     private SpriteRenderer _spriteRenderer;
     private bool _isDamaged;
@@ -31,15 +32,19 @@ public class LifeController : MonoBehaviour
 
     public void UpdateLife(float damageReceived, bool isCritical)
     {
-        GameObject feedback = Instantiate(damagePopUpPrefab, transform.position + Vector3.one, Quaternion.identity);
-        feedback.GetComponent<DamagePopUp>().SetUp(damageReceived, isCritical);
-        currentLife -= damageReceived;
-        if (currentLife > maxLife) currentLife = maxLife;
-        if (currentLife <= 0)
+        if(!dead)
         {
-            currentLife = 0;
-            if (gameObject.CompareTag("Player")) PlayerController.instance.Die();
-            else if (gameObject.CompareTag("Enemy")) StartCoroutine(GetComponent<Enemy>().Die());
+            GameObject feedback = Instantiate(damagePopUpPrefab, transform.position + Vector3.one, Quaternion.identity);
+            feedback.GetComponent<DamagePopUp>().SetUp(damageReceived, isCritical);
+            currentLife -= damageReceived;
+            if (currentLife > maxLife) currentLife = maxLife;
+            if (currentLife <= 0)
+            {
+                currentLife = 0;
+                dead = true;
+                if (gameObject.CompareTag("Player")) PlayerController.instance.Die();
+                else if (gameObject.CompareTag("Enemy")) StartCoroutine(GetComponent<Enemy>().Die());
+            }
         }
     }
 
