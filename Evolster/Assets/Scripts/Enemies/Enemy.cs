@@ -81,14 +81,14 @@ public class Enemy : MonoBehaviour
         PlaySound("Attack");
         lastAttack = Time.time;
         StartCoroutine(AttackTime());
+        Collider2D[] inRangeCols = Physics2D.OverlapCircleAll(transform.position + dir * enemyStats.attackRange, enemyStats.attackRange);
+        foreach(Collider2D col in inRangeCols)
+            player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage, false);
     }
 
     public IEnumerator AttackTime()
     {
         animator.SetBool("Attacking", true);
-        Collider2D[] inRangeCols = Physics2D.OverlapCircleAll(transform.position + dir * enemyStats.attackRange, enemyStats.attackRange);
-        foreach(Collider2D col in inRangeCols)
-            player.gameObject.GetComponent<LifeController>().UpdateLife(enemyStats.damage, false);
         yield return new WaitForSeconds(attackTime);
         animator.SetBool("Attacking", false);
     }
@@ -97,6 +97,7 @@ public class Enemy : MonoBehaviour
     {
         int r = Random.Range(0, 100);
         if (r <= 30) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);
+        PlaySound("Item");
     }
 
     private void SpawnCoin()
@@ -104,18 +105,21 @@ public class Enemy : MonoBehaviour
         int r = Random.Range(1, 10);
         GameObject newCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
         newCoin.GetComponent<Coin>().coinsAmount = r;
+        PlaySound("Item");
     }
 
     private void SpawnManaItem()
     {
         int r = Random.Range(1, 10);
         if(r <= 6) Instantiate(manaPrefab, transform.position, Quaternion.identity);
+        PlaySound("Item");
     }
     
     private void SpawnHpItem()
     {
         int r = Random.Range(1, 10);
         if(r <= 2) Instantiate(hpPrefab, transform.position, Quaternion.identity);
+        PlaySound("Item");
     }
 
     public IEnumerator Die()
@@ -126,11 +130,11 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(1f);
         GetComponent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(1f);
         SpawnBuff();
         SpawnCoin();
         SpawnManaItem();
         SpawnHpItem();
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 
@@ -150,6 +154,9 @@ public class Enemy : MonoBehaviour
                 break;
             case "Spawn":
                 clipToPlay = clips[3];
+                break;
+            case "Item":
+                clipToPlay = clips[4];
                 break;
             default:
                 clipToPlay = clips[0];

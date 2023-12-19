@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
     public AudioClip[] tracks;
-    AudioSource source;
+    private AudioSource _source;
     public float sfxVolume;
     public float musicVolume;
 
@@ -17,23 +14,30 @@ public class AudioController : MonoBehaviour
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        source = GetComponent<AudioSource>();
+        _source = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        source.volume = musicVolume;
+        _source.volume = musicVolume;
     }
 
     public void PlayMusic(AudioClip clipToPlay)
     {
-        source.Stop();
-        source.PlayOneShot(clipToPlay, musicVolume);
+        _source.Stop();
+        _source.PlayOneShot(clipToPlay, musicVolume);
     }
 
     public void SetVolume(string valueToChange)
     {
-        if (valueToChange == "SFX") sfxVolume = UIManager.instance.SFXVolumeBar.value/10;
-        if (valueToChange == "Music") musicVolume = UIManager.instance.MusicVolumeBar.value/10;
+        switch (valueToChange)
+        {
+            case "SFX":
+                sfxVolume = UIManager.instance.SFXVolumeBar.value/10;
+                break;
+            case "Music":
+                musicVolume = UIManager.instance.MusicVolumeBar.value/10;
+                break;
+        }
     }
 }

@@ -189,6 +189,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 138ffcc855a0a3f458f8be4e1d4fb2a1, type: 3}
   - {fileID: 8300000, guid: 3143e706d2211914d84b49228e2f34e3, type: 3}
   - {fileID: 8300000, guid: c509d5a84b9c75640838edfd207ccb9a, type: 3}
+  - {fileID: 8300000, guid: d96a61f5287efdb4e9b0a72bf0f05136, type: 3}
   chargingTime: 1
   chargingSpeed: 5
 --- !u!95 &8867587454985905660

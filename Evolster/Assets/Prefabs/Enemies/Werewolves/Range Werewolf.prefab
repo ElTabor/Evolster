@@ -174,6 +174,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08342fb2e97b48449af5694e6c0a821f, type: 3}
   - {fileID: 8300000, guid: 1285ffb8f654e2c4eb4a52c4a7c04750, type: 3}
   - {fileID: 8300000, guid: 37258cd7906030945b7d7c9dc787c33c, type: 3}
+  - {fileID: 8300000, guid: d96a61f5287efdb4e9b0a72bf0f05136, type: 3}
   spellPrefab: {fileID: 4550993629818596674, guid: 9b515dbf7b0c1474aa0344a20fe60652, type: 3}
   referencePoint: {fileID: 2004106946231120890}
 --- !u!114 &3762908818846969310

@@ -24,9 +24,10 @@ public class RangeEnemy : Enemy
     {
         GameObject spell = Instantiate(spellPrefab, referencePoint.position, Quaternion.identity);
         spell.GetComponent<Spell>().direction = _shootingDirection;
+        spell.GetComponent<Spell>().currentDamage = enemyStats.damage + spell.GetComponent<Spell>().spellData.spellDamage;
         spell.layer = LayerMask.NameToLayer("EnemySpells");
         lastAttack = Time.time;
-        StartCoroutine(AttackTime());
+        //StartCoroutine(AttackTime());
     }
 
     private void AimToPlayer()

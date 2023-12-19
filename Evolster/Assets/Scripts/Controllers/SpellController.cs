@@ -83,7 +83,7 @@ public class SpellController : MonoBehaviour
             float shootAngle = Mathf.Atan2(_shootingDirection.y, _shootingDirection.x) * Mathf.Rad2Deg;
             spell.transform.rotation = Quaternion.AngleAxis(shootAngle, Vector3.forward);
             spell.GetComponent<Spell>().direction = _shootingDirection;
-            spell.GetComponent<Spell>().currentDamage += PlayerController.instance.currentDamage;
+            spell.GetComponent<Spell>().currentDamage = PlayerController.instance.currentDamage + spell.GetComponent<Spell>().spellData.spellDamage;
             spell.layer = LayerMask.NameToLayer("FriendlySpells");
             _lastAttack = Time.time;
         }

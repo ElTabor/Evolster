@@ -33,7 +33,6 @@ public class LifeController : MonoBehaviour
     {
         GameObject feedback = Instantiate(damagePopUpPrefab, transform.position + Vector3.one, Quaternion.identity);
         feedback.GetComponent<DamagePopUp>().SetUp(damageReceived, isCritical);
-         Debug.Log(gameObject.name + "Daño " + damageReceived);
         currentLife -= damageReceived;
         if (currentLife > maxLife) currentLife = maxLife;
         if (currentLife <= 0)
