@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
     public float lastFeedbackTime;
     [SerializeField] float feedbackTime;
     public int coinsToShow;
+    [SerializeField] GameObject equipedAbility;
 
     [Header("STORE")]
     public List<StoreItemData> itemsToDisplay;
@@ -79,6 +80,7 @@ public class UIManager : MonoBehaviour
             UpdateMana();
             UpdateTimer();
             UpdateCoinsFeedback();
+            UpdateSelectedAbility();
             enemyCount.SetActive(true);
             enemyCountText.text = "x " + GameObject.FindGameObjectsWithTag("Enemy").Count().ToString();
 
@@ -145,6 +147,13 @@ public class UIManager : MonoBehaviour
         else showingCoinsFeedback = true;
         coinsFeedback.gameObject.SetActive(showingCoinsFeedback);
         coinsFeedback.text = $"+{coinsToShow}";
+    }
+
+    private void UpdateSelectedAbility()
+    {
+        equipedAbility.GetComponentInChildren<Image>().sprite = PlayerController.instance.abilityController.ability.abilityData.uniqueAbilitySprite;
+        //equipedAbility.GetComponentInChildren<Image>().SetNativeSize();
+        equipedAbility.GetComponentInChildren<TextMeshProUGUI>().text = PlayerController.instance.abilityController.ability.abilityData.uniqueAbilityName;
     }
 
     public void OpenCloseMenu(GameObject menu) => menu.SetActive(!menu.activeInHierarchy);

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a03cf85f70bcbb479a50c66d1db9aed, type: 3}
   m_Name: SpecialAbility-Icecle
   m_EditorClassIdentifier: 
-  uniqueAbilitySprite: {fileID: 21300000, guid: a83ae314d848fac44a7f75f35ec8763a, type: 3}
-  uniqueAbilityName: Icecle
+  uniqueAbilitySprite: {fileID: -1856305677, guid: 2fcac7ad891c9e44db967391bf62b85a, type: 3}
+  uniqueAbilityName: Deepfreeze
   uniqueAbilityType: Area
   uniqueAbilityDescription: On impact, generates a blizzard that slows enemies
   uniqueAbilityLevel: 1

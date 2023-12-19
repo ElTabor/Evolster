@@ -46,9 +46,7 @@ public class LifeController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Spell") || other.CompareTag("Ability") && !_isDamaged)
-        {
             StartCoroutine(DamageVisualFeedback());
-        }
     }
 
     public IEnumerator DamageVisualFeedback()

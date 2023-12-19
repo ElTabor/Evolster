@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a03cf85f70bcbb479a50c66d1db9aed, type: 3}
-  m_Name: SpecialAbility-Fireball
+  m_Name: SpecialAbility-BotteledExplosion
   m_EditorClassIdentifier: 
-  uniqueAbilitySprite: {fileID: -794300894, guid: fa4a20d13e525364db4366e79a12b5e7, type: 3}
-  uniqueAbilityName: Fireball
+  uniqueAbilitySprite: {fileID: -1684124168, guid: 6114022198b315b4990c707e50f6d6bc, type: 3}
+  uniqueAbilityName: Botteled Explosion
   uniqueAbilityType: Area
   uniqueAbilityDescription: On impact, causes an explosion that deals damage to enemies
   uniqueAbilityLevel: 1

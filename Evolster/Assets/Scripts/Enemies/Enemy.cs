@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     public ActorStats enemyStats;
     public bool dead;
     public bool frozen;
+    public bool electrocuted;
     public float currentSpeed;
 
     public float lastAttack;
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
             else if (Time.time > lastAttack + attackCooldown) Attack();
 
             if (frozen) currentSpeed = 0;
+            else if (electrocuted) currentSpeed = enemyStats.movementSpeed / 2;
             else currentSpeed = enemyStats.movementSpeed;
 
             navMesh.speed = currentSpeed;
@@ -120,6 +122,13 @@ public class Enemy : MonoBehaviour
         int r = Random.Range(1, 10);
         if(r <= 2) Instantiate(hpPrefab, transform.position, Quaternion.identity);
         PlaySound("Item");
+    }
+
+    public IEnumerator Electrocute(float timeToWait)
+    {
+        electrocuted = true;
+        yield return new WaitForSeconds(timeToWait);
+        electrocuted = false;
     }
 
     public IEnumerator Die()

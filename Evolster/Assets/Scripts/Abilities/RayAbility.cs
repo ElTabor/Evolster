@@ -60,11 +60,15 @@ public class RayAbility : MonoBehaviour, IAbility
         Debug.DrawRay(origin, direction * 100, Color.red);
 
         //Deal Damage
-        if (Time.time >= lastDamageDealtTime + abilityData.cooldown)
+        if (ray.collider != null && ray.collider.gameObject.CompareTag("Enemy"))
         {
-            if (ray.collider != null && ray.collider.gameObject.CompareTag("Enemy")) ray.collider.gameObject.GetComponent<LifeController>().UpdateLife(currentDamage, true);
-            GameManager.instance.player.GetComponent<ManaController>().ManageMana(-abilityData.manaCost);
-            lastDamageDealtTime = Time.time;
+            if (Time.time >= lastDamageDealtTime + abilityData.cooldown)
+            {
+                ray.collider.GetComponent<Enemy>().electrocuted = true;
+                ray.collider.gameObject.GetComponent<LifeController>().UpdateLife(currentDamage, true);
+                GameManager.instance.player.GetComponent<ManaController>().ManageMana(-abilityData.manaCost);
+                lastDamageDealtTime = Time.time;
+            }
         }
     }
 }

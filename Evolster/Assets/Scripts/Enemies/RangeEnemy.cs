@@ -12,12 +12,8 @@ public class RangeEnemy : Enemy
         if (!dead)
         {
             AimToPlayer();
-            if (isInRangeAttack)
-            {
-                currentSpeed = 0;
-                if (Time.time > lastAttack + attackCooldown) animator.SetBool("Attacking", true);
-            }
-            else currentSpeed = enemyStats.movementSpeed;        }
+            if (isInRangeAttack && Time.time > lastAttack + attackCooldown) animator.SetBool("Attacking", true);
+        }
     }
 
     protected override void Attack()
