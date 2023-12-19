@@ -161,7 +161,6 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         OpenCloseMenu(gameOverMenu);
-        Debug.Log("Game Over");
         HighScoreController.instance.InsertScore(_timeElapsed);
     }
 

@@ -96,30 +96,47 @@ public class Enemy : MonoBehaviour
 
     private void SpawnBuff()
     {
+        Vector3 position = transform.position + new Vector3(Random.value, Random.value) * Random.value * 3;
         int r = Random.Range(0, 100);
-        if (r <= 30) BuffsManager.instance.SetSpawnPosition(gameObject.transform.position);
+        if (r <= 30)
+        {
+            BuffsManager.instance.SetSpawnPosition(position);
+            Debug.Log(position + "Buff");
+        }
         PlaySound("Item");
     }
-
+        
     private void SpawnCoin()
     {
+        Vector3 position = transform.position + new Vector3(Random.value, Random.value) * Random.value * 3;
         int r = Random.Range(1, 10);
-        GameObject newCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        GameObject newCoin = Instantiate(coinPrefab, position, Quaternion.identity);
         newCoin.GetComponent<Coin>().coinsAmount = r;
         PlaySound("Item");
+        Debug.Log(position + "Coin");
     }
 
     private void SpawnManaItem()
     {
+        Vector3 position = transform.position + new Vector3(Random.value, Random.value) * Random.value * 3;
         int r = Random.Range(1, 10);
-        if(r <= 6) Instantiate(manaPrefab, transform.position, Quaternion.identity);
+        if(r <= 3)
+        {
+            Instantiate(manaPrefab, position, Quaternion.identity);
+            Debug.Log(position + "Mana");
+        }
         PlaySound("Item");
     }
     
     private void SpawnHpItem()
     {
+        Vector3 position = transform.position + new Vector3(Random.value, Random.value) * Random.value * 3;
         int r = Random.Range(1, 10);
-        if(r <= 2) Instantiate(hpPrefab, transform.position, Quaternion.identity);
+        if(r <= 1)
+        {
+            Instantiate(hpPrefab, position, Quaternion.identity);
+            Debug.Log(position + "HP");
+        }
         PlaySound("Item");
     }
 
