@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6534307534365313288}
   - component: {fileID: 2841505291283513131}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: AudioController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bed0dae3202b83748ae912bcc0eb3035, type: 3}
   - {fileID: 8300000, guid: bed0dae3202b83748ae912bcc0eb3035, type: 3}
   sfxVolume: 0.075
-  musicVolume: 1
+  musicVolume: 0.075
 --- !u!82 &2841505291283513131
 AudioSource:
   m_ObjectHideFlags: 0

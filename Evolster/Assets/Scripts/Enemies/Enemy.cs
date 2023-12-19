@@ -187,7 +187,7 @@ public class Enemy : MonoBehaviour
                 break;
         }
         source.clip = clipToPlay;
-        source.PlayOneShot(clipToPlay);
+        source.PlayOneShot(clipToPlay, AudioController.instance.sfxVolume);
     }
     private void OnDrawGizmos()
     {
