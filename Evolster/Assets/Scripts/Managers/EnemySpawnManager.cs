@@ -11,11 +11,11 @@ public class EnemySpawnManager : MonoBehaviour
     public static EnemySpawnManager instance;
     [SerializeField] private List<GameObject> enemySpawnPoints = new List<GameObject>();
     [SerializeField] private GameObject enemySpawnPointPrefab;
-    
-    
+
     [SerializeField] private int amountOfSpawns;
     public float rangeX = 18f;
     public float rangeY = 9f;
+    public float minDistanceBetweenSpawns = 5f;
 
     private void Start()
     {
@@ -25,20 +25,37 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void RandomSpawnInstantiator()
     {
-        for (int i = 0; i < amountOfSpawns; i++)
+        int attempts = 0;
+        while (enemySpawnPoints.Count < amountOfSpawns && attempts < amountOfSpawns * 10)
         {
             float posX = UnityEngine.Random.Range(-rangeX, rangeX);
             float posY = UnityEngine.Random.Range(-rangeY, rangeY);
-
             Vector3 randomPos = new Vector3(posX, posY, 0f);
-            GameObject newSpawn = Instantiate(enemySpawnPointPrefab, randomPos, Quaternion.identity);
-            enemySpawnPoints.Add(newSpawn);
+
+            if (IsPositionValid(randomPos))
+            {
+                GameObject newSpawn = Instantiate(enemySpawnPointPrefab, randomPos, Quaternion.identity);
+                enemySpawnPoints.Add(newSpawn);
+            }
+            attempts++;
         }
     }
 
+    private bool IsPositionValid(Vector3 position)
+    {
+        foreach (GameObject spawnPoint in enemySpawnPoints)
+        {
+            if (Vector3.Distance(position, spawnPoint.transform.position) < minDistanceBetweenSpawns)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void SetEnemiesToSpawn()
-    { 
-        if(RoundsManager.instance.round < 6)
+    {
+        if (RoundsManager.instance.round < 6)
         {
             foreach (GameObject spawn in enemySpawnPoints)
             {

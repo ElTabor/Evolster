@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
                 float _seconds = (int)(timeElapsed - _minutes * 60f);
                 
                 scoreTextListPrefab[i].text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
-                Debug.Log(scoreTextListPrefab.ToArray().Length);
             }
         }
         HighScoreController.instance.GetSortedScores();
@@ -60,7 +59,6 @@ public class GameManager : MonoBehaviour
                 AudioController.instance.PlayMusic(AudioController.instance.tracks[0]);
                 break;
             case "Lobby":
-                Debug.Log("SetDoors");
                 AudioController.instance.PlayMusic(AudioController.instance.tracks[1]);
                 break;
             case "Cementery":
@@ -82,10 +80,11 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.instance.scene != "Lobby" || SceneManager.instance.scene != "Main Menu")
         {
-            if(RoundsManager.instance != null)
+            if (RoundsManager.instance != null)
                 RoundsManager.instance.round = 0;
         }
     }
+
 
     private void Restart()
     {

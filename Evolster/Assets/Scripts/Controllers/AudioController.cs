@@ -15,6 +15,7 @@ public class AudioController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         _source = GetComponent<AudioSource>();
+        _source.loop = true;
     }
 
     private void Update()
@@ -24,8 +25,14 @@ public class AudioController : MonoBehaviour
 
     public void PlayMusic(AudioClip clipToPlay)
     {
+        if (_source.clip == clipToPlay && _source.isPlaying)
+        {
+            return;
+        }
+
         _source.Stop();
-        _source.PlayOneShot(clipToPlay, musicVolume);
+        _source.clip = clipToPlay;
+        _source.Play();
     }
 
     public void SetVolume(string valueToChange)
@@ -33,11 +40,12 @@ public class AudioController : MonoBehaviour
         switch (valueToChange)
         {
             case "SFX":
-                sfxVolume = UIManager.instance.SFXVolumeBar.value/10;
+                sfxVolume = UIManager.instance.SFXVolumeBar.value / 10;
                 break;
             case "Music":
-                musicVolume = UIManager.instance.MusicVolumeBar.value/10;
+                musicVolume = UIManager.instance.MusicVolumeBar.value / 10;
                 break;
         }
     }
 }
+

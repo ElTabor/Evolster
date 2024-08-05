@@ -28,19 +28,16 @@ public class EndlessManager : MonoBehaviour
 
         if (Time.time > _lastLightEnemySpawned + lightEnemySpawnCooldown)
         {
-            Debug.Log("light enemy aaa");
             ChooseSpawn("light enemy");
             _lastLightEnemySpawned = Time.time;
         }
         if (Time.time > _lastRangeEnemySpawned + rangeEnemySpawnCooldown)
         {
-            Debug.Log("range enemy aaa");
             ChooseSpawn("range enemy");
             _lastRangeEnemySpawned = Time.time;
         }
         if (Time.time > _lastHeavyEnemySpawned + heavyEnemySpawnCooldown)
         {
-            Debug.Log("heavy enemy aaa");
             ChooseSpawn("heavy enemy");
             _lastHeavyEnemySpawned = Time.time;
         }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 150
   maxMana: 0
-  movementSpeed: 7
+  movementSpeed: 4
   damage: 10
   attackSpeed: 1
   attackRange: 3

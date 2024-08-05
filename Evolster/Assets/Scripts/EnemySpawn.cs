@@ -31,7 +31,6 @@ public class EnemySpawn : MonoBehaviour
     {
         if (Time.time > _lastSpawn + spawnCooldown)
         {
-            Debug.Log(_spawnQueue.First().name + " Spawner");
             Instantiate(_spawnQueue.First(), referencePoint.position, Quaternion.identity);
             _spawnQueue.Dequeue();
             _lastSpawn = Time.time;

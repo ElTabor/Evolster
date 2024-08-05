@@ -32,7 +32,6 @@ public class Spell : MonoBehaviour
             (gameObject.layer == LayerMask.NameToLayer("EnemySpells") && collision.CompareTag("Player")))
         {
             collision.GetComponent<LifeController>().UpdateLife(currentDamage, false);
-            Debug.Log(collision.gameObject.name + "daño " + currentDamage);
         }
         Destroy(gameObject);
     }

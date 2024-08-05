@@ -33,7 +33,6 @@ public class HeavyEnemy : Enemy
         navMesh.speed = chargingSpeed;
         navMesh.SetDestination(player.transform.position + dir*4f);
         float timeToWait = Vector2.Distance(player.transform.position + dir * 4f, transform.position) / chargingSpeed;
-        Debug.Log(Vector2.Distance(player.transform.position + dir * 4f, transform.position));
         yield return new WaitForSeconds(timeToWait);
         animator.SetBool("Attacking", false);
         _charging = false;

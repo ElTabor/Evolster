@@ -101,7 +101,6 @@ public class Enemy : MonoBehaviour
         if (r <= 30)
         {
             BuffsManager.instance.SetSpawnPosition(position);
-            Debug.Log(position + "Buff");
         }
         PlaySound("Item");
     }
@@ -113,7 +112,6 @@ public class Enemy : MonoBehaviour
         GameObject newCoin = Instantiate(coinPrefab, position, Quaternion.identity);
         newCoin.GetComponent<Coin>().coinsAmount = r;
         PlaySound("Item");
-        Debug.Log(position + "Coin");
     }
 
     private void SpawnManaItem()
@@ -123,7 +121,6 @@ public class Enemy : MonoBehaviour
         if(r <= 3)
         {
             Instantiate(manaPrefab, position, Quaternion.identity);
-            Debug.Log(position + "Mana");
         }
         PlaySound("Item");
     }
@@ -135,7 +132,6 @@ public class Enemy : MonoBehaviour
         if(r <= 1)
         {
             Instantiate(hpPrefab, position, Quaternion.identity);
-            Debug.Log(position + "HP");
         }
         PlaySound("Item");
     }

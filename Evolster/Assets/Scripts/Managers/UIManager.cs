@@ -123,6 +123,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void UpdateBuff(float applyTime, float buffTime) => buffBarFill.fillAmount = (Time.time - applyTime) / buffTime;
+
     private void UpdateTimer()
     {
         _timeElapsed += Time.deltaTime;

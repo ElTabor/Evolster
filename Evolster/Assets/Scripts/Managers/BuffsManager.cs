@@ -29,7 +29,6 @@ public class BuffsManager : MonoBehaviour
 
     public void SetSpawnPosition(Vector2 newPosition)
     {
-        Debug.Log(newPosition);
         _buffSpawn = newPosition;
         _stack.Push(buff);
         TrySpawnBuff();
@@ -46,7 +45,6 @@ public class BuffsManager : MonoBehaviour
 
     public void ApplyBuff(float buff, float buffTime)
     {
-        Debug.Log("Aplicar buff");
         PlayerController.instance.currentDamage += buff;
         PlayerController.instance.isBuffed = true;
         _buffApplicationTime = Time.time;
@@ -56,7 +54,6 @@ public class BuffsManager : MonoBehaviour
 
     private void RemoveBuff(float buff)
     {
-        Debug.Log("Quitar buff");
         PlayerController.instance.currentDamage -=  buff;
         PlayerController.instance.isBuffed = false;
     }

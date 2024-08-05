@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawnPoints: []
   enemySpawnPointPrefab: {fileID: 4539780715839927388, guid: a14534e92f5a7cb41849cbdd9270fce3, type: 3}
-  amountOfSpawns: 6
+  amountOfSpawns: 8
   rangeX: 25
   rangeY: 12
+  minDistanceBetweenSpawns: 10

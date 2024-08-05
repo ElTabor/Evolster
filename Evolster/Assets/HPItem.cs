@@ -9,9 +9,7 @@ public class HPItem : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Debug.Log("vida antes" + collision.GetComponent<LifeController>().currentLife);
             collision.GetComponent<LifeController>().ManageHp(hpAmount);
-            Debug.Log("vida despues" + collision.GetComponent<LifeController>().currentLife);
             Destroy(gameObject);
         }
     }

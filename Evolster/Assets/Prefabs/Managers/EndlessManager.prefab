@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b56c11ce00b5f04eae17f61b51a88f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightEnemySpawnCooldown: 5
-  heavyEnemySpawnCooldown: 10
-  rangeEnemySpawnCooldown: 2
+  lightEnemySpawnCooldown: 7
+  heavyEnemySpawnCooldown: 20
+  rangeEnemySpawnCooldown: 15
   spawns: []

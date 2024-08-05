@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e5f9e4431f679448c9941f2620c5dc, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  maxLife: 150
+  maxLife: 300
   maxMana: 150
-  movementSpeed: 10
+  movementSpeed: 5
   damage: 10
   attackSpeed: 5
   attackRange: 5

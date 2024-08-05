@@ -17,7 +17,6 @@ public class AbilityController : MonoBehaviour
     public void SetAbility(IAbility newAbility)
     {
         ability = newAbility;
-        Debug.Log($"NewAbility set: {newAbility.abilityData.uniqueAbilityName}");
         ability.Start();
     }
 }
